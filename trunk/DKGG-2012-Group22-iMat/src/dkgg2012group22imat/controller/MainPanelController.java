@@ -43,4 +43,7 @@ public class MainPanelController {
     public void setCurrentView(MainView currentView) {
         this.currentView = currentView;
     }
+    public void shutDown(){
+        m.shutDown();
+    }
 }

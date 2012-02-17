@@ -15,21 +15,22 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author jonas
  */
-public class FavoritProductPanelController {
+
+//TODO Implement listner on added favorit
+public class FavoriteProductPanelController {
 
     Model m = Model.getInstance();
     List<Product> items;
     public FavoriteProductsPanel favoriteProductsPanel;
 
-    public FavoritProductPanelController(FavoriteProductsPanel favoriteProductsPanel) {
+    public FavoriteProductPanelController(FavoriteProductsPanel favoriteProductsPanel) {
         this.favoriteProductsPanel = favoriteProductsPanel;
         System.out.println("favorit prod pan controller inni");
         items = m.getFavorites();
         if (items.isEmpty()) {
-            System.out.println("IS EMPTY!");
+            System.out.println("No favo prod");
         }
         Iterator it = items.iterator();
-        
         while (it.hasNext()) {
             favoriteProductsPanel.add(new ProductPanel((Product)it.next()));
         }

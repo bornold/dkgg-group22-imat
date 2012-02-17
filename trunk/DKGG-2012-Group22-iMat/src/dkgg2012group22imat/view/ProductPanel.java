@@ -15,11 +15,12 @@ import se.chalmers.ait.dat215.project.Product;
 public class ProductPanel extends javax.swing.JPanel {
 
     ProductController controller;
+
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
         initComponents();
+        controller = new ProductController(p, this);
         System.out.println("product panel inni");
-         controller = new ProductController(p, this);
     }
 
     /** This method is called from within the constructor to
@@ -37,12 +38,14 @@ public class ProductPanel extends javax.swing.JPanel {
         quantityComboBox = new javax.swing.JComboBox();
         quantityLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
+        favoriteToggleButton = new javax.swing.JToggleButton();
 
         setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        setMaximumSize(new java.awt.Dimension(250, 250));
-        setMinimumSize(new java.awt.Dimension(150, 150));
+        setMaximumSize(new java.awt.Dimension(350, 350));
+        setMinimumSize(new java.awt.Dimension(100, 100));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(150, 150));
+        setPreferredSize(new java.awt.Dimension(190, 190));
+        setRequestFocusEnabled(false);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
@@ -68,6 +71,14 @@ public class ProductPanel extends javax.swing.JPanel {
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
 
+        favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
+        favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                favoriteToggleButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,38 +86,38 @@ public class ProductPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(priceLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(147, 147, 147))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(iconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                        .addGap(147, 147, 147))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(favoriteToggleButton))
+                            .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(159, 159, 159))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(quantityLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addButton)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(priceLabel)
-                        .addContainerGap(175, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(productNameLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(productNameLabel)
+                    .addComponent(favoriteToggleButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(priceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantityLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(quantityLabel)
+                    .addComponent(addButton)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,14 +125,20 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     controller.addToCart();
 }//GEN-LAST:event_addButtonActionPerformed
 
+private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
+    controller.favorize();
+}//GEN-LAST:event_favoriteToggleButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    public javax.swing.JToggleButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
     private javax.swing.JComboBox quantityComboBox;
     public javax.swing.JLabel quantityLabel;
     // End of variables declaration//GEN-END:variables
+
     public int getAmount() {
         return quantityComboBox.getSelectedIndex();
     }
