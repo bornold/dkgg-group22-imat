@@ -2,7 +2,7 @@
  * DKGG2012Group22iMatApp.java
  */
 
-package dkgg2012group22imat;
+package dkgg2012group22imat.view;
 
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;

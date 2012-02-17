@@ -2,7 +2,7 @@
  * DKGG2012Group22iMatView.java
  */
 
-package dkgg2012group22imat;
+package dkgg2012group22imat.view;
 
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
@@ -57,7 +57,7 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         mainPanel.setName("mainPanel"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
         jButton1.setName("jButton1"); // NOI18N
 
@@ -83,7 +83,7 @@ public class DKGG2012Group22iMatView extends FrameView {
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatView.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatView.class, this);
         exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
         exitMenuItem.setName("exitMenuItem"); // NOI18N
         fileMenu.add(exitMenuItem);

@@ -13,7 +13,7 @@
             </test-roots>
         </data>
         <swingapp xmlns="http://www.netbeans.org/ns/form-swingapp/1">
-            <application-class name="dkgg2012group22imat.DKGG2012Group22iMatApp"/>
+            <application-class name="dkgg2012group22imat.view.DKGG2012Group22iMatApp"/>
         </swingapp>
     </configuration>
 </project>
