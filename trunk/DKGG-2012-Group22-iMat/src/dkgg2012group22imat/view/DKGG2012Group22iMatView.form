@@ -82,7 +82,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-                  <action class="dkgg2012group22imat.DKGG2012Group22iMatView" id="showAboutBox" methodName="showAboutBox"/>
+                  <action class="dkgg2012group22imat.view.DKGG2012Group22iMatView" id="showAboutBox" methodName="showAboutBox"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="aboutMenuItem" noResource="true"/>
               </Properties>
@@ -102,9 +102,6 @@
     </Property>
     <Property name="menuBar" type="javax.swing.JMenuBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
       <ComponentRef name="menuBar"/>
-    </Property>
-    <Property name="statusBar" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
-      <ComponentRef name="default"/>
     </Property>
   </Properties>
   <AuxValues>

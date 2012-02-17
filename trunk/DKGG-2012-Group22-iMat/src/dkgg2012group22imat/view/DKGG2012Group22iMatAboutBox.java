@@ -2,7 +2,7 @@
  * DKGG2012Group22iMatAboutBox.java
  */
 
-package dkgg2012group22imat;
+package dkgg2012group22imat.view;
 
 import org.jdesktop.application.Action;
 
@@ -38,13 +38,13 @@ public class DKGG2012Group22iMatAboutBox extends javax.swing.JDialog {
         javax.swing.JLabel imageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatAboutBox.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatAboutBox.class);
         setTitle(resourceMap.getString("title")); // NOI18N
         setModal(true);
         setName("aboutBox"); // NOI18N
         setResizable(false);
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatAboutBox.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatAboutBox.class, this);
         closeButton.setAction(actionMap.get("closeAboutBox")); // NOI18N
         closeButton.setName("closeButton"); // NOI18N
 
