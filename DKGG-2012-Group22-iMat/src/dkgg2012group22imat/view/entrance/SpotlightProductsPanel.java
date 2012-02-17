@@ -10,15 +10,20 @@
  */
 package dkgg2012group22imat.view.entrance;
 
+import dkgg2012group22imat.controller.entrance.SpotlightProductPanelController;
+
 /**
  *
  * @author jonas
  */
 public class SpotlightProductsPanel extends javax.swing.JPanel {
 
+    SpotlightProductPanelController controller;
     /** Creates new form SpotlightProductPanel */
     public SpotlightProductsPanel() {
         initComponents();
+        System.out.println("Spotligt pnale inni");
+        controller = new SpotlightProductPanelController(this);
     }
 
     /** This method is called from within the constructor to
@@ -31,17 +36,7 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setLayout(new java.awt.GridLayout());
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
 package dkgg2012group22imat.model;
 
 import java.awt.Dimension;
+import java.util.List;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -40,7 +41,7 @@ public class Model {
     }
 
     private void init() {
-
+        System.out.println("new model inni");
         iMatDataHandler = IMatDataHandler.getInstance();
 
     }
@@ -57,6 +58,12 @@ public class Model {
         return iMatDataHandler.getImageIcon(p, width, height);
     }
 
+    public void addToShoppingCart(Product p, int amount) {
+        for (int i = 0; i <= amount; i++) {
+            addToShoppingCart(p);
+        }
+                
+    }
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
 
@@ -74,21 +81,53 @@ public class Model {
     }
 
     public void clearShoppingCart() {
-        
+
         iMatDataHandler.getShoppingCart().clear();
-        
+
     }
-    
+
     public void placeOrder() {
 
-      iMatDataHandler.placeOrder();
-      
+        iMatDataHandler.placeOrder();
+
     }
 
     public int getNumberOfOrders() {
 
         return iMatDataHandler.getOrders().size();
-        
+
     }
-    
+
+    /**
+     *  Latest offers
+     * @return A list of products that is on sale.
+     */
+    public List getOffers() {
+        return getRandomProducts();
+
+    }
+
+    public List getFavorites() {
+        return iMatDataHandler.favorites();
+    }
+    public void addFavorite(Product p) {
+        iMatDataHandler.addFavorite(p.getProductId());
+    }
+    public boolean isFavorite(Product p) {
+       return iMatDataHandler.isFavorite(p);
+    }
+    public  void removeFavorite(Product p) {
+        iMatDataHandler.removeFavorite(p);
+    }
+
+    private List getRandomProducts() {
+        List l = iMatDataHandler.getProducts();
+        while (l.size() > 6) {
+            int i = (int) Math.random() * l.size();
+            l.remove(i);
+
+        }
+        return l;
+
+    }
 }
