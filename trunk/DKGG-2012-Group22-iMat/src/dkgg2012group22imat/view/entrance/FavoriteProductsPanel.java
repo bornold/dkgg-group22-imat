@@ -10,15 +10,20 @@
  */
 package dkgg2012group22imat.view.entrance;
 
+import dkgg2012group22imat.controller.entrance.FavoritProductPanelController;
+
 /**
  *
  * @author jonas
  */
 public class FavoriteProductsPanel extends javax.swing.JPanel {
 
+    FavoritProductPanelController fPCC;
     /** Creates new form FavoriteProductPanel */
     public FavoriteProductsPanel() {
         initComponents();
+        System.out.println("Favorit products panel inni");
+        fPCC = new FavoritProductPanelController(this);
     }
 
     /** This method is called from within the constructor to
