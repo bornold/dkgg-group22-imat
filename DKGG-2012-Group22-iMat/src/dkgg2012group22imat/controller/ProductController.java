@@ -7,6 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
+import javax.swing.Icon;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -25,8 +26,10 @@ public class ProductController {
         this.view = panel;
         view.productNameLabel.setText(p.getName());
         view.iconLabel.setIcon(m.getImageIcon(p, new Dimension(80, 80)));
-        view.priceLabel.setText(p.getPrice() + "kr");
-        view.quantityLabel.setText(p.getUnit() + "/" + p.getUnitSuffix());
+        view.priceLabel.setText(p.getPrice() + p.getUnit());
+        view.quantityLabel.setText(p.getUnitSuffix());
+        setFavoButton();
+
     }
 
     public void favorize() {
@@ -35,9 +38,22 @@ public class ProductController {
         } else {
             m.addFavorite(p);
         }
+        setFavoButton();
+    }
+
+    public boolean isFavorite() {
+        return m.isFavorite(p);
     }
 
     public void addToCart() {
         m.addToShoppingCart(p, view.getAmount());
+    }
+
+    private void setFavoButton() {
+        if (m.isFavorite(p)) {
+            view.favoriteToggleButton.setText("isFavo");
+        } else {
+            view.favoriteToggleButton.setText("Favo");
+        }
     }
 }
