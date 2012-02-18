@@ -6,6 +6,7 @@ package dkgg2012group22imat.model;
 
 import java.awt.Dimension;
 import java.util.List;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -61,8 +62,9 @@ public class Model {
         for (int i = 0; i <= amount; i++) {
             addToShoppingCart(p);
         }
-                
+
     }
+
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         System.out.println("Buying: " + p.getName());
@@ -82,6 +84,7 @@ public class Model {
     }
 
     public void placeOrder() {
+        //TODO add products in a map with key product and value an int with times bought, use it later to rank the result
         iMatDataHandler.placeOrder();
     }
 
@@ -101,24 +104,29 @@ public class Model {
         return iMatDataHandler.favorites();
     }
     //TODO implement an listener on added and remove products
+
     public void addFavorite(Product p) {
         iMatDataHandler.addFavorite(p.getProductId());
     }
-    public  void removeFavorite(Product p) {
+
+    public void removeFavorite(Product p) {
         iMatDataHandler.removeFavorite(p);
     }
+
     public boolean isFavorite(Product p) {
-       return iMatDataHandler.isFavorite(p);
+        return iMatDataHandler.isFavorite(p);
     }
+
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
 
     private List getRandomProducts() {
         List l = iMatDataHandler.getProducts();
+        Random generator = new Random();
+        generator.setSeed((long)Math.random());
         while (l.size() > 6) {
-            int i = (int) (Math.random() * l.size());
-            l.remove(i);
+            l.remove(generator.nextInt(l.size()));
         }
         return l;
     }

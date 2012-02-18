@@ -7,7 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
-import javax.swing.Icon;
+import java.awt.Point;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -19,6 +19,8 @@ public class ProductController {
     Model m = Model.getInstance();
     Product p;
     ProductPanel view;
+    Dimension small = new Dimension(150, 150);
+    Dimension big = new Dimension(200, 200);
 
     public ProductController(Product p, ProductPanel panel) {
         System.out.println("Product panel controller inni");
@@ -27,7 +29,7 @@ public class ProductController {
         view.productNameLabel.setText(p.getName());
         view.iconLabel.setIcon(m.getImageIcon(p, new Dimension(80, 80)));
         view.priceLabel.setText(p.getPrice() + p.getUnit());
-        view.quantityLabel.setText(p.getUnitSuffix());
+//        view.quantityLabel.setText(p.getUnitSuffix());
         setFavoButton();
 
     }
@@ -41,19 +43,29 @@ public class ProductController {
         setFavoButton();
     }
 
-    public boolean isFavorite() {
-        return m.isFavorite(p);
-    }
-
-    public void addToCart() {
-        m.addToShoppingCart(p, view.getAmount());
-    }
-
     private void setFavoButton() {
         if (m.isFavorite(p)) {
             view.favoriteToggleButton.setText("isFavo");
         } else {
             view.favoriteToggleButton.setText("Favo");
         }
+    }
+    public void addToCart() {
+        m.addToShoppingCart(p, view.getAmount());
+    }
+    public void enhance() {
+        Point p = view.getLocation();
+        int x = p.x-(big.width-small.width)/2;
+        int y = p.y-(big.height-small.height)/2;
+        view.setLocation(x,y);
+        view.setSize(big);
+    }
+
+    public void defile() {
+        Point p = view.getLocation();
+        int x = p.x+(big.width-small.width)/2;
+        int y = p.y+(big.height-small.height)/2;
+        view.setLocation(x,y);
+        view.setSize(small);
     }
 }
