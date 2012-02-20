@@ -62,13 +62,18 @@ public class Model {
         for (int i = 0; i <= amount; i++) {
             addToShoppingCart(p);
         }
-
     }
 
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-        System.out.println("Buying: " + p.getName());
+        System.out.println("CartAdding: " + p.getName());
         shoppingCart.addProduct(p);
+    }
+
+    public void removeFromShoppingCart(Product p) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        System.out.println("CartRemoving: " + p.getName());
+        shoppingCart.removeProduct(p);
     }
 
     public Customer getCustomer() {
@@ -120,11 +125,16 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
+    public List getHistoryCarts() {
+        return iMatDataHandler.getOrders();
+    }
+    public void something(){
+    }
 
-    private List getRandomProducts() {
+       private List getRandomProducts() {
         List l = iMatDataHandler.getProducts();
         Random generator = new Random();
-        generator.setSeed((long)Math.random());
+        generator.setSeed((long) Math.random());
         while (l.size() > 6) {
             l.remove(generator.nextInt(l.size()));
         }

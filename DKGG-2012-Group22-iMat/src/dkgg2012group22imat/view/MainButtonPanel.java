@@ -4,26 +4,21 @@
  */
 
 /*
- * FavoriteProductPanel.java
+ * MainButtonPanel.java
  *
- * Created on Feb 17, 2012, 1:18:04 PM
+ * Created on Feb 19, 2012, 9:03:27 PM
  */
-package dkgg2012group22imat.view.entrance;
-
-import dkgg2012group22imat.controller.entrance.FavoriteProductPanelController;
+package dkgg2012group22imat.view;
 
 /**
  *
  * @author jonas
  */
-public class FavoriteProductsPanel extends javax.swing.JPanel {
+public class MainButtonPanel extends javax.swing.JPanel {
 
-    FavoriteProductPanelController controller;
-    /** Creates new form FavoriteProductPanel */
-    public FavoriteProductsPanel() {
+    /** Creates new form MainButtonPanel */
+    public MainButtonPanel() {
         initComponents();
-        System.out.println("Favorit products panel inni");
-        controller = new FavoriteProductPanelController(this);
     }
 
     /** This method is called from within the constructor to
@@ -36,7 +31,17 @@ public class FavoriteProductsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(2, 3));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

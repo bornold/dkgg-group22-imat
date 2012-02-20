@@ -10,15 +10,19 @@
  */
 package dkgg2012group22imat.view;
 
+import dkgg2012group22imat.controller.CartPanelController;
+
 /**
  *
  * @author jonas
  */
 public class CartPanel extends javax.swing.JPanel {
 
+    CartPanelController controller;
     /** Creates new form CartPanel */
     public CartPanel() {
         initComponents();
+        controller = new CartPanelController(this);
     }
 
     /** This method is called from within the constructor to

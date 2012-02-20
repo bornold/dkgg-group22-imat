@@ -5,22 +5,21 @@
  */
 package dkgg2012group22imat.view;
 
-import dkgg2012group22imat.controller.ProductController;
+import dkgg2012group22imat.controller.CartProductController;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
  * @author jonas
  */
-public class ProductPanel extends javax.swing.JPanel {
+public class CartProductPanel extends javax.swing.JPanel {
 
-    ProductController controller;
-    boolean inside;
+    CartProductController controller;
 
     /** Creates new form ItemPanel */
-    public ProductPanel(Product p) {
+    public CartProductPanel(Product p) {
         initComponents();
-        controller = new ProductController(p, this);
+        controller = new CartProductController(p, this);
         System.out.println("product panel inni");
     }
 
@@ -34,7 +33,7 @@ public class ProductPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         productNameLabel = new javax.swing.JLabel();
-        addButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
         quantityComboBox = new javax.swing.JComboBox();
         priceLabel = new javax.swing.JLabel();
@@ -55,20 +54,15 @@ public class ProductPanel extends javax.swing.JPanel {
             }
         });
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
 
-        addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
-        addButton.setName("addButton"); // NOI18N
-        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addButtonMouseEntered(evt);
-            }
-        });
-        addButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setText(resourceMap.getString("deleteButton.text")); // NOI18N
+        deleteButton.setName("deleteButton"); // NOI18N
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
@@ -77,22 +71,12 @@ public class ProductPanel extends javax.swing.JPanel {
 
         quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         quantityComboBox.setName("quantityComboBox"); // NOI18N
-        quantityComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                quantityComboBoxMouseEntered(evt);
-            }
-        });
 
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
 
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
-        favoriteToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                favoriteToggleButtonMouseEntered(evt);
-            }
-        });
         favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 favoriteToggleButtonActionPerformed(evt);
@@ -111,10 +95,10 @@ public class ProductPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addButton))
+                                .addComponent(deleteButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                                     .addComponent(iconLabel))
                                 .addGap(54, 54, 54))
                             .addComponent(priceLabel))
@@ -135,50 +119,30 @@ public class ProductPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addButton)))
+                            .addComponent(deleteButton)))
                     .addComponent(favoriteToggleButton))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-    controller.addToCart();
-}//GEN-LAST:event_addButtonActionPerformed
+private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+    controller.removeFromCart();
+}//GEN-LAST:event_deleteButtonActionPerformed
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
     controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    if (!inside) {
-        inside = true;
-        controller.enhance();
-    }
-    
+    controller.hooverd();
 }//GEN-LAST:event_formMouseEntered
 
 private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    if (!this.contains(evt.getPoint())){
-        inside = false;
-        controller.defile(((java.awt.event.MouseEvent)evt).getLocationOnScreen());
-    }
-    
+    controller.dehoover();
 }//GEN-LAST:event_formMouseExited
 
-private void favoriteToggleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteToggleButtonMouseEntered
-// controller.enhance();
-}//GEN-LAST:event_favoriteToggleButtonMouseEntered
-
-private void addButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseEntered
-//controller.enhance();
-}//GEN-LAST:event_addButtonMouseEntered
-
-private void quantityComboBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quantityComboBoxMouseEntered
-// controller.enhance();
-}//GEN-LAST:event_quantityComboBoxMouseEntered
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
+    private javax.swing.JButton deleteButton;
     public javax.swing.JToggleButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
