@@ -5,6 +5,7 @@
 package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.CartProductPanel;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -14,16 +15,16 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author jonas
  */
-public class ProductController {
+public class CartProductController {
 
     Model m = Model.getInstance();
     Product p;
-    ProductPanel view;
+    CartProductPanel view;
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
 
-    public ProductController(Product p, ProductPanel panel) {
-        System.out.println("Product panel controller inni");
+    public CartProductController(Product p, CartProductPanel panel) {
+        System.out.println("CartProduct panel controller inni");
         this.p = p;
         this.view = panel;
         view.productNameLabel.setText(p.getName());
@@ -50,26 +51,22 @@ public class ProductController {
             view.favoriteToggleButton.setText("Favo");
         }
     }
-
-    public void addToCart() {
-        m.addToShoppingCart(p, view.getAmount());
+    public void removeFromCart() {
+        m.removeFromShoppingCart(p);
     }
-
-    public void enhance() {
+    public void hooverd() {
         Point p = view.getLocation();
-        int x = p.x - (big.width - small.width) / 2;
-        int y = p.y - (big.height - small.height) / 2;
-        view.setLocation(x, y);
+        int x = p.x-(big.width-small.width)/2;
+        int y = p.y-(big.height-small.height)/2;
+        view.setLocation(x,y);
         view.setSize(big);
     }
 
-    public void defile(Point mp) {
-        if (!view.getBounds().contains(mp)) {
-            Point p = view.getLocation();
-            int x = p.x + (big.width - small.width) / 2;
-            int y = p.y + (big.height - small.height) / 2;
-            view.setLocation(x, y);
-            view.setSize(small);
-        }
+    public void dehoover() {
+        Point p = view.getLocation();
+        int x = p.x+(big.width-small.width)/2;
+        int y = p.y+(big.height-small.height)/2;
+        view.setLocation(x,y);
+        view.setSize(small);
     }
 }

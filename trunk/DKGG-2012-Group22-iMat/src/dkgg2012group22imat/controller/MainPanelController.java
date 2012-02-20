@@ -27,9 +27,6 @@ public class MainPanelController {
     //private varibles
     private MainView currentView = MainView.ENTRANCE;
     private Model m = Model.getInstance();
-    private EntrancePanelController entrancePanelController = new EntrancePanelController();
-    private ShopPanelController shopPanelController = new ShopPanelController();
-    private CheckoutPanelController checkoutPanelController = new CheckoutPanelController();
     
     public MainPanelController() {
              

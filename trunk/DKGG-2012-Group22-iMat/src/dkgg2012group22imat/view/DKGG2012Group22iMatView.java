@@ -42,8 +42,8 @@ public class DKGG2012Group22iMatView extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
         favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
+        entrancePanel1 = new dkgg2012group22imat.view.entrance.EntrancePanel();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -52,9 +52,9 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         mainPanel.setName("mainPanel"); // NOI18N
 
-        spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
-
         favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
+
+        entrancePanel1.setName("entrancePanel1"); // NOI18N
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -63,18 +63,18 @@ public class DKGG2012Group22iMatView extends FrameView {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(513, Short.MAX_VALUE))
+                    .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entrancePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(entrancePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -104,10 +104,10 @@ public class DKGG2012Group22iMatView extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private dkgg2012group22imat.view.entrance.EntrancePanel entrancePanel1;
     private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
-    private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;
     // End of variables declaration//GEN-END:variables
 
 
