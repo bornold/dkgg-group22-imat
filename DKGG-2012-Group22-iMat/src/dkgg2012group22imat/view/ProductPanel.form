@@ -2,11 +2,7 @@
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
-    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-        <BevelBorder/>
-      </Border>
-    </Property>
+    <Property name="background" type="java.awt.Color" resourceKey="Form.background"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[200, 200]"/>
     </Property>
@@ -50,7 +46,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="productNameLabel" max="32767" attributes="1"/>
+                                  <Component id="productNameLabel" pref="119" max="32767" attributes="1"/>
                                   <Component id="iconLabel" alignment="0" min="-2" max="-2" attributes="1"/>
                               </Group>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
@@ -83,7 +79,7 @@
                   </Group>
                   <Component id="favoriteToggleButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

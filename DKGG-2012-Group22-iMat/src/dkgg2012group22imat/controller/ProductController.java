@@ -60,6 +60,7 @@ public class ProductController {
         int x = p.x - (big.width - small.width) / 2;
         int y = p.y - (big.height - small.height) / 2;
         view.setLocation(x, y);
+        view.expandShadow();
         view.setSize(big);
     }
 
@@ -69,6 +70,7 @@ public class ProductController {
             int x = p.x + (big.width - small.width) / 2;
             int y = p.y + (big.height - small.height) / 2;
             view.setLocation(x, y);
+            view.resetShadow();
             view.setSize(small);
         }
     }
