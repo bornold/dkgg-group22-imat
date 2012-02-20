@@ -45,7 +45,7 @@ public class ProductPanel extends javax.swing.JPanel {
         
         int w = getWidth() - x*2;
         int h = getHeight() - y*2;
-        int arc = 20;
+        int arc = 15;
 
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -120,12 +120,18 @@ public class ProductPanel extends javax.swing.JPanel {
                 formMouseEntered(evt);
             }
         });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
+        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 113, -1));
 
+        addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
+        addButton.setBorderPainted(false);
         addButton.setName("addButton"); // NOI18N
+        addButton.setPressedIcon(resourceMap.getIcon("addButton.pressedIcon")); // NOI18N
+        addButton.setRolloverIcon(resourceMap.getIcon("addButton.rolloverIcon")); // NOI18N
         addButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 addButtonMouseEntered(evt);
@@ -136,9 +142,11 @@ public class ProductPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
+        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
+        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
 
         quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         quantityComboBox.setName("quantityComboBox"); // NOI18N
@@ -147,9 +155,12 @@ public class ProductPanel extends javax.swing.JPanel {
                 quantityComboBoxMouseEntered(evt);
             }
         });
+        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        quantityComboBox.setUI(new StyledComboBoxUI());
 
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
@@ -163,47 +174,7 @@ public class ProductPanel extends javax.swing.JPanel {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addComponent(iconLabel))
-                                .addGap(54, 54, 54))
-                            .addComponent(priceLabel))
-                        .addContainerGap())
-                    .addComponent(favoriteToggleButton, javax.swing.GroupLayout.Alignment.TRAILING)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iconLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(priceLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addButton)))
-                    .addComponent(favoriteToggleButton))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
