@@ -21,6 +21,7 @@ public class ProductController {
     ProductPanel view;
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
+    boolean isEnhanced = false;
 
     public ProductController(Product p, ProductPanel panel) {
         System.out.println("Product panel controller inni");
@@ -29,7 +30,8 @@ public class ProductController {
         view.productNameLabel.setText(p.getName());
         view.iconLabel.setIcon(m.getImageIcon(p, new Dimension(80, 80)));
         view.priceLabel.setText(p.getPrice() + p.getUnit());
-//        view.quantityLabel.setText(p.getUnitSuffix());
+        view.addButton.setVisible(false);
+        view.quantityComboBox.setVisible(false);
         setFavoButton();
 
     }
@@ -56,22 +58,32 @@ public class ProductController {
     }
 
     public void enhance() {
-        Point p = view.getLocation();
-        int x = p.x - (big.width - small.width) / 2;
-        int y = p.y - (big.height - small.height) / 2;
-        view.setLocation(x, y);
-        view.expandShadow();
-        view.setSize(big);
+        if (!isEnhanced) {
+            System.out.println("ENHANCE");
+            Point p = view.getLocation();
+            int x = p.x - (big.width - small.width) / 2;
+            int y = p.y - (big.height - small.height) / 2;
+            view.setLocation(x, y);
+            view.setSize(big);
+            view.expandShadow();
+            view.addButton.setVisible(true);
+            view.quantityComboBox.setVisible(true);
+            isEnhanced = true;
+        }
     }
 
-    public void defile(Point mp) {
-        if (!view.getBounds().contains(mp)) {
+    public void defile() {
+        if (isEnhanced) {
+            System.out.println("DEFILE");
             Point p = view.getLocation();
             int x = p.x + (big.width - small.width) / 2;
             int y = p.y + (big.height - small.height) / 2;
-            view.setLocation(x, y);
+            view.addButton.setVisible(false);
+            view.quantityComboBox.setVisible(false);
             view.resetShadow();
+            view.setLocation(x, y);
             view.setSize(small);
+            isEnhanced = false;
         }
     }
 }
