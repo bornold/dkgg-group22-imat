@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.EventObject;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 
 /**
  *
@@ -24,6 +25,7 @@ public class ProductController implements FavoriteListener {
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
     boolean isEnhanced = false;
+    ShoppingCart shoppingCart;
 
     public ProductController(Product p, ProductPanel panel) {
         System.out.println("Product panel controller inni");
@@ -36,6 +38,7 @@ public class ProductController implements FavoriteListener {
         view.quantityComboBox.setVisible(false);
         setFavoButton();
         m.addEventListener(this);
+        shoppingCart = m.getShoppingCart();
     }
 
     public void favorize() {
@@ -57,6 +60,7 @@ public class ProductController implements FavoriteListener {
 
     public void addToCart() {
         m.addToShoppingCart(p, view.getAmount());
+        shoppingCart.fireShoppingCartChanged();
     }
 
     public void enhance() {
