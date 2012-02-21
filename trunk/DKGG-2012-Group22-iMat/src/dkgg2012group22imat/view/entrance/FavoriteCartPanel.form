@@ -31,7 +31,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="informationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="188" max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
                       <Component id="addAllButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="dateLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="informationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -82,10 +82,10 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="dateLabel">
+    <Component class="javax.swing.JLabel" name="nameLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="dateLabel.text"/>
-        <Property name="name" type="java.lang.String" value="dateLabel" noResource="true"/>
+        <Property name="text" type="java.lang.String" resourceKey="nameLabel.text"/>
+        <Property name="name" type="java.lang.String" value="nameLabel" noResource="true"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -144,7 +144,6 @@
       <Events>
         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="showButtonMouseExited"/>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="showButtonMouseEntered"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addAllButton">
