@@ -26,6 +26,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="favoriteProductsPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -36,7 +38,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="favoriteProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="spotlightProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -46,6 +51,11 @@
     <Component class="dkgg2012group22imat.view.entrance.SpotlightProductsPanel" name="spotlightProductsPanel1">
       <Properties>
         <Property name="name" type="java.lang.String" value="spotlightProductsPanel1" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="dkgg2012group22imat.view.entrance.FavoriteProductsPanel" name="favoriteProductsPanel1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="favoriteProductsPanel1" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

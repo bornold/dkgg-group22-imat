@@ -34,8 +34,6 @@ public class ProductPanel extends javax.swing.JPanel {
         System.out.println("product panel inni");
 
         this.resetShadow();
-        this.setSize(150, 150);
-
     }
 
     @Override
@@ -166,20 +164,20 @@ public class ProductPanel extends javax.swing.JPanel {
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
     if (this.contains(evt.getPoint())) {
-        System.out.println("in");
+//        System.out.println("in");
         controller.enhance();
     }
-    System.out.println(this.getSize().toString());
-    repaint();
+//    System.out.println(this.getSize().toString());
+//    repaint();
 }//GEN-LAST:event_formMouseEntered
 
 private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
     if (!this.contains(evt.getPoint())) {
-        System.out.println("out");
+//        System.out.println("out");
         controller.defile();
     }
-    System.out.println(this.getSize().toString());
-    repaint();
+//    System.out.println(this.getSize().toString());
+//    repaint();
 }//GEN-LAST:event_formMouseExited
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed

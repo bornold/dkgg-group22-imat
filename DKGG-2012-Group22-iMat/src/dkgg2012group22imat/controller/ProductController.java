@@ -4,17 +4,19 @@
  */
 package dkgg2012group22imat.controller;
 
+import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.EventObject;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
  * @author jonas
  */
-public class ProductController {
+public class ProductController implements FavoriteListener {
 
     Model m = Model.getInstance();
     Product p;
@@ -33,7 +35,7 @@ public class ProductController {
         view.addButton.setVisible(false);
         view.quantityComboBox.setVisible(false);
         setFavoButton();
-
+        m.addEventListener(this);
     }
 
     public void favorize() {
@@ -59,7 +61,7 @@ public class ProductController {
 
     public void enhance() {
         if (!isEnhanced) {
-            System.out.println("ENHANCE");
+//            System.out.println("ENHANCE");
             Point p = view.getLocation();
             int x = p.x - (big.width - small.width) / 2;
             int y = p.y - (big.height - small.height) / 2;
@@ -74,7 +76,7 @@ public class ProductController {
 
     public void defile() {
         if (isEnhanced) {
-            System.out.println("DEFILE");
+//            System.out.println("DEFILE");
             Point p = view.getLocation();
             int x = p.x + (big.width - small.width) / 2;
             int y = p.y + (big.height - small.height) / 2;
@@ -85,5 +87,9 @@ public class ProductController {
             view.setSize(small);
             isEnhanced = false;
         }
+    }
+
+    public void handleFavoriteEvent(EventObject e) {
+        setFavoButton();
     }
 }
