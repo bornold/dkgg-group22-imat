@@ -5,16 +5,16 @@
 package dkgg2012group22imat.model;
 
 import java.awt.Dimension;
-import java.awt.Event;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to add an extra layer
@@ -153,7 +153,13 @@ public class Model {
     public List getHistoryCarts() {
         return iMatDataHandler.getOrders();
     }
-    public void something(){
+    public List<SavedCart> getHistory(){
+        List<Order> orderList = iMatDataHandler.getOrders();
+        List<SavedCart> savedCarts = new ArrayList<SavedCart>();
+        for (Order o: orderList){
+            savedCarts.add(new SavedCart(o.getItems(), o.getDate().toString()));
+        }
+        return savedCarts;
     }
 
        private List getRandomProducts() {
