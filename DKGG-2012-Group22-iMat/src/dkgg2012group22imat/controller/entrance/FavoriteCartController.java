@@ -5,31 +5,29 @@
 package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
-import dkgg2012group22imat.view.entrance.HistoryCartPanel;
+import dkgg2012group22imat.model.SavedCart;
+import dkgg2012group22imat.view.entrance.FavoriteCartPanel;
 import java.awt.Dimension;
 import java.util.List;
-import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author jonas
  */
-public class HistoryCartController {
+public class FavoriteCartController {
 
     private Dimension iconSize = new Dimension(20, 20);
-    private HistoryCartPanel view;
-    private Order order;
+    private FavoriteCartPanel view;
+    private SavedCart cart;
     private List<ShoppingItem> items;
-    private HistoryCartsController parent;
     Model m = Model.getInstance();
 
-    public HistoryCartController(Order o, HistoryCartsController parent, HistoryCartPanel historyCartPanel) {
-        this.order = o;
-        this.view = historyCartPanel;
-        this.parent = parent;
-        view.dateLabel.setText(order.getDate().toString());
-        items = o.getItems();
+    public FavoriteCartController(SavedCart sc, FavoriteCartPanel favoriteCartPanel) {
+        this.cart = sc;
+        this.view = favoriteCartPanel;
+        //view.dateLabel.setText(SavedCart.getDate().toString());
+        //items = o.getItems();
         double totPrice = 0;
         for (ShoppingItem si : items) {
             totPrice += si.getAmount() + si.getProduct().getPrice();
@@ -53,9 +51,6 @@ public class HistoryCartController {
         for(ShoppingItem p : items){
             m.addToShoppingCart(p.getProduct(), (int)p.getAmount());
         }
-    }
-    public void expand(){
-        parent.expand();
     }
 }
 

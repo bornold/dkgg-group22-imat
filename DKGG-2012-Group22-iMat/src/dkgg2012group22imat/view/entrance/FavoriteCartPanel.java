@@ -10,22 +10,23 @@
  */
 package dkgg2012group22imat.view.entrance;
 
+import dkgg2012group22imat.controller.entrance.FavoriteCartController;
 import dkgg2012group22imat.controller.entrance.HistoryCartController;
-import dkgg2012group22imat.controller.entrance.HistoryCartsController;
+import dkgg2012group22imat.model.SavedCart;
 import se.chalmers.ait.dat215.project.Order;
 
 /**
  *
  * @author jonas
  */
-public class HistoryCartPanel extends javax.swing.JPanel {
+public class FavoriteCartPanel extends javax.swing.JPanel {
 
-    private HistoryCartController controller;
+    private FavoriteCartController controller;
 
     /** Creates new form HistoryCartPanel */
-    public HistoryCartPanel(Order o, HistoryCartsController parent) {
+    public FavoriteCartPanel(SavedCart sc) {
         initComponents();
-        controller = new HistoryCartController(o, parent, this);
+        controller = new FavoriteCartController(sc, this);
         showButton.setVisible(false);
         addAllButton.setVisible(false);
     }
@@ -39,7 +40,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dateLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         informationLabel = new javax.swing.JLabel();
         icon1 = new javax.swing.JLabel();
         icon2 = new javax.swing.JLabel();
@@ -59,9 +60,9 @@ public class HistoryCartPanel extends javax.swing.JPanel {
             }
         });
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(HistoryCartPanel.class);
-        dateLabel.setText(resourceMap.getString("dateLabel.text")); // NOI18N
-        dateLabel.setName("dateLabel"); // NOI18N
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(FavoriteCartPanel.class);
+        nameLabel.setText(resourceMap.getString("nameLabel.text")); // NOI18N
+        nameLabel.setName("nameLabel"); // NOI18N
 
         informationLabel.setText(resourceMap.getString("informationLabel.text")); // NOI18N
         informationLabel.setName("informationLabel"); // NOI18N
@@ -86,11 +87,6 @@ public class HistoryCartPanel extends javax.swing.JPanel {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showButtonMouseEntered(evt);
-            }
-        });
-        showButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showButtonActionPerformed(evt);
             }
         });
 
@@ -119,7 +115,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dateLabel)
+                            .addComponent(nameLabel)
                             .addComponent(informationLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                         .addComponent(showButton))
@@ -145,7 +141,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addAllButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(dateLabel)
+                        .addComponent(nameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(informationLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -192,18 +188,14 @@ private void addAllButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
     addAllButton.setVisible(false);
 }//GEN-LAST:event_addAllButtonMouseExited
 
-private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
-    controller.expand();
-}//GEN-LAST:event_showButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAllButton;
-    public javax.swing.JLabel dateLabel;
     public javax.swing.JLabel icon1;
     public javax.swing.JLabel icon2;
     public javax.swing.JLabel icon3;
     public javax.swing.JLabel icon4;
     public javax.swing.JLabel informationLabel;
+    public javax.swing.JLabel nameLabel;
     private javax.swing.JButton showButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,10 +24,11 @@ public class Model {
 
     private static Model instance = null;
     private IMatDataHandler iMatDataHandler;
+    private List<SavedCart> savedCarts; //TODO get Saved Carts
+            /**
+             * Constructor that should never be called, use getInstance() instead.
+             */
 
-    /**
-     * Constructor that should never be called, use getInstance() instead.
-     */
     protected Model() {
         // Exists only to defeat instantiation.
     }
@@ -46,25 +47,24 @@ public class Model {
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
     }
+    private List _listeners = new ArrayList();
 
-    
-  private List _listeners = new ArrayList();
-  public synchronized void addEventListener(FavoriteListener listener)	{
-    _listeners.add(listener);
-  }
-  public synchronized void removeEventListener(FavoriteListener listener)	{
-    _listeners.remove(listener);
-  }
-
-  // call this method whenever you want to notify
-  //the event listeners of the particular event
-  private synchronized void fireFavoriteEvent()	{
-    FavoriteEvent event = new FavoriteEvent(this);
-    for (int i = 0; i < _listeners.size(); i++) {
-        ((FavoriteListener)_listeners.get(i)).handleFavoriteEvent(event);
+    public synchronized void addEventListener(FavoriteListener listener) {
+        _listeners.add(listener);
     }
-  }
 
+    public synchronized void removeEventListener(FavoriteListener listener) {
+        _listeners.remove(listener);
+    }
+
+    // call this method whenever you want to notify
+    //the event listeners of the particular event
+    private synchronized void fireFavoriteEvent() {
+        FavoriteEvent event = new FavoriteEvent(this);
+        for (int i = 0; i < _listeners.size(); i++) {
+            ((FavoriteListener) _listeners.get(i)).handleFavoriteEvent(event);
+        }
+    }
 
     public Product getProduct(int idNbr) {
         return iMatDataHandler.getProduct(idNbr);
@@ -148,31 +148,27 @@ public class Model {
         iMatDataHandler.shutDown();
         return 3;
     }
+
     public List getHistoryCarts() {
         return iMatDataHandler.getOrders();
     }
-    
-    //TODO REMOVE
-    public List<SavedCart> getHistory(){
-        List<Order> orderList = iMatDataHandler.getOrders();
-        List<SavedCart> savedCarts = new ArrayList<SavedCart>();
-        for (Order o: orderList){
-            savedCarts.add(new SavedCart(o.getItems(), o.getDate().toString()));
-        }
-        return savedCarts;
-    }
-    public List<Order> getOrders(){
+
+    public List<Order> getOrders() {
         return iMatDataHandler.getOrders();
     }
-    public void reset(){
-        iMatDataHandler.reset();
-    
+
+    public void saveCart() {
+        //TODO save a new cart
     }
 
-       private List getRandomProducts() {
+    public void reset() {
+        iMatDataHandler.reset();
+
+    }
+
+    private List getRandomProducts() {
         List l = iMatDataHandler.getProducts();
         Random generator = new Random();
-        generator.setSeed((long) Math.random());
         while (l.size() > 6) {
             l.remove(generator.nextInt(l.size()));
         }

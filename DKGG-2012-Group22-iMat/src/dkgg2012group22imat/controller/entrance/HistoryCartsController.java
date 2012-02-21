@@ -42,7 +42,11 @@ public class HistoryCartsController {
             System.out.println("Orders in history:" + temp.size());
         }
         for (Order o : temp) {
-            view.add(new HistoryCartPanel(o));
+            view.add(new HistoryCartPanel(o, this));
         }
+    }
+
+    void expand() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }
