@@ -122,8 +122,9 @@ public class Model {
         return iMatDataHandler.isFavorite(p);
     }
 
-    public void shutDown() {
+    public int shutDown() {
         iMatDataHandler.shutDown();
+        return 3;
     }
     public List getHistoryCarts() {
         return iMatDataHandler.getOrders();

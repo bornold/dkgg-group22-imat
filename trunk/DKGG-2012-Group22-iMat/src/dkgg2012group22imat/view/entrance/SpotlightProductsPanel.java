@@ -23,6 +23,7 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     public SpotlightProductsPanel() {
         initComponents();
         System.out.println("Spotligt pnale inni");
+        //((java.awt.GridLayout)this.getLayout());
         controller = new SpotlightProductPanelController(this);
     }
 
@@ -36,7 +37,6 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(2, 3, 25, 25));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
