@@ -5,6 +5,9 @@
 package dkgg2012group22imat.model;
 
 import java.awt.Dimension;
+import java.awt.Event;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -45,6 +48,25 @@ public class Model {
         System.out.println("new model inni");
         iMatDataHandler = IMatDataHandler.getInstance();
     }
+
+    
+  private List _listeners = new ArrayList();
+  public synchronized void addEventListener(FavoriteListener listener)	{
+    _listeners.add(listener);
+  }
+  public synchronized void removeEventListener(FavoriteListener listener)	{
+    _listeners.remove(listener);
+  }
+
+  // call this method whenever you want to notify
+  //the event listeners of the particular event
+  private synchronized void fireEvent()	{
+    FavoriteEvent event = new FavoriteEvent(this);
+    for (int i = 0; i < _listeners.size(); i++) {
+        ((FavoriteListener)_listeners.get(i)).handleFavoriteEvent(event);
+    }
+  }
+
 
     public Product getProduct(int idNbr) {
         return iMatDataHandler.getProduct(idNbr);
@@ -112,10 +134,12 @@ public class Model {
 
     public void addFavorite(Product p) {
         iMatDataHandler.addFavorite(p.getProductId());
+        fireEvent();
     }
 
     public void removeFavorite(Product p) {
         iMatDataHandler.removeFavorite(p);
+        fireEvent();
     }
 
     public boolean isFavorite(Product p) {
