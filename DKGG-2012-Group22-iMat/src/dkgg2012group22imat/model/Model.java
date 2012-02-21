@@ -14,7 +14,6 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
-import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to add an extra layer
@@ -45,7 +44,6 @@ public class Model {
     }
 
     private void init() {
-        System.out.println("new model inni");
         iMatDataHandler = IMatDataHandler.getInstance();
     }
 
@@ -60,7 +58,7 @@ public class Model {
 
   // call this method whenever you want to notify
   //the event listeners of the particular event
-  private synchronized void fireEvent()	{
+  private synchronized void fireFavoriteEvent()	{
     FavoriteEvent event = new FavoriteEvent(this);
     for (int i = 0; i < _listeners.size(); i++) {
         ((FavoriteListener)_listeners.get(i)).handleFavoriteEvent(event);
@@ -134,12 +132,12 @@ public class Model {
 
     public void addFavorite(Product p) {
         iMatDataHandler.addFavorite(p.getProductId());
-        fireEvent();
+        fireFavoriteEvent();
     }
 
     public void removeFavorite(Product p) {
         iMatDataHandler.removeFavorite(p);
-        fireEvent();
+        fireFavoriteEvent();
     }
 
     public boolean isFavorite(Product p) {
@@ -153,6 +151,8 @@ public class Model {
     public List getHistoryCarts() {
         return iMatDataHandler.getOrders();
     }
+    
+    //TODO REMOVE
     public List<SavedCart> getHistory(){
         List<Order> orderList = iMatDataHandler.getOrders();
         List<SavedCart> savedCarts = new ArrayList<SavedCart>();
@@ -160,6 +160,13 @@ public class Model {
             savedCarts.add(new SavedCart(o.getItems(), o.getDate().toString()));
         }
         return savedCarts;
+    }
+    public List<Order> getOrders(){
+        return iMatDataHandler.getOrders();
+    }
+    public void reset(){
+        iMatDataHandler.reset();
+    
     }
 
        private List getRandomProducts() {

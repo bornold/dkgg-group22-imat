@@ -20,7 +20,6 @@ public class CartProductPanel extends javax.swing.JPanel {
     public CartProductPanel(Product p) {
         initComponents();
         controller = new CartProductController(p, this);
-        System.out.println("product panel inni");
     }
 
     /** This method is called from within the constructor to

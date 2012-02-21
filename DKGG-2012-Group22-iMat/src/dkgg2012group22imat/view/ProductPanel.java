@@ -31,7 +31,6 @@ public class ProductPanel extends javax.swing.JPanel {
     public ProductPanel(Product p) {
         initComponents();
         controller = new ProductController(p, this);
-        System.out.println("product panel inni");
 
         this.resetShadow();
     }
