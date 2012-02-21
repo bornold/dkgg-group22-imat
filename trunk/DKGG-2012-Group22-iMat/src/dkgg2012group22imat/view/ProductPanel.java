@@ -8,8 +8,10 @@ package dkgg2012group22imat.view;
 import dkgg2012group22imat.controller.ProductController;
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import org.jdesktop.swingx.graphics.GraphicsUtilities;
@@ -26,6 +28,8 @@ public class ProductPanel extends javax.swing.JPanel {
     boolean inside;
     private BufferedImage shadow;
     private int shadowSize;
+    Dimension small = new Dimension(150, 150);
+    Dimension big = new Dimension(200, 200);
 
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
@@ -106,10 +110,7 @@ public class ProductPanel extends javax.swing.JPanel {
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
-        setMaximumSize(null);
-        setMinimumSize(null);
         setName("Form"); // NOI18N
-        setPreferredSize(null);
         setRequestFocusEnabled(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -162,21 +163,11 @@ public class ProductPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    if (this.contains(evt.getPoint())) {
-//        System.out.println("in");
-        controller.enhance();
-    }
-//    System.out.println(this.getSize().toString());
-//    repaint();
+    controller.enhance();
 }//GEN-LAST:event_formMouseEntered
 
 private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    if (!this.contains(evt.getPoint())) {
-//        System.out.println("out");
-        controller.defile();
-    }
-//    System.out.println(this.getSize().toString());
-//    repaint();
+    controller.defile();
 }//GEN-LAST:event_formMouseExited
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
@@ -186,6 +177,7 @@ private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt)
 private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
     controller.addToCart();
 }//GEN-LAST:event_addButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addButton;
     public javax.swing.JToggleButton favoriteToggleButton;
