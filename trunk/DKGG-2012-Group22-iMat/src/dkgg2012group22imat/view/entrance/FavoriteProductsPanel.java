@@ -22,7 +22,6 @@ public class FavoriteProductsPanel extends javax.swing.JPanel {
     /** Creates new form FavoriteProductPanel */
     public FavoriteProductsPanel() {
         initComponents();
-        System.out.println("Favorit products panel inni");
         controller = new FavoriteProductPanelController(this);
     }
 
@@ -36,7 +35,6 @@ public class FavoriteProductsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(2, 3));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

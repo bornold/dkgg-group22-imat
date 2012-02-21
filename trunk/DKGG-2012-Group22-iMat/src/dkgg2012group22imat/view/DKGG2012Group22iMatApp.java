@@ -22,7 +22,6 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
 
     @Override protected void shutdown() {
          Model.getInstance().shutDown();
-         System.out.println("iMatApp Shutting down");
          super.shutdown();
     }
     /**

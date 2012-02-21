@@ -27,7 +27,6 @@ public class FavoriteProductPanelController implements FavoriteListener {
     public FavoriteProductPanelController(FavoriteProductsPanel favoriteProductsPanel) {
         m.addEventListener(this);
         this.view = favoriteProductsPanel;
-        System.out.println("favorit prod pan controller inni");
         setPanel();
 
     }

@@ -1,6 +1,13 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="dkgg2012group22imat.view.entrance.FavoriteProductsPanel" name="favoriteProductsPanel1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="favoriteProductsPanel1" noResource="true"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <Connection code="Model.getInstance().shutDown()" type="code"/>
@@ -26,26 +33,31 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="favoriteProductsPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
-              <Component id="cartPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="favoriteProductsPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="spotlightProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="373" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="favoriteProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="spotlightProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1598" max="-2" attributes="0"/>
+                      <Component id="favoriteProductsPanel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
           </Group>
-          <Component id="cartPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -55,28 +67,24 @@
         <Property name="name" type="java.lang.String" value="spotlightProductsPanel1" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="dkgg2012group22imat.view.entrance.FavoriteProductsPanel" name="favoriteProductsPanel1">
+    <Component class="dkgg2012group22imat.view.entrance.FavoriteProductsPanel" name="favoriteProductsPanel2">
       <Properties>
-        <Property name="name" type="java.lang.String" value="favoriteProductsPanel1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="favoriteProductsPanel2" noResource="true"/>
       </Properties>
     </Component>
-    <Container class="dkgg2012group22imat.view.CartPanel" name="cartPanel1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <Properties>
-        <Property name="name" type="java.lang.String" value="cartPanel1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
       </Properties>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="231" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="208" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="dkgg2012group22imat.view.entrance.HistoryCartsPanel" name="historyCartsPanel1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="historyCartsPanel1" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

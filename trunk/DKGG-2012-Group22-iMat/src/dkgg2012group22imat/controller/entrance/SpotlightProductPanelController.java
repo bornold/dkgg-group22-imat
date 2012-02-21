@@ -23,7 +23,6 @@ public class SpotlightProductPanelController {
 
     public SpotlightProductPanelController(SpotlightProductsPanel panel) {
         this.spotlightProductsPanel = panel;
-        System.out.println("spotlight prod pan controller inni");
         items = m.getOffers();
         Iterator it = items.iterator();    
         while (it.hasNext()) {

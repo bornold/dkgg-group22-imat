@@ -11,7 +11,6 @@
 package dkgg2012group22imat.view;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;

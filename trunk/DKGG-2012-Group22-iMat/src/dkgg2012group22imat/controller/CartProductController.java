@@ -6,7 +6,6 @@ package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartProductPanel;
-import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
 import java.awt.Point;
 import se.chalmers.ait.dat215.project.Product;
@@ -24,7 +23,6 @@ public class CartProductController {
     Dimension big = new Dimension(200, 200);
 
     public CartProductController(Product p, CartProductPanel panel) {
-        System.out.println("CartProduct panel controller inni");
         this.p = p;
         this.view = panel;
         view.productNameLabel.setText(p.getName());

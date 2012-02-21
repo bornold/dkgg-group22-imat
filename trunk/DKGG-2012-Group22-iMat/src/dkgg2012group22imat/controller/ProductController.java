@@ -28,7 +28,6 @@ public class ProductController implements FavoriteListener {
     ShoppingCart shoppingCart;
 
     public ProductController(Product p, ProductPanel panel) {
-        System.out.println("Product panel controller inni");
         this.p = p;
         this.view = panel;
         view.productNameLabel.setText(p.getName());

@@ -22,7 +22,6 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     /** Creates new form SpotlightProductPanel */
     public SpotlightProductsPanel() {
         initComponents();
-        System.out.println("Spotligt pnale inni");
         //((java.awt.GridLayout)this.getLayout());
         controller = new SpotlightProductPanelController(this);
     }

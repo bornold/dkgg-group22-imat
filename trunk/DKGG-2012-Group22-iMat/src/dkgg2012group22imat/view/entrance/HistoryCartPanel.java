@@ -20,10 +20,14 @@ import se.chalmers.ait.dat215.project.Order;
 public class HistoryCartPanel extends javax.swing.JPanel {
 
     private HistoryCartController controller;
+
     /** Creates new form HistoryCartPanel */
     public HistoryCartPanel(Order o) {
         initComponents();
+        System.out.println("HistoryCart inni");
         controller = new HistoryCartController(o, this);
+        showButton.setVisible(false);
+        addAllButton.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -45,6 +49,14 @@ public class HistoryCartPanel extends javax.swing.JPanel {
         addAllButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(HistoryCartPanel.class);
         dateLabel.setText(resourceMap.getString("dateLabel.text")); // NOI18N
@@ -67,9 +79,30 @@ public class HistoryCartPanel extends javax.swing.JPanel {
 
         showButton.setText(resourceMap.getString("showButton.text")); // NOI18N
         showButton.setName("showButton"); // NOI18N
+        showButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                showButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                showButtonMouseEntered(evt);
+            }
+        });
 
         addAllButton.setText(resourceMap.getString("addAllButton.text")); // NOI18N
         addAllButton.setName("addAllButton"); // NOI18N
+        addAllButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addAllButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addAllButtonMouseEntered(evt);
+            }
+        });
+        addAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAllButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,7 +115,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dateLabel)
                             .addComponent(informationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(showButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(icon1)
@@ -92,7 +125,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                         .addComponent(icon3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(icon4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addAllButton)))
                 .addContainerGap())
         );
@@ -103,13 +136,13 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(showButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addAllButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dateLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(informationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(icon1)
                             .addComponent(icon2)
@@ -118,6 +151,41 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+private void addAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAllButtonActionPerformed
+    controller.addAll();
+}//GEN-LAST:event_addAllButtonActionPerformed
+
+private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
+    showButton.setVisible(true);
+    addAllButton.setVisible(true);
+}//GEN-LAST:event_formMouseEntered
+
+private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
+    showButton.setVisible(false);
+    addAllButton.setVisible(false);
+}//GEN-LAST:event_formMouseExited
+
+private void showButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showButtonMouseEntered
+    showButton.setVisible(true);
+    addAllButton.setVisible(true);
+}//GEN-LAST:event_showButtonMouseEntered
+
+private void showButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showButtonMouseExited
+    showButton.setVisible(false);
+    addAllButton.setVisible(false);
+}//GEN-LAST:event_showButtonMouseExited
+
+private void addAllButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAllButtonMouseEntered
+    showButton.setVisible(true);
+    addAllButton.setVisible(true);
+}//GEN-LAST:event_addAllButtonMouseEntered
+
+private void addAllButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addAllButtonMouseExited
+    showButton.setVisible(false);
+    addAllButton.setVisible(false);
+}//GEN-LAST:event_addAllButtonMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAllButton;
     public javax.swing.JLabel dateLabel;
