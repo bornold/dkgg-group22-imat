@@ -35,6 +35,7 @@ public class ProductController implements FavoriteListener {
         view.priceLabel.setText(p.getPrice() + p.getUnit());
         view.addButton.setVisible(false);
         view.quantityComboBox.setVisible(false);
+        view.favoriteToggleButton.setVisible(false);
         setFavoButton();
         m.addEventListener(this);
         shoppingCart = m.getShoppingCart();
@@ -64,7 +65,6 @@ public class ProductController implements FavoriteListener {
 
     public void enhance() {
         if (!isEnhanced) {
-//            System.out.println("ENHANCE");
             Point p = view.getLocation();
             int x = p.x - (big.width - small.width) / 2;
             int y = p.y - (big.height - small.height) / 2;
@@ -73,18 +73,19 @@ public class ProductController implements FavoriteListener {
             view.expandShadow();
             view.addButton.setVisible(true);
             view.quantityComboBox.setVisible(true);
+            view.favoriteToggleButton.setVisible(true);
             isEnhanced = true;
         }
     }
 
     public void defile() {
         if (isEnhanced) {
-//            System.out.println("DEFILE");
             Point p = view.getLocation();
             int x = p.x + (big.width - small.width) / 2;
             int y = p.y + (big.height - small.height) / 2;
             view.addButton.setVisible(false);
             view.quantityComboBox.setVisible(false);
+            view.favoriteToggleButton.setVisible(false);
             view.resetShadow();
             view.setLocation(x, y);
             view.setSize(small);

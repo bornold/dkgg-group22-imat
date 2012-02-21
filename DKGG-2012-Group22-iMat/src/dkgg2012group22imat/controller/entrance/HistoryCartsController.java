@@ -47,6 +47,6 @@ public class HistoryCartsController {
     }
 
     void expand() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        System.out.println("Not yet implemented");
     }
 }
