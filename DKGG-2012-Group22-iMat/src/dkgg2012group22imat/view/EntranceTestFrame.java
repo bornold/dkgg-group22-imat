@@ -34,6 +34,7 @@ public class EntranceTestFrame extends javax.swing.JFrame {
 
         spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
         favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
+        cartPanel1 = new dkgg2012group22imat.view.CartPanel();
 
         setDefaultCloseOperation(Model.getInstance().shutDown());
         setName("Form"); // NOI18N
@@ -41,6 +42,19 @@ public class EntranceTestFrame extends javax.swing.JFrame {
         spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
 
         favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
+
+        cartPanel1.setName("cartPanel1"); // NOI18N
+
+        javax.swing.GroupLayout cartPanel1Layout = new javax.swing.GroupLayout(cartPanel1);
+        cartPanel1.setLayout(cartPanel1Layout);
+        cartPanel1Layout.setHorizontalGroup(
+            cartPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 231, Short.MAX_VALUE)
+        );
+        cartPanel1Layout.setVerticalGroup(
+            cartPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 208, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,7 +65,8 @@ public class EntranceTestFrame extends javax.swing.JFrame {
                 .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(cartPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,6 +76,7 @@ public class EntranceTestFrame extends javax.swing.JFrame {
                     .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(cartPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -102,6 +118,7 @@ public class EntranceTestFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private dkgg2012group22imat.view.CartPanel cartPanel1;
     private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
     private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;
     // End of variables declaration//GEN-END:variables
