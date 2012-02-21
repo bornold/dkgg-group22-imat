@@ -20,11 +20,11 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
         show(new DKGG2012Group22iMatView(this));
     }
 
-     @Override protected void shutdown() {
+    @Override protected void shutdown() {
          Model.getInstance().shutDown();
          System.out.println("iMatApp Shutting down");
          super.shutdown();
-     }
+    }
     /**
      * This method is to initialize the specified window by injecting resources.
      * Windows shown in our application come fully initialized from the GUI
