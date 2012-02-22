@@ -30,6 +30,7 @@ public class ProductPanel extends javax.swing.JPanel {
     private int shadowSize;
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
+    
 
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
