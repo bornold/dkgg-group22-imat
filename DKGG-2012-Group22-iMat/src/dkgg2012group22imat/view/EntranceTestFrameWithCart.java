@@ -16,10 +16,10 @@ import dkgg2012group22imat.model.Model;
  *
  * @author jonas
  */
-public class EntranceTestFrame1 extends javax.swing.JFrame {
+public class EntranceTestFrameWithCart extends javax.swing.JFrame {
 
     /** Creates new form EntranceTestFrame */
-    public EntranceTestFrame1() {
+    public EntranceTestFrameWithCart() {
         initComponents();
     }
 
@@ -102,13 +102,13 @@ public class EntranceTestFrame1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EntranceTestFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EntranceTestFrameWithCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EntranceTestFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EntranceTestFrameWithCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EntranceTestFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EntranceTestFrameWithCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EntranceTestFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EntranceTestFrameWithCart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -116,7 +116,7 @@ public class EntranceTestFrame1 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new EntranceTestFrame1().setVisible(true);
+                new EntranceTestFrameWithCart().setVisible(true);
             }
         });
     }
