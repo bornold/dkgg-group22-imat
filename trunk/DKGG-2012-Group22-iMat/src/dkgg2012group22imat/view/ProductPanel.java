@@ -110,7 +110,9 @@ public class ProductPanel extends javax.swing.JPanel {
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
+        setMinimumSize(new java.awt.Dimension(180, 180));
         setName("Form"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(180, 180));
         setRequestFocusEnabled(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -137,7 +139,7 @@ public class ProductPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
-        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
@@ -145,12 +147,12 @@ public class ProductPanel extends javax.swing.JPanel {
 
         quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         quantityComboBox.setName("quantityComboBox"); // NOI18N
-        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 60, 30));
         quantityComboBox.setUI(new StyledComboBoxUI());
 
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
-        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
@@ -159,15 +161,20 @@ public class ProductPanel extends javax.swing.JPanel {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 0, -1, -1));
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    controller.enhance();
+    if (this.contains(evt.getPoint())) {
+        controller.enhance();
+    }
+
 }//GEN-LAST:event_formMouseEntered
 
 private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    controller.defile();
+    if (!this.contains(evt.getPoint())) {
+        controller.defile();
+    }
 }//GEN-LAST:event_formMouseExited
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
