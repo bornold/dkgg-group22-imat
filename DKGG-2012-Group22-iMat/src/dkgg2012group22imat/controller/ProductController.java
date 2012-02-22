@@ -33,7 +33,7 @@ public class ProductController implements FavoriteListener {
         view.iconLabel.setIcon(m.getImageIcon(p, new Dimension(80, 80)));
         view.priceLabel.setText(p.getPrice() + p.getUnit());
         view.addButton.setVisible(false);
-        view.quantityComboBox.setVisible(false);
+        view.quantitySpinner.setVisible(false);
         view.favoriteToggleButton.setVisible(false);
         setFavoButton();
         m.addEventListener(this);
@@ -50,9 +50,9 @@ public class ProductController implements FavoriteListener {
 
     private void setFavoButton() {
         if (m.isFavorite(p)) {
-            view.favoriteToggleButton.setText("isFavo");
+            view.favoriteToggleButton.setIcon(view.favoriteToggleButton.getPressedIcon());
         } else {
-            view.favoriteToggleButton.setText("Favo");
+            view.favoriteToggleButton.setIcon(view.favoriteToggleButton.getDisabledIcon());
         }
     }
 
@@ -69,7 +69,7 @@ public class ProductController implements FavoriteListener {
             view.setSize(big);
             view.expandShadow();
             view.addButton.setVisible(true);
-            view.quantityComboBox.setVisible(true);
+            view.quantitySpinner.setVisible(true);
             view.favoriteToggleButton.setVisible(true);
             isEnhanced = true;
         }
@@ -81,7 +81,7 @@ public class ProductController implements FavoriteListener {
             int x = p.x + (big.width - small.width) / 2;
             int y = p.y + (big.height - small.height) / 2;
             view.addButton.setVisible(false);
-            view.quantityComboBox.setVisible(false);
+            view.quantitySpinner.setVisible(false);
             view.favoriteToggleButton.setVisible(false);
             view.resetShadow();
             view.setLocation(x, y);

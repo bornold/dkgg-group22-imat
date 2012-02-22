@@ -105,9 +105,9 @@ public class ProductPanel extends javax.swing.JPanel {
         productNameLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
-        quantityComboBox = new javax.swing.JComboBox();
         priceLabel = new javax.swing.JLabel();
         favoriteToggleButton = new javax.swing.JToggleButton();
+        quantitySpinner = new javax.swing.JSpinner();
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
@@ -140,29 +140,36 @@ public class ProductPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
-        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
         add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
 
-        quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
-        quantityComboBox.setName("quantityComboBox"); // NOI18N
-        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 60, 30));
-        quantityComboBox.setUI(new StyledComboBoxUI());
-
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
         add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
+        favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setBorderPainted(false);
+        favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
+        favoriteToggleButton.setPressedIcon(resourceMap.getIcon("favoriteToggleButton.pressedIcon")); // NOI18N
+        favoriteToggleButton.setRolloverIcon(resourceMap.getIcon("favoriteToggleButton.rolloverIcon")); // NOI18N
         favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
+        quantitySpinner.setName("quantitySpinner"); // NOI18N
+        quantitySpinner.setPreferredSize(new java.awt.Dimension(70, 26));
+        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        quantitySpinner.setUI(new StyledSpinnerUI());
     }// </editor-fold>//GEN-END:initComponents
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
@@ -192,11 +199,11 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
-    public javax.swing.JComboBox quantityComboBox;
+    public javax.swing.JSpinner quantitySpinner;
     // End of variables declaration//GEN-END:variables
 
     public int getAmount() {
-        return quantityComboBox.getSelectedIndex();
+        return Integer.parseInt(quantitySpinner.getValue().toString());
     }
 
     public void expandShadow() {
