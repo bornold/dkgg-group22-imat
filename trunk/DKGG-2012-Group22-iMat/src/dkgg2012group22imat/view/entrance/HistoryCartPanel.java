@@ -121,7 +121,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dateLabel)
                             .addComponent(informationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(showButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(icon1)
@@ -131,7 +131,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                         .addComponent(icon3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(icon4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addAllButton)))
                 .addContainerGap())
         );
@@ -193,7 +193,7 @@ private void addAllButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_addAllButtonMouseExited
 
 private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
-    controller.expand();
+    controller.show();
 }//GEN-LAST:event_showButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

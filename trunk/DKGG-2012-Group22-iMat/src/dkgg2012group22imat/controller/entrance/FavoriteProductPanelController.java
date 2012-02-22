@@ -17,9 +17,7 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author jonas
  */
-//TODO Implement listner on added favorit
 public class FavoriteProductPanelController implements FavoriteListener {
-
     Model m = Model.getInstance();
     List<Product> items;
     public FavoriteProductsPanel view;

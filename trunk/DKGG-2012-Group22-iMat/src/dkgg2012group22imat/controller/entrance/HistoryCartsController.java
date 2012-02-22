@@ -7,9 +7,11 @@ package dkgg2012group22imat.controller.entrance;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.entrance.HistoryCartPanel;
 import dkgg2012group22imat.view.entrance.HistoryCartsPanel;
+import dkgg2012group22imat.view.entrance.SavedCartPanel;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -26,7 +28,7 @@ public class HistoryCartsController {
         
         //TEMP CODE
         m.reset();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             List<Product> prds = m.getOffers();
             for (Product p : prds) {
                 m.addToShoppingCart(p);
@@ -35,6 +37,19 @@ public class HistoryCartsController {
         }
         // TEMP CODE END
         
+        showCarts();
+      
+    }
+
+
+    void show(List<ShoppingItem> items, String toString) {
+        view.removeAll();
+        view.add((new SavedCartPanel(items)));
+        view.repaint();
+    }
+
+    private void showCarts() {
+        view.removeAll();
         List<Order> temp = m.getOrders();
         if (temp.isEmpty()) {
             System.out.println("No history!");
@@ -44,9 +59,6 @@ public class HistoryCartsController {
         for (Order o : temp) {
             view.add(new HistoryCartPanel(o, this));
         }
-    }
-
-    void expand() {
-        System.out.println("Not yet implemented");
+        view.repaint();
     }
 }
