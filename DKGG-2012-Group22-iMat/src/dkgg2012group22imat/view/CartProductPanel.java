@@ -6,6 +6,15 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartProductController;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import org.jdesktop.swingx.graphics.GraphicsUtilities;
+import org.jdesktop.swingx.graphics.ShadowRenderer;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -15,11 +24,72 @@ import se.chalmers.ait.dat215.project.Product;
 public class CartProductPanel extends javax.swing.JPanel {
 
     CartProductController controller;
+    boolean inside;
+    private BufferedImage shadow;
+    private int shadowSize;
+    Dimension small = new Dimension(150, 150);
+    Dimension big = new Dimension(200, 200);
+    
 
     /** Creates new form ItemPanel */
     public CartProductPanel(Product p) {
         initComponents();
         controller = new CartProductController(p, this);
+
+        this.resetShadow();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+
+        //Padding:
+        int x = 10;
+        int y = 10;
+
+        int w = getWidth() - x * 2;
+        int h = getHeight() - y * 2;
+        int arc = 15;
+
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+
+
+        if (shadow != null) {
+            int xOffset = (shadow.getWidth() - w) / 2;
+            int yOffset = (shadow.getHeight() - h) / 2;
+            g2.drawImage(shadow, x - xOffset, y - yOffset, null);
+        }
+
+        g2.setColor(Color.WHITE);
+        g2.fillRoundRect(x, y, w, h, arc, arc);
+
+        g2.dispose();
+    }
+
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        super.setBounds(x, y, width, height);
+
+        int w = getWidth() - 20;
+        int h = getHeight() - 20;
+        int arc = 20;
+
+        shadow = GraphicsUtilities.createCompatibleTranslucentImage(w, h);
+        Graphics2D g2 = shadow.createGraphics();
+        g2.setColor(Color.WHITE);
+        g2.fillRoundRect(0, 1, w, h, arc, arc);
+        g2.dispose();
+
+        ShadowRenderer renderer = new ShadowRenderer(shadowSize, 0.5f, Color.BLACK);
+        shadow = renderer.createShadow(shadow);
+
+        //Removes the shadow from the content (in case the background is transparent, which is isnt, ah well who knows what happens in the furure, it makes it good to copy, unless someone writes a stupidly long comment on one line so you need to scroll horizontally to see what stupid things he tries to say, thats very frustrating...
+        g2 = shadow.createGraphics();
+        g2.setColor(Color.RED);
+        g2.setComposite(AlphaComposite.Clear);
+        g2.fillRoundRect(shadowSize, shadowSize, w, h, arc, arc);
+        g2.dispose();
     }
 
     /** This method is called from within the constructor to
@@ -32,47 +102,39 @@ public class CartProductPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         productNameLabel = new javax.swing.JLabel();
-        deleteButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
         quantityComboBox = new javax.swing.JComboBox();
         priceLabel = new javax.swing.JLabel();
         favoriteToggleButton = new javax.swing.JToggleButton();
 
-        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        setMaximumSize(new java.awt.Dimension(200, 200));
-        setMinimumSize(new java.awt.Dimension(100, 100));
+        setMinimumSize(new java.awt.Dimension(180, 180));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(150, 150));
+        setPreferredSize(new java.awt.Dimension(180, 180));
         setRequestFocusEnabled(false);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                formMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                formMouseEntered(evt);
-            }
-        });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
+        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 113, -1));
 
-        deleteButton.setText(resourceMap.getString("deleteButton.text")); // NOI18N
-        deleteButton.setName("deleteButton"); // NOI18N
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
+        addButton.setBorderPainted(false);
+        addButton.setName("addButton"); // NOI18N
+        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
+        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
 
         quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
         quantityComboBox.setName("quantityComboBox"); // NOI18N
+        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 60, 30));
+        quantityComboBox.setUI(new StyledComboBoxUI());
 
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
@@ -81,75 +143,33 @@ public class CartProductPanel extends javax.swing.JPanel {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(iconLabel))
-                                .addGap(54, 54, 54))
-                            .addComponent(priceLabel))
-                        .addContainerGap())
-                    .addComponent(favoriteToggleButton, javax.swing.GroupLayout.Alignment.TRAILING)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iconLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(priceLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(quantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteButton)))
-                    .addComponent(favoriteToggleButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-    controller.removeFromCart();
-}//GEN-LAST:event_deleteButtonActionPerformed
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
     controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
-private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    controller.hooverd();
-}//GEN-LAST:event_formMouseEntered
-
-private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    controller.dehoover();
-}//GEN-LAST:event_formMouseExited
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton deleteButton;
+    public javax.swing.JButton addButton;
     public javax.swing.JToggleButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
-    private javax.swing.JComboBox quantityComboBox;
+    public javax.swing.JComboBox quantityComboBox;
     // End of variables declaration//GEN-END:variables
 
     public int getAmount() {
         return quantityComboBox.getSelectedIndex();
+    }
+
+    public void expandShadow() {
+        this.shadowSize = 10;
+
+    }
+
+    public void resetShadow() {
+        this.shadowSize = 3;
+
     }
 }

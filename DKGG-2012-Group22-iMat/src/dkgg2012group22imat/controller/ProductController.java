@@ -25,7 +25,6 @@ public class ProductController implements FavoriteListener {
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
     boolean isEnhanced = false;
-    ShoppingCart shoppingCart;
 
     public ProductController(Product p, ProductPanel panel) {
         this.p = p;
@@ -38,7 +37,6 @@ public class ProductController implements FavoriteListener {
         view.favoriteToggleButton.setVisible(false);
         setFavoButton();
         m.addEventListener(this);
-        shoppingCart = m.getShoppingCart();
     }
 
     public void favorize() {
@@ -60,7 +58,6 @@ public class ProductController implements FavoriteListener {
 
     public void addToCart() {
         m.addToShoppingCart(p, view.getAmount());
-        shoppingCart.fireShoppingCartChanged();
     }
 
     public void enhance() {
