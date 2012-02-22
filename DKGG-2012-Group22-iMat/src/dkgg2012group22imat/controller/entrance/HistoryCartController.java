@@ -54,8 +54,9 @@ public class HistoryCartController {
             m.addToShoppingCart(p.getProduct(), (int)p.getAmount());
         }
     }
-    public void expand(){
-        parent.expand();
+
+    public void show() {
+        parent.show(items, order.getDate().toString());
     }
 }
 

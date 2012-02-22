@@ -14,6 +14,7 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  * Wrapper around the IMatDataHandler. The idea is that it might be useful to add an extra layer
@@ -25,10 +26,10 @@ public class Model {
     private static Model instance = null;
     private IMatDataHandler iMatDataHandler;
     private List<SavedCart> savedCarts; //TODO get Saved Carts
-            /**
-             * Constructor that should never be called, use getInstance() instead.
-             */
 
+    /**
+     * Constructor that should never be called, use getInstance() instead.
+     */
     protected Model() {
         // Exists only to defeat instantiation.
     }
@@ -90,6 +91,10 @@ public class Model {
         shoppingCart.addProduct(p);
     }
 
+    public void addToShoppingCart(ShoppingItem si) {
+        addToShoppingCart(si.getProduct(), (int)si.getAmount()); 
+    }
+
     public void removeFromShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         System.out.println("CartRemoving: " + p.getName());
@@ -128,7 +133,6 @@ public class Model {
     public List getFavorites() {
         return iMatDataHandler.favorites();
     }
-    //TODO implement an listener on added and remove products
 
     public void addFavorite(Product p) {
         iMatDataHandler.addFavorite(p.getProductId());
@@ -163,7 +167,6 @@ public class Model {
 
     public void reset() {
         iMatDataHandler.reset();
-
     }
 
     private List getRandomProducts() {
