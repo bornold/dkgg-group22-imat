@@ -43,5 +43,6 @@ public class FavoriteProductPanelController implements FavoriteListener {
         while (it.hasNext()) {
             view.add(new ProductPanel((Product) it.next()));
         }
+        view.updateUI();
     }
 }

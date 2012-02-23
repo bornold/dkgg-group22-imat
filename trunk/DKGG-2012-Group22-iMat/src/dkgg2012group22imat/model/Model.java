@@ -95,6 +95,12 @@ public class Model {
         addToShoppingCart(si.getProduct(), (int)si.getAmount()); 
     }
 
+     public void addToShoppingCart(List <ShoppingItem> items) {
+        for(ShoppingItem p : items){
+            addToShoppingCart(p);
+        }
+    }
+    
     public void removeFromShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         System.out.println("CartRemoving: " + p.getName());
@@ -160,11 +166,19 @@ public class Model {
     public List<Order> getOrders() {
         return iMatDataHandler.getOrders();
     }
-
-    public void saveCart() {
-        //TODO save a new cart
+    
+    public List<SavedCart> getSavedCarts() {
+        return savedCarts;
     }
 
+    public void saveNewCart(List<ShoppingItem> cart, String name) {
+        savedCarts.add(new SavedCart(cart, name));
+    }
+
+    public void removeSavedCart(SavedCart cart) {
+        this.savedCarts.remove(cart);
+    }
+   
     public void reset() {
         iMatDataHandler.reset();
     }

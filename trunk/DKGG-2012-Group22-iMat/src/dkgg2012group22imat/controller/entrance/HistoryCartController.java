@@ -32,9 +32,9 @@ public class HistoryCartController {
         items = o.getItems();
         double totPrice = 0;
         for (ShoppingItem si : items) {
-            totPrice += si.getAmount() + si.getProduct().getPrice();
+            totPrice += si.getAmount() * si.getProduct().getPrice();
         }
-        view.informationLabel.setText(items.size() + " varor för totalt " + totPrice);
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int)totPrice + "kr");
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
@@ -50,9 +50,7 @@ public class HistoryCartController {
     }
 
     public void addAll() {
-        for(ShoppingItem p : items){
-            m.addToShoppingCart(p.getProduct(), (int)p.getAmount());
-        }
+        m.addToShoppingCart(items);
     }
 
     public void show() {

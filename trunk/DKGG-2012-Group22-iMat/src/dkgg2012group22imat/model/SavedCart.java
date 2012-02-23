@@ -20,9 +20,6 @@ public class SavedCart {
        this.items = cart;
        this.name = name;
    }
-      public SavedCart( String name) {
-       this.name = name;
-   }
       public void add(ShoppingItem si) {
           items.add(si);
       }
