@@ -1,0 +1,183 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="kontaktInfoLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="surNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameLabeel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="postalAdressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="phoneNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="adressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="filler1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="adressTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="postAdressnameTextFieldTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="phoneNumbernameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="surNameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="179" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="kontaktInfoLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="nameTextField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="nameLabeel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="surNameTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="surNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="adressTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="postalAdressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="postAdressnameTextFieldTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="adressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="phoneNumbernameTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="filler1" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="kontaktInfoLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="kontaktInfoLabel.text"/>
+        <Property name="name" type="java.lang.String" value="kontaktInfoLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nameLabeel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="nameLabeel.text"/>
+        <Property name="name" type="java.lang.String" value="nameLabeel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="surNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="surNameLabel.text"/>
+        <Property name="name" type="java.lang.String" value="surNameLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="adressLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="adressLabel.text"/>
+        <Property name="name" type="java.lang.String" value="adressLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="postalAdressLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="postalAdressLabel.text"/>
+        <Property name="name" type="java.lang.String" value="postalAdressLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="phoneNumberLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="phoneNumberLabel.text"/>
+        <Property name="name" type="java.lang.String" value="phoneNumberLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="nameTextField.text"/>
+        <Property name="name" type="java.lang.String" value="nameTextField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="surNameTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="surNameTextField.text"/>
+        <Property name="name" type="java.lang.String" value="surNameTextField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="adressTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="adressTextField.text"/>
+        <Property name="name" type="java.lang.String" value="adressTextField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="postAdressnameTextFieldTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="postAdressnameTextFieldTextField.text"/>
+        <Property name="name" type="java.lang.String" value="postAdressnameTextFieldTextField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="phoneNumbernameTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="phoneNumbernameTextField.text"/>
+        <Property name="name" type="java.lang.String" value="phoneNumbernameTextField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.Box$Filler" name="filler1">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[32767, 200]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[0, 200]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[0, 200]"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="filler1" noResource="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.VerticalStrut"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>

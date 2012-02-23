@@ -23,7 +23,7 @@ public class SavedCartProductController {
         this.view = cartPanel;
         view.icon.setIcon(m.getImageIcon(si.getProduct(), d));
         view.nameLabel.setText(si.getProduct().getName());
-        view.informationLabel.setText(si.getAmount() + "st, totalt " + si.getTotal()+"kr");
+        view.informationLabel.setText(si.getAmount() + "st, totalt " + (int)si.getTotal()+"kr");
     }
 
     public void addItem() {

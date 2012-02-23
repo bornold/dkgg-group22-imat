@@ -34,48 +34,31 @@ EntrancePanelController controller;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
-        favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        historyCartsPanel1 = new dkgg2012group22imat.view.entrance.HistoryCartsPanel();
 
         setName("Form"); // NOI18N
 
-        spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-        favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
-
-        javax.swing.GroupLayout favoriteProductsPanel1Layout = new javax.swing.GroupLayout(favoriteProductsPanel1);
-        favoriteProductsPanel1.setLayout(favoriteProductsPanel1Layout);
-        favoriteProductsPanel1Layout.setHorizontalGroup(
-            favoriteProductsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        favoriteProductsPanel1Layout.setVerticalGroup(
-            favoriteProductsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 112, Short.MAX_VALUE)
-        );
+        historyCartsPanel1.setName("historyCartsPanel1"); // NOI18N
+        jScrollPane1.setViewportView(historyCartsPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
-    private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;
+    private dkgg2012group22imat.view.entrance.HistoryCartsPanel historyCartsPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
