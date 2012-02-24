@@ -5,6 +5,7 @@
 package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.SavedCartInterface;
 import dkgg2012group22imat.view.entrance.HistoryCartPanel;
 import dkgg2012group22imat.view.entrance.HistoryCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
@@ -17,7 +18,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jonas
  */
-public class HistoryCartsController {
+public class HistoryCartsController implements SavedCartInterface {
 
     private HistoryCartsPanel view;
     private Model m = Model.getInstance();
@@ -28,17 +29,18 @@ public class HistoryCartsController {
         
         //TEMP CODE
         m.reset();
-        for (int i = 0; i < 2; i++) {
-            List<Product> prds = m.getOffers();
+        List<Product> prds = m.getOffers();
+        for (int i = 0; i < 1; i++) {
             for (Product p : prds) {
                 m.addToShoppingCart(p);
+                m.addFavorite(p);
             }
             m.placeOrder();
         }
+        
         // TEMP CODE END
         
         showCarts();
-      
     }
 
 
@@ -48,7 +50,7 @@ public class HistoryCartsController {
         view.updateUI();
     }
 
-    void showCarts() {
+   public void showCarts() {
         view.removeAll();
         List<Order> temp = m.getOrders();
         if (temp.isEmpty()) {
