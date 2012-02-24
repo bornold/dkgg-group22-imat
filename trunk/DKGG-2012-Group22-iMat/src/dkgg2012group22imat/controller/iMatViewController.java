@@ -4,16 +4,14 @@
  */
 package dkgg2012group22imat.controller;
 
-import dkgg2012group22imat.controller.checkout.CheckoutPanelController;
-import dkgg2012group22imat.controller.entrance.EntrancePanelController;
-import dkgg2012group22imat.controller.shop.ShopPanelController;
 import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.DKGG2012Group22iMatView;
 
 /**
  *
  * @author jonas
  */
-public class MainPanelController {
+public class iMatViewController {
 
     /*
      * State for what view is showing
@@ -23,13 +21,15 @@ public class MainPanelController {
         SHOP,
         CHECKOUT
     }
+    
+    private DKGG2012Group22iMatView view;
 
     //private varibles
     private MainView currentView = MainView.ENTRANCE;
     private Model m = Model.getInstance();
     
-    public MainPanelController() {
-             
+    public iMatViewController(DKGG2012Group22iMatView view) {
+        this.view = view;
     }
     /*
      * getters and setters
@@ -38,9 +38,12 @@ public class MainPanelController {
         return currentView;
     }
     public void setCurrentView(MainView currentView) {
+        
         this.currentView = currentView;
     }
     public void shutDown(){
         m.shutDown();
     }
+    
+    
 }
