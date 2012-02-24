@@ -11,11 +11,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import org.jdesktop.swingx.graphics.GraphicsUtilities;
 import org.jdesktop.swingx.graphics.ShadowRenderer;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -38,6 +38,7 @@ public class ProductPanel extends javax.swing.JPanel {
         controller = new ProductController(p, this);
 
         this.resetShadow();
+        
     }
 
     @Override
@@ -102,10 +103,10 @@ public class ProductPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        priceLabel = new dkgg2012group22imat.view.PriceLabel();
         productNameLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
-        priceLabel = new javax.swing.JLabel();
         favoriteToggleButton = new javax.swing.JToggleButton();
         quantitySpinner = new javax.swing.JSpinner();
 
@@ -125,6 +126,15 @@ public class ProductPanel extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
+        priceLabel.setFont(resourceMap.getFont("priceLabel.font")); // NOI18N
+        priceLabel.setName("priceLabel"); // NOI18N
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
+        remove(priceLabel);
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70+priceLabel.getPreferredSize().width-85, 90, -1, -1));
+
+        productNameLabel.setFont(resourceMap.getFont("productNameLabel.font")); // NOI18N
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
         add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 113, -1));
@@ -144,11 +154,7 @@ public class ProductPanel extends javax.swing.JPanel {
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
-        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
-
-        priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
-        priceLabel.setName("priceLabel"); // NOI18N
-        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 80));
 
         favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
@@ -168,7 +174,7 @@ public class ProductPanel extends javax.swing.JPanel {
         quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
         quantitySpinner.setName("quantitySpinner"); // NOI18N
         quantitySpinner.setPreferredSize(new java.awt.Dimension(70, 26));
-        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
         quantitySpinner.setUI(new StyledSpinnerUI());
     }// </editor-fold>//GEN-END:initComponents
 
@@ -197,7 +203,7 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public javax.swing.JButton addButton;
     public javax.swing.JToggleButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
-    public javax.swing.JLabel priceLabel;
+    public dkgg2012group22imat.view.PriceLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
     public javax.swing.JSpinner quantitySpinner;
     // End of variables declaration//GEN-END:variables
@@ -212,7 +218,7 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     }
 
     public void resetShadow() {
-        this.shadowSize = 3;
+        this.shadowSize = 1;
 
     }
 }

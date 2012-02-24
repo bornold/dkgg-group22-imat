@@ -4,6 +4,7 @@
 
 package dkgg2012group22imat.view;
 
+import dkgg2012group22imat.controller.iMatViewController.MainView;
 import dkgg2012group22imat.model.Model;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
@@ -18,6 +19,8 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
      */
     @Override protected void startup() {
         show(new DKGG2012Group22iMatView(this));
+        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView)this.getMainView();
+        view.setView(MainView.ENTRANCE);
     }
 
     @Override protected void shutdown() {
@@ -40,6 +43,14 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
         return Application.getInstance(DKGG2012Group22iMatApp.class);
     }
 
+    
+    public void setView(MainView viewEnum) {
+        
+        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView)this.getMainView();
+        
+        view.setView(viewEnum);
+    }
+    
     /**
      * Main method launching the application.
      */

@@ -10,12 +10,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import javax.swing.ButtonModel;
-import javax.swing.DefaultButtonModel;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import org.jdesktop.swingx.graphics.GraphicsUtilities;
@@ -31,6 +31,8 @@ public class MainTabButton extends JButton {
     private int shadowSize;
     private Icon icon;
     private Color color;
+    private boolean visible;
+    private Image shadowImage;
 
     public MainTabButton() {
         super();
@@ -38,6 +40,11 @@ public class MainTabButton extends JButton {
         //this.setModel(new DefaultButtonModel());
         shadowSize = 5;
         color = new Color(102, 102, 102);
+        this.visible = false;
+        try {
+            shadowImage = ImageIO.read(getClass().getResourceAsStream("/dkgg2012group22imat/resources/shadow.png"));
+        } catch (Exception e) {
+        }
     }
 
     @Override
@@ -45,62 +52,84 @@ public class MainTabButton extends JButton {
 
         //g.clearRect(0, 0, getWidth(), getHeight());
 
+        //if (this.visible == true) {
+            //Padding:
+            int x = 10;
+            int y = 10;
 
-        //Padding:
-        int x = 10;
-        int y = 10;
+            int w = getWidth() - x * 2;
+            //int h = getHeight() - y * 2;
+            int h = getHeight() - y * 2 + 20;
+            int arc = 25;
+            
+            
 
-        int w = getWidth() - x * 2;
-        //int h = getHeight() - y * 2;
-        int h = getHeight() - y * 2 + 20;
-        int arc = 25;
-
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
 
 
-        if (shadow != null) {
-            int xOffset = (shadow.getWidth() - w) / 2;
-            int yOffset = (shadow.getHeight() - h) / 2;
-            g2.drawImage(shadow, x - xOffset, y - yOffset, null);
-        }
-        if (this.getModel().isRollover()) {
-            g2.setColor(Color.WHITE);
-        } else {
-            g2.setColor(Color.WHITE);
-        }
-        g2.fillRoundRect(x, y, w, h, arc, arc);
 
-        if (this.getModel().isRollover()) {
-            g2.setColor(new Color(34, 34, 34));
-        } else {
-            g2.setColor(new Color(102, 102, 102));
-        }
-        g2.drawRoundRect(x, y, w, h, arc, arc);
-
-        if (this.getModel().isRollover()) {
-            g2.setColor(new Color(34, 34, 34));
-        } else {
-            g2.setColor(new Color(102, 102, 102));
-        }
-
-        g2.setFont(new Font("Myriad Pro", Font.PLAIN, 30));
-
-        g2.drawString(this.getText(), 90, 60);
-        //g2.drawImage(this.getIcon(), 20, 20, this);
-
-        g2.dispose();
-        if (this.getIcon() != null) {
-            if (this.getModel().isRollover()) {
-                this.getRolloverIcon().paintIcon(this, g, 25, 20);
-            } else {
-                this.getIcon().paintIcon(this, g, 25, 20);
+            if (shadow != null) {
+                int xOffset = (shadow.getWidth() - w) / 2;
+                int yOffset = (shadow.getHeight() - h) / 2;
+                g2.drawImage(shadow, x - xOffset, y - yOffset, null);
             }
+            if (this.getModel().isRollover()) {
+                g2.setColor(Color.WHITE);
+            } else {
+                g2.setColor(Color.WHITE);
+            }
+            g2.fillRoundRect(x, y, w, h, arc, arc);
+
+            if (this.getModel().isRollover()) {
+                g2.setColor(new Color(34, 34, 34));
+            } else {
+                g2.setColor(new Color(102, 102, 102));
+            }
+            g2.drawRoundRect(x, y, w, h, arc, arc);
+
+            if (this.getModel().isRollover()) {
+                g2.setColor(new Color(34, 34, 34));
+            } else {
+                g2.setColor(new Color(102, 102, 102));
+            }
+
+            g2.setFont(new Font("Myriad Pro", Font.PLAIN, 30));
+
+            g2.drawString(this.getText(), 90, 60);
+            //g2.drawImage(this.getIcon(), 20, 20, this);
+            
+            if(!visible) this.drawTiled(g2,x);
+               
+            g2.dispose();
+            if (this.getIcon() != null) {
+                if (this.getModel().isRollover()) {
+                    this.getRolloverIcon().paintIcon(this, g, 25, 20);
+                } else {
+                    this.getIcon().paintIcon(this, g, 25, 20);
+                }
+            }
+            
+
+        /*} else {
+            //System.out.println("hide "+this.toString());
+            g.dispose();
+        }*/
+    }
+    
+   private void drawTiled(Graphics g, int offsetx) {
+        Dimension d = getSize();
+        int width = shadowImage.getWidth(null);
+        int height = shadowImage.getHeight(null);
+
+        int y = d.height - shadowImage.getHeight(null);
+        
+        //System.out.println("XXXXXX"+offsetx);
+        
+        for (int x = offsetx; x < d.width-(offsetx*2); x += width) {
+            g.drawImage(shadowImage, x, y, ((x + width) > d.width-(offsetx*2))?(width-(offsetx*3)):width, height,null,null);
         }
-
-
     }
 
     @Override
@@ -130,11 +159,16 @@ public class MainTabButton extends JButton {
 
     }
 
-   /* @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(210, 80);
-    }*/
+    public void setVisibility(boolean visible) {
+        this.visible = visible;
+        System.out.println("HIDE THIS "+this.toString());
+        this.repaint();
+    }
 
+    /* @Override
+    public Dimension getPreferredSize() {
+    return new Dimension(210, 80);
+    }*/
     private class MainTabMouseListener implements MouseListener {
 
         private boolean rollover = false;

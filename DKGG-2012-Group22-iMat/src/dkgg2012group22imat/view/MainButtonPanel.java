@@ -10,25 +10,21 @@
  */
 package dkgg2012group22imat.view;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
+import dkgg2012group22imat.controller.MainButtonPanelController;
+import dkgg2012group22imat.controller.iMatViewController.MainView;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import org.jdesktop.swingx.graphics.GraphicsUtilities;
-import org.jdesktop.swingx.graphics.ShadowRenderer;
 
 /**
  *
  * @author jonas
  */
 public class MainButtonPanel extends javax.swing.JPanel {
-    
+
     Image image;
+    MainButtonPanelController controller;
 
     /** Creates new form MainButtonPanel */
     public MainButtonPanel() {
@@ -36,72 +32,60 @@ public class MainButtonPanel extends javax.swing.JPanel {
         this.setUI(null);
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/dkgg2012group22imat/resources/maintabs_bg.png"));
-        } catch(Exception e) {
-            
+        } catch (Exception e) {
         }
         
+        
+        //System.out.println(this.getComponentCount());
+
+        //JPanel jPanel4 = jPanel2.clone();
+
+        this.controller = new MainButtonPanelController(this);
+        
+        System.out.println(this.getSize());
+        
+        
+        jLayeredPane1.moveToFront(aboveShadow);
+        jLayeredPane1.moveToBack(shadow);
+        mainTabCheckoutButton.setVisibility(false);
+    mainTabShopButton.setVisibility(false);    
+    mainTabEntranceButton.setVisibility(true);
+
+    }
+    
+    public void fillSize() {
+        
+        shadow.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
+        shadow.setSize(new Dimension(this.getWidth(),this.getHeight()));
+        aboveShadow.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
+        aboveShadow.setSize(new Dimension(this.getWidth(),this.getHeight()));
+        jLayeredPane1.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
+        jLayeredPane1.setSize(new Dimension(this.getWidth(),this.getHeight()));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
 
+        this.fillSize();
+        
         this.drawTiled(g);
-        int x = 10;
-        int y = 10;
-        int w = getWidth()-20;
-        int h = 10;
-        int arc = 0;
-        int shadowSize = 40;
-//TODO SKUGGA :')
-/*        
-        BufferedImage shadow = GraphicsUtilities.createCompatibleTranslucentImage(w, h);
-        Graphics2D g2 = shadow.createGraphics();
-        g2.setColor(Color.WHITE);
-        g2.fillRoundRect(0, -2, w, h, arc, arc);
-        //g2.dispose();
-
-        ShadowRenderer renderer = new ShadowRenderer(shadowSize, 2.0f, Color.BLACK);
-        shadow = renderer.createShadow(shadow);
-
-        //Removes the shadow from the content (in case the background is transparent, which is isnt, ah well who knows what happens in the furure, it makes it good to copy, unless someone writes a stupidly long comment on one line so you need to scroll horizontally to see what stupid things he tries to say, thats very frustrating...
-        g2 = shadow.createGraphics();
-        g2.setColor(Color.RED);
-        g2.setComposite(AlphaComposite.Clear);
-        g2.fillRoundRect(shadowSize, shadowSize, w, h, arc, arc);
-        //g2.dispose();
         
-        
-        g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-
-        if (shadow != null) {
-            int xOffset = (shadow.getWidth() - w) / 2;
-            int yOffset = (shadow.getHeight() - h) / 2;
-            g2.drawImage(shadow, x - xOffset, y - yOffset, null);
-        }
-        
-        super.paintComponent(g);
-*/
-
     }
     /*
-	 *  Custom painting code for drawing TILED images as the background
-	 */
-	private void drawTiled(Graphics g)
-	{
-		   Dimension d = getSize();
-		   int width = image.getWidth( null );
-		   int height = image.getHeight( null );
+     *  Custom painting code for drawing TILED images as the background
+     */
 
-		   for (int x = 0; x < d.width; x += width)
-		   {
-			   for (int y = 0; y < d.height; y += height)
-			   {
-				   g.drawImage( image, x, y, null, null );
-			   }
-		   }
-	}
+    private void drawTiled(Graphics g) {
+        Dimension d = getSize();
+        int width = image.getWidth(null);
+        int height = image.getHeight(null);
+
+        for (int x = 0; x < d.width; x += width) {
+            for (int y = 0; y < d.height; y += height) {
+                g.drawImage(image, x, y, null, null);
+            }
+        }
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -112,17 +96,27 @@ public class MainButtonPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        aboveShadow = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(30, 30), new java.awt.Dimension(30, 30), new java.awt.Dimension(30, 30));
         jPanel1 = new javax.swing.JPanel();
         mainTabEntranceButton = new dkgg2012group22imat.view.MainTabButton();
         mainTabShopButton = new dkgg2012group22imat.view.MainTabButton();
         mainTabCheckoutButton = new dkgg2012group22imat.view.MainTabButton();
+        shadow = new dkgg2012group22imat.view.MainTabShadow();
 
         setName("Form"); // NOI18N
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLayeredPane1.setName("jLayeredPane1"); // NOI18N
+
+        aboveShadow.setName("aboveShadow"); // NOI18N
+        aboveShadow.setOpaque(false);
+        aboveShadow.setSize(new java.awt.Dimension(0, 0));
+        aboveShadow.setLayout(new java.awt.BorderLayout());
 
         filler1.setName("filler1"); // NOI18N
-        add(filler1);
+        aboveShadow.add(filler1, java.awt.BorderLayout.NORTH);
 
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
@@ -166,28 +160,52 @@ public class MainButtonPanel extends javax.swing.JPanel {
         });
         jPanel1.add(mainTabCheckoutButton);
 
-        add(jPanel1);
+        aboveShadow.add(jPanel1, java.awt.BorderLayout.CENTER);
         //((FlowLayout)jPanel1.getLayout()).setHgap(20);
         //((FlowLayout)jPanel1.getLayout()).setVgap(20);
+
+        aboveShadow.setBounds(0, 0, 590, 120);
+        jLayeredPane1.add(aboveShadow, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        shadow.setText(resourceMap.getString("shadow.text")); // NOI18N
+        shadow.setName("shadow"); // NOI18N
+        shadow.setBounds(0, 0, 110, 16);
+        jLayeredPane1.add(shadow, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        add(jLayeredPane1);
     }// </editor-fold>//GEN-END:initComponents
 
 private void mainTabEntranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabEntranceButtonActionPerformed
-System.out.println("GO TO ENTRANCE");
+    controller.goTo(MainView.ENTRANCE);
+    
+    mainTabCheckoutButton.setVisibility(false);
+    mainTabShopButton.setVisibility(false);    
+    mainTabEntranceButton.setVisibility(true);
 }//GEN-LAST:event_mainTabEntranceButtonActionPerformed
 
 private void mainTabShopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabShopButtonActionPerformed
-System.out.println("GO TO SHOP");
+    controller.goTo(MainView.SHOP);
+    mainTabCheckoutButton.setVisibility(false);
+    mainTabShopButton.setVisibility(true);    
+    mainTabEntranceButton.setVisibility(false);
 }//GEN-LAST:event_mainTabShopButtonActionPerformed
 
 private void mainTabCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabCheckoutButtonActionPerformed
-System.out.println("GO TO CHECKOUT");
+    controller.goTo(MainView.CHECKOUT);
+    
+    mainTabCheckoutButton.setVisibility(true);
+    mainTabShopButton.setVisibility(false);    
+    mainTabEntranceButton.setVisibility(false);
 }//GEN-LAST:event_mainTabCheckoutButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel aboveShadow;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private dkgg2012group22imat.view.MainTabButton mainTabCheckoutButton;
     private dkgg2012group22imat.view.MainTabButton mainTabEntranceButton;
     private dkgg2012group22imat.view.MainTabButton mainTabShopButton;
+    private dkgg2012group22imat.view.MainTabShadow shadow;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
 
 package dkgg2012group22imat.view;
 
+import dkgg2012group22imat.controller.iMatViewController;
+import dkgg2012group22imat.controller.iMatViewController.MainView;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -14,12 +16,17 @@ import javax.swing.JFrame;
  * The application's main frame.
  */
 public class DKGG2012Group22iMatView extends FrameView {
+    
+    private iMatViewController controller;
 
     public DKGG2012Group22iMatView(SingleFrameApplication app) {
         super(app);
 
         initComponents();
-
+        
+        controller = new iMatViewController(this);
+        
+        
     }
 
     @Action
@@ -30,6 +37,21 @@ public class DKGG2012Group22iMatView extends FrameView {
             aboutBox.setLocationRelativeTo(mainFrame);
         }
         DKGG2012Group22iMatApp.getApplication().show(aboutBox);
+    }
+    
+    public void setView(MainView viewEnum) {
+        switch(viewEnum) {
+            case ENTRANCE:
+                mainContentPanel.moveToFront(entrancePanel1);
+                controller.setCurrentView(viewEnum);
+                break;
+            case CHECKOUT:
+                mainContentPanel.moveToFront(checkoutPanel1);
+                controller.setCurrentView(viewEnum);
+                break;
+            default:
+                setView(MainView.ENTRANCE);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -42,6 +64,12 @@ public class DKGG2012Group22iMatView extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        cartPanel1 = new dkgg2012group22imat.view.CartPanel();
+        jPanel1 = new javax.swing.JPanel();
+        mainButtonPanel1 = new dkgg2012group22imat.view.MainButtonPanel();
+        mainContentPanel = new javax.swing.JLayeredPane();
+        entrancePanel1 = new dkgg2012group22imat.view.entrance.EntrancePanel();
+        checkoutPanel1 = new dkgg2012group22imat.view.checkout.CheckoutPanel();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -49,17 +77,33 @@ public class DKGG2012Group22iMatView extends FrameView {
         javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
 
         mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
-        );
+        cartPanel1.setName("cartPanel1"); // NOI18N
+        mainPanel.add(cartPanel1, java.awt.BorderLayout.EAST);
+
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        mainButtonPanel1.setMaximumSize(new java.awt.Dimension(32767, 114));
+        mainButtonPanel1.setMinimumSize(new java.awt.Dimension(620, 114));
+        mainButtonPanel1.setName("mainButtonPanel1"); // NOI18N
+        mainButtonPanel1.setPreferredSize(new java.awt.Dimension(0, 114));
+        jPanel1.add(mainButtonPanel1, java.awt.BorderLayout.NORTH);
+
+        mainContentPanel.setName("mainContentPanel"); // NOI18N
+
+        entrancePanel1.setName("entrancePanel1"); // NOI18N
+        entrancePanel1.setBounds(0, 0, 310, 291);
+        mainContentPanel.add(entrancePanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        checkoutPanel1.setName("checkoutPanel1"); // NOI18N
+        checkoutPanel1.setBounds(0, 0, 451, 410);
+        mainContentPanel.add(checkoutPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jPanel1.add(mainContentPanel, java.awt.BorderLayout.CENTER);
+
+        mainPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         menuBar.setName("menuBar"); // NOI18N
 
@@ -88,6 +132,12 @@ public class DKGG2012Group22iMatView extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private dkgg2012group22imat.view.CartPanel cartPanel1;
+    private dkgg2012group22imat.view.checkout.CheckoutPanel checkoutPanel1;
+    private dkgg2012group22imat.view.entrance.EntrancePanel entrancePanel1;
+    private javax.swing.JPanel jPanel1;
+    private dkgg2012group22imat.view.MainButtonPanel mainButtonPanel1;
+    private javax.swing.JLayeredPane mainContentPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
