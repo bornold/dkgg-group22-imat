@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view.entrance;
 
 import dkgg2012group22imat.controller.entrance.FavoriteCartsController;
+import dkgg2012group22imat.controller.entrance.SavedCartSuperController;
 
 /**
  *
@@ -20,9 +21,9 @@ public class FavoriteCartsPanel extends javax.swing.JPanel {
 
     /** Creates new form FavoriteCartPanel */
     private FavoriteCartsController controller;
-    public FavoriteCartsPanel() {
+    public FavoriteCartsPanel(SavedCartSuperController parent) {
         initComponents();
-        controller = new FavoriteCartsController(this);
+        controller = new FavoriteCartsController(parent, this);
     }
 
     /** This method is called from within the constructor to

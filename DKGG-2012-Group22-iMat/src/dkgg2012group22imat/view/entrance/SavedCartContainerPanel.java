@@ -103,7 +103,7 @@ public class SavedCartContainerPanel extends javax.swing.JPanel {
                     .addComponent(hideButton)
                     .addComponent(addAllButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itemsListScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                .addComponent(itemsListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

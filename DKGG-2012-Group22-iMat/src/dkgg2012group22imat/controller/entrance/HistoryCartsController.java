@@ -22,11 +22,11 @@ public class HistoryCartsController implements SavedCartInterface {
 
     private HistoryCartsPanel view;
     private Model m = Model.getInstance();
+    private SavedCartSuperController parent;
 
-    public HistoryCartsController(HistoryCartsPanel historyCartsPanel) {
-        System.out.println("HistoryCartsController ini");
+    public HistoryCartsController(SavedCartSuperController parent, HistoryCartsPanel historyCartsPanel) {
         this.view = historyCartsPanel;
-        
+        this.parent = parent;
         //TEMP CODE
         m.reset();
         List<Product> prds = m.getOffers();
@@ -37,27 +37,28 @@ public class HistoryCartsController implements SavedCartInterface {
             }
             m.placeOrder();
         }
-        
+
         // TEMP CODE END
+
+        List<Order> temp = m.getOrders();
+        for (Order o : temp) {
+            view.add(new HistoryCartPanel(o, this));
+        }
+        view.updateUI();
         
-        showCarts();
     }
 
-
     void show(List<ShoppingItem> items, String name) {
+        parent.hideFavorite();
         view.removeAll();
         view.add((new SavedCartContainerPanel(this, items, name)));
         view.updateUI();
     }
 
-   public void showCarts() {
+    public void showCarts() {
+        parent.showFavorite();
         view.removeAll();
         List<Order> temp = m.getOrders();
-        if (temp.isEmpty()) {
-            System.out.println("No history!");
-        } else {
-            System.out.println("Orders in history:" + temp.size());
-        }
         for (Order o : temp) {
             view.add(new HistoryCartPanel(o, this));
         }

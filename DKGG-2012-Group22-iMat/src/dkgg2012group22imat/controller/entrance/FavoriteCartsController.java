@@ -22,33 +22,46 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class FavoriteCartsController implements SavedCartInterface {
 
     private FavoriteCartsPanel view;
+    private SavedCartSuperController parent;
     private Model m = Model.getInstance();
 
-    public FavoriteCartsController(FavoriteCartsPanel favoriteCartsPanel) {
+    public FavoriteCartsController(SavedCartSuperController parent, FavoriteCartsPanel favoriteCartsPanel) {
         this.view = favoriteCartsPanel;
+        this.parent = parent;
         //TODO REMOVE TEMP CODE
         List<Product> prodTemp = m.getOffers();
-        List<ShoppingItem> itemTemp = new ArrayList<ShoppingItem>();
-        for (Product p : prodTemp) {
-            itemTemp.add(new ShoppingItem(p));
+        for (int i = 0; i < 10; i++) {
+            List<ShoppingItem> itemTemp = new ArrayList<ShoppingItem>();
+            for (Product p : prodTemp) {
+                itemTemp.add(new ShoppingItem(p));
+            }
+            m.saveNewCart(itemTemp, "Favorite" + i);
         }
-        m.saveNewCart(itemTemp, "Favorite");
         //TEMP CODE END
-        showCarts();
-    }
 
-    void show(List<ShoppingItem> items, String name) {
-        view.removeAll();
-        view.add((new SavedCartContainerPanel(this, items, name)));
+        List<SavedCart> temp = m.getSavedCarts();
+        for (SavedCart sc : temp) {
+            view.add(new FavoriteCartPanel(sc, this));
+        }
         view.updateUI();
     }
 
+    void show(List<ShoppingItem> items, String name) {
+        parent.hideHistory();
+        view.removeAll();
+        view.add((new SavedCartContainerPanel(this, items, name)));
+        view.updateUI();
+        parent._updateUI();
+    }
+
     public void showCarts() {
+        parent.showHistory();
         view.removeAll();
         List<SavedCart> temp = m.getSavedCarts();
         for (SavedCart sc : temp) {
             view.add(new FavoriteCartPanel(sc, this));
         }
         view.updateUI();
+        parent._updateUI();
     }
 }
