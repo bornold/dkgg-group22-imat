@@ -79,20 +79,31 @@ public class Model {
         return iMatDataHandler.getImageIcon(p, width, height);
     }
 
-    public void addToShoppingCart(Product p, int amount) {
-        for (int i = 0; i < amount; i++) {
-            addToShoppingCart(p);
+    public void addToShoppingCart(Product p, double amount) {
+        
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        System.out.println("CartAdding: " + p.getName());
+        List<ShoppingItem> list = shoppingCart.getItems();
+        boolean shoppingCartUpdated = false;
+        for(ShoppingItem item : list) {
+            if(item.getProduct() == p) {
+                item.setAmount(item.getAmount()+amount);
+                shoppingCartUpdated = true;
+            }
+        }
+        if(shoppingCartUpdated) {
+            shoppingCart.fireShoppingCartChanged();
+        } else {
+            shoppingCart.addItem(new ShoppingItem(p,amount));
         }
     }
 
     public void addToShoppingCart(Product p) {
-        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-        System.out.println("CartAdding: " + p.getName());
-        shoppingCart.addProduct(p);
+       addToShoppingCart(p,1);
     }
 
     public void addToShoppingCart(ShoppingItem si) {
-        addToShoppingCart(si.getProduct(), (int)si.getAmount()); 
+        addToShoppingCart(si.getProduct(), si.getAmount()); 
     }
 
      public void addToShoppingCart(List <ShoppingItem> items) {

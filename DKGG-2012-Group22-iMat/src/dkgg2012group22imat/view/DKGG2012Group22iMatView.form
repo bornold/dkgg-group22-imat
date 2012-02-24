@@ -21,6 +21,7 @@
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
+            <Property name="background" type="java.awt.Color" resourceKey="jPanel1.background"/>
             <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
           </Properties>
           <Constraints>
@@ -52,6 +53,7 @@
             </Component>
             <Container class="javax.swing.JPanel" name="mainContentPanel">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="mainContentPanel.background"/>
                 <Property name="name" type="java.lang.String" value="mainContentPanel" noResource="true"/>
               </Properties>
               <Constraints>
@@ -64,6 +66,7 @@
               <SubComponents>
                 <Component class="dkgg2012group22imat.view.entrance.EntrancePanel" name="entrancePanel1">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="entrancePanel1.background"/>
                     <Property name="name" type="java.lang.String" value="entrancePanel1" noResource="true"/>
                   </Properties>
                   <Constraints>
@@ -74,16 +77,18 @@
                 </Component>
                 <Component class="dkgg2012group22imat.view.shop.ShopPanel" name="shopPanel1">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="shopPanel1.background"/>
                     <Property name="name" type="java.lang.String" value="shopPanel1" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="card4"/>
+                      <CardConstraints cardName="SHOP"/>
                     </Constraint>
                   </Constraints>
                 </Component>
                 <Component class="dkgg2012group22imat.view.checkout.CheckoutPanel" name="checkoutPanel1">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="checkoutPanel1.background"/>
                     <Property name="name" type="java.lang.String" value="checkoutPanel1" noResource="true"/>
                   </Properties>
                   <Constraints>
