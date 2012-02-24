@@ -40,7 +40,7 @@ public class SavedCartSuperPanel extends javax.swing.JPanel {
         historyPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(2, 1));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.PAGE_AXIS));
 
         favoriteScrollPane.setName("favoriteScrollPane"); // NOI18N
 

@@ -5,10 +5,10 @@
 package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
-import dkgg2012group22imat.view.SavedCartInterface;
 import dkgg2012group22imat.view.entrance.HistoryCartPanel;
 import dkgg2012group22imat.view.entrance.HistoryCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
+import java.awt.Dimension;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
@@ -63,5 +63,9 @@ public class HistoryCartsController implements SavedCartInterface {
             view.add(new HistoryCartPanel(o, this));
         }
         view.updateUI();
+    }
+
+    public Dimension getSize() {
+        return parent.getSize();
     }
 }

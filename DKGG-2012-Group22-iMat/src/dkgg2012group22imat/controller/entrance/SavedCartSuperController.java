@@ -7,6 +7,7 @@ package dkgg2012group22imat.controller.entrance;
 import dkgg2012group22imat.view.entrance.FavoriteCartsPanel;
 import dkgg2012group22imat.view.entrance.HistoryCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartSuperPanel;
+import java.awt.Dimension;
 
 /**
  *
@@ -28,27 +29,38 @@ public class SavedCartSuperController {
 
     public void hideHistory() {
         view.remove(view.historyScrollPane);
+        view.favoriteScrollPane.setSize(getSize());
+        view.favoritePanel.setSize(getSize());
         _updateUI();
     }
 
     public void hideFavorite() {
         view.remove(view.favoriteScrollPane);
+        view.historyScrollPane.setSize(getSize());
+        view.historyPanel.setSize(getSize());
         _updateUI();
+
     }
 
     public void showHistory() {
         view.add(view.historyScrollPane);
         _updateUI();
+
     }
 
     public void showFavorite() {
         view.add(view.favoriteScrollPane, 0);
         _updateUI();
+
     }
 
     public void _updateUI() {
         view.revalidate();
         view.repaint();
         view.updateUI();
+    }
+
+    public Dimension getSize() {
+        return view.getSize();
     }
 }

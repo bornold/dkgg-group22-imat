@@ -6,10 +6,10 @@ package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.model.SavedCart;
-import dkgg2012group22imat.view.SavedCartInterface;
 import dkgg2012group22imat.view.entrance.FavoriteCartPanel;
 import dkgg2012group22imat.view.entrance.FavoriteCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
@@ -51,7 +51,6 @@ public class FavoriteCartsController implements SavedCartInterface {
         view.removeAll();
         view.add((new SavedCartContainerPanel(this, items, name)));
         view.updateUI();
-        parent._updateUI();
     }
 
     public void showCarts() {
@@ -62,6 +61,9 @@ public class FavoriteCartsController implements SavedCartInterface {
             view.add(new FavoriteCartPanel(sc, this));
         }
         view.updateUI();
-        parent._updateUI();
+    }
+
+    public Dimension getSize() {
+        return parent.getSize();
     }
 }

@@ -10,9 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance;
 
-import dkgg2012group22imat.controller.entrance.HistoryCartsController;
 import dkgg2012group22imat.controller.entrance.SavedCartContainerController;
-import dkgg2012group22imat.view.SavedCartInterface;
+import dkgg2012group22imat.controller.entrance.SavedCartInterface;
 import java.util.List;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -28,6 +27,7 @@ public class SavedCartContainerPanel extends javax.swing.JPanel {
     public SavedCartContainerPanel(SavedCartInterface parent, List<ShoppingItem> _items, String name) {
         initComponents();
         controller = new SavedCartContainerController(parent, _items, name, this);
+        setPreferredSize(controller.getSize());
     }
 
     /** This method is called from within the constructor to
@@ -90,7 +90,7 @@ public class SavedCartContainerPanel extends javax.swing.JPanel {
                 .addComponent(hideButton)
                 .addGap(18, 18, 18)
                 .addComponent(addAllButton))
-            .addComponent(itemsListScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+            .addComponent(itemsListScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
