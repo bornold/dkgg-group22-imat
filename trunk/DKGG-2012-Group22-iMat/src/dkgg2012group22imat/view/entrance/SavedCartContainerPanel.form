@@ -30,7 +30,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="addAllButton" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Component id="itemsListScrollPane" alignment="1" pref="162" max="32767" attributes="0"/>
+          <Component id="itemsListScrollPane" alignment="1" pref="200" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

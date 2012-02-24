@@ -5,9 +5,9 @@
 package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
-import dkgg2012group22imat.view.SavedCartInterface;
 import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
 import dkgg2012group22imat.view.entrance.SavedCartPanel;
+import java.awt.Dimension;
 import java.util.List;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -36,5 +36,8 @@ public class SavedCartContainerController {
 
     public void addAll() {
         m.addToShoppingCart(items);
+    }
+    public Dimension getSize(){
+        return parent.getSize();
     }
 }
