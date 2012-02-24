@@ -6,6 +6,7 @@ package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.iMatViewController;
 import dkgg2012group22imat.controller.iMatViewController.MainView;
+import java.awt.CardLayout;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -42,11 +43,15 @@ public class DKGG2012Group22iMatView extends FrameView {
     public void setView(MainView viewEnum) {
         switch(viewEnum) {
             case ENTRANCE:
-                mainContentPanel.moveToFront(entrancePanel1);
+                ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"ENTRANCE");
+                controller.setCurrentView(viewEnum);
+                break;
+            case SHOP:
+                ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"SHOP");
                 controller.setCurrentView(viewEnum);
                 break;
             case CHECKOUT:
-                mainContentPanel.moveToFront(checkoutPanel1);
+                ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"CHECKOUT");
                 controller.setCurrentView(viewEnum);
                 break;
             default:
@@ -67,8 +72,9 @@ public class DKGG2012Group22iMatView extends FrameView {
         cartPanel1 = new dkgg2012group22imat.view.CartPanel();
         jPanel1 = new javax.swing.JPanel();
         mainButtonPanel1 = new dkgg2012group22imat.view.MainButtonPanel();
-        mainContentPanel = new javax.swing.JLayeredPane();
+        mainContentPanel = new javax.swing.JPanel();
         entrancePanel1 = new dkgg2012group22imat.view.entrance.EntrancePanel();
+        shopPanel1 = new dkgg2012group22imat.view.shop.ShopPanel();
         checkoutPanel1 = new dkgg2012group22imat.view.checkout.CheckoutPanel();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
@@ -92,14 +98,16 @@ public class DKGG2012Group22iMatView extends FrameView {
         jPanel1.add(mainButtonPanel1, java.awt.BorderLayout.NORTH);
 
         mainContentPanel.setName("mainContentPanel"); // NOI18N
+        mainContentPanel.setLayout(new java.awt.CardLayout());
 
         entrancePanel1.setName("entrancePanel1"); // NOI18N
-        entrancePanel1.setBounds(0, 0, 310, 291);
-        mainContentPanel.add(entrancePanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        mainContentPanel.add(entrancePanel1, "ENTRANCE");
+
+        shopPanel1.setName("shopPanel1"); // NOI18N
+        mainContentPanel.add(shopPanel1, "card4");
 
         checkoutPanel1.setName("checkoutPanel1"); // NOI18N
-        checkoutPanel1.setBounds(0, 0, 451, 410);
-        mainContentPanel.add(checkoutPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        mainContentPanel.add(checkoutPanel1, "CHECKOUT");
 
         jPanel1.add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
@@ -137,9 +145,10 @@ public class DKGG2012Group22iMatView extends FrameView {
     private dkgg2012group22imat.view.entrance.EntrancePanel entrancePanel1;
     private javax.swing.JPanel jPanel1;
     private dkgg2012group22imat.view.MainButtonPanel mainButtonPanel1;
-    private javax.swing.JLayeredPane mainContentPanel;
+    private javax.swing.JPanel mainContentPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
+    private dkgg2012group22imat.view.shop.ShopPanel shopPanel1;
     // End of variables declaration//GEN-END:variables
 
 
