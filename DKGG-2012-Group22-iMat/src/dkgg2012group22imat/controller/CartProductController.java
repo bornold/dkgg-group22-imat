@@ -7,7 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartProductPanel;
 import java.awt.Dimension;
-import java.awt.Point;
+import java.util.EventObject;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -27,8 +27,10 @@ public class CartProductController {
         this.view = panel;
         view.productNameLabel.setText(p.getName());
         view.iconLabel.setIcon(m.getImageIcon(p, new Dimension(80, 80)));
-        view.priceLabel.setText(p.getPrice() + p.getUnit());
+        view.priceLabel.setText(p.getPrice()+"");
+        view.deleteButton.setVisible(false);
 //        view.quantityLabel.setText(p.getUnitSuffix());
+        view.favoriteToggleButton.setVisible(false);
         setFavoButton();
 
     }
@@ -44,27 +46,25 @@ public class CartProductController {
 
     private void setFavoButton() {
         if (m.isFavorite(p)) {
-            view.favoriteToggleButton.setText("isFavo");
+            view.favoriteToggleButton.setIcon(view.favoriteToggleButton.getPressedIcon());
         } else {
-            view.favoriteToggleButton.setText("Favo");
+            view.favoriteToggleButton.setIcon(view.favoriteToggleButton.getDisabledIcon());
         }
     }
     public void removeFromCart() {
         m.removeFromShoppingCart(p);
     }
     public void hooverd() {
-        Point p = view.getLocation();
-        int x = p.x-(big.width-small.width)/2;
-        int y = p.y-(big.height-small.height)/2;
-        view.setLocation(x,y);
-        view.setSize(big);
+        view.deleteButton.setVisible(true);
     }
 
     public void dehoover() {
-        Point p = view.getLocation();
-        int x = p.x+(big.width-small.width)/2;
-        int y = p.y+(big.height-small.height)/2;
-        view.setLocation(x,y);
-        view.setSize(small);
+        view.deleteButton.setVisible(false);
+    }
+    public void spinnerChanged(int i){
+        view.priceLabel.setText(p.getPrice()*i+"");
+    }
+    public void handleFavoriteEvent(EventObject e) {
+        setFavoButton();
     }
 }

@@ -64,7 +64,7 @@
               </Group>
               <EmptySpace pref="184" max="32767" attributes="0"/>
           </Group>
-          <Component id="cartPanel1" alignment="0" pref="404" max="32767" attributes="0"/>
+          <Component id="cartPanel1" alignment="0" pref="564" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

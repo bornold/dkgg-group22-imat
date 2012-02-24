@@ -25,8 +25,6 @@ public class CartProductPanel extends javax.swing.JPanel {
 
     CartProductController controller;
     boolean inside;
-    private BufferedImage shadow;
-    private int shadowSize;
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
     
@@ -35,62 +33,8 @@ public class CartProductPanel extends javax.swing.JPanel {
     public CartProductPanel(Product p) {
         initComponents();
         controller = new CartProductController(p, this);
-
-        this.resetShadow();
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-
-        //Padding:
-        int x = 10;
-        int y = 10;
-
-        int w = getWidth() - x * 2;
-        int h = getHeight() - y * 2;
-        int arc = 15;
-
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-
-
-        if (shadow != null) {
-            int xOffset = (shadow.getWidth() - w) / 2;
-            int yOffset = (shadow.getHeight() - h) / 2;
-            g2.drawImage(shadow, x - xOffset, y - yOffset, null);
-        }
-
-        g2.setColor(Color.WHITE);
-        g2.fillRoundRect(x, y, w, h, arc, arc);
-
-        g2.dispose();
-    }
-
-    @Override
-    public void setBounds(int x, int y, int width, int height) {
-        super.setBounds(x, y, width, height);
-
-        int w = getWidth() - 20;
-        int h = getHeight() - 20;
-        int arc = 20;
-
-        shadow = GraphicsUtilities.createCompatibleTranslucentImage(w, h);
-        Graphics2D g2 = shadow.createGraphics();
-        g2.setColor(Color.WHITE);
-        g2.fillRoundRect(0, 1, w, h, arc, arc);
-        g2.dispose();
-
-        ShadowRenderer renderer = new ShadowRenderer(shadowSize, 0.5f, Color.BLACK);
-        shadow = renderer.createShadow(shadow);
-
-        //Removes the shadow from the content (in case the background is transparent, which is isnt, ah well who knows what happens in the furure, it makes it good to copy, unless someone writes a stupidly long comment on one line so you need to scroll horizontally to see what stupid things he tries to say, thats very frustrating...
-        g2 = shadow.createGraphics();
-        g2.setColor(Color.RED);
-        g2.setComposite(AlphaComposite.Clear);
-        g2.fillRoundRect(shadowSize, shadowSize, w, h, arc, arc);
-        g2.dispose();
-    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -102,74 +46,123 @@ public class CartProductPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         productNameLabel = new javax.swing.JLabel();
-        addButton = new javax.swing.JButton();
         iconLabel = new javax.swing.JLabel();
-        quantityComboBox = new javax.swing.JComboBox();
         priceLabel = new javax.swing.JLabel();
         favoriteToggleButton = new javax.swing.JToggleButton();
-
-        setMinimumSize(new java.awt.Dimension(180, 180));
-        setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(180, 180));
-        setRequestFocusEnabled(false);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        quantitySpinner = new javax.swing.JSpinner();
+        deleteButton = new javax.swing.JButton();
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
+        setBackground(resourceMap.getColor("Form.background")); // NOI18N
+        setMinimumSize(new java.awt.Dimension(180, 180));
+        setName("Form"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(270, 85));
+        setRequestFocusEnabled(false);
+        setSize(new java.awt.Dimension(270, 85));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
-        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 113, -1));
-
-        addButton.setBorderPainted(false);
-        addButton.setName("addButton"); // NOI18N
-        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 113, -1));
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
         add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 44, -1, -1));
 
-        quantityComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
-        quantityComboBox.setName("quantityComboBox"); // NOI18N
-        add(quantityComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 60, 30));
-        quantityComboBox.setUI(new StyledComboBoxUI());
-
+        priceLabel.setBackground(resourceMap.getColor("priceLabel.background")); // NOI18N
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
-        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
+        favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setBorderPainted(false);
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
         favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
+
+        quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
+        quantitySpinner.setName("quantitySpinner"); // NOI18N
+        quantitySpinner.setPreferredSize(new java.awt.Dimension(70, 26));
+        quantitySpinner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                quantitySpinnerMouseEntered(evt);
+            }
+        });
+        quantitySpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                quantitySpinnerStateChanged(evt);
+            }
+        });
+        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, 25));
+        quantitySpinner.setUI(new StyledSpinnerUI());
+
+        deleteButton.setText(resourceMap.getString("deleteButton.text")); // NOI18N
+        deleteButton.setName("deleteButton"); // NOI18N
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseEntered(evt);
+            }
+        });
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
+    controller.hooverd();
+}//GEN-LAST:event_formMouseEntered
+
+private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
+    controller.dehoover();
+}//GEN-LAST:event_formMouseExited
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
     controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
+private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_deleteButtonActionPerformed
+
+private void quantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quantitySpinnerStateChanged
+    controller.spinnerChanged((Integer)quantitySpinner.getValue());
+}//GEN-LAST:event_quantitySpinnerStateChanged
+
+private void deleteButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseEntered
+    controller.hooverd();
+}//GEN-LAST:event_deleteButtonMouseEntered
+
+private void quantitySpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quantitySpinnerMouseEntered
+    controller.hooverd();
+}//GEN-LAST:event_quantitySpinnerMouseEntered
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton addButton;
+    public javax.swing.JButton deleteButton;
     public javax.swing.JToggleButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
-    public javax.swing.JComboBox quantityComboBox;
+    public javax.swing.JSpinner quantitySpinner;
     // End of variables declaration//GEN-END:variables
 
     public int getAmount() {
-        return quantityComboBox.getSelectedIndex();
-    }
-
-    public void expandShadow() {
-        this.shadowSize = 10;
-
-    }
-
-    public void resetShadow() {
-        this.shadowSize = 3;
-
+        return Integer.parseInt(quantitySpinner.getValue().toString());
     }
 }
