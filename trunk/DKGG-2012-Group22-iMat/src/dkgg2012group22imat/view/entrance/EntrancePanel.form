@@ -19,54 +19,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="338" max="-2" attributes="0"/>
-                  <Component id="favoriteCartsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Component id="savedCartSuperPanel1" min="-2" pref="333" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="favoriteProductsPanel1" alignment="1" max="32767" attributes="1"/>
+                  <Component id="spotlightProductsPanel1" alignment="1" min="-2" max="-2" attributes="1"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="favoriteProductsPanel1" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="1"/>
-                  <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="savedCartSuperPanel1" alignment="0" pref="572" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="spotlightProductsPanel1" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="favoriteCartsPanel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="favoriteProductsPanel1" pref="206" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="347" max="-2" attributes="1"/>
-                  <Component id="favoriteProductsPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="dkgg2012group22imat.view.entrance.HistoryCartsPanel" name="historyCartsPanel1">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="historyCartsPanel1" noResource="true"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="dkgg2012group22imat.view.entrance.SpotlightProductsPanel" name="spotlightProductsPanel1">
       <Properties>
         <Property name="name" type="java.lang.String" value="spotlightProductsPanel1" noResource="true"/>
@@ -77,9 +58,9 @@
         <Property name="name" type="java.lang.String" value="favoriteProductsPanel1" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="dkgg2012group22imat.view.entrance.FavoriteCartsPanel" name="favoriteCartsPanel1">
+    <Component class="dkgg2012group22imat.view.entrance.SavedCartSuperPanel" name="savedCartSuperPanel1">
       <Properties>
-        <Property name="name" type="java.lang.String" value="favoriteCartsPanel1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="savedCartSuperPanel1" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

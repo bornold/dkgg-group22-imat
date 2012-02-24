@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view.entrance;
 
 import dkgg2012group22imat.controller.entrance.HistoryCartsController;
+import dkgg2012group22imat.controller.entrance.SavedCartSuperController;
 
 /**
  *
@@ -20,9 +21,9 @@ public class HistoryCartsPanel extends javax.swing.JPanel {
 
     private HistoryCartsController controller;
     /** Creates new form HistoryCartPanel */
-    public HistoryCartsPanel() {
+    public HistoryCartsPanel(SavedCartSuperController parent) {
         initComponents();
-        controller = new HistoryCartsController(this);
+        controller = new HistoryCartsController(parent, this);
     }
 
     /** This method is called from within the constructor to
