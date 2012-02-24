@@ -88,6 +88,8 @@ public class DKGG2012Group22iMatView extends FrameView {
         cartPanel1.setName("cartPanel1"); // NOI18N
         mainPanel.add(cartPanel1, java.awt.BorderLayout.EAST);
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
+        jPanel1.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -97,15 +99,19 @@ public class DKGG2012Group22iMatView extends FrameView {
         mainButtonPanel1.setPreferredSize(new java.awt.Dimension(0, 114));
         jPanel1.add(mainButtonPanel1, java.awt.BorderLayout.NORTH);
 
+        mainContentPanel.setBackground(resourceMap.getColor("mainContentPanel.background")); // NOI18N
         mainContentPanel.setName("mainContentPanel"); // NOI18N
         mainContentPanel.setLayout(new java.awt.CardLayout());
 
+        entrancePanel1.setBackground(resourceMap.getColor("entrancePanel1.background")); // NOI18N
         entrancePanel1.setName("entrancePanel1"); // NOI18N
         mainContentPanel.add(entrancePanel1, "ENTRANCE");
 
+        shopPanel1.setBackground(resourceMap.getColor("shopPanel1.background")); // NOI18N
         shopPanel1.setName("shopPanel1"); // NOI18N
-        mainContentPanel.add(shopPanel1, "card4");
+        mainContentPanel.add(shopPanel1, "SHOP");
 
+        checkoutPanel1.setBackground(resourceMap.getColor("checkoutPanel1.background")); // NOI18N
         checkoutPanel1.setName("checkoutPanel1"); // NOI18N
         mainContentPanel.add(checkoutPanel1, "CHECKOUT");
 
@@ -115,7 +121,6 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         menuBar.setName("menuBar"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 

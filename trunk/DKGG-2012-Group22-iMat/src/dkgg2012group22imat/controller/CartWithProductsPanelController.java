@@ -34,13 +34,14 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
     public void shoppingCartChanged() {
         items = shoppingCart.getItems();
-        view.removeAll();
+        view.getProductListPanel().removeAll();
         for (ShoppingItem si : items) {
-            p = si.getProduct();
-            CartProductPanel pane = new CartProductPanel(p);
-            view.add(pane);
+            CartProductPanel pane = new CartProductPanel(si);
+            view.getProductListPanel().add(pane);
         }
         System.out.println("Cart increased with " + view.getComponents().length);
         view.updateUI();
+        view.revalidate();
+        view.repaint();
     }
 }
