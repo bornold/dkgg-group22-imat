@@ -22,17 +22,15 @@ public class FavoriteCartController {
     private SavedCart cart;
     private List<ShoppingItem> items;
     Model m = Model.getInstance();
+    private FavoriteCartsController parent;
 
-    public FavoriteCartController(SavedCart sc, FavoriteCartPanel favoriteCartPanel) {
+    public FavoriteCartController(SavedCart sc, FavoriteCartsController parent, FavoriteCartPanel favoriteCartPanel) {
         this.cart = sc;
         this.view = favoriteCartPanel;
-        //view.dateLabel.setText(SavedCart.getDate().toString());
-        //items = o.getItems();
-        double totPrice = 0;
-        for (ShoppingItem si : items) {
-            totPrice += si.getAmount() + si.getProduct().getPrice();
-        }
-        view.informationLabel.setText(items.size() + " varor för totalt " + totPrice);
+        this.parent = parent;
+        view.nameLabel.setName(sc.getName());
+        items = sc.getItems();
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sc.getTotalPrice());
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
@@ -48,9 +46,10 @@ public class FavoriteCartController {
     }
 
     public void addAll() {
-        for(ShoppingItem p : items){
-            m.addToShoppingCart(p.getProduct(), (int)p.getAmount());
-        }
+        m.addToShoppingCart(items);
+    }
+
+    public void show() {
+        parent.show(items, cart.getName());
     }
 }
-

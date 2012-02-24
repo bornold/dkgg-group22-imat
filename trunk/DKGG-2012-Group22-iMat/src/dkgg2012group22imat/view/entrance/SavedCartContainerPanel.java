@@ -12,6 +12,7 @@ package dkgg2012group22imat.view.entrance;
 
 import dkgg2012group22imat.controller.entrance.HistoryCartsController;
 import dkgg2012group22imat.controller.entrance.SavedCartContainerController;
+import dkgg2012group22imat.view.SavedCartInterface;
 import java.util.List;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -24,7 +25,7 @@ public class SavedCartContainerPanel extends javax.swing.JPanel {
     SavedCartContainerController controller;
 
     /** Creates new form SavedCartContainer */
-    public SavedCartContainerPanel(HistoryCartsController parent, List<ShoppingItem> _items, String name) {
+    public SavedCartContainerPanel(SavedCartInterface parent, List<ShoppingItem> _items, String name) {
         initComponents();
         controller = new SavedCartContainerController(parent, _items, name, this);
     }

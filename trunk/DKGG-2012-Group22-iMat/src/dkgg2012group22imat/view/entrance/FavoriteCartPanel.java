@@ -11,10 +11,8 @@
 package dkgg2012group22imat.view.entrance;
 
 import dkgg2012group22imat.controller.entrance.FavoriteCartController;
-import dkgg2012group22imat.controller.entrance.HistoryCartController;
+import dkgg2012group22imat.controller.entrance.FavoriteCartsController;
 import dkgg2012group22imat.model.SavedCart;
-import se.chalmers.ait.dat215.project.Order;
-
 /**
  *
  * @author jonas
@@ -24,9 +22,9 @@ public class FavoriteCartPanel extends javax.swing.JPanel {
     private FavoriteCartController controller;
 
     /** Creates new form HistoryCartPanel */
-    public FavoriteCartPanel(SavedCart sc) {
+    public FavoriteCartPanel(SavedCart sc, FavoriteCartsController parent) {
         initComponents();
-        controller = new FavoriteCartController(sc, this);
+        controller = new FavoriteCartController(sc, parent, this);
         showButton.setVisible(false);
         addAllButton.setVisible(false);
     }
@@ -89,6 +87,11 @@ public class FavoriteCartPanel extends javax.swing.JPanel {
                 showButtonMouseEntered(evt);
             }
         });
+        showButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showButtonActionPerformed(evt);
+            }
+        });
 
         addAllButton.setText(resourceMap.getString("addAllButton.text")); // NOI18N
         addAllButton.setName("addAllButton"); // NOI18N
@@ -119,7 +122,7 @@ public class FavoriteCartPanel extends javax.swing.JPanel {
                             .addComponent(informationLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                         .addComponent(showButton))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(icon1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(icon2)
@@ -138,19 +141,19 @@ public class FavoriteCartPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(showButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(addAllButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(informationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(icon1)
                             .addComponent(icon2)
                             .addComponent(icon3)
                             .addComponent(icon4))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,6 +190,10 @@ private void addAllButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
     showButton.setVisible(false);
     addAllButton.setVisible(false);
 }//GEN-LAST:event_addAllButtonMouseExited
+
+private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
+    controller.show();
+}//GEN-LAST:event_showButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAllButton;

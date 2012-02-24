@@ -10,6 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance;
 
+import dkgg2012group22imat.controller.entrance.FavoriteCartsController;
+
 /**
  *
  * @author jonas
@@ -17,8 +19,10 @@ package dkgg2012group22imat.view.entrance;
 public class FavoriteCartsPanel extends javax.swing.JPanel {
 
     /** Creates new form FavoriteCartPanel */
+    private FavoriteCartsController controller;
     public FavoriteCartsPanel() {
         initComponents();
+        controller = new FavoriteCartsController(this);
     }
 
     /** This method is called from within the constructor to
@@ -31,7 +35,7 @@ public class FavoriteCartsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

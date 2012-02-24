@@ -25,7 +25,7 @@ public class Model {
 
     private static Model instance = null;
     private IMatDataHandler iMatDataHandler;
-    private List<SavedCart> savedCarts; //TODO get Saved Carts
+    private List<SavedCart> savedCarts = new ArrayList<SavedCart>(); //TODO get Saved Carts
 
     /**
      * Constructor that should never be called, use getInstance() instead.
@@ -80,7 +80,7 @@ public class Model {
     }
 
     public void addToShoppingCart(Product p, int amount) {
-        for (int i = 0; i <= amount; i++) {
+        for (int i = 0; i < amount; i++) {
             addToShoppingCart(p);
         }
     }
@@ -96,8 +96,8 @@ public class Model {
     }
 
      public void addToShoppingCart(List <ShoppingItem> items) {
-        for(ShoppingItem p : items){
-            addToShoppingCart(p);
+        for(ShoppingItem si : items){
+            addToShoppingCart(si);
         }
     }
     

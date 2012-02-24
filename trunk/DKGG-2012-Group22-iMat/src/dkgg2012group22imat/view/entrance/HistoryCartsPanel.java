@@ -22,7 +22,6 @@ public class HistoryCartsPanel extends javax.swing.JPanel {
     /** Creates new form HistoryCartPanel */
     public HistoryCartsPanel() {
         initComponents();
-        System.out.println("HistoryCarts panel inni");
         controller = new HistoryCartsController(this);
     }
 
