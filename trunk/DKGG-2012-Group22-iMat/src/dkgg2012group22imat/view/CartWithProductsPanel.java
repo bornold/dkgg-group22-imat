@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartWithProductsPanelController;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,6 +25,7 @@ public class CartWithProductsPanel extends javax.swing.JPanel {
         initComponents();
         controller = new CartWithProductsPanelController(this);
     }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -35,7 +37,9 @@ public class CartWithProductsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+        setPreferredSize(new java.awt.Dimension(270, 500));
+        setSize(new java.awt.Dimension(270, 500));
+        setLayout(new java.awt.GridLayout(0, 1));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
