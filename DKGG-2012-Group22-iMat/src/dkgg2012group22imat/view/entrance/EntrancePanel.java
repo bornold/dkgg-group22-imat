@@ -34,43 +34,30 @@ EntrancePanelController controller;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        savedCartSuperPanel1 = new dkgg2012group22imat.view.entrance.SavedCartSuperPanel();
+        contentPanel = new javax.swing.JPanel();
         spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
         favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
-        savedCartSuperPanel1 = new dkgg2012group22imat.view.entrance.SavedCartSuperPanel();
 
         setName("Form"); // NOI18N
-
-        spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
-
-        favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
+        setLayout(new java.awt.BorderLayout());
 
         savedCartSuperPanel1.setName("savedCartSuperPanel1"); // NOI18N
+        add(savedCartSuperPanel1, java.awt.BorderLayout.WEST);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(savedCartSuperPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                    .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(savedCartSuperPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(spotlightProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(favoriteProductsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        contentPanel.setName("contentPanel"); // NOI18N
+        contentPanel.setLayout(new java.awt.GridLayout(2, 0));
+
+        spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
+        contentPanel.add(spotlightProductsPanel1);
+
+        favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
+        contentPanel.add(favoriteProductsPanel1);
+
+        add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel contentPanel;
     private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
     private dkgg2012group22imat.view.entrance.SavedCartSuperPanel savedCartSuperPanel1;
     private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;

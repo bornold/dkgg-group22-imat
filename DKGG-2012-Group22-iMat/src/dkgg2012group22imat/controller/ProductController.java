@@ -30,7 +30,7 @@ public class ProductController implements FavoriteListener {
         this.p = p;
         this.view = panel;
         view.productNameLabel.setText(p.getName());
-        view.productImageLabel.setImage(m.getImageIcon(p, new Dimension(80, 80)));
+        view.productImageLabel.setImage(m.getImageIcon(p, new Dimension(266,200)));
         view.priceLabel.setText(p.getPrice() + p.getUnit());
         view.addButton.setVisible(false);
         view.quantitySpinner.setVisible(false);

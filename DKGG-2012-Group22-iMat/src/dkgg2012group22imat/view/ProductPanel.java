@@ -6,7 +6,6 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.ProductController;
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -30,7 +29,6 @@ public class ProductPanel extends javax.swing.JPanel {
     private int shadowSize;
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
-    
 
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
@@ -38,7 +36,13 @@ public class ProductPanel extends javax.swing.JPanel {
         controller = new ProductController(p, this);
 
         this.resetShadow();
-        
+
+        remove(priceLabel);
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(
+                180 - priceLabel.getPreferredSize().width,
+                100,
+                -1,
+                -1), 1);
     }
 
     @Override
@@ -50,7 +54,7 @@ public class ProductPanel extends javax.swing.JPanel {
 
         int w = getWidth() - x * 2;
         int h = getHeight() - y * 2;
-        int arc = 15;
+        int arc = 25;
 
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -75,23 +79,23 @@ public class ProductPanel extends javax.swing.JPanel {
 
         int w = getWidth() - 20;
         int h = getHeight() - 20;
-        int arc = 20;
+        int arc = 25;
 
         shadow = GraphicsUtilities.createCompatibleTranslucentImage(w, h);
         Graphics2D g2 = shadow.createGraphics();
         g2.setColor(Color.WHITE);
-        g2.fillRoundRect(0, 1, w, h, arc, arc);
+        g2.fillRoundRect(shadowSize / 2, shadowSize / 2, w, h, arc, arc);
         g2.dispose();
 
-        ShadowRenderer renderer = new ShadowRenderer(shadowSize, 0.5f, Color.BLACK);
+        ShadowRenderer renderer = new ShadowRenderer(shadowSize, 0.7f, Color.BLACK);
         shadow = renderer.createShadow(shadow);
 
         //Removes the shadow from the content (in case the background is transparent, which is isnt, ah well who knows what happens in the furure, it makes it good to copy, unless someone writes a stupidly long comment on one line so you need to scroll horizontally to see what stupid things he tries to say, thats very frustrating...
-        g2 = shadow.createGraphics();
+        /*g2 = shadow.createGraphics();
         g2.setColor(Color.RED);
         g2.setComposite(AlphaComposite.Clear);
         g2.fillRoundRect(shadowSize, shadowSize, w, h, arc, arc);
-        g2.dispose();
+        g2.dispose();*/
     }
 
     /** This method is called from within the constructor to
@@ -112,9 +116,10 @@ public class ProductPanel extends javax.swing.JPanel {
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
-        setMinimumSize(new java.awt.Dimension(180, 180));
+        setMaximumSize(new java.awt.Dimension(200, 220));
+        setMinimumSize(new java.awt.Dimension(200, 220));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(180, 190));
+        setPreferredSize(new java.awt.Dimension(200, 220));
         setRequestFocusEnabled(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -126,19 +131,19 @@ public class ProductPanel extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
-        priceLabel.setFont(resourceMap.getFont("priceLabel.font")); // NOI18N
+        priceLabel.setAlignmentY(0.0F);
+        priceLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
-        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-        remove(priceLabel);
-        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70+priceLabel.getPreferredSize().width-85, 90, -1, -1));
+        priceLabel.setPreferredSize(new java.awt.Dimension(30, 30));
+        add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 50, 10));
 
         productNameLabel.setFont(resourceMap.getFont("productNameLabel.font")); // NOI18N
         productNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
         productNameLabel.setName("productNameLabel"); // NOI18N
-        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, -1));
+        add(productNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, 150, -1));
 
         addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
@@ -151,32 +156,36 @@ public class ProductPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
-        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 148, 80, 30));
+        add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 173, 80, 30));
 
         favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setBorderPainted(false);
         favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
+        favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
         favoriteToggleButton.setPressedIcon(resourceMap.getIcon("favoriteToggleButton.pressedIcon")); // NOI18N
         favoriteToggleButton.setRolloverIcon(resourceMap.getIcon("favoriteToggleButton.rolloverIcon")); // NOI18N
+        favoriteToggleButton.setRolloverSelectedIcon(resourceMap.getIcon("favoriteToggleButton.rolloverSelectedIcon")); // NOI18N
         favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 favoriteToggleButtonActionPerformed(evt);
             }
         });
-        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 80, 30));
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 80, 30));
 
         quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
         quantitySpinner.setName("quantitySpinner"); // NOI18N
         quantitySpinner.setPreferredSize(new java.awt.Dimension(70, 26));
-        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 150, -1, -1));
+        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 176, -1, -1));
         quantitySpinner.setUI(new StyledSpinnerUI());
 
+        productImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("productImageLabel.border.lineColor"))); // NOI18N
         productImageLabel.setText(resourceMap.getString("productImageLabel.text")); // NOI18N
         productImageLabel.setName("productImageLabel"); // NOI18N
-        add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 80));
+        productImageLabel.setPreferredSize(new java.awt.Dimension(133, 100));
+        add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 40, 132, 100));
     }// </editor-fold>//GEN-END:initComponents
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
@@ -199,7 +208,6 @@ private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt)
 private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
     controller.addToCart();
 }//GEN-LAST:event_addButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addButton;
     public javax.swing.JToggleButton favoriteToggleButton;
@@ -212,19 +220,19 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public int getAmount() {
         return Integer.parseInt(quantitySpinner.getValue().toString());
     }
-    
+
     public void setAmount(double amount) {
         //TODO WARNING: double->int typecast
-        quantitySpinner.setValue(new Integer((int)amount));
+        quantitySpinner.setValue(new Integer((int) amount));
     }
 
     public void expandShadow() {
-        this.shadowSize = 10;
+        this.shadowSize = 6;
 
     }
 
     public void resetShadow() {
-        this.shadowSize = 2;
+        this.shadowSize = 3;
 
     }
 }

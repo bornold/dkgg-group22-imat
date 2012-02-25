@@ -36,7 +36,7 @@ public class CartProductPanel extends javax.swing.JPanel {
     public void paintComponent(Graphics g) {
         ResourceMap resourceMap = DKGG2012Group22iMatApp.getApplication().getContext().getResourceMap(CartProductPanel.class);
         
-        GraphicsUtilities.drawTiled(g, this.getSize(), resourceMap.getImageIcon("JPanel.background"));
+        GUtilities.drawTiled(g, this.getSize(), resourceMap.getImageIcon("JPanel.background"));
         
         g.setColor(new Color(204,204,204));
         g.drawRect(-1, -1, this.getWidth()+1, this.getHeight());

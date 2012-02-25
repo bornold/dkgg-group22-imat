@@ -35,8 +35,10 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SpotlightProductsPanel.class);
+        setBackground(resourceMap.getColor("Form.background")); // NOI18N
+        setMaximumSize(new java.awt.Dimension(200, 200));
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(2, 3));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

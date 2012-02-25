@@ -41,15 +41,16 @@ public class HistoryCartPanel extends javax.swing.JPanel {
 
         dateLabel = new javax.swing.JLabel();
         informationLabel = new javax.swing.JLabel();
+        showButton = new javax.swing.JButton();
+        addAllButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         icon1 = new javax.swing.JLabel();
         icon2 = new javax.swing.JLabel();
         icon3 = new javax.swing.JLabel();
         icon4 = new javax.swing.JLabel();
-        showButton = new javax.swing.JButton();
-        addAllButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(300, 90));
+        setPreferredSize(new java.awt.Dimension(250, 90));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 formMouseExited(evt);
@@ -58,25 +59,16 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 formMouseEntered(evt);
             }
         });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(HistoryCartPanel.class);
         dateLabel.setText(resourceMap.getString("dateLabel.text")); // NOI18N
         dateLabel.setName("dateLabel"); // NOI18N
+        add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         informationLabel.setText(resourceMap.getString("informationLabel.text")); // NOI18N
         informationLabel.setName("informationLabel"); // NOI18N
-
-        icon1.setText(resourceMap.getString("icon1.text")); // NOI18N
-        icon1.setName("icon1"); // NOI18N
-
-        icon2.setText(resourceMap.getString("icon2.text")); // NOI18N
-        icon2.setName("icon2"); // NOI18N
-
-        icon3.setText(resourceMap.getString("icon3.text")); // NOI18N
-        icon3.setName("icon3"); // NOI18N
-
-        icon4.setText(resourceMap.getString("icon4.text")); // NOI18N
-        icon4.setName("icon4"); // NOI18N
+        add(informationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         showButton.setText(resourceMap.getString("showButton.text")); // NOI18N
         showButton.setName("showButton"); // NOI18N
@@ -93,6 +85,7 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 showButtonActionPerformed(evt);
             }
         });
+        add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         addAllButton.setText(resourceMap.getString("addAllButton.text")); // NOI18N
         addAllButton.setName("addAllButton"); // NOI18N
@@ -109,53 +102,28 @@ public class HistoryCartPanel extends javax.swing.JPanel {
                 addAllButtonActionPerformed(evt);
             }
         });
+        add(addAllButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dateLabel)
-                            .addComponent(informationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(showButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(icon1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(icon2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(icon3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(icon4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addAllButton)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(showButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addAllButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(informationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(icon1)
-                            .addComponent(icon2)
-                            .addComponent(icon3)
-                            .addComponent(icon4))))
-                .addContainerGap())
-        );
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        icon1.setText(resourceMap.getString("icon1.text")); // NOI18N
+        icon1.setName("icon1"); // NOI18N
+        jPanel1.add(icon1);
+
+        icon2.setText(resourceMap.getString("icon2.text")); // NOI18N
+        icon2.setName("icon2"); // NOI18N
+        jPanel1.add(icon2);
+
+        icon3.setText(resourceMap.getString("icon3.text")); // NOI18N
+        icon3.setName("icon3"); // NOI18N
+        jPanel1.add(icon3);
+
+        icon4.setText(resourceMap.getString("icon4.text")); // NOI18N
+        icon4.setName("icon4"); // NOI18N
+        jPanel1.add(icon4);
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 private void addAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAllButtonActionPerformed
@@ -204,6 +172,7 @@ private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public javax.swing.JLabel icon3;
     public javax.swing.JLabel icon4;
     public javax.swing.JLabel informationLabel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton showButton;
     // End of variables declaration//GEN-END:variables
 }
