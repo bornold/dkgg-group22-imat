@@ -27,10 +27,11 @@ public class CartProductController {
         this.si = si;
         this.view = panel;
         view.productNameLabel.setText(si.getProduct().getName());
-        view.iconLabel.setIcon(m.getImageIcon(si.getProduct(), new Dimension(80, 80)));
-        view.priceLabel.setText(si.getProduct().getPrice()+"");
+        view.productImageLabel.setImage(m.getImageIcon(si.getProduct(), new Dimension(140, 106)));
+        view.priceLabel.setText((int)si.getProduct().getPrice()+"kr");
         view.deleteButton.setVisible(false);
 //        view.quantityLabel.setText(p.getUnitSuffix());
+        view.unitLabel.setText(si.getProduct().getUnitSuffix()+" för");
         view.favoriteToggleButton.setVisible(false);
         setFavoButton();
 
@@ -54,6 +55,11 @@ public class CartProductController {
             view.favoriteToggleButton.setRolloverIcon(view.favoriteToggleButton.getDisabledSelectedIcon());
         }
     }
+    
+    public void delete() {
+        
+    }
+    
     public void removeFromCart() {
         m.removeFromShoppingCart(si.getProduct());
     }
@@ -67,7 +73,7 @@ public class CartProductController {
         view.favoriteToggleButton.setVisible(false);
     }
     public void spinnerChanged(int i){
-        view.priceLabel.setText(si.getProduct().getPrice()*i+"");
+        view.priceLabel.setText((int)si.getProduct().getPrice()*i+"kr");
     }
     public void handleFavoriteEvent(EventObject e) {
         setFavoButton();

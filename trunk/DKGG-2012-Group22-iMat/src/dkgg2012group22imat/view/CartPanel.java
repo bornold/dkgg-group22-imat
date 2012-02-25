@@ -88,6 +88,7 @@ public class CartPanel extends javax.swing.JPanel {
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
         jButton1.setAlignmentY(0.0F);
         jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton1.setMaximumSize(new java.awt.Dimension(290, 75));
         jButton1.setMinimumSize(new java.awt.Dimension(290, 75));

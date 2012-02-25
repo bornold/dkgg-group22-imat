@@ -7,10 +7,15 @@ package dkgg2012group22imat.view;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 /**
@@ -35,5 +40,15 @@ public class IMatUtilities {
 
     public static void addHoverListener(Component c, MouseListener ml) {
         Toolkit.getDefaultToolkit().addAWTEventListener(new TargetedMouseListener(c, ml), AWTEvent.MOUSE_MOTION_EVENT_MASK);
+    }
+    
+    
+
+    public static Dimension getStringDimension(Font font, String text) {
+        BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = (Graphics2D)image.getGraphics();
+        FontMetrics fontMetrics = g2.getFontMetrics(font);
+        
+        return fontMetrics.getStringBounds(text, g2).getBounds().getSize();
     }
 }

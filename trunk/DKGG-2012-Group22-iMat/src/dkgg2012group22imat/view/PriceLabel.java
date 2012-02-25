@@ -6,12 +6,11 @@ package dkgg2012group22imat.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
 import javax.swing.JLabel;
 
 /**
@@ -47,21 +46,11 @@ public class PriceLabel extends JLabel {
 
         //g2.dispose();
     }
-
-    public int getFontWidth() {
-        
-        if (fontMetrics == null) {
-            BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2 = (Graphics2D)image.getGraphics();
-            Font font = this.getFont();
-            fontMetrics = g2.getFontMetrics(font);
-        }
-
-        return fontMetrics.stringWidth(this.getText());
-    }
     
     public Dimension getPreferredSize() {
-        return new Dimension(this.getFontWidth()+16,this.getFontMetrics(this.getFont()).getHeight()+12);
+        Dimension stringDimension = IMatUtilities.getStringDimension(this.getFont(),this.getText());
+        
+        return new Dimension(stringDimension.width+this.getIconTextGap()+4,stringDimension.height+this.getIconTextGap());
     }
     /*@Override
     public Dimension getSize() {

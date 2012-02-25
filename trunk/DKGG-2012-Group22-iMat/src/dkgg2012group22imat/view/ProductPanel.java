@@ -125,6 +125,7 @@ public class ProductPanel extends javax.swing.JPanel {
         favoriteToggleButton = new javax.swing.JToggleButton();
         quantitySpinner = new javax.swing.JSpinner();
         productImageLabel = new dkgg2012group22imat.view.ProductImageLabel();
+        unitLabel = new javax.swing.JLabel();
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
@@ -138,7 +139,8 @@ public class ProductPanel extends javax.swing.JPanel {
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setAlignmentY(0.0F);
-        priceLabel.setFont(new java.awt.Font("Arial", 0, 18));
+        priceLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        priceLabel.setIconTextGap(12);
         priceLabel.setName("priceLabel"); // NOI18N
         priceLabel.setPreferredSize(new java.awt.Dimension(30, 30));
         add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 50, 10));
@@ -152,6 +154,7 @@ public class ProductPanel extends javax.swing.JPanel {
         addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
         addButton.setBorderPainted(false);
+        addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addButton.setName("addButton"); // NOI18N
         addButton.setPressedIcon(resourceMap.getIcon("addButton.pressedIcon")); // NOI18N
         addButton.setRolloverIcon(resourceMap.getIcon("addButton.rolloverIcon")); // NOI18N
@@ -165,6 +168,7 @@ public class ProductPanel extends javax.swing.JPanel {
         favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
         favoriteToggleButton.setBorderPainted(false);
+        favoriteToggleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
         favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
@@ -181,15 +185,20 @@ public class ProductPanel extends javax.swing.JPanel {
         quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
         quantitySpinner.setName("quantitySpinner"); // NOI18N
-        quantitySpinner.setPreferredSize(new java.awt.Dimension(70, 26));
-        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 176, -1, -1));
+        quantitySpinner.setPreferredSize(new java.awt.Dimension(55, 27));
+        add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 176, -1, 25));
         quantitySpinner.setUI(new StyledSpinnerUI());
 
-        productImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("productImageLabel.border.lineColor"))); // NOI18N
         productImageLabel.setText(resourceMap.getString("productImageLabel.text")); // NOI18N
         productImageLabel.setName("productImageLabel"); // NOI18N
         productImageLabel.setPreferredSize(new java.awt.Dimension(133, 100));
         add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 40, 132, 100));
+
+        unitLabel.setFont(resourceMap.getFont("unitLabel.font")); // NOI18N
+        unitLabel.setForeground(resourceMap.getColor("unitLabel.foreground")); // NOI18N
+        unitLabel.setText(resourceMap.getString("unitLabel.text")); // NOI18N
+        unitLabel.setName("unitLabel"); // NOI18N
+        add(unitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
@@ -206,6 +215,7 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public dkgg2012group22imat.view.ProductImageLabel productImageLabel;
     public javax.swing.JLabel productNameLabel;
     public javax.swing.JSpinner quantitySpinner;
+    public javax.swing.JLabel unitLabel;
     // End of variables declaration//GEN-END:variables
 
     public int getAmount() {
