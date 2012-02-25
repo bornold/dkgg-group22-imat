@@ -39,17 +39,23 @@ public class SavedCartSuperPanel extends javax.swing.JPanel {
         historyScrollPane = new javax.swing.JScrollPane();
         historyPanel = new javax.swing.JPanel();
 
+        setMinimumSize(new java.awt.Dimension(250, 0));
         setName("Form"); // NOI18N
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.PAGE_AXIS));
+        setPreferredSize(new java.awt.Dimension(270, 0));
+        setLayout(new java.awt.GridLayout(2, 0));
 
+        favoriteScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         favoriteScrollPane.setName("favoriteScrollPane"); // NOI18N
+        favoriteScrollPane.setPreferredSize(new java.awt.Dimension(270, 0));
 
         favoritePanel.setName("favoritePanel"); // NOI18N
         favoriteScrollPane.setViewportView(favoritePanel);
 
         add(favoriteScrollPane);
 
+        historyScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         historyScrollPane.setName("historyScrollPane"); // NOI18N
+        historyScrollPane.setPreferredSize(new java.awt.Dimension(270, 0));
 
         historyPanel.setName("historyPanel"); // NOI18N
         historyScrollPane.setViewportView(historyPanel);

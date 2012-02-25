@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author Simon
  */
-public class GraphicsUtilities {
+public class GUtilities {
     
     public static void drawTiled(Graphics g, Dimension d, ImageIcon icon) {
         
