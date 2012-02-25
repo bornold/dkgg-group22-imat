@@ -31,10 +31,12 @@ public class ProductController implements FavoriteListener {
         this.view = panel;
         view.productNameLabel.setText(p.getName());
         view.productImageLabel.setImage(m.getImageIcon(p, new Dimension(266,200)));
-        view.priceLabel.setText(p.getPrice() + p.getUnit());
+        view.priceLabel.setText(p.getPrice() + " " + p.getUnit());
         view.addButton.setVisible(false);
         view.quantitySpinner.setVisible(false);
         view.favoriteToggleButton.setVisible(false);
+        view.unitLabel.setVisible(false);
+        view.unitLabel.setText(p.getUnitSuffix());
         setFavoButton();
         m.addEventListener(this);
     }
@@ -73,6 +75,7 @@ public class ProductController implements FavoriteListener {
             view.setSize(big);
             view.expandShadow();
             view.addButton.setVisible(true);
+            view.unitLabel.setVisible(true);
             view.quantitySpinner.setVisible(true);
             view.favoriteToggleButton.setVisible(true);
             isEnhanced = true;
@@ -87,6 +90,7 @@ public class ProductController implements FavoriteListener {
             view.addButton.setVisible(false);
             view.quantitySpinner.setVisible(false);
             view.favoriteToggleButton.setVisible(false);
+            view.unitLabel.setVisible(false);
             view.resetShadow();
             view.setLocation(x, y);
             view.setSize(small);
