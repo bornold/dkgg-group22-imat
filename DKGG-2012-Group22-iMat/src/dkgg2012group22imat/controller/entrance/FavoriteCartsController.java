@@ -28,16 +28,16 @@ public class FavoriteCartsController implements SavedCartInterface {
     public FavoriteCartsController(SavedCartSuperController parent, FavoriteCartsPanel favoriteCartsPanel) {
         this.view = favoriteCartsPanel;
         this.parent = parent;
-        //TODO REMOVE TEMP CODE
-        List<Product> prodTemp = m.getOffers();
-        for (int i = 0; i < 10; i++) {
-            List<ShoppingItem> itemTemp = new ArrayList<ShoppingItem>();
-            for (Product p : prodTemp) {
-                itemTemp.add(new ShoppingItem(p));
-            }
-            m.saveNewCart(itemTemp, "Favorite" + i);
-        }
-        //TEMP CODE END
+//        //TODO REMOVE TEMP CODE
+//        List<Product> prodTemp = m.getOffers();
+//        for (int i = 0; i < 10; i++) {
+//            List<ShoppingItem> itemTemp = new ArrayList<ShoppingItem>();
+//            for (Product p : prodTemp) {
+//                itemTemp.add(new ShoppingItem(p));
+//            }
+//            m.saveNewCart(itemTemp, "Favorite" + i);
+//        }
+//        //TEMP CODE END
 
         List<SavedCart> temp = m.getSavedCarts();
         for (SavedCart sc : temp) {

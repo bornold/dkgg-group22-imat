@@ -10,7 +10,9 @@
  */
 package dkgg2012group22imat.view.entrance;
 
-import dkgg2012group22imat.controller.entrance.SpotlightProductPanelController;
+import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.ProductsPanel;
+
 
 /**
  *
@@ -18,12 +20,10 @@ import dkgg2012group22imat.controller.entrance.SpotlightProductPanelController;
  */
 public class SpotlightProductsPanel extends javax.swing.JPanel {
 
-    SpotlightProductPanelController controller;
     /** Creates new form SpotlightProductPanel */
     public SpotlightProductsPanel() {
         initComponents();
-        //((java.awt.GridLayout)this.getLayout());
-        controller = new SpotlightProductPanelController(this);
+        add(new ProductsPanel(Model.getInstance().getOffers(), 2));
     }
 
     /** This method is called from within the constructor to
