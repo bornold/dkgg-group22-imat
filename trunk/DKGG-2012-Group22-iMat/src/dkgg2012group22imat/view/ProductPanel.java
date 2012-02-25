@@ -14,7 +14,6 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import org.jdesktop.swingx.graphics.GraphicsUtilities;
 import org.jdesktop.swingx.graphics.ShadowRenderer;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -33,6 +32,7 @@ public class ProductPanel extends javax.swing.JPanel {
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
         initComponents();
+        System.out.println("added a new view of a product " + p.getName());
         controller = new ProductController(p, this);
 
         this.resetShadow();

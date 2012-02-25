@@ -1,7 +1,6 @@
 /*
  * DKGG2012Group22iMatApp.java
  */
-
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.iMatViewController.MainView;
@@ -17,22 +16,28 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
     /**
      * At startup create and show the main frame of the application.
      */
-    @Override protected void startup() {
+    @Override
+    protected void startup() {
+        Model.getInstance().reset();
+
         show(new DKGG2012Group22iMatView(this));
-        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView)this.getMainView();
+        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView) this.getMainView();
         view.setView(MainView.ENTRANCE);
     }
 
-    @Override protected void shutdown() {
-         Model.getInstance().shutDown();
-         super.shutdown();
+    @Override
+    protected void shutdown() {
+        Model.getInstance().shutDown();
+        super.shutdown();
     }
+
     /**
      * This method is to initialize the specified window by injecting resources.
      * Windows shown in our application come fully initialized from the GUI
      * builder, so this additional configuration is not needed.
      */
-    @Override protected void configureWindow(java.awt.Window root) {
+    @Override
+    protected void configureWindow(java.awt.Window root) {
     }
 
     /**
@@ -43,14 +48,13 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
         return Application.getInstance(DKGG2012Group22iMatApp.class);
     }
 
-    
     public void setView(MainView viewEnum) {
-        
-        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView)this.getMainView();
-        
+
+        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView) this.getMainView();
+
         view.setView(viewEnum);
     }
-    
+
     /**
      * Main method launching the application.
      */

@@ -17,7 +17,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class HistoryCartController {
 
-    private Dimension iconSize = new Dimension(20, 20);
+    private Dimension iconSize = new Dimension(40, 40);
     private HistoryCartPanel view;
     private Order order;
     private List<ShoppingItem> items;
@@ -32,7 +32,7 @@ public class HistoryCartController {
         items = o.getItems();
         double totPrice = 0;
         for (ShoppingItem si : items) {
-            totPrice += si.getAmount() * si.getProduct().getPrice();
+            totPrice += si.getAmount();
         }
         view.informationLabel.setText(items.size() + " varor för totalt " + (int)totPrice + "kr");
         int amount = items.size() > 4 ? 4 : items.size();

@@ -11,7 +11,6 @@ import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
 import java.awt.Dimension;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Order;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -27,25 +26,11 @@ public class HistoryCartsController implements SavedCartInterface {
     public HistoryCartsController(SavedCartSuperController parent, HistoryCartsPanel historyCartsPanel) {
         this.view = historyCartsPanel;
         this.parent = parent;
-        //TEMP CODE
-        m.reset();
-        List<Product> prds = m.getOffers();
-        for (int i = 0; i < 1; i++) {
-            for (Product p : prds) {
-                m.addToShoppingCart(p);
-                m.addFavorite(p);
-            }
-            m.placeOrder();
-        }
-
-        // TEMP CODE END
-
         List<Order> temp = m.getOrders();
         for (Order o : temp) {
             view.add(new HistoryCartPanel(o, this));
         }
         view.updateUI();
-        
     }
 
     void show(List<ShoppingItem> items, String name) {

@@ -13,6 +13,7 @@ import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -143,11 +144,11 @@ public class Model {
      *  Latest offers
      * @return A list of products that is on sale.
      */
-    public List getOffers() {
+    public List<Product> getOffers() {
         return getRandomProducts();
     }
 
-    public List getFavorites() {
+    public List<Product> getFavorites() {
         return iMatDataHandler.favorites();
     }
 
@@ -193,15 +194,19 @@ public class Model {
     public void reset() {
         iMatDataHandler.reset();
     }
-
-    private List getRandomProducts() {
-        List l = iMatDataHandler.getProducts();
+    public List<Product> getProducts(ProductCategory pc){
+        return iMatDataHandler.getProducts(pc);
+    }
+    public List<Product> getProducts(){
+        return iMatDataHandler.getProducts();
+    }
+    
+    private List<Product> getRandomProducts() {
+        List<Product> l = getProducts();
         Random generator = new Random();
         while (l.size() > 6) {
             l.remove(generator.nextInt(l.size()));
         }
         return l;
     }
-    
-    
 }
