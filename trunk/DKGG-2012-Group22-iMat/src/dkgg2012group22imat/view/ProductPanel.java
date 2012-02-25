@@ -43,6 +43,18 @@ public class ProductPanel extends javax.swing.JPanel {
                 100,
                 -1,
                 -1), 1);
+
+        IMatUtilities.addHoverListener(this, new java.awt.event.MouseAdapter() {
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formMouseExited(evt);
+            }
+
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
+
     }
 
     @Override
@@ -121,20 +133,12 @@ public class ProductPanel extends javax.swing.JPanel {
         setName("Form"); // NOI18N
         setPreferredSize(new java.awt.Dimension(200, 220));
         setRequestFocusEnabled(false);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                formMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                formMouseEntered(evt);
-            }
-        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setAlignmentY(0.0F);
-        priceLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        priceLabel.setFont(new java.awt.Font("Arial", 0, 18));
         priceLabel.setName("priceLabel"); // NOI18N
         priceLabel.setPreferredSize(new java.awt.Dimension(30, 30));
         add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 50, 10));
@@ -188,19 +192,6 @@ public class ProductPanel extends javax.swing.JPanel {
         add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 40, 132, 100));
     }// </editor-fold>//GEN-END:initComponents
 
-private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    if (this.contains(evt.getPoint())) {
-        controller.enhance();
-    }
-
-}//GEN-LAST:event_formMouseEntered
-
-private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    if (!this.contains(evt.getPoint())) {
-        controller.defile();
-    }
-}//GEN-LAST:event_formMouseExited
-
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
     controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
@@ -233,6 +224,19 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 
     public void resetShadow() {
         this.shadowSize = 3;
+
+    }
+
+    private void formMouseEntered(java.awt.event.MouseEvent evt) {
+
+        controller.enhance();
+
+
+    }
+
+    private void formMouseExited(java.awt.event.MouseEvent evt) {
+
+        controller.defile();
 
     }
 }

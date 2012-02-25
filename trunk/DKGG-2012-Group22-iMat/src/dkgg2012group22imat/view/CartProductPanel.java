@@ -6,9 +6,15 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartProductController;
+import java.awt.AWTEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import org.jdesktop.application.Application;
 import org.jdesktop.application.ResourceMap;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -23,25 +29,37 @@ public class CartProductPanel extends javax.swing.JPanel {
     Dimension small = new Dimension(150, 150);
     Dimension big = new Dimension(200, 200);
     ShoppingItem si;
-    
 
     /** Creates new form ItemPanel */
     public CartProductPanel(ShoppingItem si) {
         initComponents();
         controller = new CartProductController(si, this);
         this.setAmount(si.getAmount());
+
+        IMatUtilities.addHoverListener(this, new MouseAdapter() {
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+                formMouseExited(evt);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
+
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
         ResourceMap resourceMap = DKGG2012Group22iMatApp.getApplication().getContext().getResourceMap(CartProductPanel.class);
-        
-        GUtilities.drawTiled(g, this.getSize(), resourceMap.getImageIcon("JPanel.background"));
-        
-        g.setColor(new Color(204,204,204));
-        g.drawRect(-1, -1, this.getWidth()+1, this.getHeight());
-    }
 
+        IMatUtilities.drawTiled(g, this.getSize(), resourceMap.getImageIcon("JPanel.background"));
+
+        g.setColor(new Color(204, 204, 204));
+        g.drawRect(-1, -1, this.getWidth() + 1, this.getHeight());//top and bottom border
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -55,9 +73,9 @@ public class CartProductPanel extends javax.swing.JPanel {
         productNameLabel = new javax.swing.JLabel();
         iconLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
-        favoriteToggleButton = new javax.swing.JToggleButton();
         quantitySpinner = new javax.swing.JSpinner();
         deleteButton = new javax.swing.JButton();
+        favoriteToggleButton = new javax.swing.JButton();
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
@@ -66,14 +84,6 @@ public class CartProductPanel extends javax.swing.JPanel {
         setName("Form"); // NOI18N
         setPreferredSize(new java.awt.Dimension(250, 85));
         setRequestFocusEnabled(false);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                formMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                formMouseEntered(evt);
-            }
-        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         productNameLabel.setText(resourceMap.getString("productNameLabel.text")); // NOI18N
@@ -82,31 +92,12 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         iconLabel.setText(resourceMap.getString("iconLabel.text")); // NOI18N
         iconLabel.setName("iconLabel"); // NOI18N
-        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 60));
+        add(iconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 53));
 
         priceLabel.setBackground(resourceMap.getColor("priceLabel.background")); // NOI18N
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setName("priceLabel"); // NOI18N
         add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
-
-        favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
-        favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
-        favoriteToggleButton.setBorderPainted(false);
-        favoriteToggleButton.setContentAreaFilled(false);
-        favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
-        favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
-        favoriteToggleButton.setFocusPainted(false);
-        favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
-        favoriteToggleButton.setPressedIcon(resourceMap.getIcon("favoriteToggleButton.pressedIcon")); // NOI18N
-        favoriteToggleButton.setRequestFocusEnabled(false);
-        favoriteToggleButton.setRolloverIcon(resourceMap.getIcon("favoriteToggleButton.rolloverIcon")); // NOI18N
-        favoriteToggleButton.setRolloverSelectedIcon(resourceMap.getIcon("favoriteToggleButton.rolloverSelectedIcon")); // NOI18N
-        favoriteToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                favoriteToggleButtonActionPerformed(evt);
-            }
-        });
-        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20));
 
         quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
@@ -125,8 +116,12 @@ public class CartProductPanel extends javax.swing.JPanel {
         add(quantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, 25));
         quantitySpinner.setUI(new StyledSpinnerUI());
 
+        deleteButton.setIcon(resourceMap.getIcon("deleteButton.icon")); // NOI18N
         deleteButton.setText(resourceMap.getString("deleteButton.text")); // NOI18N
+        deleteButton.setBorderPainted(false);
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deleteButton.setName("deleteButton"); // NOI18N
+        deleteButton.setRolloverIcon(resourceMap.getIcon("deleteButton.rolloverIcon")); // NOI18N
         deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 deleteButtonMouseEntered(evt);
@@ -138,26 +133,25 @@ public class CartProductPanel extends javax.swing.JPanel {
             }
         });
         add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+
+        favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
+        favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setBorderPainted(false);
+        favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
+        favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
+        favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
+        favoriteToggleButton.setPressedIcon(resourceMap.getIcon("favoriteToggleButton.pressedIcon")); // NOI18N
+        favoriteToggleButton.setRolloverIcon(resourceMap.getIcon("favoriteToggleButton.rolloverIcon")); // NOI18N
+        favoriteToggleButton.setRolloverSelectedIcon(resourceMap.getIcon("favoriteToggleButton.rolloverSelectedIcon")); // NOI18N
+        add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-    controller.hooverd();
-}//GEN-LAST:event_formMouseEntered
-
-private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-    controller.dehoover();
-}//GEN-LAST:event_formMouseExited
-
-private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
-    controller.favorize();
-}//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
 private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_deleteButtonActionPerformed
 
 private void quantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quantitySpinnerStateChanged
-    controller.spinnerChanged((Integer)quantitySpinner.getValue());
+    controller.spinnerChanged((Integer) quantitySpinner.getValue());
 }//GEN-LAST:event_quantitySpinnerStateChanged
 
 private void deleteButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseEntered
@@ -167,10 +161,9 @@ private void deleteButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRS
 private void quantitySpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quantitySpinnerMouseEntered
     controller.hooverd();
 }//GEN-LAST:event_quantitySpinnerMouseEntered
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton deleteButton;
-    public javax.swing.JToggleButton favoriteToggleButton;
+    public javax.swing.JButton favoriteToggleButton;
     public javax.swing.JLabel iconLabel;
     public javax.swing.JLabel priceLabel;
     public javax.swing.JLabel productNameLabel;
@@ -180,8 +173,24 @@ private void quantitySpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-F
     public int getAmount() {
         return Integer.parseInt(quantitySpinner.getValue().toString());
     }
+
     public void setAmount(double amount) {
         //TODO WARNING: double->int typecast
-        quantitySpinner.setValue(new Integer((int)amount));
+        quantitySpinner.setValue(new Integer((int) amount));
+    }
+
+    private void formMouseExited(java.awt.event.MouseEvent evt) {
+        /*   System.out.println(evt);
+        Point p = evt.getPoint();
+        Dimension size = evt.getComponent().getSize();
+        System.out.println(p);
+        System.out.println(size);
+        if((p.getX()>(size.getWidth()-10) || p.getX()<10) || (p.getY()>(size.getHeight()-10) || p.getY()<10)) {*/
+        controller.dehoover();
+        //}
+    }
+
+    private void formMouseEntered(java.awt.event.MouseEvent evt) {
+        controller.hooverd();
     }
 }
