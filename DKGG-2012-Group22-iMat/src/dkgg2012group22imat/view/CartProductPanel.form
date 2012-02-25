@@ -15,10 +15,6 @@
     </Property>
     <Property name="requestFocusEnabled" type="boolean" value="false"/>
   </Properties>
-  <Events>
-    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseExited"/>
-    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseEntered"/>
-  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
@@ -60,7 +56,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="10" width="70" height="60"/>
+          <AbsoluteConstraints x="10" y="10" width="70" height="53"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -76,33 +72,6 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="190" y="30" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JToggleButton" name="favoriteToggleButton">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.icon"/>
-        <Property name="text" type="java.lang.String" resourceKey="favoriteToggleButton.text"/>
-        <Property name="borderPainted" type="boolean" value="false"/>
-        <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="disabledIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.disabledIcon"/>
-        <Property name="disabledSelectedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.disabledSelectedIcon"/>
-        <Property name="focusPainted" type="boolean" value="false"/>
-        <Property name="name" type="java.lang.String" value="favoriteToggleButton" noResource="true"/>
-        <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.pressedIcon"/>
-        <Property name="requestFocusEnabled" type="boolean" value="false"/>
-        <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.rolloverIcon"/>
-        <Property name="rolloverSelectedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.rolloverSelectedIcon"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="favoriteToggleButtonActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="80" y="60" width="-1" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -135,8 +104,14 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteButton">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" resourceKey="deleteButton.icon"/>
         <Property name="text" type="java.lang.String" resourceKey="deleteButton.text"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Handmark&#xf6;r"/>
+        </Property>
         <Property name="name" type="java.lang.String" value="deleteButton" noResource="true"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="deleteButton.rolloverIcon"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="deleteButtonMouseEntered"/>
@@ -148,6 +123,27 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="190" y="60" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="favoriteToggleButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.icon"/>
+        <Property name="text" type="java.lang.String" resourceKey="favoriteToggleButton.text"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="disabledIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.disabledIcon"/>
+        <Property name="disabledSelectedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.disabledSelectedIcon"/>
+        <Property name="name" type="java.lang.String" value="favoriteToggleButton" noResource="true"/>
+        <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.pressedIcon"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.rolloverIcon"/>
+        <Property name="rolloverSelectedIcon" type="javax.swing.Icon" resourceKey="favoriteToggleButton.rolloverSelectedIcon"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="190" y="0" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
