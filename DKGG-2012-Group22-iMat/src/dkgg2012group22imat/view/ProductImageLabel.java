@@ -29,6 +29,7 @@ public class ProductImageLabel extends JLabel {
     Dimension dimensions;
 
     public ProductImageLabel() {
+        super();
     }
 
     public ProductImageLabel(ImageIcon image) {
