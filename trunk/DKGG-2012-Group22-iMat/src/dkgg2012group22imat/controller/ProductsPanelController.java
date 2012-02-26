@@ -73,7 +73,6 @@ public class ProductsPanelController {
     public ProductsPanelController(List<Product> prods, int amount, ProductsPanel panel) {
         this.view = panel;
         this.productsOnScreen = amount;
-
         setList(prods);
     }
 
@@ -91,25 +90,28 @@ public class ProductsPanelController {
 
     private void viewPage(int page) {
         view.productPanel.removeAll();
-        for (Product p : pageList.get(page)) {
+        if (page < pageList.size()) {
+            currentPage = page;
+        } else {
+            currentPage = pageList.size()-1;
+        }
+        for (Product p : pageList.get(currentPage)) {
             view.productPanel.add(new ProductPanel(p));
         }
-        currentPage = page;
         setNavigation();
         view.updateUI();
     }
 
     private void setNavigation() {
-        //TODO change to view.navigationLabel.setText(navigationChart[0][nrOfPages][currentPage]);
-
-        if (nrOfPages <= 1) {
+        if (nrOfPages < 0) {
             view.productPanel.setVisible(false);
             view.backButton.setVisible(false);
             view.forwardButton.setVisible(false);
-            view.navigationLabel.setVisible(false);
+            view.navigationLabel.setText("");
         } else {
-            view.navigationLabel.setText("Visar sida " + (currentPage + 1) + 
-                    " av " + nrOfPages);
+            //TODO change to view.navigationLabel.setText(navigationChart[0][nrOfPages][currentPage]);
+            view.navigationLabel.setText("Visar sida " + (currentPage + 1)
+                    + " av " + nrOfPages);
             view.productPanel.setVisible(true);
             if (currentPage == 0) {
                 view.backButton.setVisible(false);
@@ -125,6 +127,7 @@ public class ProductsPanelController {
     }
 
     public final void setList(List<Product> prods) {
+        pageList = new ArrayList<List<Product>>();
         if (prods.size() > 0) {
             this.items = prods;
             for (int front = 0, end = productsOnScreen; // sublist bounds 
@@ -139,14 +142,14 @@ public class ProductsPanelController {
                 pageList.add(items.subList(nrOfPages * productsOnScreen, items.size()));
                 nrOfPages++;
             } else if (items.size() == 1) {
-                nrOfPages = 0;
+                nrOfPages = 1;
                 List l = new ArrayList<Product>();
                 l.add(items.get(items.size() - 1));
                 pageList.add(l);
             }
             viewPage(currentPage);
         } else {
-            nrOfPages = 0;
+            nrOfPages = -1;
             setNavigation();
         }
     }

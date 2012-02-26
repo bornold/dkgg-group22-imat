@@ -32,7 +32,6 @@ public class ProductPanel extends javax.swing.JPanel {
     /** Creates new form ItemPanel */
     public ProductPanel(Product p) {
         initComponents();
-        System.out.println("added a new view of a product " + p.getName());
         controller = new ProductController(p, this);
 
         this.resetShadow();
