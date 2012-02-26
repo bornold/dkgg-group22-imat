@@ -87,7 +87,7 @@ public class IMatUtilities implements TweenCallback {
         return new Point(locationx, locationy);
     }
 
-    public static void imageFlyAnimation(Image image, Rectangle from, Rectangle to, int delay) {
+    public static void imageFlyAnimation(Image image, Rectangle from, Rectangle to, int delay, TweenCallback callback) {
 
         if (!tweenInit) {
             Tween.enablePooling(false);
@@ -115,7 +115,12 @@ public class IMatUtilities implements TweenCallback {
         aniStack.push(aniImage);
         aniPanel.add(aniImage);
 
-        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900).target(to.x, to.y, to.width, to.height).delay(delay).ease(Expo.INOUT).addCallback(EventType.COMPLETE, new IMatUtilities(aniImage)).start(tweenManager);
+        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900)
+                .target(to.x, to.y, to.width, to.height)
+                .delay(delay).ease(Expo.INOUT)
+                .addCallback(EventType.COMPLETE, new IMatUtilities(aniImage))
+                .addCallback(EventType.COMPLETE, callback)
+                .start(tweenManager);
 
         /*Thread t = new Thread() {
         
@@ -145,11 +150,12 @@ public class IMatUtilities implements TweenCallback {
         return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
     }
 
+    
+    
     private AnimateImage aniImage;
     
     public IMatUtilities(AnimateImage i) {
         this.aniImage = i;
-        
     }
     
     public void onEvent(EventType et, BaseTween bt) {

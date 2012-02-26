@@ -12,9 +12,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
@@ -28,7 +26,7 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
     private static CartWithProductsPanel view;
     private Model m = Model.getInstance();
-    private  List<ShoppingItem> items;
+    private List<ShoppingItem> items;
     private static List<Product> productList;
     private ShoppingCart shoppingCart;
     private Product p;
@@ -43,11 +41,11 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
     public void shoppingCartChanged() {
         items = shoppingCart.getItems();
         view.getProductListPanel().removeAll();
-        
+
         productList = new ArrayList();
-        
+
         for (ShoppingItem si : items) {
-            
+
             CartProductPanel pane = new CartProductPanel(si);
             productList.add(si.getProduct());
             view.getProductListPanel().add(pane);
@@ -57,17 +55,24 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
         view.revalidate();
         view.repaint();
     }
-    
+
     public static Rectangle getImageBoundsOf(Product p) {
-        CartProductPanel temp = new CartProductPanel(new ShoppingItem(p,1));
+        CartProductPanel temp = new CartProductPanel(new ShoppingItem(p, 1));
         int border = 1;
         int locationx = view.getLocationOnScreen().x + 12 + border;//temp.productImageLabel.getX();
-        int locationy = view.getLocationOnScreen().y + (productList.indexOf(p) * temp.getPreferredSize().height) + 19 + border;// temp.productImageLabel.getY();
-        Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx,locationy));
+        int locationy = 0;
+        if (productList.indexOf(p) >= 0) {
+            locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19 + border;// temp.productImageLabel.getY();
+            System.out.println("if");
+        } else {
+            locationy = view.getLocationOnScreen().y + ((int) (productList.size()) * temp.getPreferredSize().height) + 19 + border;// temp.productImageLabel.getY();
+            System.out.println("else");
+        }
+        Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));
         Dimension dimension = temp.productImageLabel.getPreferredSize();
-        dimension.width = dimension.width-border*2;
-        dimension.height = dimension.height-border*2;
-        
-        return new Rectangle(point,dimension);//productImageBounds.get(p);
+        dimension.width = dimension.width - border * 2;
+        dimension.height = dimension.height - border * 2;
+
+        return new Rectangle(point, dimension);//productImageBounds.get(p);
     }
 }

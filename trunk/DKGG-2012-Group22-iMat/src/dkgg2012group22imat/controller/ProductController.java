@@ -4,6 +4,8 @@
  */
 package dkgg2012group22imat.controller;
 
+import aurelienribon.tweenengine.BaseTween;
+import aurelienribon.tweenengine.TweenCallback;
 import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
@@ -20,7 +22,7 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author jonas
  */
-public class ProductController implements FavoriteListener {
+public class ProductController implements FavoriteListener,TweenCallback {
 
     Model m = Model.getInstance();
     Product p;
@@ -65,7 +67,9 @@ public class ProductController implements FavoriteListener {
     }
 
     public void addToCart() {
-        m.addToShoppingCart(p, view.getAmount());
+        
+        //Add to cart moved to onEvent, so it gets added after the animation
+       
         
         int locationx = view.productImageLabel.getLocationOnScreen().x-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().x;
         int locationy = view.productImageLabel.getLocationOnScreen().y-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().y;
@@ -75,7 +79,7 @@ public class ProductController implements FavoriteListener {
         Rectangle to = CartWithProductsPanelController.getImageBoundsOf(p);
         
         for(int i=0;i<view.getAmount();i++) {
-            IMatUtilities.imageFlyAnimation(view.productImageLabel.getImage(),from,to,100+80*i);
+            IMatUtilities.imageFlyAnimation(view.productImageLabel.getImage(),from,to,80*i,this);
         }
         view.setAmount(1);
     }
@@ -114,5 +118,9 @@ public class ProductController implements FavoriteListener {
 
     public void handleFavoriteEvent(EventObject e) {
         setFavoButton();
+    }
+
+    public void onEvent(EventType et, BaseTween bt) {
+         m.addToShoppingCart(p, 1);
     }
 }

@@ -47,10 +47,10 @@ public class CartProductPanel extends javax.swing.JPanel {
                 formMouseEntered(evt);
             }
         });
-        
+
         remove(priceLabel);
-        add(priceLabel, new AbsoluteConstraints(new Point(153+IMatUtilities.getStringDimension(unitLabel.getFont(), unitLabel.getText()).width,32),null));
-        
+        add(priceLabel, new AbsoluteConstraints(new Point(153 + IMatUtilities.getStringDimension(unitLabel.getFont(), unitLabel.getText()).width, 32), null));
+
     }
 
     @Override
@@ -173,11 +173,11 @@ public class CartProductPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-controller.delete();
+    controller.delete();
 }//GEN-LAST:event_deleteButtonActionPerformed
 
 private void quantitySpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quantitySpinnerStateChanged
-    controller.spinnerChanged((Integer) quantitySpinner.getValue());
+    controller.spinnerChanged(this.getAmount());
 }//GEN-LAST:event_quantitySpinnerStateChanged
 
 private void quantitySpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quantitySpinnerMouseEntered
@@ -185,14 +185,14 @@ private void quantitySpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-F
 }//GEN-LAST:event_quantitySpinnerMouseEntered
 
 private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favoriteToggleButtonActionPerformed
-controller.favorize();
+    controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
 private void productImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productImageLabelMouseClicked
-if(evt.getSource() instanceof ProductImageLabel) {
-    ProductImageLabel pil = (ProductImageLabel)evt.getSource();
-    System.out.println(pil.getLocationOnScreen());
-}
+    if (evt.getSource() instanceof ProductImageLabel) {
+        ProductImageLabel pil = (ProductImageLabel) evt.getSource();
+        System.out.println(pil.getLocationOnScreen());
+    }
 }//GEN-LAST:event_productImageLabelMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -209,7 +209,7 @@ if(evt.getSource() instanceof ProductImageLabel) {
     public ShoppingItem getShoppingItem() {
         return si;
     }
-    
+
     public int getAmount() {
         return Integer.parseInt(quantitySpinner.getValue().toString());
     }
