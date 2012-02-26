@@ -23,7 +23,7 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     /** Creates new form SpotlightProductPanel */
     public SpotlightProductsPanel() {
         initComponents();
-        add(new ProductsPanel(Model.getInstance().getOffers(), 2));
+        add(new ProductsPanel(Model.getInstance().getOffers(), 3));
     }
 
     /** This method is called from within the constructor to

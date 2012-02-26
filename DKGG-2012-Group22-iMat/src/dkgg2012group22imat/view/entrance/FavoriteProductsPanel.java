@@ -22,10 +22,11 @@ import java.util.EventObject;
 public class FavoriteProductsPanel extends javax.swing.JPanel implements FavoriteListener {
 
     private ProductsPanel pp;
+
     public FavoriteProductsPanel() {
-        initComponents();       
+        initComponents();
         Model m = Model.getInstance();
-        pp = new ProductsPanel(m.getFavorites(), 2);
+        pp = new ProductsPanel(m.getFavorites(), 3);
         m.addEventListener(this);
         add(pp);
     }
@@ -46,8 +47,5 @@ public class FavoriteProductsPanel extends javax.swing.JPanel implements Favorit
 
     public void handleFavoriteEvent(EventObject e) {
         pp.setList(Model.getInstance().getFavorites());
-        updateUI();
-        validate();
-        repaint();
     }
 }
