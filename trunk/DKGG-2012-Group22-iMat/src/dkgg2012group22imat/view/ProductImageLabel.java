@@ -8,13 +8,12 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.awt.image.ImageProducer;
-import java.awt.image.ReplicateScaleFilter;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -34,34 +33,17 @@ public class ProductImageLabel extends JLabel {
 
     public ProductImageLabel(ImageIcon image) {
         this.setImage(image);
+        
     }
 
     public void setImage(ImageIcon image) {
-        this.image = getBufferedImageFromImage(image.getImage());
+        this.image = IMatUtilities.getBufferedImageFromImage(image.getImage());
     }
     
-    private BufferedImage getBufferedImageFromImage(Image img) 
-    { 
-        //This line is important, this makes sure that the image is 
-        //loaded fully 
-        img = new ImageIcon(img).getImage(); 
-         
-        //Create the BufferedImage object with the width and height of the Image 
-        BufferedImage bufferedImage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB); 
-
-        //Create the graphics object from the BufferedImage 
-        Graphics g = bufferedImage.createGraphics(); 
-
-        //Draw the image on the graphics of the BufferedImage 
-        g.drawImage(img, 0, 0, null); 
-         
-        //Dispose the Graphics 
-        g.dispose(); 
-         
-        //return the BufferedImage 
-        return bufferedImage; 
+    public Image getImage() {
+        return this.image;
     }
-
+    
     @Override
     public void paintComponent(Graphics g) {
 

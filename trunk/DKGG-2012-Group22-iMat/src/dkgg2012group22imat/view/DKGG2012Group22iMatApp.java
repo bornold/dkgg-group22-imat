@@ -54,6 +54,10 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
 
         view.setView(viewEnum);
     }
+    
+    public DKGG2012Group22iMatView getIMatView() {
+        return (DKGG2012Group22iMatView)this.getMainView();
+    }
 
     /**
      * Main method launching the application.

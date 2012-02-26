@@ -6,12 +6,15 @@ package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
+import dkgg2012group22imat.view.IMatUtilities;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.EventObject;
+import org.jdesktop.application.Application;
 import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingCart;
 
 /**
  *
@@ -64,6 +67,14 @@ public class ProductController implements FavoriteListener {
     public void addToCart() {
         m.addToShoppingCart(p, view.getAmount());
         view.setAmount(1);
+        int locationx = view.productImageLabel.getLocationOnScreen().x-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().x;
+        int locationy = view.productImageLabel.getLocationOnScreen().y-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().y;
+        Point loc = new Point(locationx, locationy);
+        
+        Rectangle from = new Rectangle(loc,view.productImageLabel.getBounds().getSize());
+        Rectangle to = CartWithProductsPanelController.getImageBoundsOf(p);
+        
+        IMatUtilities.imageFlyAnimation(view.productImageLabel.getImage(),from,to);
     }
 
     public void enhance() {
