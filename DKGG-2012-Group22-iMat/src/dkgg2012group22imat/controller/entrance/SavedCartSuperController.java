@@ -4,10 +4,13 @@
  */
 package dkgg2012group22imat.controller.entrance;
 
+import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.entrance.FavoriteCartsPanel;
 import dkgg2012group22imat.view.entrance.HistoryCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartSuperPanel;
 import java.awt.Dimension;
+import java.util.List;
+import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
@@ -20,6 +23,20 @@ public class SavedCartSuperController {
     private FavoriteCartsPanel fcp;
 
     public SavedCartSuperController(SavedCartSuperPanel cartSuperPanel) {
+        //TODO REMOVE TEMP CODE
+        //TEMP CODE BEGIN
+        System.out.println("SavedSuperPanel initiated");
+        Model m = Model.getInstance();
+        List<Product> l = m.getOffers();
+        for (Product p : l) {
+            m.addToShoppingCart(p);
+        }
+        m.saveNewCart(m.getShoppingCart().getItems(), "TACOS BUFFE");
+        m.placeOrder();
+        System.out.println("Orders in history: " + m.getOrders().size());
+        System.out.println("Favorited carts: " + m.getSavedCarts().size());
+        //TEMP CODE END
+        
         this.view = cartSuperPanel;
         hcp = new HistoryCartsPanel(this);
         fcp = new FavoriteCartsPanel(this);

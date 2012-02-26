@@ -10,19 +10,16 @@
  */
 package dkgg2012group22imat.view.entrance;
 
-import dkgg2012group22imat.controller.entrance.EntrancePanelController;
 
 /**
  *
  * @author jonas
  */
 public class EntrancePanel extends javax.swing.JPanel {
-EntrancePanelController controller;
 
     /** Creates new form EntrancePanel */
     public EntrancePanel() {
         initComponents();
-        controller = new EntrancePanelController(this);
     }
 
     /** This method is called from within the constructor to

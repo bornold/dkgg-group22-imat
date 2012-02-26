@@ -28,9 +28,9 @@ public class FavoriteCartController {
         this.cart = sc;
         this.view = favoriteCartPanel;
         this.parent = parent;
-        view.nameLabel.setName(sc.getName());
-        items = sc.getItems();
-        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sc.getTotalPrice());
+        view.nameLabel.setText(cart.getName());
+        items = cart.getItems();
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sc.getTotalPrice()); //TODO Typecast double to int
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
