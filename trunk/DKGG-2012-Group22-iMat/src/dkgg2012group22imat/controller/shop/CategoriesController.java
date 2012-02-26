@@ -27,7 +27,6 @@ public class CategoriesController {
         System.out.println("Total top categories "+categories.size());
         Iterator<Category> it = categories.iterator();
         System.out.println("iterator "+it);
-        
         while(it.hasNext()) {
             
             Category c = it.next();
