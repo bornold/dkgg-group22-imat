@@ -32,23 +32,25 @@ public class AnimateImage extends JComponent {
         this.width = image.getWidth(null);
         this.height = image.getHeight(null);
         this.from = from;
-        this.setBounds(from.x,from.y,from.width,from.height);
+        this.setBounds(from.x, from.y, from.width, from.height);
     }
-    
+
     public Dimension getPreferredSize() {
-        return new Dimension(image.getWidth(),image.getHeight());
+        return new Dimension(image.getWidth(), image.getHeight());
     }
 
     @Override
     public void paintComponent(Graphics g) {
         //g.drawImage(image,from.x,from.y,null);
-        Graphics2D g2d = (Graphics2D) g.create();
+        if (this.isVisible()) {
+            Graphics2D g2d = (Graphics2D) g.create();
 
 
-        AffineTransform at = AffineTransform.getScaleInstance((double)this.getWidth()/(double)image.getWidth(), (double)this.getHeight()/(double)image.getHeight());
-        AffineTransformOp aop =
-                new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+            AffineTransform at = AffineTransform.getScaleInstance((double) this.getWidth() / (double) image.getWidth(), (double) this.getHeight() / (double) image.getHeight());
+            AffineTransformOp aop =
+                    new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
 
-        g2d.drawImage(this.image, aop, 0, 0);
+            g2d.drawImage(this.image, aop, 0, 0);
+        }
     }
 }

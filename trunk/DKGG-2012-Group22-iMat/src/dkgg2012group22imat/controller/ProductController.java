@@ -66,7 +66,7 @@ public class ProductController implements FavoriteListener {
 
     public void addToCart() {
         m.addToShoppingCart(p, view.getAmount());
-        view.setAmount(1);
+        
         int locationx = view.productImageLabel.getLocationOnScreen().x-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().x;
         int locationy = view.productImageLabel.getLocationOnScreen().y-((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel().getLocationOnScreen().y;
         Point loc = new Point(locationx, locationy);
@@ -74,7 +74,10 @@ public class ProductController implements FavoriteListener {
         Rectangle from = new Rectangle(loc,view.productImageLabel.getBounds().getSize());
         Rectangle to = CartWithProductsPanelController.getImageBoundsOf(p);
         
-        IMatUtilities.imageFlyAnimation(view.productImageLabel.getImage(),from,to);
+        for(int i=0;i<view.getAmount();i++) {
+            IMatUtilities.imageFlyAnimation(view.productImageLabel.getImage(),from,to,100+80*i);
+        }
+        view.setAmount(1);
     }
 
     public void enhance() {
