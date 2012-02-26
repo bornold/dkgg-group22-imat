@@ -34,34 +34,24 @@ public class ShopPanel extends javax.swing.JPanel {
         productsPanel1 = new dkgg2012group22imat.view.shop.ProductsPanel();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         categoriesPanel1.setName("categoriesPanel1"); // NOI18N
-
-        org.jdesktop.layout.GroupLayout categoriesPanel1Layout = new org.jdesktop.layout.GroupLayout(categoriesPanel1);
-        categoriesPanel1.setLayout(categoriesPanel1Layout);
-        categoriesPanel1Layout.setHorizontalGroup(
-            categoriesPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
-        );
-        categoriesPanel1Layout.setVerticalGroup(
-            categoriesPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
-        );
-
         add(categoriesPanel1, java.awt.BorderLayout.WEST);
 
         productsPanel1.setName("productsPanel1"); // NOI18N
+        productsPanel1.setOpaque(false);
 
         org.jdesktop.layout.GroupLayout productsPanel1Layout = new org.jdesktop.layout.GroupLayout(productsPanel1);
         productsPanel1.setLayout(productsPanel1Layout);
         productsPanel1Layout.setHorizontalGroup(
             productsPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 0, Short.MAX_VALUE)
+            .add(0, 539, Short.MAX_VALUE)
         );
         productsPanel1Layout.setVerticalGroup(
             productsPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
+            .add(0, 619, Short.MAX_VALUE)
         );
 
         add(productsPanel1, java.awt.BorderLayout.CENTER);

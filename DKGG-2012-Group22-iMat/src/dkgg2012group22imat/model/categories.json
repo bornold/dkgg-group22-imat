@@ -1,0 +1,50 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+[
+    {
+        name: "Mejeriprodukter",
+        handler: "",
+        subs: [
+            
+            {
+                name: "Mjölk",
+                handler: "COLD_DRINKS",
+                subs: []
+            },
+        
+            {
+                name: "Ost",
+                handler:"DAIRIES",
+                subs: []
+            }
+        ]
+    },
+     
+    {
+        name: "Frukter",
+        handler: "",
+        subs: [
+            
+            {
+                name: "Citrusfrukter",
+                handler: "CITRUS_FRUITS",
+                subs: []
+            },
+        
+            {
+                name: "Meloner",
+                handler:"MELONS",
+                subs: []
+            }
+        ]
+    },
+    
+    {
+        name: "Pasta",
+        handler: "PASTA",
+        subs: []
+    }
+]
