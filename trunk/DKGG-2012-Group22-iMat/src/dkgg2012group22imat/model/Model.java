@@ -195,6 +195,7 @@ public class Model {
     }
 
     public void saveNewCart(List<ShoppingItem> cart, String name) {
+        System.out.println("Saved new Shoppingcart " + name);
         savedCarts.add(new SavedCart(cart, name));
     }
 

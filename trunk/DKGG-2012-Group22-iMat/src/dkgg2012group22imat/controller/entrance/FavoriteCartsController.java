@@ -10,9 +10,7 @@ import dkgg2012group22imat.view.entrance.FavoriteCartPanel;
 import dkgg2012group22imat.view.entrance.FavoriteCartsPanel;
 import dkgg2012group22imat.view.entrance.SavedCartContainerPanel;
 import java.awt.Dimension;
-import java.util.ArrayList;
 import java.util.List;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -28,17 +26,6 @@ public class FavoriteCartsController implements SavedCartInterface {
     public FavoriteCartsController(SavedCartSuperController parent, FavoriteCartsPanel favoriteCartsPanel) {
         this.view = favoriteCartsPanel;
         this.parent = parent;
-//        //TODO REMOVE TEMP CODE
-//        List<Product> prodTemp = m.getOffers();
-//        for (int i = 0; i < 10; i++) {
-//            List<ShoppingItem> itemTemp = new ArrayList<ShoppingItem>();
-//            for (Product p : prodTemp) {
-//                itemTemp.add(new ShoppingItem(p));
-//            }
-//            m.saveNewCart(itemTemp, "Favorite" + i);
-//        }
-//        //TEMP CODE END
-
         List<SavedCart> temp = m.getSavedCarts();
         for (SavedCart sc : temp) {
             view.add(new FavoriteCartPanel(sc, this));
