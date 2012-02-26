@@ -47,9 +47,9 @@ public class MainButtonPanel extends javax.swing.JPanel {
         
         jLayeredPane1.moveToFront(aboveShadow);
         jLayeredPane1.moveToBack(shadow);
-        mainTabCheckoutButton.setVisibility(false);
-    mainTabShopButton.setVisibility(false);    
-    mainTabEntranceButton.setVisibility(true);
+        mainTabCheckoutButton.setShadow(false);
+    mainTabShopButton.setShadow(false);    
+    mainTabEntranceButton.setShadow(true);
 
     }
     

@@ -4,9 +4,20 @@
  */
 package dkgg2012group22imat.model;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import dkgg2012group22imat.controller.shop.Category;
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Customer;
@@ -208,5 +219,34 @@ public class Model {
             l.remove(generator.nextInt(l.size()));
         }
         return l;
+    }
+    
+    public List<Category> getCategories() {
+        
+        //ResourceMap resourceMap = Application.getInstance(DKGG2012Group22iMatApp.class).getContext().getResourceMap(CategoriesController.class);
+
+        try {
+            InputStream in = this.getClass().getResourceAsStream("categories.json");
+            InputStreamReader isr = new InputStreamReader(in, "utf-8");
+            BufferedReader br =
+                    new BufferedReader(isr);
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            String line;
+            while ((line = br.readLine()) != null) {
+                pw.println(line);
+            }
+            
+            pw.close();
+            //System.out.println(sw.toString());
+            
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<Category>>(){}.getType();
+            List<Category> result = gson.fromJson(sw.toString(), type);
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

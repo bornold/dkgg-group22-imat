@@ -39,20 +39,20 @@ public class MainButtonPanelController implements ChangeListener {
             currentView = handler;
             switch (handler) {
                 case ENTRANCE:
-                    view.mainTabCheckoutButton.setVisibility(false);
-                    view.mainTabShopButton.setVisibility(false);
-                    view.mainTabEntranceButton.setVisibility(true);
+                    view.mainTabCheckoutButton.setShadow(false);
+                    view.mainTabShopButton.setShadow(false);
+                    view.mainTabEntranceButton.setShadow(true);
                     
                     break;
                 case SHOP:
-                    view.mainTabCheckoutButton.setVisibility(false);
-                    view.mainTabShopButton.setVisibility(true);
-                    view.mainTabEntranceButton.setVisibility(false);
+                    view.mainTabCheckoutButton.setShadow(false);
+                    view.mainTabShopButton.setShadow(true);
+                    view.mainTabEntranceButton.setShadow(false);
                     break;
                 case CHECKOUT:
-                    view.mainTabCheckoutButton.setVisibility(true);
-                    view.mainTabShopButton.setVisibility(false);
-                    view.mainTabEntranceButton.setVisibility(false);
+                    view.mainTabCheckoutButton.setShadow(true);
+                    view.mainTabShopButton.setShadow(false);
+                    view.mainTabEntranceButton.setShadow(false);
                     break;
             }
         }

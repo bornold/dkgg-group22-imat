@@ -159,9 +159,9 @@ public class MainTabButton extends JButton {
 
     }
 
-    public void setVisibility(boolean visible) {
+    public void setShadow(boolean visible) {
         this.visible = visible;
-        System.out.println("HIDE THIS "+this.toString());
+        //System.out.println("HIDE THIS "+this.toString());
         this.repaint();
     }
 
