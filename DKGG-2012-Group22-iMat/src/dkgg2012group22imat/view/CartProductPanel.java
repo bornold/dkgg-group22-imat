@@ -32,6 +32,7 @@ public class CartProductPanel extends javax.swing.JPanel {
     public CartProductPanel(ShoppingItem si) {
         initComponents();
         controller = new CartProductController(si, this);
+        this.si = si;
         this.setAmount(si.getAmount());
 
         IMatUtilities.addHoverListener(this, new MouseAdapter() {
@@ -88,7 +89,7 @@ public class CartProductPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(2147483647, 85));
         setMinimumSize(new java.awt.Dimension(160, 85));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(270, 90));
+        setPreferredSize(new java.awt.Dimension(270, 85));
         setRequestFocusEnabled(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -148,8 +149,16 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         productImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("productImageLabel.border.lineColor"))); // NOI18N
         productImageLabel.setText(resourceMap.getString("productImageLabel.text")); // NOI18N
+        productImageLabel.setMaximumSize(new java.awt.Dimension(70, 53));
+        productImageLabel.setMinimumSize(new java.awt.Dimension(70, 53));
         productImageLabel.setName("productImageLabel"); // NOI18N
-        add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 17, 70, 50));
+        productImageLabel.setPreferredSize(new java.awt.Dimension(70, 53));
+        productImageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productImageLabelMouseClicked(evt);
+            }
+        });
+        add(productImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 17, 70, 53));
 
         unitLabel.setFont(resourceMap.getFont("unitLabel.font")); // NOI18N
         unitLabel.setText(resourceMap.getString("unitLabel.text")); // NOI18N
@@ -179,6 +188,13 @@ private void favoriteToggleButtonActionPerformed(java.awt.event.ActionEvent evt)
 controller.favorize();
 }//GEN-LAST:event_favoriteToggleButtonActionPerformed
 
+private void productImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productImageLabelMouseClicked
+if(evt.getSource() instanceof ProductImageLabel) {
+    ProductImageLabel pil = (ProductImageLabel)evt.getSource();
+    System.out.println(pil.getLocationOnScreen());
+}
+}//GEN-LAST:event_productImageLabelMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton deleteButton;
     public javax.swing.JButton favoriteToggleButton;
@@ -190,6 +206,10 @@ controller.favorize();
     public javax.swing.JLabel unitLabel;
     // End of variables declaration//GEN-END:variables
 
+    public ShoppingItem getShoppingItem() {
+        return si;
+    }
+    
     public int getAmount() {
         return Integer.parseInt(quantitySpinner.getValue().toString());
     }

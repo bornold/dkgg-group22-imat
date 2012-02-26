@@ -12,6 +12,8 @@ import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.OverlayLayout;
 
 /**
  * The application's main frame.
@@ -27,7 +29,8 @@ public class DKGG2012Group22iMatView extends FrameView {
         
         controller = new iMatViewController(this);
         
-        
+        jLayeredPane1.setLayout(new OverlayLayout(jLayeredPane1));
+        //animationPanel.setLayout(new OverlayLayout(animationPanel));
     }
 
     @Action
@@ -58,6 +61,10 @@ public class DKGG2012Group22iMatView extends FrameView {
                 setView(MainView.ENTRANCE);
         }
     }
+    
+    public JPanel getAnimationPanel() {
+        return animationPanel;
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -68,6 +75,13 @@ public class DKGG2012Group22iMatView extends FrameView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar = new javax.swing.JMenuBar();
+        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
+        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        animationPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         cartPanel1 = new dkgg2012group22imat.view.CartPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -76,11 +90,37 @@ public class DKGG2012Group22iMatView extends FrameView {
         entrancePanel1 = new dkgg2012group22imat.view.entrance.EntrancePanel();
         shopPanel1 = new dkgg2012group22imat.view.shop.ShopPanel();
         checkoutPanel1 = new dkgg2012group22imat.view.checkout.CheckoutPanel();
-        menuBar = new javax.swing.JMenuBar();
-        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
-        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
+
+        menuBar.setName("menuBar"); // NOI18N
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
+        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
+        fileMenu.setName("fileMenu"); // NOI18N
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatView.class, this);
+        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
+        exitMenuItem.setName("exitMenuItem"); // NOI18N
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
+
+        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
+        helpMenu.setName("helpMenu"); // NOI18N
+
+        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
+        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
+        helpMenu.add(aboutMenuItem);
+
+        menuBar.add(helpMenu);
+
+        jLayeredPane1.setName("jLayeredPane1"); // NOI18N
+
+        animationPanel.setBackground(resourceMap.getColor("animationPanel.background")); // NOI18N
+        animationPanel.setName("animationPanel"); // NOI18N
+        animationPanel.setOpaque(false);
+        animationPanel.setLayout(null);
+        animationPanel.setBounds(0, 0, 810, 700);
+        jLayeredPane1.add(animationPanel, javax.swing.JLayeredPane.DRAG_LAYER);
 
         mainPanel.setName("mainPanel"); // NOI18N
         mainPanel.setLayout(new java.awt.BorderLayout());
@@ -88,7 +128,6 @@ public class DKGG2012Group22iMatView extends FrameView {
         cartPanel1.setName("cartPanel1"); // NOI18N
         mainPanel.add(cartPanel1, java.awt.BorderLayout.EAST);
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
         jPanel1.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -119,35 +158,19 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         mainPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        menuBar.setName("menuBar"); // NOI18N
+        mainPanel.setBounds(0, 0, 985, 664);
+        jLayeredPane1.add(mainPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
-        fileMenu.setName("fileMenu"); // NOI18N
-
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatView.class, this);
-        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
-        exitMenuItem.setName("exitMenuItem"); // NOI18N
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
-        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
-        helpMenu.setName("helpMenu"); // NOI18N
-
-        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
-        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        setComponent(mainPanel);
+        setComponent(jLayeredPane1);
         setMenuBar(menuBar);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel animationPanel;
     private dkgg2012group22imat.view.CartPanel cartPanel1;
     private dkgg2012group22imat.view.checkout.CheckoutPanel checkoutPanel1;
     private dkgg2012group22imat.view.entrance.EntrancePanel entrancePanel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private dkgg2012group22imat.view.MainButtonPanel mainButtonPanel1;
     private javax.swing.JPanel mainContentPanel;
