@@ -7,6 +7,7 @@ package dkgg2012group22imat.view;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenManager;
 import aurelienribon.tweenengine.equations.Expo;
+import dkgg2012group22imat.controller.iMatViewController;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -22,7 +23,6 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jdesktop.application.Application;
 
@@ -122,5 +122,9 @@ public class IMatUtilities {
 
         t.start();
 
+    }
+    
+    public static iMatViewController getIMatViewController() {
+        return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
     }
 }

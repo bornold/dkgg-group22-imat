@@ -22,7 +22,9 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
 
         show(new DKGG2012Group22iMatView(this));
         DKGG2012Group22iMatView view = (DKGG2012Group22iMatView) this.getMainView();
-        view.setView(MainView.ENTRANCE);
+        view.init();
+        view.getController().setCurrentView(MainView.ENTRANCE);
+        
     }
 
     @Override
@@ -47,16 +49,11 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
     public static DKGG2012Group22iMatApp getApplication() {
         return Application.getInstance(DKGG2012Group22iMatApp.class);
     }
-
-    public void setView(MainView viewEnum) {
-
-        DKGG2012Group22iMatView view = (DKGG2012Group22iMatView) this.getMainView();
-
-        view.setView(viewEnum);
-    }
     
     public DKGG2012Group22iMatView getIMatView() {
-        return (DKGG2012Group22iMatView)this.getMainView();
+        if(this.getMainView() instanceof DKGG2012Group22iMatView)
+            return (DKGG2012Group22iMatView)this.getMainView();
+        return null;
     }
 
     /**

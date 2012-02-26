@@ -95,9 +95,9 @@ public class MainTabButton extends JButton {
                 g2.setColor(new Color(102, 102, 102));
             }
 
-            g2.setFont(new Font("Myriad Pro", Font.PLAIN, 30));
+            g2.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 
-            g2.drawString(this.getText(), 90, 60);
+            g2.drawString(this.getText(), 80, 60);
             //g2.drawImage(this.getIcon(), 20, 20, this);
             
             if(!visible) this.drawTiled(g2,x);

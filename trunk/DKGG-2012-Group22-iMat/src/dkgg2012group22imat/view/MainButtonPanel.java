@@ -65,7 +65,7 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-
+        
         this.fillSize();
         
         this.drawTiled(g);
@@ -112,7 +112,6 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
         aboveShadow.setName("aboveShadow"); // NOI18N
         aboveShadow.setOpaque(false);
-        aboveShadow.setSize(new java.awt.Dimension(0, 0));
         aboveShadow.setLayout(new java.awt.BorderLayout());
 
         filler1.setName("filler1"); // NOI18N
@@ -126,6 +125,7 @@ public class MainButtonPanel extends javax.swing.JPanel {
         mainTabEntranceButton.setIcon(resourceMap.getIcon("mainTabEntranceButton.icon")); // NOI18N
         mainTabEntranceButton.setText(resourceMap.getString("mainTabEntranceButton.text")); // NOI18N
         mainTabEntranceButton.setBorderPainted(false);
+        mainTabEntranceButton.setDisabledIcon(resourceMap.getIcon("mainTabEntranceButton.disabledIcon")); // NOI18N
         mainTabEntranceButton.setName("mainTabEntranceButton"); // NOI18N
         mainTabEntranceButton.setPreferredSize(new java.awt.Dimension(190, 80));
         mainTabEntranceButton.setRolloverIcon(resourceMap.getIcon("mainTabEntranceButton.rolloverIcon")); // NOI18N
@@ -138,6 +138,7 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
         mainTabShopButton.setIcon(resourceMap.getIcon("mainTabShopButton.icon")); // NOI18N
         mainTabShopButton.setText(resourceMap.getString("mainTabShopButton.text")); // NOI18N
+        mainTabShopButton.setDisabledIcon(resourceMap.getIcon("mainTabShopButton.disabledIcon")); // NOI18N
         mainTabShopButton.setName("mainTabShopButton"); // NOI18N
         mainTabShopButton.setPreferredSize(new java.awt.Dimension(190, 80));
         mainTabShopButton.setRolloverIcon(resourceMap.getIcon("mainTabShopButton.rolloverIcon")); // NOI18N
@@ -150,6 +151,7 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
         mainTabCheckoutButton.setIcon(resourceMap.getIcon("mainTabCheckoutButton.icon")); // NOI18N
         mainTabCheckoutButton.setText(resourceMap.getString("mainTabCheckoutButton.text")); // NOI18N
+        mainTabCheckoutButton.setDisabledIcon(resourceMap.getIcon("mainTabCheckoutButton.disabledIcon")); // NOI18N
         mainTabCheckoutButton.setName("mainTabCheckoutButton"); // NOI18N
         mainTabCheckoutButton.setPreferredSize(new java.awt.Dimension(190, 80));
         mainTabCheckoutButton.setRolloverIcon(resourceMap.getIcon("mainTabCheckoutButton.rolloverIcon")); // NOI18N
@@ -178,24 +180,14 @@ public class MainButtonPanel extends javax.swing.JPanel {
 private void mainTabEntranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabEntranceButtonActionPerformed
     controller.goTo(MainView.ENTRANCE);
     
-    mainTabCheckoutButton.setVisibility(false);
-    mainTabShopButton.setVisibility(false);    
-    mainTabEntranceButton.setVisibility(true);
 }//GEN-LAST:event_mainTabEntranceButtonActionPerformed
 
 private void mainTabShopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabShopButtonActionPerformed
     controller.goTo(MainView.SHOP);
-    mainTabCheckoutButton.setVisibility(false);
-    mainTabShopButton.setVisibility(true);    
-    mainTabEntranceButton.setVisibility(false);
 }//GEN-LAST:event_mainTabShopButtonActionPerformed
 
 private void mainTabCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabCheckoutButtonActionPerformed
     controller.goTo(MainView.CHECKOUT);
-    
-    mainTabCheckoutButton.setVisibility(true);
-    mainTabShopButton.setVisibility(false);    
-    mainTabEntranceButton.setVisibility(false);
 }//GEN-LAST:event_mainTabCheckoutButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -203,9 +195,9 @@ private void mainTabCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
-    private dkgg2012group22imat.view.MainTabButton mainTabCheckoutButton;
-    private dkgg2012group22imat.view.MainTabButton mainTabEntranceButton;
-    private dkgg2012group22imat.view.MainTabButton mainTabShopButton;
+    public dkgg2012group22imat.view.MainTabButton mainTabCheckoutButton;
+    public dkgg2012group22imat.view.MainTabButton mainTabEntranceButton;
+    public dkgg2012group22imat.view.MainTabButton mainTabShopButton;
     private dkgg2012group22imat.view.MainTabShadow shadow;
     // End of variables declaration//GEN-END:variables
 }

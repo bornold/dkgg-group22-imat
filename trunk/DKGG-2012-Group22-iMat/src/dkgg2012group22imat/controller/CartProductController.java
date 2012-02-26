@@ -44,7 +44,7 @@ public class CartProductController {
         view.productNameLabel.setText(si.getProduct().getName());
         view.productImageLabel.setImage(m.getImageIcon(si.getProduct(), new Dimension(140, 106)));
         
-        view.priceLabel.setText((int)si.getProduct().getPrice()+"kr");
+        view.priceLabel.setText((int)si.getTotal()+"kr");
         view.deleteButton.setVisible(false);
 //        view.quantityLabel.setText(p.getUnitSuffix());
         view.unitLabel.setText(si.getProduct().getUnitSuffix()+" för");
@@ -89,7 +89,11 @@ public class CartProductController {
         view.favoriteToggleButton.setVisible(false);
     }
     public void spinnerChanged(int i){
-        view.priceLabel.setText((int)si.getProduct().getPrice()*i+"kr");
+        if(si.getAmount() != i){
+            si.setAmount(i);
+            //view.priceLabel.setText((int)si.getProduct().getPrice()*i+"kr");
+            m.getShoppingCart().fireShoppingCartChanged();
+        }
     }
     public void handleFavoriteEvent(EventObject e) {
         setFavoButton();

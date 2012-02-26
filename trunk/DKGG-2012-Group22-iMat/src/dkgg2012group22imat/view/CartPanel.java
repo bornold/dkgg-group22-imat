@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartPanelController;
+import javax.swing.OverlayLayout;
 
 /**
  *
@@ -26,7 +27,11 @@ public class CartPanel extends javax.swing.JPanel {
     }
     
     public CartWithProductsPanel getCartWithProductsPanel(){
-        return cartWithProductsPanel1;
+        return cartWithProductsPanel;
+    }
+    
+    public void setTotalPriceText(String text) {
+        this.totalLabel.setText(text);
     }
 
     /** This method is called from within the constructor to
@@ -41,8 +46,10 @@ public class CartPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        cartWithProductsPanel1 = new dkgg2012group22imat.view.CartWithProductsPanel();
+        totalLabel = new javax.swing.JLabel();
+        toggleFavouriteCart = new javax.swing.JButton();
+        gotoCheckout = new javax.swing.JButton();
+        cartWithProductsPanel = new dkgg2012group22imat.view.CartWithProductsPanel();
 
         setName("Form"); // NOI18N
         setPreferredSize(new java.awt.Dimension(290, 637));
@@ -67,7 +74,7 @@ public class CartPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,50 +88,87 @@ public class CartPanel extends javax.swing.JPanel {
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
         jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        jButton1.setBackground(resourceMap.getColor("jButton1.background")); // NOI18N
-        jButton1.setForeground(resourceMap.getColor("jButton1.foreground")); // NOI18N
-        jButton1.setIcon(resourceMap.getIcon("jButton1.icon")); // NOI18N
-        jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
-        jButton1.setAlignmentY(0.0F);
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton1.setMaximumSize(new java.awt.Dimension(290, 75));
-        jButton1.setMinimumSize(new java.awt.Dimension(290, 75));
-        jButton1.setName("jButton1"); // NOI18N
-        jButton1.setOpaque(true);
-        jButton1.setPreferredSize(new java.awt.Dimension(290, 75));
-        jButton1.setPressedIcon(resourceMap.getIcon("jButton1.pressedIcon")); // NOI18N
-        jButton1.setRolloverIcon(resourceMap.getIcon("jButton1.rolloverIcon")); // NOI18N
+        totalLabel.setFont(resourceMap.getFont("totalLabel.font")); // NOI18N
+        totalLabel.setForeground(resourceMap.getColor("totalLabel.foreground")); // NOI18N
+        totalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalLabel.setIcon(resourceMap.getIcon("totalLabel.icon")); // NOI18N
+        totalLabel.setText(resourceMap.getString("totalLabel.text")); // NOI18N
+        totalLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        totalLabel.setName("totalLabel"); // NOI18N
+        jPanel2.add(totalLabel);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        toggleFavouriteCart.setFont(resourceMap.getFont("toggleFavouriteCart.font")); // NOI18N
+        toggleFavouriteCart.setForeground(resourceMap.getColor("toggleFavouriteCart.foreground")); // NOI18N
+        toggleFavouriteCart.setIcon(resourceMap.getIcon("toggleFavouriteCart.icon")); // NOI18N
+        toggleFavouriteCart.setText(resourceMap.getString("toggleFavouriteCart.text")); // NOI18N
+        toggleFavouriteCart.setBorderPainted(false);
+        toggleFavouriteCart.setDisabledIcon(resourceMap.getIcon("toggleFavouriteCart.disabledIcon")); // NOI18N
+        toggleFavouriteCart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toggleFavouriteCart.setIconTextGap(0);
+        toggleFavouriteCart.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        toggleFavouriteCart.setMaximumSize(new java.awt.Dimension(290, 28));
+        toggleFavouriteCart.setMinimumSize(new java.awt.Dimension(290, 28));
+        toggleFavouriteCart.setName("toggleFavouriteCart"); // NOI18N
+        toggleFavouriteCart.setPreferredSize(new java.awt.Dimension(290, 28));
+        toggleFavouriteCart.setPressedIcon(resourceMap.getIcon("toggleFavouriteCart.pressedIcon")); // NOI18N
+        toggleFavouriteCart.setRolloverIcon(resourceMap.getIcon("toggleFavouriteCart.rolloverIcon")); // NOI18N
+        toggleFavouriteCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toggleFavouriteCartActionPerformed(evt);
+            }
+        });
+        jPanel2.add(toggleFavouriteCart);
+        toggleFavouriteCart.setLayout(new OverlayLayout(toggleFavouriteCart));
+
+        gotoCheckout.setBackground(resourceMap.getColor("gotoCheckout.background")); // NOI18N
+        gotoCheckout.setForeground(resourceMap.getColor("gotoCheckout.foreground")); // NOI18N
+        gotoCheckout.setIcon(resourceMap.getIcon("gotoCheckout.icon")); // NOI18N
+        gotoCheckout.setText(resourceMap.getString("gotoCheckout.text")); // NOI18N
+        gotoCheckout.setAlignmentY(0.0F);
+        gotoCheckout.setBorderPainted(false);
+        gotoCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gotoCheckout.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gotoCheckout.setMaximumSize(new java.awt.Dimension(290, 75));
+        gotoCheckout.setMinimumSize(new java.awt.Dimension(290, 75));
+        gotoCheckout.setName("gotoCheckout"); // NOI18N
+        gotoCheckout.setOpaque(true);
+        gotoCheckout.setPreferredSize(new java.awt.Dimension(290, 75));
+        gotoCheckout.setPressedIcon(resourceMap.getIcon("gotoCheckout.pressedIcon")); // NOI18N
+        gotoCheckout.setRolloverIcon(resourceMap.getIcon("gotoCheckout.rolloverIcon")); // NOI18N
+        gotoCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gotoCheckoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(gotoCheckout);
 
         add(jPanel2, java.awt.BorderLayout.SOUTH);
 
-        cartWithProductsPanel1.setBackground(resourceMap.getColor("cartWithProductsPanel1.background")); // NOI18N
-        cartWithProductsPanel1.setAlignmentX(0.0F);
-        cartWithProductsPanel1.setAlignmentY(0.0F);
-        cartWithProductsPanel1.setName("cartWithProductsPanel1"); // NOI18N
-        cartWithProductsPanel1.setPreferredSize(new java.awt.Dimension(290, 500));
-        add(cartWithProductsPanel1, java.awt.BorderLayout.CENTER);
+        cartWithProductsPanel.setBackground(resourceMap.getColor("cartWithProductsPanel.background")); // NOI18N
+        cartWithProductsPanel.setAlignmentX(0.0F);
+        cartWithProductsPanel.setAlignmentY(0.0F);
+        cartWithProductsPanel.setName("cartWithProductsPanel"); // NOI18N
+        cartWithProductsPanel.setPreferredSize(new java.awt.Dimension(290, 500));
+        add(cartWithProductsPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+private void toggleFavouriteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFavouriteCartActionPerformed
+controller.toggleFavouriteCart();
+}//GEN-LAST:event_toggleFavouriteCartActionPerformed
+
+private void gotoCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotoCheckoutActionPerformed
+controller.gotoCheckout();
+}//GEN-LAST:event_gotoCheckoutActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private dkgg2012group22imat.view.CartWithProductsPanel cartWithProductsPanel1;
-    private javax.swing.JButton jButton1;
+    private dkgg2012group22imat.view.CartWithProductsPanel cartWithProductsPanel;
+    private javax.swing.JButton gotoCheckout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton toggleFavouriteCart;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }

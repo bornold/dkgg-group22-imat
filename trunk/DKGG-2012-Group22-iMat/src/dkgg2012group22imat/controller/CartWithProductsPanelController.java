@@ -30,8 +30,6 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
     private Model m = Model.getInstance();
     private  List<ShoppingItem> items;
     private static List<Product> productList;
-    private static List<CartProductPanel> panelList;
-    private static Map<Product,Rectangle> productImageBounds;
     private ShoppingCart shoppingCart;
     private Product p;
 
@@ -39,9 +37,6 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
         this.view = cartProductView;
         shoppingCart = m.getShoppingCart();
         shoppingCart.addShoppingCartListener(this);
-        
-        productImageBounds = new HashMap();
-        panelList = new ArrayList();
         productList = new ArrayList();
     }
 
@@ -61,16 +56,6 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
         view.updateUI();
         view.revalidate();
         view.repaint();
-        
-       CartWithProductsPanelController.updateImageBounds();
-    }
-    
-    public static void updateImageBounds() {
-        productImageBounds.clear();
-        for(CartProductPanel cpp : panelList) {
-                productImageBounds.put(cpp.getShoppingItem().getProduct(), new Rectangle(IMatUtilities.getLocationRelativeToFrame(cpp.productImageLabel.getLocationOnScreen()),cpp.productImageLabel.getPreferredSize()));
-            
-        }
     }
     
     public static Rectangle getImageBoundsOf(Product p) {
