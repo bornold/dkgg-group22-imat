@@ -220,14 +220,7 @@ if(evt.getSource() instanceof ProductImageLabel) {
     }
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {
-        /*   System.out.println(evt);
-        Point p = evt.getPoint();
-        Dimension size = evt.getComponent().getSize();
-        System.out.println(p);
-        System.out.println(size);
-        if((p.getX()>(size.getWidth()-10) || p.getX()<10) || (p.getY()>(size.getHeight()-10) || p.getY()<10)) {*/
         controller.dehoover();
-        //}
     }
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {

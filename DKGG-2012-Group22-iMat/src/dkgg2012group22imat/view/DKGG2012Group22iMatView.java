@@ -7,6 +7,8 @@ package dkgg2012group22imat.view;
 import dkgg2012group22imat.controller.iMatViewController;
 import dkgg2012group22imat.controller.iMatViewController.MainView;
 import java.awt.CardLayout;
+import java.util.HashSet;
+import java.util.Set;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -14,6 +16,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.OverlayLayout;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  * The application's main frame.
@@ -21,15 +25,13 @@ import javax.swing.OverlayLayout;
 public class DKGG2012Group22iMatView extends FrameView {
     
     private iMatViewController controller;
+    
 
     public DKGG2012Group22iMatView(SingleFrameApplication app) {
         super(app);
 
-        initComponents();
-        
         controller = new iMatViewController(this);
-        
-        jLayeredPane1.setLayout(new OverlayLayout(jLayeredPane1));
+        //initComponents();
         //animationPanel.setLayout(new OverlayLayout(animationPanel));
     }
 
@@ -47,25 +49,33 @@ public class DKGG2012Group22iMatView extends FrameView {
         switch(viewEnum) {
             case ENTRANCE:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"ENTRANCE");
-                controller.setCurrentView(viewEnum);
                 break;
             case SHOP:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"SHOP");
-                controller.setCurrentView(viewEnum);
                 break;
             case CHECKOUT:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"CHECKOUT");
-                controller.setCurrentView(viewEnum);
                 break;
             default:
                 setView(MainView.ENTRANCE);
         }
+        
     }
     
+    public iMatViewController getController() {
+        return controller;
+    }
+
     public JPanel getAnimationPanel() {
         return animationPanel;
     }
-
+    
+    public void init() {
+        initComponents();
+        
+        jLayeredPane1.setLayout(new OverlayLayout(jLayeredPane1));
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
