@@ -31,19 +31,22 @@ public class EntrancePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        savedCartSuperPanel1 = new dkgg2012group22imat.view.entrance.SavedCartSuperPanel();
+        wrapper1 = new dkgg2012group22imat.view.entrance.carts.CartsWrapper();
+        cartsWrapper1 = new dkgg2012group22imat.view.entrance.carts.CartsWrapper();
         contentPanel = new javax.swing.JPanel();
         spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
         favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
 
+        wrapper1.setName("wrapper1"); // NOI18N
+
         setName("Form"); // NOI18N
         setLayout(new java.awt.BorderLayout());
 
-        savedCartSuperPanel1.setName("savedCartSuperPanel1"); // NOI18N
-        add(savedCartSuperPanel1, java.awt.BorderLayout.WEST);
+        cartsWrapper1.setName("cartsWrapper1"); // NOI18N
+        add(cartsWrapper1, java.awt.BorderLayout.LINE_START);
 
         contentPanel.setName("contentPanel"); // NOI18N
-        contentPanel.setLayout(new java.awt.GridLayout(2, 0));
+        contentPanel.setLayout(new java.awt.GridLayout(2, 1));
 
         spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
         contentPanel.add(spotlightProductsPanel1);
@@ -54,9 +57,10 @@ public class EntrancePanel extends javax.swing.JPanel {
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private dkgg2012group22imat.view.entrance.carts.CartsWrapper cartsWrapper1;
     private javax.swing.JPanel contentPanel;
     private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
-    private dkgg2012group22imat.view.entrance.SavedCartSuperPanel savedCartSuperPanel1;
     private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;
+    private dkgg2012group22imat.view.entrance.carts.CartsWrapper wrapper1;
     // End of variables declaration//GEN-END:variables
 }

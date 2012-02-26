@@ -92,38 +92,38 @@ public class Model {
     }
 
     public void addToShoppingCart(Product p, double amount) {
-        
+
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         System.out.println("CartAdding: " + p.getName());
         List<ShoppingItem> list = shoppingCart.getItems();
         boolean shoppingCartUpdated = false;
-        for(ShoppingItem item : list) {
-            if(item.getProduct() == p) {
-                item.setAmount(item.getAmount()+amount);
+        for (ShoppingItem item : list) {
+            if (item.getProduct() == p) {
+                item.setAmount(item.getAmount() + amount);
                 shoppingCartUpdated = true;
             }
         }
-        if(shoppingCartUpdated) {
+        if (shoppingCartUpdated) {
             shoppingCart.fireShoppingCartChanged();
         } else {
-            shoppingCart.addItem(new ShoppingItem(p,amount));
+            shoppingCart.addItem(new ShoppingItem(p, amount));
         }
     }
 
     public void addToShoppingCart(Product p) {
-       addToShoppingCart(p,1);
+        addToShoppingCart(p, 1);
     }
 
     public void addToShoppingCart(ShoppingItem si) {
-        addToShoppingCart(si.getProduct(), si.getAmount()); 
+        addToShoppingCart(si.getProduct(), si.getAmount());
     }
 
-     public void addToShoppingCart(List <ShoppingItem> items) {
-        for(ShoppingItem si : items){
+    public void addToShoppingCart(List<ShoppingItem> items) {
+        for (ShoppingItem si : items) {
             addToShoppingCart(si);
         }
     }
-    
+
     public void removeFromShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         System.out.println("CartRemoving: " + p.getName());
@@ -189,7 +189,17 @@ public class Model {
     public List<Order> getOrders() {
         return iMatDataHandler.getOrders();
     }
-    
+
+    public List<SavedCart> getSavedCartHistory() {
+        List<Order> orders = getOrders();
+        List<SavedCart> historySavedCarts = new ArrayList<SavedCart>();
+        //TODO make getDate().toString() better.
+        for (Order o : orders) {
+            historySavedCarts.add(new SavedCart(o.getItems(), o.getDate().toString()));
+        }
+        return historySavedCarts;
+    }
+
     public List<SavedCart> getSavedCarts() {
         return savedCarts;
     }
@@ -202,17 +212,19 @@ public class Model {
     public void removeSavedCart(SavedCart cart) {
         this.savedCarts.remove(cart);
     }
-   
+
     public void reset() {
         iMatDataHandler.reset();
     }
-    public List<Product> getProducts(ProductCategory pc){
+
+    public List<Product> getProducts(ProductCategory pc) {
         return iMatDataHandler.getProducts(pc);
     }
-    public List<Product> getProducts(){
+
+    public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
     }
-    
+
     private List<Product> getRandomProducts() {
         List<Product> l = getProducts();
         Random generator = new Random();
@@ -221,9 +233,9 @@ public class Model {
         }
         return l;
     }
-    
+
     public List<Category> getCategories() {
-        
+
         //ResourceMap resourceMap = Application.getInstance(DKGG2012Group22iMatApp.class).getContext().getResourceMap(CategoriesController.class);
 
         try {
@@ -237,12 +249,13 @@ public class Model {
             while ((line = br.readLine()) != null) {
                 pw.println(line);
             }
-            
+
             pw.close();
             //System.out.println(sw.toString());
-            
+
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Category>>(){}.getType();
+            Type type = new TypeToken<List<Category>>() {
+            }.getType();
             List<Category> result = gson.fromJson(sw.toString(), type);
             return result;
         } catch (IOException e) {
