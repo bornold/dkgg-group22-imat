@@ -43,7 +43,7 @@ public class ProductController implements FavoriteListener,TweenCallback {
         view.unitLabel.setVisible(false);
         view.unitLabel.setText(p.getUnitSuffix());
         setFavoButton();
-        m.addEventListener(this);
+        m.addFavouriteEventListener(this);
     }
 
     public void favorize() {

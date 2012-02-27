@@ -12,7 +12,9 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
@@ -28,6 +30,7 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
     private Model m = Model.getInstance();
     private List<ShoppingItem> items;
     private static List<Product> productList;
+    private static Set<Product> queuedProducts = new HashSet();
     private ShoppingCart shoppingCart;
     private Product p;
 
@@ -48,6 +51,8 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
             CartProductPanel pane = new CartProductPanel(si);
             productList.add(si.getProduct());
+            if(queuedProducts.size()>0)
+                queuedProducts.remove(si.getProduct());
             view.getProductListPanel().add(pane);
         }
         System.out.println("Cart increased with " + view.getComponents().length);
@@ -63,10 +68,14 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
         int locationy = 0;
         if (productList.indexOf(p) >= 0) {
             locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
-            System.out.println("if");
+            
         } else {
-            locationy = view.getLocationOnScreen().y + ((int) (productList.size()) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
-            System.out.println("else");
+            int next = productList.size();
+            if(queuedProducts.contains(p))
+                next = 0;
+                
+            locationy = view.getLocationOnScreen().y + ((int)(queuedProducts.size()+next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
+            queuedProducts.add(p);
         }
         Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));
         Dimension dimension = temp.productImageLabel.getPreferredSize();

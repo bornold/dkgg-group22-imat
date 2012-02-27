@@ -74,7 +74,7 @@ public class CartPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +155,7 @@ public class CartPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void toggleFavouriteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFavouriteCartActionPerformed
-controller.toggleFavouriteCart();
+controller.openSaveCartDialog();
 }//GEN-LAST:event_toggleFavouriteCartActionPerformed
 
 private void gotoCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotoCheckoutActionPerformed
@@ -168,7 +168,7 @@ controller.gotoCheckout();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton toggleFavouriteCart;
+    public javax.swing.JButton toggleFavouriteCart;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
