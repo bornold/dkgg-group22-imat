@@ -42,9 +42,12 @@ public class SuperCartsPanel extends javax.swing.JPanel {
         historyCartsPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(270, 0));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
         savedCartsPanelWrapper.setName("savedCartsPanelWrapper"); // NOI18N
+        savedCartsPanelWrapper.setOpaque(false);
         savedCartsPanelWrapper.setLayout(new javax.swing.BoxLayout(savedCartsPanelWrapper, javax.swing.BoxLayout.PAGE_AXIS));
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SuperCartsPanel.class);
@@ -52,9 +55,13 @@ public class SuperCartsPanel extends javax.swing.JPanel {
         jLabel1.setName("jLabel1"); // NOI18N
         savedCartsPanelWrapper.add(jLabel1);
 
+        savedCartsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         savedCartsScrollPane.setName("savedCartsScrollPane"); // NOI18N
+        savedCartsScrollPane.setOpaque(false);
 
         favoriteCartsPanel.setName("favoriteCartsPanel"); // NOI18N
+        favoriteCartsPanel.setOpaque(false);
+        favoriteCartsPanel.setLayout(new javax.swing.BoxLayout(favoriteCartsPanel, javax.swing.BoxLayout.Y_AXIS));
         savedCartsScrollPane.setViewportView(favoriteCartsPanel);
 
         savedCartsPanelWrapper.add(savedCartsScrollPane);
@@ -62,15 +69,20 @@ public class SuperCartsPanel extends javax.swing.JPanel {
         add(savedCartsPanelWrapper);
 
         historyCartsPanelWrapper.setName("historyCartsPanelWrapper"); // NOI18N
+        historyCartsPanelWrapper.setOpaque(false);
         historyCartsPanelWrapper.setLayout(new javax.swing.BoxLayout(historyCartsPanelWrapper, javax.swing.BoxLayout.PAGE_AXIS));
 
         jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
         historyCartsPanelWrapper.add(jLabel2);
 
+        historyCartsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         historyCartsScrollPane.setName("historyCartsScrollPane"); // NOI18N
+        historyCartsScrollPane.setOpaque(false);
 
         historyCartsPanel.setName("historyCartsPanel"); // NOI18N
+        historyCartsPanel.setOpaque(false);
+        historyCartsPanel.setLayout(new javax.swing.BoxLayout(historyCartsPanel, javax.swing.BoxLayout.Y_AXIS));
         historyCartsScrollPane.setViewportView(historyCartsPanel);
 
         historyCartsPanelWrapper.add(historyCartsScrollPane);

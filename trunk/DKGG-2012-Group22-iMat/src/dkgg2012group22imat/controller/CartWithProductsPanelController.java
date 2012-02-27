@@ -58,14 +58,14 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
     public static Rectangle getImageBoundsOf(Product p) {
         CartProductPanel temp = new CartProductPanel(new ShoppingItem(p, 1));
-        int border = 1;
-        int locationx = view.getLocationOnScreen().x + 12 + border;//temp.productImageLabel.getX();
+        int border = 0;
+        int locationx = view.getLocationOnScreen().x + 13;//temp.productImageLabel.getX();
         int locationy = 0;
         if (productList.indexOf(p) >= 0) {
-            locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19 + border;// temp.productImageLabel.getY();
+            locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
             System.out.println("if");
         } else {
-            locationy = view.getLocationOnScreen().y + ((int) (productList.size()) * temp.getPreferredSize().height) + 19 + border;// temp.productImageLabel.getY();
+            locationy = view.getLocationOnScreen().y + ((int) (productList.size()) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
             System.out.println("else");
         }
         Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));

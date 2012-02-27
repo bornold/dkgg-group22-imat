@@ -12,6 +12,7 @@ package dkgg2012group22imat.view.entrance;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductsPanel;
+import java.awt.BorderLayout;
 
 
 /**
@@ -23,7 +24,7 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
     /** Creates new form SpotlightProductPanel */
     public SpotlightProductsPanel() {
         initComponents();
-        add(new ProductsPanel(Model.getInstance().getOffers(), 3));
+        add(new ProductsPanel(Model.getInstance().getOffers(), 3), BorderLayout.CENTER);
     }
 
     /** This method is called from within the constructor to
@@ -39,6 +40,8 @@ public class SpotlightProductsPanel extends javax.swing.JPanel {
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
         setMaximumSize(new java.awt.Dimension(200, 200));
         setName("Form"); // NOI18N
+        setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

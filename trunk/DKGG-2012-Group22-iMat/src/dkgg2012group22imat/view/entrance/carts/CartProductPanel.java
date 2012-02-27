@@ -42,6 +42,7 @@ public class CartProductPanel extends javax.swing.JPanel {
         addButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 formMouseExited(evt);

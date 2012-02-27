@@ -4,6 +4,7 @@
  */
 package dkgg2012group22imat.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -45,12 +46,14 @@ public class AnimateImage extends JComponent {
         if (this.isVisible()) {
             Graphics2D g2d = (Graphics2D) g.create();
 
-
             AffineTransform at = AffineTransform.getScaleInstance((double) this.getWidth() / (double) image.getWidth(), (double) this.getHeight() / (double) image.getHeight());
             AffineTransformOp aop =
                     new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
 
             g2d.drawImage(this.image, aop, 0, 0);
+            
+            g2d.setColor(new Color(205,205,205));
+            g2d.drawRect(0, 0, this.getWidth()-1, this.getHeight()-1);
         }
     }
 }

@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.ProductsPanelController;
+import java.awt.Color;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -47,20 +48,60 @@ public class ProductsPanel extends javax.swing.JPanel {
         productPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
 
         navigationPanel.setName("navigationPanel"); // NOI18N
+        navigationPanel.setOpaque(false);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductsPanel.class);
+        forwardButton.setFont(resourceMap.getFont("forwardButton.font")); // NOI18N
+        forwardButton.setForeground(resourceMap.getColor("forwardButton.foreground")); // NOI18N
+        forwardButton.setIcon(resourceMap.getIcon("forwardButton.icon")); // NOI18N
         forwardButton.setText(resourceMap.getString("forwardButton.text")); // NOI18N
+        forwardButton.setBorderPainted(false);
+        forwardButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forwardButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        forwardButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        forwardButton.setMinimumSize(new java.awt.Dimension(140, 51));
         forwardButton.setName("forwardButton"); // NOI18N
+        forwardButton.setPreferredSize(new java.awt.Dimension(140, 51));
+        forwardButton.setRolloverIcon(resourceMap.getIcon("forwardButton.rolloverIcon")); // NOI18N
+        forwardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                forwardButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                forwardButtonMouseEntered(evt);
+            }
+        });
         forwardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forwardButtonActionPerformed(evt);
             }
         });
 
+        backButton.setBackground(resourceMap.getColor("backButton.background")); // NOI18N
+        backButton.setFont(resourceMap.getFont("backButton.font")); // NOI18N
+        backButton.setForeground(resourceMap.getColor("backButton.foreground")); // NOI18N
+        backButton.setIcon(resourceMap.getIcon("backButton.icon")); // NOI18N
         backButton.setText(resourceMap.getString("backButton.text")); // NOI18N
+        backButton.setBorderPainted(false);
+        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        backButton.setMaximumSize(new java.awt.Dimension(140, 51));
+        backButton.setMinimumSize(new java.awt.Dimension(140, 51));
         backButton.setName("backButton"); // NOI18N
+        backButton.setPreferredSize(new java.awt.Dimension(140, 51));
+        backButton.setRolloverIcon(resourceMap.getIcon("backButton.rolloverIcon")); // NOI18N
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backButtonMouseEntered(evt);
+            }
+        });
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -76,39 +117,31 @@ public class ProductsPanel extends javax.swing.JPanel {
         navigationPanelLayout.setHorizontalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanelLayout.createSequentialGroup()
-                .addComponent(backButton)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(navigationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(forwardButton))
+                .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(navigationPanelLayout.createSequentialGroup()
+                        .addComponent(navigationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addGap(154, 154, 154))
+                    .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(forwardButton)
-                .addComponent(backButton))
+                .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(navigationPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(navigationLabel))
         );
 
-        productPanel.setName("productPanel"); // NOI18N
-        productPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
+        add(navigationPanel, java.awt.BorderLayout.NORTH);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(navigationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(productPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(navigationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(productPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        productPanel.setBackground(resourceMap.getColor("productPanel.background")); // NOI18N
+        productPanel.setName("productPanel"); // NOI18N
+        productPanel.setOpaque(false);
+        productPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
+        add(productPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
@@ -118,6 +151,23 @@ private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
     controller.viewPrevProducts();
 }//GEN-LAST:event_backButtonActionPerformed
+
+private void forwardButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseEntered
+forwardButton.setText("Visa fler varor");
+}//GEN-LAST:event_forwardButtonMouseEntered
+
+private void forwardButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseExited
+forwardButton.setText("");
+}//GEN-LAST:event_forwardButtonMouseExited
+
+private void backButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseEntered
+backButton.setText("Tillbaka");
+}//GEN-LAST:event_backButtonMouseEntered
+
+private void backButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseExited
+backButton.setText("");
+}//GEN-LAST:event_backButtonMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton backButton;
     public javax.swing.JButton forwardButton;
