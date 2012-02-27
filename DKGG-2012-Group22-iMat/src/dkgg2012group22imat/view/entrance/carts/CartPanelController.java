@@ -24,7 +24,7 @@ public class CartPanelController {
     CartsPanelController parent;
     Model m = Model.getInstance();
     private List<ShoppingItem> items;
-    private Dimension iconSize = new Dimension(20, 20);
+    private Dimension iconSize = new Dimension(60, 46);
 
     CartPanelController(SavedCart sv, CartsPanelController aParent, CartPanel aView) {
         this.cart = sv;
@@ -36,13 +36,13 @@ public class CartPanelController {
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
-                view.icon4.setIcon(m.getImageIcon(items.get(3).getProduct(), iconSize));
+                view.icon4.setImage(m.getImageIcon(items.get(3).getProduct(), iconSize));
             case 3:
-                view.icon3.setIcon(m.getImageIcon(items.get(2).getProduct(), iconSize));
+                view.icon3.setImage(m.getImageIcon(items.get(2).getProduct(), iconSize));
             case 2:
-                view.icon2.setIcon(m.getImageIcon(items.get(1).getProduct(), iconSize));
+                view.icon2.setImage(m.getImageIcon(items.get(1).getProduct(), iconSize));
             case 1:
-                view.icon1.setIcon(m.getImageIcon(items.get(0).getProduct(), iconSize));
+                view.icon1.setImage(m.getImageIcon(items.get(0).getProduct(), iconSize));
                 break;
         }
     }

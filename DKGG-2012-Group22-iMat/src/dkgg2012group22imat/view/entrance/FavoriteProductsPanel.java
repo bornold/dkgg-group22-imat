@@ -13,6 +13,7 @@ package dkgg2012group22imat.view.entrance;
 import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductsPanel;
+import java.awt.BorderLayout;
 import java.util.EventObject;
 
 /**
@@ -28,7 +29,7 @@ public class FavoriteProductsPanel extends javax.swing.JPanel implements Favorit
         Model m = Model.getInstance();
         pp = new ProductsPanel(m.getFavorites(), 3);
         m.addEventListener(this);
-        add(pp);
+        add(pp, BorderLayout.CENTER);
     }
 
     /** This method is called from within the constructor to
@@ -40,7 +41,11 @@ public class FavoriteProductsPanel extends javax.swing.JPanel implements Favorit
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(FavoriteProductsPanel.class);
+        setBackground(resourceMap.getColor("Form.background")); // NOI18N
         setName("Form"); // NOI18N
+        setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

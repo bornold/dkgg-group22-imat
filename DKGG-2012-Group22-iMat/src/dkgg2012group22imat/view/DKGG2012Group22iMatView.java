@@ -132,6 +132,7 @@ public class DKGG2012Group22iMatView extends FrameView {
         animationPanel.setBounds(0, 0, 810, 700);
         jLayeredPane1.add(animationPanel, javax.swing.JLayeredPane.DRAG_LAYER);
 
+        mainPanel.setBackground(resourceMap.getColor("mainPanel.background")); // NOI18N
         mainPanel.setName("mainPanel"); // NOI18N
         mainPanel.setLayout(new java.awt.BorderLayout());
 
@@ -140,28 +141,34 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         jPanel1.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         mainButtonPanel1.setMaximumSize(new java.awt.Dimension(32767, 114));
         mainButtonPanel1.setMinimumSize(new java.awt.Dimension(620, 114));
         mainButtonPanel1.setName("mainButtonPanel1"); // NOI18N
+        mainButtonPanel1.setOpaque(false);
         mainButtonPanel1.setPreferredSize(new java.awt.Dimension(0, 114));
         jPanel1.add(mainButtonPanel1, java.awt.BorderLayout.NORTH);
 
         mainContentPanel.setBackground(resourceMap.getColor("mainContentPanel.background")); // NOI18N
         mainContentPanel.setName("mainContentPanel"); // NOI18N
+        mainContentPanel.setOpaque(false);
         mainContentPanel.setLayout(new java.awt.CardLayout());
 
         entrancePanel1.setBackground(resourceMap.getColor("entrancePanel1.background")); // NOI18N
         entrancePanel1.setName("entrancePanel1"); // NOI18N
+        entrancePanel1.setOpaque(false);
         mainContentPanel.add(entrancePanel1, "ENTRANCE");
 
         shopPanel1.setBackground(resourceMap.getColor("shopPanel1.background")); // NOI18N
         shopPanel1.setName("shopPanel1"); // NOI18N
+        shopPanel1.setOpaque(false);
         mainContentPanel.add(shopPanel1, "SHOP");
 
         checkoutPanel1.setBackground(resourceMap.getColor("checkoutPanel1.background")); // NOI18N
         checkoutPanel1.setName("checkoutPanel1"); // NOI18N
+        checkoutPanel1.setOpaque(false);
         mainContentPanel.add(checkoutPanel1, "CHECKOUT");
 
         jPanel1.add(mainContentPanel, java.awt.BorderLayout.CENTER);

@@ -39,18 +39,25 @@ public class EntrancePanel extends javax.swing.JPanel {
 
         wrapper1.setName("wrapper1"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(EntrancePanel.class);
+        setBackground(resourceMap.getColor("Form.background")); // NOI18N
         setName("Form"); // NOI18N
         setLayout(new java.awt.BorderLayout());
 
+        cartsWrapper1.setBackground(resourceMap.getColor("cartsWrapper1.background")); // NOI18N
         cartsWrapper1.setName("cartsWrapper1"); // NOI18N
+        cartsWrapper1.setOpaque(false);
         add(cartsWrapper1, java.awt.BorderLayout.LINE_START);
 
+        contentPanel.setBackground(resourceMap.getColor("contentPanel.background")); // NOI18N
         contentPanel.setName("contentPanel"); // NOI18N
         contentPanel.setLayout(new java.awt.GridLayout(2, 1));
 
         spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
+        spotlightProductsPanel1.setOpaque(false);
         contentPanel.add(spotlightProductsPanel1);
 
+        favoriteProductsPanel1.setBackground(resourceMap.getColor("favoriteProductsPanel1.background")); // NOI18N
         favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
         contentPanel.add(favoriteProductsPanel1);
 

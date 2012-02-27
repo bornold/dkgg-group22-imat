@@ -38,6 +38,7 @@ public class CartsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setName("Form"); // NOI18N
+        setOpaque(false);
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.PAGE_AXIS));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
