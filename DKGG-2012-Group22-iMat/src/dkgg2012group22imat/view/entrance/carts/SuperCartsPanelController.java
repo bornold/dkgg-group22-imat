@@ -4,19 +4,16 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
-import dkgg2012group22imat.view.entrance.carts.CartsWrapperController;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.model.SavedCart;
-import dkgg2012group22imat.view.entrance.carts.CartsPanel;
-import dkgg2012group22imat.view.entrance.carts.SuperCartsPanel;
-import java.util.List;
-import se.chalmers.ait.dat215.project.Order;
+import dkgg2012group22imat.model.SavedCartListener;
+import java.util.EventObject;
 
 /**
  *
  * @author jonas
  */
-public class SuperCartsPanelController {
+public class SuperCartsPanelController implements SavedCartListener {
 
     CartsWrapperController parent;
     SuperCartsPanel view;
@@ -26,12 +23,19 @@ public class SuperCartsPanelController {
         this.view = aView;
         this.parent = aParent;
 
-        view.favoriteCartsPanel.add(new CartsPanel(m.getSavedCartHistory(), this));
-        view.historyCartsPanel.add(new CartsPanel(m.getSavedCarts(), this));
+        view.historyCartsPanel.add(new CartsPanel(m.getSavedCartHistory(), this));
+        view.favoriteCartsPanel.add(new CartsPanel(m.getSavedCarts(), this));
+        
+        m.addSavedCartEventListener(this);
         
     }
 
     void showCart(SavedCart cart) {
         parent.showCart(cart);
+    }
+
+    public void onSavedCartEvent(EventObject e) {
+        view.favoriteCartsPanel.removeAll();
+        view.favoriteCartsPanel.add(new CartsPanel(m.getSavedCarts(), this));
     }
 }

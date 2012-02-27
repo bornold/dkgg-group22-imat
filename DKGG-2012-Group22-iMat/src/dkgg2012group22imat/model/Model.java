@@ -16,8 +16,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Customer;
@@ -60,22 +60,39 @@ public class Model {
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
     }
-    private List _listeners = new ArrayList();
+    private List favouriteListeners = new ArrayList();
 
-    public synchronized void addEventListener(FavoriteListener listener) {
-        _listeners.add(listener);
+    public synchronized void addFavouriteEventListener(FavoriteListener listener) {
+        favouriteListeners.add(listener);
     }
 
-    public synchronized void removeEventListener(FavoriteListener listener) {
-        _listeners.remove(listener);
+    public synchronized void removeFavouriteEventListener(FavoriteListener listener) {
+        favouriteListeners.remove(listener);
+    }
+    
+    private List savedCartListeners = new ArrayList();
+
+    public synchronized void addSavedCartEventListener(SavedCartListener listener) {
+        savedCartListeners.add(listener);
+    }
+
+    public synchronized void removeSavedCartEventListener(SavedCartListener listener) {
+        savedCartListeners.remove(listener);
     }
 
     // call this method whenever you want to notify
     //the event listeners of the particular event
     private synchronized void fireFavoriteEvent() {
         FavoriteEvent event = new FavoriteEvent(this);
-        for (int i = 0; i < _listeners.size(); i++) {
-            ((FavoriteListener) _listeners.get(i)).handleFavoriteEvent(event);
+        for (int i = 0; i < favouriteListeners.size(); i++) {
+            ((FavoriteListener) favouriteListeners.get(i)).handleFavoriteEvent(event);
+        }
+    }
+    
+    private synchronized void fireSavedCartEvent() {
+        SavedCartEvent event = new SavedCartEvent(this);
+        for (int i = 0; i < savedCartListeners.size(); i++) {
+            ((SavedCartListener) savedCartListeners.get(i)).onSavedCartEvent(event);
         }
     }
 
@@ -204,11 +221,36 @@ public class Model {
         return savedCarts;
     }
 
+    public SavedCart getSavedCart(String name) {
+        Iterator<SavedCart> it = this.getSavedCarts().iterator();
+        while(it.hasNext()) {
+            SavedCart savedCart = it.next();
+            if(savedCart.getName().equals(name)) {
+                return savedCart;
+            }
+        }
+        return null;
+    }
+    
     public void saveNewCart(List<ShoppingItem> cart, String name) {
         System.out.println("Saved new Shoppingcart " + name);
         savedCarts.add(new SavedCart(cart, name));
+        this.fireSavedCartEvent();
     }
 
+    public synchronized void saveCart(List<ShoppingItem> cart, String name) {
+        System.out.println("Saved new Shoppingcart " + name);
+        Iterator<SavedCart> it = this.getSavedCarts().iterator();
+        while(it.hasNext()) {
+            SavedCart savedCart = it.next();
+            if(savedCart.getName().equals(name)) {
+                savedCarts.remove(savedCart);
+            }
+        }
+        savedCarts.add(new SavedCart(cart, name));
+        this.fireSavedCartEvent();
+    }
+    
     public void removeSavedCart(SavedCart cart) {
         this.savedCarts.remove(cart);
     }

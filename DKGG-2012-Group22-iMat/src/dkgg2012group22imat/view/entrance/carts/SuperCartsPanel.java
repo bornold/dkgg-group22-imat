@@ -48,12 +48,13 @@ public class SuperCartsPanel extends javax.swing.JPanel {
 
         savedCartsPanelWrapper.setName("savedCartsPanelWrapper"); // NOI18N
         savedCartsPanelWrapper.setOpaque(false);
-        savedCartsPanelWrapper.setLayout(new javax.swing.BoxLayout(savedCartsPanelWrapper, javax.swing.BoxLayout.PAGE_AXIS));
+        savedCartsPanelWrapper.setLayout(new java.awt.BorderLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SuperCartsPanel.class);
+        jLabel1.setIcon(resourceMap.getIcon("jLabel1.icon")); // NOI18N
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
-        savedCartsPanelWrapper.add(jLabel1);
+        savedCartsPanelWrapper.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         savedCartsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         savedCartsScrollPane.setName("savedCartsScrollPane"); // NOI18N
@@ -64,17 +65,18 @@ public class SuperCartsPanel extends javax.swing.JPanel {
         favoriteCartsPanel.setLayout(new javax.swing.BoxLayout(favoriteCartsPanel, javax.swing.BoxLayout.Y_AXIS));
         savedCartsScrollPane.setViewportView(favoriteCartsPanel);
 
-        savedCartsPanelWrapper.add(savedCartsScrollPane);
+        savedCartsPanelWrapper.add(savedCartsScrollPane, java.awt.BorderLayout.CENTER);
 
         add(savedCartsPanelWrapper);
 
         historyCartsPanelWrapper.setName("historyCartsPanelWrapper"); // NOI18N
         historyCartsPanelWrapper.setOpaque(false);
-        historyCartsPanelWrapper.setLayout(new javax.swing.BoxLayout(historyCartsPanelWrapper, javax.swing.BoxLayout.PAGE_AXIS));
+        historyCartsPanelWrapper.setLayout(new java.awt.BorderLayout());
 
+        jLabel2.setIcon(resourceMap.getIcon("jLabel2.icon")); // NOI18N
         jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
-        historyCartsPanelWrapper.add(jLabel2);
+        historyCartsPanelWrapper.add(jLabel2, java.awt.BorderLayout.NORTH);
 
         historyCartsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         historyCartsScrollPane.setName("historyCartsScrollPane"); // NOI18N
@@ -85,7 +87,7 @@ public class SuperCartsPanel extends javax.swing.JPanel {
         historyCartsPanel.setLayout(new javax.swing.BoxLayout(historyCartsPanel, javax.swing.BoxLayout.Y_AXIS));
         historyCartsScrollPane.setViewportView(historyCartsPanel);
 
-        historyCartsPanelWrapper.add(historyCartsScrollPane);
+        historyCartsPanelWrapper.add(historyCartsScrollPane, java.awt.BorderLayout.CENTER);
 
         add(historyCartsPanelWrapper);
     }// </editor-fold>//GEN-END:initComponents

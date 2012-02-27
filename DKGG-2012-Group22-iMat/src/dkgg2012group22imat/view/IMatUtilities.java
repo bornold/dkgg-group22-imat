@@ -145,12 +145,26 @@ public class IMatUtilities implements TweenCallback {
         //t.start();
 
     }
-
-    public static iMatViewController getIMatViewController() {
-        return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
+    
+    public static void displayOverlay(Component c, Point p) {
+        aniPanel = ((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel();
+        c.setLocation(p);
+        aniPanel.add(c);
+        aniPanel.revalidate();
+        aniPanel.repaint();
+    }
+    
+    public static void removeOverlay(Component c) {
+        aniPanel = ((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel();
+        aniPanel.remove(c);
+        aniPanel.revalidate();
+        aniPanel.repaint();
     }
 
     
+    public static iMatViewController getIMatViewController() {
+        return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
+    }
     
     private AnimateImage aniImage;
     

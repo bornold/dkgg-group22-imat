@@ -43,6 +43,8 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
         productsPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(270, 0));
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SuperCartProductsPanel.class);
         cartName.setText(resourceMap.getString("cartName.text")); // NOI18N
@@ -68,8 +70,10 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
         priceLabel.setName("priceLabel"); // NOI18N
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
+        jScrollPane1.setOpaque(false);
 
         productsPanel.setName("productsPanel"); // NOI18N
+        productsPanel.setOpaque(false);
         productsPanel.setLayout(new javax.swing.BoxLayout(productsPanel, javax.swing.BoxLayout.PAGE_AXIS));
         jScrollPane1.setViewportView(productsPanel);
 
@@ -86,10 +90,12 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
