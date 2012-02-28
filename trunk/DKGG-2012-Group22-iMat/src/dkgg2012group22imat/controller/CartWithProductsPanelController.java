@@ -70,11 +70,11 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
             locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
             
         } else {
-            int next = productList.size();
+            int next = 0;
             if(queuedProducts.contains(p))
-                next = 0;
+                next = -1;
                 
-            locationy = view.getLocationOnScreen().y + ((int)(queuedProducts.size()+next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
+            locationy = view.getLocationOnScreen().y + ((int)(productList.size()+queuedProducts.size()+next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
             queuedProducts.add(p);
         }
         Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));

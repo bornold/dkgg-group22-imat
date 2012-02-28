@@ -66,8 +66,10 @@ public class iMatViewController {
     }
     
     private void notifyChangeListeners() {
+        if(listeners != null) {
         for(ChangeListener cl : listeners) {
             cl.stateChanged(new ChangeEvent(this));
+        }
         }
     }
     

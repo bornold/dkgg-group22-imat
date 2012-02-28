@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view.shop;
 
 import dkgg2012group22imat.controller.shop.CategoriesController;
+import dkgg2012group22imat.controller.shop.ShopPanelController;
 import javax.swing.JPanel;
 
 /**
@@ -20,11 +21,12 @@ import javax.swing.JPanel;
 public class CategoriesPanel extends javax.swing.JPanel {
     
     CategoriesController controller;
+    
 
     /** Creates new form CategoryPanel */
-    public CategoriesPanel() {
+    public CategoriesPanel(ShopPanelController parent) {
         initComponents();
-        this.controller = new CategoriesController(this);
+        this.controller = new CategoriesController(parent,this);
     }
     
     public JPanel getCategoryListPanel() {

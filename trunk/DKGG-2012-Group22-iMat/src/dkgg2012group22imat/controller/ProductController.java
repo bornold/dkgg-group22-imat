@@ -123,4 +123,8 @@ public class ProductController implements FavoriteListener,TweenCallback {
     public void onEvent(EventType et, BaseTween bt) {
          m.addToShoppingCart(p, 1);
     }
+    
+    public void remove() {
+        m.removeFavouriteEventListener(this);
+    }
 }

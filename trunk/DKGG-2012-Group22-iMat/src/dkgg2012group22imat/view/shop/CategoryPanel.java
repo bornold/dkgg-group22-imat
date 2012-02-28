@@ -10,7 +10,8 @@
  */
 package dkgg2012group22imat.view.shop;
 
-import dkgg2012group22imat.controller.shop.Category;
+import dkgg2012group22imat.controller.shop.CategoriesController;
+import dkgg2012group22imat.model.Category;
 import dkgg2012group22imat.controller.shop.CategoryPanelController;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,53 +23,82 @@ import javax.swing.JPanel;
  * @author Simon
  */
 public class CategoryPanel extends javax.swing.JPanel {
-    
+
     private CategoryPanelController controller;
     private Category category;
     private int level;
+    private boolean active = false;
+    private boolean clickable = true;
 
     /** Creates new form CategoryPanel */
-    public CategoryPanel(Category category) {
-        this(category, 1);
+    public CategoryPanel(CategoriesController parent, Category category) {
+        this(parent, category, 1);
     }
-    
-    public CategoryPanel(Category category, int level) {
+
+    public CategoryPanel(CategoriesController parent, Category category, int level) {
         initComponents();
         this.category = category;
-        this.controller = new CategoryPanelController(this);
-        
+        this.controller = new CategoryPanelController(parent, this);
+
         this.setLevel(level);
     }
-    
+
     public Category getCategory() {
         return this.category;
     }
-    
+
     public JButton getCategoryButton() {
         return this.categoryButton;
     }
-    
+
     public JPanel getSubCategoriesPanel() {
         return this.subCategoriesPanel;
     }
-    
+
     public void setLevel(int level) {
         this.level = level;
-        this.categoryButton.setPreferredSize(new Dimension(250 - (30*(level-1)), 30));
+        this.categoryButton.setPreferredSize(new Dimension(250 - (30 * (level - 1)), 30));
     }
-    
+
     public int getLevel() {
         return level;
     }
-    
+
     public void hideSubCategories() {
         this.jPanel1.setVisible(false);
     }
-    
+
     public void showSubCategories() {
         this.jPanel1.setVisible(true);
         this.revalidate();
         this.repaint();
+    }
+
+    public void setActive(boolean active, boolean clickable) {
+
+        this.active = active;
+        this.clickable = clickable;
+        
+        this.updateButton();
+
+    }
+
+    private void updateButton() {
+        if (this.active) {
+            if (this.clickable) {
+                this.categoryButton.setIcon(this.categoryButton.getRolloverIcon());
+                this.categoryButton.setEnabled(true);
+            } else {
+                this.categoryButton.setEnabled(false);
+            }
+            this.categoryButton.setText("<html><font color=white>" + this.categoryButton.getText() + "</font></html>");
+
+        } else {
+            this.categoryButton.setEnabled(true);
+            this.categoryButton.setIcon(this.categoryButton.getDisabledSelectedIcon());
+            this.categoryButton.setText("<html><font color=black>" + this.categoryButton.getText() + "</font></html>");
+
+        }
     }
 
     /** This method is called from within the constructor to
@@ -97,6 +127,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         categoryButton.setText(resourceMap.getString("categoryButton.text")); // NOI18N
         categoryButton.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("categoryButton.border.lineColor"))); // NOI18N
         categoryButton.setDisabledIcon(resourceMap.getIcon("categoryButton.disabledIcon")); // NOI18N
+        categoryButton.setDisabledSelectedIcon(resourceMap.getIcon("categoryButton.disabledSelectedIcon")); // NOI18N
         categoryButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         categoryButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         categoryButton.setMaximumSize(new java.awt.Dimension(250, 30));
@@ -140,11 +171,11 @@ public class CategoryPanel extends javax.swing.JPanel {
 private void categoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButtonActionPerformed
     controller.open();
 }//GEN-LAST:event_categoryButtonActionPerformed
-    
+
 private void categoryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryButtonMouseEntered
     categoryButton.setForeground(Color.WHITE);
 }//GEN-LAST:event_categoryButtonMouseEntered
-    
+
 private void categoryButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryButtonMouseExited
     if (this.isEnabled()) {
         categoryButton.setForeground(new Color(51, 51, 51));

@@ -235,6 +235,10 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         this.shadowSize = 3;
 
     }
+    
+    public ProductController getController() {
+        return this.controller;
+    }
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {
 

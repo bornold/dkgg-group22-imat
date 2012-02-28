@@ -10,15 +10,23 @@
  */
 package dkgg2012group22imat.view.shop;
 
+import dkgg2012group22imat.controller.shop.ShopPanelController;
+import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.ProductsPanel;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Simon
  */
 public class ShopPanel extends javax.swing.JPanel {
+    
+    ShopPanelController controller;
 
     /** Creates new form ShopPanel */
     public ShopPanel() {
         initComponents();
+        this.controller = new ShopPanelController(this);
     }
 
     /** This method is called from within the constructor to
@@ -30,34 +38,37 @@ public class ShopPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        categoriesPanel1 = new dkgg2012group22imat.view.shop.CategoriesPanel();
-        productsPanel1 = new dkgg2012group22imat.view.shop.ProductsPanel();
+        leftPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
-        categoriesPanel1.setName("categoriesPanel1"); // NOI18N
-        add(categoriesPanel1, java.awt.BorderLayout.WEST);
+        leftPanel.setName("leftPanel"); // NOI18N
+        leftPanel.setLayout(new java.awt.GridLayout());
+        add(leftPanel, java.awt.BorderLayout.WEST);
 
-        productsPanel1.setName("productsPanel1"); // NOI18N
-        productsPanel1.setOpaque(false);
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        org.jdesktop.layout.GroupLayout productsPanel1Layout = new org.jdesktop.layout.GroupLayout(productsPanel1);
-        productsPanel1.setLayout(productsPanel1Layout);
-        productsPanel1Layout.setHorizontalGroup(
-            productsPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 539, Short.MAX_VALUE)
-        );
-        productsPanel1Layout.setVerticalGroup(
-            productsPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 619, Short.MAX_VALUE)
-        );
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ShopPanel.class);
+        titleLabel.setText(resourceMap.getString("titleLabel.text")); // NOI18N
+        titleLabel.setName("titleLabel"); // NOI18N
+        jPanel1.add(titleLabel, java.awt.BorderLayout.NORTH);
 
-        add(productsPanel1, java.awt.BorderLayout.CENTER);
+        mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setLayout(new java.awt.GridLayout());
+        jPanel1.add(mainPanel, java.awt.BorderLayout.PAGE_START);
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private dkgg2012group22imat.view.shop.CategoriesPanel categoriesPanel1;
-    private dkgg2012group22imat.view.shop.ProductsPanel productsPanel1;
+    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel leftPanel;
+    public javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
