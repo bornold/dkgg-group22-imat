@@ -105,11 +105,11 @@ public class IMatUtilities implements TweenCallback {
                     tweenManager.update(elapsedMillis);
                 }
             }.start();
-            
+
             aniPanel = ((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel();
-            
+
             aniStack = new Stack();
-            
+
             tweenInit = true;
         }
         System.out.println("ANIMATE");
@@ -120,12 +120,7 @@ public class IMatUtilities implements TweenCallback {
         aniStack.push(aniImage);
         aniPanel.add(aniImage);
 
-        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900)
-                .target(to.x, to.y, to.width, to.height)
-                .delay(delay).ease(Expo.INOUT)
-                .addCallback(EventType.COMPLETE, new IMatUtilities(aniImage))
-                .addCallback(EventType.COMPLETE, callback)
-                .start(tweenManager);
+        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900).target(to.x, to.y, to.width, to.height).delay(delay).ease(Expo.INOUT).addCallback(EventType.COMPLETE, new IMatUtilities(aniImage)).addCallback(EventType.COMPLETE, callback).start(tweenManager);
 
         /*Thread t = new Thread() {
         
@@ -150,7 +145,7 @@ public class IMatUtilities implements TweenCallback {
         //t.start();
 
     }
-    
+
     public static void displayOverlay(Component c, Point p) {
         aniPanel = ((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel();
         c.setLocation(p);
@@ -158,7 +153,7 @@ public class IMatUtilities implements TweenCallback {
         aniPanel.revalidate();
         aniPanel.repaint();
     }
-    
+
     public static void removeOverlay(Component c) {
         aniPanel = ((DKGG2012Group22iMatApp) Application.getInstance()).getIMatView().getAnimationPanel();
         aniPanel.remove(c);
@@ -166,19 +161,24 @@ public class IMatUtilities implements TweenCallback {
         aniPanel.repaint();
     }
 
-    
     public static iMatViewController getIMatViewController() {
         return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
     }
-    
     private AnimateImage aniImage;
-    
+
     public IMatUtilities(AnimateImage i) {
         this.aniImage = i;
     }
-    
+
     public void onEvent(EventType et, BaseTween bt) {
         this.aniImage.setVisible(false);
         this.aniPanel.remove(aniImage);
+    }
+
+    public double Round(double rVal, int Rpl) {
+        double p = (double) Math.pow(10, Rpl);
+        rVal = rVal * p;
+        double tmp = Math.round(rVal);
+        return (double) tmp / p;
     }
 }
