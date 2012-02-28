@@ -174,11 +174,4 @@ public class IMatUtilities implements TweenCallback {
         this.aniImage.setVisible(false);
         this.aniPanel.remove(aniImage);
     }
-
-    public double Round(double rVal, int Rpl) {
-        double p = (double) Math.pow(10, Rpl);
-        rVal = rVal * p;
-        double tmp = Math.round(rVal);
-        return (double) tmp / p;
-    }
 }
