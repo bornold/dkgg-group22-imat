@@ -29,47 +29,47 @@ public class MainButtonPanel extends javax.swing.JPanel {
     /** Creates new form MainButtonPanel */
     public MainButtonPanel() {
         initComponents();
-        this.setUI(null);
+        //this.setUI(null);
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/dkgg2012group22imat/resources/maintabs_bg.png"));
         } catch (Exception e) {
         }
-        
-        
+
+
         //System.out.println(this.getComponentCount());
 
         //JPanel jPanel4 = jPanel2.clone();
 
         this.controller = new MainButtonPanelController(this);
-        
-        System.out.println(this.getSize());
-        
-        
+
+        //System.out.println(this.getSize());
+
+
         jLayeredPane1.moveToFront(aboveShadow);
         jLayeredPane1.moveToBack(shadow);
         mainTabCheckoutButton.setShadow(false);
-    mainTabShopButton.setShadow(false);    
-    mainTabEntranceButton.setShadow(true);
+        mainTabShopButton.setShadow(false);
+        mainTabEntranceButton.setShadow(true);
 
     }
-    
+
     public void fillSize() {
-        
-        shadow.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
-        shadow.setSize(new Dimension(this.getWidth(),this.getHeight()));
-        aboveShadow.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
-        aboveShadow.setSize(new Dimension(this.getWidth(),this.getHeight()));
-        jLayeredPane1.setPreferredSize(new Dimension(this.getWidth(),this.getHeight()));
-        jLayeredPane1.setSize(new Dimension(this.getWidth(),this.getHeight()));
+
+        shadow.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
+        shadow.setSize(new Dimension(this.getWidth(), this.getHeight()));
+        aboveShadow.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
+        aboveShadow.setSize(new Dimension(this.getWidth(), this.getHeight()));
+        jLayeredPane1.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
+        jLayeredPane1.setSize(new Dimension(this.getWidth(), this.getHeight()));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        
+
         this.fillSize();
-        
+
         this.drawTiled(g);
-        
+
     }
     /*
      *  Custom painting code for drawing TILED images as the background
@@ -179,7 +179,7 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
 private void mainTabEntranceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabEntranceButtonActionPerformed
     controller.goTo(MainView.ENTRANCE);
-    
+
 }//GEN-LAST:event_mainTabEntranceButtonActionPerformed
 
 private void mainTabShopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabShopButtonActionPerformed
@@ -189,7 +189,6 @@ private void mainTabShopButtonActionPerformed(java.awt.event.ActionEvent evt) {/
 private void mainTabCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainTabCheckoutButtonActionPerformed
     controller.goTo(MainView.CHECKOUT);
 }//GEN-LAST:event_mainTabCheckoutButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboveShadow;
     private javax.swing.Box.Filler filler1;

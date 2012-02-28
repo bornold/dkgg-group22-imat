@@ -6,7 +6,6 @@ package dkgg2012group22imat.model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import dkgg2012group22imat.controller.shop.Category;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -71,7 +70,6 @@ public class Model {
     public synchronized void removeFavouriteEventListener(FavoriteListener listener) {
         favouriteListeners.remove(listener);
     }
-    
     private List savedCartListeners = new ArrayList();
 
     public synchronized void addSavedCartEventListener(SavedCartListener listener) {
@@ -91,7 +89,7 @@ public class Model {
             ((FavoriteListener) favouriteListeners.get(i)).handleFavoriteEvent(event);
         }
     }
-    
+
     private synchronized void fireSavedCartEvent() {
         SavedCartEvent event = new SavedCartEvent(this);
         for (int i = 0; i < savedCartListeners.size(); i++) {
@@ -233,9 +231,9 @@ public class Model {
 
     public SavedCart getSavedCart(String name) {
         Iterator<SavedCart> it = this.getSavedCarts().iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             SavedCart savedCart = it.next();
-            if(savedCart.getName().equals(name)) {
+            if (savedCart.getName().equals(name)) {
                 return savedCart;
             }
         }
@@ -252,16 +250,16 @@ public class Model {
     public synchronized void saveCart(List<ShoppingItem> cart, String name) {
         System.out.println("Saved new Shoppingcart " + name);
         Iterator<SavedCart> it = this.getSavedCarts().iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             SavedCart savedCart = it.next();
-            if(savedCart.getName().equals(name)) {
+            if (savedCart.getName().equals(name)) {
                 savedCarts.remove(savedCart);
             }
         }
         savedCarts.add(new SavedCart(cart, name));
         this.fireSavedCartEvent();
     }
-    
+
     public void removeSavedCart(SavedCart cart) {
         this.savedCarts.remove(cart);
     }
@@ -319,5 +317,23 @@ public class Model {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Product> getProductsByCategory(Category c) {
+        List<Product> returnList = new ArrayList();
+
+        if (c.getProductCategory() != null) {
+            returnList.addAll(this.getProducts(c.getProductCategory()));
+        }
+
+        if (c.getSubCategories().size() > 0) {
+            for (Category sub : c.getSubCategories()) {
+                if (c.getProductCategory() != null) {
+                    returnList.addAll(getProductsByCategory(sub));
+                }
+            }
+        }
+
+        return returnList;
     }
 }

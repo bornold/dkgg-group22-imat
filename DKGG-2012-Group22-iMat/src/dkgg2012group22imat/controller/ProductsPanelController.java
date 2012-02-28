@@ -7,6 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductPanel;
 import dkgg2012group22imat.view.ProductsPanel;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +106,15 @@ public class ProductsPanelController {
 
     private void viewPage(int page) {
         view.productPanel.removeAll();
+        Component[] list = view.productPanel.getComponents();
+        for(Component c : list) {
+            if(c instanceof ProductPanel) {
+                ProductPanel pp = (ProductPanel)c;
+                pp.getController().remove();
+            }
+            view.productPanel.remove(c);
+        }
+        
         if (page < pageList.size()) {
             currentPage = page;
         } else {
