@@ -254,9 +254,7 @@ public class Model {
 
     public synchronized void saveCart(List<ShoppingItem> cart, String name) {
         System.out.println("Saved new Shoppingcart " + name);
-        Iterator<SavedCart> it = this.getSavedCarts().iterator();
-        while (it.hasNext()) {
-            SavedCart savedCart = it.next();
+        for(SavedCart savedCart : this.getSavedCarts()) {
             if (savedCart.getName().equals(name)) {
                 savedCarts.remove(savedCart);
             }

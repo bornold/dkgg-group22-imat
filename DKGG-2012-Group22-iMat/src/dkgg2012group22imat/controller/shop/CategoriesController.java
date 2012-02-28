@@ -8,7 +8,9 @@ import dkgg2012group22imat.model.Category;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.shop.CategoriesPanel;
 import dkgg2012group22imat.view.shop.CategoryPanel;
+import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,18 +30,18 @@ public class CategoriesController {
         this.categories = m.getCategories();
         this.view = cp;
         this.categoryPanels = new ArrayList();
-        System.out.println("Total top categories "+categories.size());
-        for(Category cat : categories) {
-            CategoryPanel categoryPanel = new CategoryPanel(this,cat);
+        System.out.println("Total top categories " + categories.size());
+        for (Category cat : categories) {
+            CategoryPanel categoryPanel = new CategoryPanel(this, cat);
             categoryPanels.add(categoryPanel);
             view.getCategoryListPanel().add(categoryPanel);
-            
+
             System.out.println(cat.getName());
             System.out.println(cat.getHandler());
             System.out.println(cat.getSubCategories());
-            
+
         }
-        
+
     }
 
     public void showFavorites() {
@@ -52,20 +54,32 @@ public class CategoriesController {
 
     public void openCategory(Category c) {
         parent.showCategory(c);
-        
-        this.setButtons(c);
+
+        this.setButtons(this.categoryPanels, c);
     }
-    
-    private void setButtons(Category c) {
-        
-        for(CategoryPanel categoryPanel : categoryPanels) {
-            
-            if(categoryPanel.getCategory() == c && categoryPanel.getCategory().contains(c)) {
-                categoryPanel.setActive(true,false);
-            } else if(categoryPanel.getCategory().contains(c)) {
-                categoryPanel.setActive(false,true);
+
+    private void setButtons(List<CategoryPanel> categoryPanels, Category c) {
+
+        for (CategoryPanel categoryPanel : categoryPanels) {
+
+            if (categoryPanel.getCategory() == c && categoryPanel.getCategory().contains(c)) {
+                categoryPanel.setActive(true, false);
+            } else if (categoryPanel.getCategory().contains(c)) {
+                categoryPanel.setActive(true, true);
             } else {
-                categoryPanel.setActive(false,false);
+                categoryPanel.setActive(false, false);
+            }
+
+            if (categoryPanel.getSubCategoriesPanel().getComponents().length > 0) {
+                List<CategoryPanel> list = new ArrayList();
+                for (Component component : categoryPanel.getSubCategoriesPanel().getComponents()) {
+                    if (component instanceof CategoryPanel) {
+                        list.add((CategoryPanel) component);
+                    }
+                }
+                if (list.size() > 0) {
+                    this.setButtons(list, c);
+                }
             }
         }
     }

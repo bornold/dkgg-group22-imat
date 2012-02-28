@@ -13,7 +13,7 @@ package dkgg2012group22imat.view.shop;
 import dkgg2012group22imat.controller.shop.CategoriesController;
 import dkgg2012group22imat.model.Category;
 import dkgg2012group22imat.controller.shop.CategoryPanelController;
-import java.awt.Color;
+import dkgg2012group22imat.model.IMatUtilities;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -29,6 +29,8 @@ public class CategoryPanel extends javax.swing.JPanel {
     private int level;
     private boolean active = false;
     private boolean clickable = true;
+    private boolean hasSubs = false;
+    private boolean hover = false;
 
     /** Creates new form CategoryPanel */
     public CategoryPanel(CategoriesController parent, Category category) {
@@ -39,7 +41,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         initComponents();
         this.category = category;
         this.controller = new CategoryPanelController(parent, this);
-
+        this.hasSubs = category.getSubCategories().size() > 0;
         this.setLevel(level);
     }
 
@@ -65,6 +67,7 @@ public class CategoryPanel extends javax.swing.JPanel {
     }
 
     public void hideSubCategories() {
+//       IMatUtilities.animate(this.jPanel1,this.jPanel1.getSize(),new Dimension(0,0));
         this.jPanel1.setVisible(false);
     }
 
@@ -78,12 +81,12 @@ public class CategoryPanel extends javax.swing.JPanel {
 
         this.active = active;
         this.clickable = clickable;
-        
-        this.updateButton();
+
+        this.updateState();
 
     }
 
-    private void updateButton() {
+    public void updateState() {
         if (this.active) {
             if (this.clickable) {
                 this.categoryButton.setIcon(this.categoryButton.getRolloverIcon());
@@ -91,13 +94,25 @@ public class CategoryPanel extends javax.swing.JPanel {
             } else {
                 this.categoryButton.setEnabled(false);
             }
-            this.categoryButton.setText("<html><font color=white>" + this.categoryButton.getText() + "</font></html>");
-
+            this.setHoverText(true);
+            if (this.hasSubs) {
+                this.showSubCategories();
+            }
         } else {
             this.categoryButton.setEnabled(true);
             this.categoryButton.setIcon(this.categoryButton.getDisabledSelectedIcon());
-            this.categoryButton.setText("<html><font color=black>" + this.categoryButton.getText() + "</font></html>");
+            this.setHoverText(hover);
+            this.hideSubCategories();
+        }
+        this.revalidate();
+        this.repaint();
+    }
 
+    public void setHoverText(boolean hover) {
+        if (hover) {
+            this.categoryButton.setText("<html><font color=white>" + this.getCategory().getName() + "</font></html>");
+        } else {
+            this.categoryButton.setText("<html><font color=black>" + this.getCategory().getName() + "</font></html>");
         }
     }
 
@@ -173,13 +188,13 @@ private void categoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GE
 }//GEN-LAST:event_categoryButtonActionPerformed
 
 private void categoryButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryButtonMouseEntered
-    categoryButton.setForeground(Color.WHITE);
+    this.hover = true;
+    this.updateState();
 }//GEN-LAST:event_categoryButtonMouseEntered
 
 private void categoryButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryButtonMouseExited
-    if (this.isEnabled()) {
-        categoryButton.setForeground(new Color(51, 51, 51));
-    }
+    this.hover = false;
+    this.updateState();
 }//GEN-LAST:event_categoryButtonMouseExited
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton categoryButton;

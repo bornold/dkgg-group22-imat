@@ -26,7 +26,7 @@ public class CategoryPanelController {
         this.view.getCategoryButton().setText(category.getName());
         this.parent = parent;
         
-        view.hideSubCategories();
+        view.updateState();
         
         if(this.category.getSubCategories().size()>0) {
             for(Category c : this.category.getSubCategories()) {
@@ -44,10 +44,12 @@ public class CategoryPanelController {
         }
         view.setActive(true,false);
         parent.openCategory(this.category);
+        //view.updateState();
     }
     public void close() {
         view.hideSubCategories();
         view.setActive(false,false);
+        
     }
     
     
