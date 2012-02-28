@@ -24,11 +24,18 @@ public class ProductsPanel extends javax.swing.JPanel {
     private ProductsPanelController controller;
 
     /** Creates new form FavoriteProductPanel */
+    @Deprecated
     public ProductsPanel(List<Product> prods, int amount) {
         initComponents();
         controller = new ProductsPanelController(prods, amount, this);
     }
-    public void setList(List<Product> prods){
+        /** Creates new form FavoriteProductPanel */
+    public ProductsPanel(List<Product> prods) {
+        initComponents();
+        controller = new ProductsPanelController(prods, this);
+    }
+
+    public void setList(List<Product> prods) {
         controller.setList(prods);
     }
 
@@ -49,6 +56,11 @@ public class ProductsPanel extends javax.swing.JPanel {
 
         setName("Form"); // NOI18N
         setOpaque(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         setLayout(new java.awt.BorderLayout());
 
         navigationPanel.setName("navigationPanel"); // NOI18N
@@ -60,7 +72,7 @@ public class ProductsPanel extends javax.swing.JPanel {
         forwardButton.setIcon(resourceMap.getIcon("forwardButton.icon")); // NOI18N
         forwardButton.setText(resourceMap.getString("forwardButton.text")); // NOI18N
         forwardButton.setBorderPainted(false);
-        forwardButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forwardButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         forwardButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         forwardButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         forwardButton.setMinimumSize(new java.awt.Dimension(140, 51));
@@ -87,7 +99,7 @@ public class ProductsPanel extends javax.swing.JPanel {
         backButton.setIcon(resourceMap.getIcon("backButton.icon")); // NOI18N
         backButton.setText(resourceMap.getString("backButton.text")); // NOI18N
         backButton.setBorderPainted(false);
-        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         backButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         backButton.setMaximumSize(new java.awt.Dimension(140, 51));
         backButton.setMinimumSize(new java.awt.Dimension(140, 51));
@@ -121,7 +133,7 @@ public class ProductsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(navigationPanelLayout.createSequentialGroup()
-                        .addComponent(navigationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addComponent(navigationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                         .addGap(154, 154, 154))
                     .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -140,7 +152,6 @@ public class ProductsPanel extends javax.swing.JPanel {
         productPanel.setBackground(resourceMap.getColor("productPanel.background")); // NOI18N
         productPanel.setName("productPanel"); // NOI18N
         productPanel.setOpaque(false);
-        productPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
         add(productPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -153,21 +164,24 @@ private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_backButtonActionPerformed
 
 private void forwardButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseEntered
-forwardButton.setText("Visa fler varor");
+    forwardButton.setText("Visa fler varor");
 }//GEN-LAST:event_forwardButtonMouseEntered
 
 private void forwardButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseExited
-forwardButton.setText("");
+    forwardButton.setText("");
 }//GEN-LAST:event_forwardButtonMouseExited
 
 private void backButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseEntered
-backButton.setText("Tillbaka");
+    backButton.setText("Tillbaka");
 }//GEN-LAST:event_backButtonMouseEntered
 
 private void backButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseExited
-backButton.setText("");
+    backButton.setText("");
 }//GEN-LAST:event_backButtonMouseExited
 
+private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+    controller.reSized();
+}//GEN-LAST:event_formComponentResized
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton backButton;
     public javax.swing.JButton forwardButton;

@@ -8,7 +8,6 @@ import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductsPanel;
 import dkgg2012group22imat.view.shop.SearchPanel;
 import java.util.List;
-import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
@@ -26,7 +25,7 @@ public class SearchPanelController {
 
     public void search(String searchString) {
         //TODO check if empty string
-        view.resultPanel.removeAll();
+        view.resultPanel.removeAll(); 
         List<Product> result = m.search(searchString);
         if (result.isEmpty()) {
             view.resultLabel.setText("Inga varor funna från sökningen " + searchString);
@@ -36,7 +35,7 @@ public class SearchPanelController {
             } else {
                 view.resultLabel.setText(result.size() + " vara funnen från sökningen \"" + searchString + "\"");
             }
-            view.resultPanel.add(new ProductsPanel(result, 1));
+            view.resultPanel.add(new ProductsPanel(result));
         }
         view.resultPanel.revalidate();
         view.resultPanel.repaint();

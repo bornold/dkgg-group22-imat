@@ -27,7 +27,7 @@ public class FavoriteProductsPanel extends javax.swing.JPanel implements Favorit
     public FavoriteProductsPanel() {
         initComponents();
         Model m = Model.getInstance();
-        pp = new ProductsPanel(m.getFavorites(), 3);
+        pp = new ProductsPanel(m.getFavorites());
         m.addFavouriteEventListener(this);
         add(pp, BorderLayout.CENTER);
     }
