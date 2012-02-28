@@ -9,7 +9,7 @@ import aurelienribon.tweenengine.TweenCallback;
 import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.view.ProductPanel;
 import java.awt.Dimension;
 import java.awt.Point;

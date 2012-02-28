@@ -7,7 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartProductPanel;
 import dkgg2012group22imat.view.CartWithProductsPanel;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;

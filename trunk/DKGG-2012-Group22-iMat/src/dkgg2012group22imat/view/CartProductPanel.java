@@ -5,6 +5,7 @@
  */
 package dkgg2012group22imat.view;
 
+import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.controller.CartProductController;
 import java.awt.Color;
 import java.awt.Dimension;

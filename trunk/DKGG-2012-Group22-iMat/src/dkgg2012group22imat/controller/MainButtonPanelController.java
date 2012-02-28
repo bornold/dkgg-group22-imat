@@ -8,7 +8,7 @@ import dkgg2012group22imat.controller.iMatViewController.MainView;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
 import dkgg2012group22imat.view.DKGG2012Group22iMatView;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.view.MainButtonPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

@@ -10,7 +10,7 @@ import dkgg2012group22imat.view.CartPanel;
 import dkgg2012group22imat.view.CartProductPanel;
 import dkgg2012group22imat.view.CartWithProductsPanel;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
