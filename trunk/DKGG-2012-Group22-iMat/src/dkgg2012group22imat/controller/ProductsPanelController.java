@@ -83,12 +83,8 @@ public class ProductsPanelController {
 
     public ProductsPanelController(List<Product> prods, ProductsPanel panel) {
         this.view = panel;
-        int ppp = productsPerPage();
-        if (ppp > 1) {
-            productsOnScreen = ppp;
-        } else {
-            productsOnScreen = 1;
-        }
+        productsOnScreen = productsPerPage();
+        
         setList(prods);
     }
 
@@ -180,16 +176,16 @@ public class ProductsPanelController {
 
     public final int productsPerPage() {
         Dimension panelDimension = view.productPanel.getSize();
-        int produkterBredd = panelDimension.width / productWidth;
-        int produkterHöjd = panelDimension.height / productHeight;
+        int produkterBredd = ((panelDimension.width / productWidth) > 1) ? 
+                (panelDimension.width / productWidth) : 1;
+        int produkterHöjd = ((panelDimension.height/productHeight) > 1) ? 
+                (panelDimension.height/productHeight) : 1;
         return produkterBredd * produkterHöjd;
     }
 
     public void reSized() {
         int ppp = productsPerPage();
-        System.out.println("PPP:" + ppp);
-        System.out.println("productsOnScreen: " + productsOnScreen);
-        if (ppp != productsOnScreen && ppp > 0) {
+        if (ppp != productsOnScreen) {
             productsOnScreen = ppp;
             setList(items);
         }

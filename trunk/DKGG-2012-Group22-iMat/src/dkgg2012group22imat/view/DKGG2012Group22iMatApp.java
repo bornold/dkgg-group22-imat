@@ -18,7 +18,6 @@ public class DKGG2012Group22iMatApp extends SingleFrameApplication {
      */
     @Override
     protected void startup() {
-        Model.getInstance().reset();
 
         show(new DKGG2012Group22iMatView(this));
         DKGG2012Group22iMatView view = (DKGG2012Group22iMatView) this.getMainView();

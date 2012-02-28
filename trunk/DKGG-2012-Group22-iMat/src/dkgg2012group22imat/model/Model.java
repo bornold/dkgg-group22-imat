@@ -264,9 +264,9 @@ public class Model {
         this.savedCarts.remove(cart);
     }
 
-    public void reset() {
-        iMatDataHandler.reset();
-    }
+//    public void reset() {
+//        iMatDataHandler.reset();
+//    }
 
     public List<Product> getProducts(ProductCategory pc) {
         return iMatDataHandler.getProducts(pc);
