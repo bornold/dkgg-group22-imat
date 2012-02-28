@@ -115,8 +115,8 @@
         subs: [
             
             {
-                name: "MEAT",
-                handler: "COLD_DRINKS",
+                name: "Kött",
+                handler: "MEAT",
                 subs: []
             },
             {
