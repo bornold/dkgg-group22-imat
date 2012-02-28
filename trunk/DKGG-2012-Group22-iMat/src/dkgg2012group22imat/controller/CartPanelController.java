@@ -62,7 +62,7 @@ public class CartPanelController implements ShoppingCartListener{
     }
 
     public void shoppingCartChanged() {
-        view.setTotalPriceText(sc.getItems().size()+" varor för totalt "+sc.getTotal()+" kr");
+        view.setTotalPriceText(sc.getItems().size()+" varor för totalt "+(double)Math.round(sc.getTotal() * 100) / 100+" kr");
         if(sc.getItems().size()>0) {
             view.toggleFavouriteCart.setText("Spara kundvagnen");
             view.toggleFavouriteCart.setEnabled(true);

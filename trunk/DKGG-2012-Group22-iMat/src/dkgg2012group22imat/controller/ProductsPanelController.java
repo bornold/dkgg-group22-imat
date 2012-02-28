@@ -84,7 +84,7 @@ public class ProductsPanelController {
     public ProductsPanelController(List<Product> prods, ProductsPanel panel) {
         this.view = panel;
         productsOnScreen = productsPerPage();
-        
+
         setList(prods);
     }
 
@@ -103,14 +103,14 @@ public class ProductsPanelController {
     private void viewPage(int page) {
         view.productPanel.removeAll();
         Component[] list = view.productPanel.getComponents();
-        for(Component c : list) {
-            if(c instanceof ProductPanel) {
-                ProductPanel pp = (ProductPanel)c;
+        for (Component c : list) {
+            if (c instanceof ProductPanel) {
+                ProductPanel pp = (ProductPanel) c;
                 pp.getController().remove();
             }
             view.productPanel.remove(c);
         }
-        
+
         if (page < pageList.size()) {
             currentPage = page;
         } else {
@@ -149,37 +149,39 @@ public class ProductsPanelController {
 
     public final void setList(List<Product> prods) {
         pageList = new ArrayList<List<Product>>();
-        if (prods.size() > 0) {
-            this.items = prods;
-            for (int front = 0, end = productsOnScreen; // sublist bounds 
-                    end <= items.size();
-                    front += productsOnScreen, end += productsOnScreen) {
-                pageList.add(items.subList(front, end));
-            }
-            nrOfPages = (items.size() / productsOnScreen);
+        if (prods != null) {
+            if (prods.size() > 0) {
+                this.items = prods;
+                for (int front = 0, end = productsOnScreen; // sublist bounds 
+                        end <= items.size();
+                        front += productsOnScreen, end += productsOnScreen) {
+                    pageList.add(items.subList(front, end));
+                }
+                nrOfPages = (items.size() / productsOnScreen);
 
-            if (items.size() % productsOnScreen != 0 && items.size() != 1) {
-                pageList.add(items.subList(nrOfPages * productsOnScreen, items.size()));
-                nrOfPages++;
-            } else if (items.size() == 1) {
-                nrOfPages = 1;
-                List l = new ArrayList<Product>();
-                l.add(items.get(items.size() - 1));
-                pageList.add(l);
+                if (items.size() % productsOnScreen != 0 && items.size() != 1) {
+                    pageList.add(items.subList(nrOfPages * productsOnScreen, items.size()));
+                    nrOfPages++;
+                } else if (items.size() == 1) {
+                    nrOfPages = 1;
+                    List l = new ArrayList<Product>();
+                    l.add(items.get(items.size() - 1));
+                    pageList.add(l);
+                }
+                viewPage(currentPage);
+            } else {
+                nrOfPages = -1;
+                setNavigation();
             }
-            viewPage(currentPage);
-        } else {
-            nrOfPages = -1;
-            setNavigation();
         }
     }
 
     public final int productsPerPage() {
         Dimension panelDimension = view.productPanel.getSize();
-        int produkterBredd = ((panelDimension.width / productWidth) > 1) ? 
-                (panelDimension.width / productWidth) : 1;
-        int produkterHöjd = ((panelDimension.height/productHeight) > 1) ? 
-                (panelDimension.height/productHeight) : 1;
+        int produkterBredd = ((panelDimension.width / productWidth) > 1)
+                ? (panelDimension.width / productWidth) : 1;
+        int produkterHöjd = ((panelDimension.height / productHeight) > 1)
+                ? (panelDimension.height / productHeight) : 1;
         return produkterBredd * produkterHöjd;
     }
 

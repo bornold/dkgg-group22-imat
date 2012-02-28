@@ -4,47 +4,142 @@
  */
 
 [
-    {
-        name: "Mejeriprodukter",
+       {
+        name: "Basvaror",
         handler: "",
         subs: [
             
             {
-                name: "Mjölk",
+                name: "Pasta",
+                handler: "PASTA",
+                subs: []
+            },
+        
+            {
+                name: "Potatis, ris",
+                handler:"POTATO_RICE",
+                subs: []
+            }
+        ]
+    },
+  {
+        name: "Drycker",
+        handler: "",
+        subs: [
+            
+            {
+                name: "Drycker varma",
+                handler: "HOT_DRINKS",
+                subs: []
+            },
+        
+            {
+                name: "Drycker kalla",
+                handler:"COLD_DRINKS",
+                subs: []
+            }
+        ]
+    },
+        {
+        name: "Frukt och bär",
+        handler: "",
+        subs: [
+            
+            {
+                name: "Bär",
+                handler: "BERRY",
+                subs: []
+            },
+            {
+                name: "Citrosfrukter",
+                handler: "CITRUS_FRUIT",
+                subs: []
+            },
+            {
+                name: "Exotiska frukter",
+                handler: "EXOTIC_FRUIT",
+                subs: []
+            },
+            {
+                name: "Meloner",
+                handler: "MELONS",
+                subs: []
+            },
+            {
+                name: "Stenfrukter",
+                handler:"FRUIT",
+                subs: []
+            }
+        ]
+    },
+        {
+        name: "Grönt",
+        handler: "",
+        subs: [
+            
+            {
+                name: "Baljväxter",
+                handler: "POD",
+                subs: []
+            },
+            {
+                name: "Grönsaksfrukter",
+                handler: "VEGETABLE_FRUIT",
+                subs: []
+            },
+            {
+                name: "Kål",
+                handler: "CABBAGE",
+                subs: []
+            },
+            {
+                name: "Nötter och frön",
+                handler: "NUTS_AND_SEEDS",
+                subs: []
+            },
+            {
+                name: "Rotfrukter",
+                handler: "ROOT_VEGETABLE",
+                subs: []
+            },
+            {
+                name: "Örtkryddor",
+                handler:"HERB",
+                subs: []
+            }
+        ]
+    },
+        {
+        name: "Kött och fisk",
+        handler: "",
+        subs: [
+            
+            {
+                name: "MEAT",
                 handler: "COLD_DRINKS",
                 subs: []
             },
-        
             {
-                name: "Ost",
-                handler:"DAIRIES",
+                name: "Fisk",
+                handler: "FISH",
                 subs: []
             }
         ]
+    },
+        {
+        name: "Mejeriprodukter",
+        handler: "DAIRIES",
+        subs: []
+    },
+    {
+        name: "Mjöl, socker, salt",
+        handler: "FLOUR_SUGAR_SALT",
+        subs: []
     },
      
     {
-        name: "Frukter",
-        handler: "",
-        subs: [
-            
-            {
-                name: "Citrusfrukter",
-                handler: "CITRUS_FRUITS",
-                subs: []
-            },
-        
-            {
-                name: "Meloner",
-                handler:"MELONS",
-                subs: []
-            }
-        ]
-    },
-    
-    {
-        name: "Pasta",
-        handler: "PASTA",
+        name: "Sötsaker",
+        handler: "SWEET",
         subs: []
     }
 ]

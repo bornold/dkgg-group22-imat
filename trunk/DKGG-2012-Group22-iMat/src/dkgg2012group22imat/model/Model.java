@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Dimension;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -60,6 +61,7 @@ public class Model {
 
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
+//        readSavedCartFile();
     }
     private List favouriteListeners = new ArrayList();
 
@@ -147,14 +149,16 @@ public class Model {
         System.out.println("CartRemoving: " + p.getName());
         shoppingCart.removeProduct(p);
     }
+
     public void removeFromShoppingCart(ShoppingItem si) {
         iMatDataHandler.getShoppingCart().removeItem(si);
 
     }
+
     public Customer getCustomer() {
         return iMatDataHandler.getCustomer();
     }
-    
+
     public CreditCard getCreditCard() {
         return iMatDataHandler.getCreditCard();
     }
@@ -202,9 +206,10 @@ public class Model {
         return iMatDataHandler.isFavorite(p);
     }
 
-    public int shutDown() {
+    public void shutDown() {
+        writeSavedCartsFile();
+        iMatDataHandler.getShoppingCart().clear();
         iMatDataHandler.shutDown();
-        return 3;
     }
 
     public List getHistoryCarts() {
@@ -267,7 +272,6 @@ public class Model {
 //    public void reset() {
 //        iMatDataHandler.reset();
 //    }
-    
     public List<Product> getProducts(Category c) {
         List<Product> returnList = new ArrayList();
 
@@ -280,10 +284,10 @@ public class Model {
                 returnList.addAll(this.getProducts(sub));
             }
         }
-        
+
         return returnList;
     }
-    
+
     public List<Product> getProducts(ProductCategory pc) {
         return iMatDataHandler.getProducts(pc);
     }
@@ -291,7 +295,7 @@ public class Model {
     public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
     }
-    
+
     public List<Product> search(String searchString) {
         return iMatDataHandler.findProducts(searchString);
     }
@@ -336,5 +340,45 @@ public class Model {
         }
     }
 
+    private void writeSavedCartsFile() {
+        Gson gson = new Gson();
 
+        // convert java object to JSON format,
+        // and returned as JSON formatted string
+        String json = gson.toJson(savedCarts);
+
+        try {
+            //write converted json data to a file named "file.json"
+            FileWriter writer = new FileWriter("./build/classes/dkgg2012group22imat/model/carts.json");
+            writer.write(json);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readSavedCartFile() {
+        try {
+            InputStream in = this.getClass().getResourceAsStream("carts.json");
+            InputStreamReader isr = new InputStreamReader(in, "utf-8");
+            BufferedReader br =
+                    new BufferedReader(isr);
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            String line;
+            while ((line = br.readLine()) != null) {
+                pw.println(line);
+            }
+
+            pw.close();
+            //System.out.println(sw.toString());
+
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<SavedCart>>() {
+            }.getType();
+            savedCarts = gson.fromJson(sw.toString(), type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
