@@ -93,8 +93,13 @@ public class DKGG2012Group22iMatView extends FrameView {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         animationPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
+        cartPanel1 = new dkgg2012group22imat.view.CartPanel();
         jPanel1 = new javax.swing.JPanel();
+        mainButtonPanel1 = new dkgg2012group22imat.view.MainButtonPanel();
         mainContentPanel = new javax.swing.JPanel();
+        entrancePanel1 = new dkgg2012group22imat.view.entrance.EntrancePanel();
+        shopPanel1 = new dkgg2012group22imat.view.shop.ShopPanel();
+        checkoutPanel1 = new dkgg2012group22imat.view.checkout.CheckoutPanel();
 
         menuBar.setName("menuBar"); // NOI18N
 
@@ -131,20 +136,46 @@ public class DKGG2012Group22iMatView extends FrameView {
         mainPanel.setName("mainPanel"); // NOI18N
         mainPanel.setLayout(new java.awt.BorderLayout());
 
+        cartPanel1.setName("cartPanel1"); // NOI18N
+        mainPanel.add(cartPanel1, java.awt.BorderLayout.EAST);
+
         jPanel1.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        mainButtonPanel1.setMaximumSize(new java.awt.Dimension(32767, 114));
+        mainButtonPanel1.setMinimumSize(new java.awt.Dimension(620, 114));
+        mainButtonPanel1.setName("mainButtonPanel1"); // NOI18N
+        mainButtonPanel1.setOpaque(false);
+        mainButtonPanel1.setPreferredSize(new java.awt.Dimension(0, 114));
+        jPanel1.add(mainButtonPanel1, java.awt.BorderLayout.NORTH);
+
         mainContentPanel.setBackground(resourceMap.getColor("mainContentPanel.background")); // NOI18N
         mainContentPanel.setName("mainContentPanel"); // NOI18N
         mainContentPanel.setOpaque(false);
         mainContentPanel.setLayout(new java.awt.CardLayout());
+
+        entrancePanel1.setBackground(resourceMap.getColor("entrancePanel1.background")); // NOI18N
+        entrancePanel1.setName("entrancePanel1"); // NOI18N
+        entrancePanel1.setOpaque(false);
+        mainContentPanel.add(entrancePanel1, "ENTRANCE");
+
+        shopPanel1.setBackground(resourceMap.getColor("shopPanel1.background")); // NOI18N
+        shopPanel1.setName("shopPanel1"); // NOI18N
+        shopPanel1.setOpaque(false);
+        mainContentPanel.add(shopPanel1, "SHOP");
+
+        checkoutPanel1.setBackground(resourceMap.getColor("checkoutPanel1.background")); // NOI18N
+        checkoutPanel1.setName("checkoutPanel1"); // NOI18N
+        checkoutPanel1.setOpaque(false);
+        mainContentPanel.add(checkoutPanel1, "CHECKOUT");
+
         jPanel1.add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
         mainPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        mainPanel.setBounds(0, 0, 0, 0);
+        mainPanel.setBounds(0, 0, 985, 664);
         jLayeredPane1.add(mainPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         setComponent(jLayeredPane1);
@@ -153,11 +184,16 @@ public class DKGG2012Group22iMatView extends FrameView {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel animationPanel;
+    private dkgg2012group22imat.view.CartPanel cartPanel1;
+    private dkgg2012group22imat.view.checkout.CheckoutPanel checkoutPanel1;
+    private dkgg2012group22imat.view.entrance.EntrancePanel entrancePanel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private dkgg2012group22imat.view.MainButtonPanel mainButtonPanel1;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
+    private dkgg2012group22imat.view.shop.ShopPanel shopPanel1;
     // End of variables declaration//GEN-END:variables
 
 
