@@ -31,14 +31,11 @@ public class CategoriesController {
         this.view = cp;
         this.categoryPanels = new ArrayList();
         System.out.println("Total top categories " + categories.size());
+        
         for (Category cat : categories) {
             CategoryPanel categoryPanel = new CategoryPanel(this, cat);
             categoryPanels.add(categoryPanel);
             view.getCategoryListPanel().add(categoryPanel);
-
-            System.out.println(cat.getName());
-            System.out.println(cat.getHandler());
-            System.out.println(cat.getSubCategories());
 
         }
 

@@ -40,6 +40,8 @@ public class ShopPanel extends javax.swing.JPanel {
 
         leftPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(30, 0), new java.awt.Dimension(32767, 32767));
         titleLabel = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
 
@@ -54,10 +56,20 @@ public class ShopPanel extends javax.swing.JPanel {
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        filler1.setName("filler1"); // NOI18N
+        jPanel2.add(filler1, java.awt.BorderLayout.WEST);
+
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ShopPanel.class);
+        titleLabel.setFont(resourceMap.getFont("titleLabel.font")); // NOI18N
         titleLabel.setText(resourceMap.getString("titleLabel.text")); // NOI18N
         titleLabel.setName("titleLabel"); // NOI18N
-        jPanel1.add(titleLabel, java.awt.BorderLayout.NORTH);
+        titleLabel.setPreferredSize(new java.awt.Dimension(0, 50));
+        jPanel2.add(titleLabel, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.NORTH);
 
         mainPanel.setName("mainPanel"); // NOI18N
         mainPanel.setLayout(new java.awt.GridLayout(1, 0));
@@ -66,9 +78,11 @@ public class ShopPanel extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel leftPanel;
     public javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel titleLabel;
+    public javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
