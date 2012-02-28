@@ -41,6 +41,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         controller = new CheckoutPanelController(this);
         jField = new ArrayList();
         jLabels = new ArrayList();
+        controller.atStart();
     }
 
     public void setFirstName(String name) {
@@ -72,11 +73,13 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setCardType(String card) {
-        if (card.equals("Visa"))
+        if (card.equals("Visa")) {
             visaRButton.setSelected(true);
+        }
 
-        if (card.equals("Mastercard")) 
+        if (card.equals("Mastercard")) {
             masterRButton.setSelected(true);
+        }
     }
 
     public void setCardName(String name) {
@@ -89,19 +92,20 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setCardNumber(String number) {
-        cCardNumbfield1.setText(number.substring(0, 4));
-        cCardNumbfield1.setText(number.substring(4, 8));
-        cCardNumbfield1.setText(number.substring(8, 12));
-        cCardNumbfield1.setText(number.substring(12));
+        if (number.length() > 15) {
+            cCardNumbfield1.setText(number.substring(0, 3));
+            cCardNumbfield1.setText(number.substring(4, 7));
+            cCardNumbfield1.setText(number.substring(8, 11));
+            cCardNumbfield1.setText(number.substring(12));
+        }
     }
-    
-    public void setCVC(int cvc){
-        cvcTextfield.setText(cvc+"");
+
+    public void setCVC(int cvc) {
+        cvcTextfield.setText(cvc + "");
     }
 
     public String getFirstName() {
-        System.out.println(firstNameTextfield.getText() + ": preName");
-        if(firstNameTextfield.getText().equals("")){
+        if (firstNameTextfield.getText().equals("")) {
             jField.add(firstNameTextfield);
             jLabels.add(firstNameErrLabel);
         }
@@ -109,7 +113,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getLastName() {
-        if(firstNameTextfield.getText().equals("")){
+        if (lastNameTextfield.getText().equals("")) {
             jField.add(lastNameTextfield);
             jLabels.add(lastNameErrLabel);
         }
@@ -117,7 +121,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getAddress() {
-        if(addressTextfield.getText().equals("")){
+        if (addressTextfield.getText().equals("")) {
             jField.add(addressTextfield);
             jLabels.add(addressErrLabel);
         }
@@ -125,7 +129,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getPostAddress() {
-        if(postAddressTextfield.getText().equals("")){
+        if (postAddressTextfield.getText().equals("")) {
             jField.add(postAddressTextfield);
             jLabels.add(postAddressErrLabel);
         }
@@ -133,7 +137,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getPostcode() {
-        if(postCodeTextfield.getText().equals("")){
+        if (postCodeTextfield.getText().equals("")) {
             jField.add(postCodeTextfield);
             jLabels.add(postCodeErrLabel);
         }
@@ -141,7 +145,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getPhoneNumb() {
-        if(phoneNumbTextfield.getText().equals("")){
+        if (phoneNumbTextfield.getText().equals("")) {
             jField.add(phoneNumbTextfield);
             jLabels.add(phoneNumbErrLabel);
         }
@@ -149,7 +153,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getEmail() {
-        if(emailTextfield.getText().equals("")){
+        if (emailTextfield.getText().equals("")) {
             jField.add(emailTextfield);
             jLabels.add(emailErrLabel);
         }
@@ -157,30 +161,30 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getCardType() {
-        if(!visaRButton.isSelected() && !masterRButton.isSelected()){
+        if (!visaRButton.isSelected() && !masterRButton.isSelected()) {
             jLabels.add(cardTypeErrLabel);
         }
-        if(visaRButton.isSelected())
+        if (visaRButton.isSelected()) {
             return "visa";
-        else
+        } else {
             return "mastercard";
+        }
     }
 
     public String getCardName() {
-        if(cardNameTextfield.getText().equals("")){
+        if (cardNameTextfield.getText().equals("")) {
             jField.add(cardNameTextfield);
             jLabels.add(cardNameErrLabel);
         }
-        
+
         return cardNameTextfield.getText();
     }
 
     public int getCardYear() {
-        try{
+        try {
             Integer.parseInt(cardYearTextfield.getText());
-        }
-        catch(NumberFormatException e){
-           jField.add(cardYearTextfield);
+        } catch (NumberFormatException e) {
+            jField.add(cardYearTextfield);
             jLabels.add(cardDatesErrLabel);
             return 0;
         }
@@ -188,11 +192,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public int getCardMonth() {
-        try{
+        try {
             Integer.parseInt(cardMonthTextfield.getText());
-        }
-        catch(NumberFormatException e){
-           jField.add(cardMonthTextfield);
+        } catch (NumberFormatException e) {
+            jField.add(cardMonthTextfield);
             jLabels.add(cardDatesErrLabel);
             return 0;
         }
@@ -200,11 +203,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public int getVerificationCode() {
-        try{
+        try {
             Integer.parseInt(cvcTextfield.getText());
-        }
-        catch(NumberFormatException e){
-           jField.add(cvcTextfield);
+        } catch (NumberFormatException e) {
+            jField.add(cvcTextfield);
             jLabels.add(CVCErrLabel);
             return 0;
         }
@@ -212,9 +214,9 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getCardNumber() {
-        if(cCardNumbfield1.getText().equals("") || cCardNumbfield2.getText().equals("")
-                || cCardNumbfield3.getText().equals("") 
-                || cCardNumbfield4.getText().equals("")){
+        if (cCardNumbfield1.getText().equals("") || cCardNumbfield2.getText().equals("")
+                || cCardNumbfield3.getText().equals("")
+                || cCardNumbfield4.getText().equals("")) {
             jField.add(cCardNumbfield1);
             jField.add(cCardNumbfield2);
             jField.add(cCardNumbfield3);
@@ -224,8 +226,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
         return cCardNumbfield1.getText() + cCardNumbfield2.getText()
                 + cCardNumbfield3.getText() + cCardNumbfield4.getText();
     }
-    
-    public void setErrorMessages(boolean error){
+
+    public void setErrorMessages(boolean error) {
         firstNameErrLabel.setVisible(error);
         lastNameErrLabel.setVisible(error);
         addressErrLabel.setVisible(error);
@@ -239,23 +241,23 @@ public class CheckoutPanel extends javax.swing.JPanel {
         cardNumberErrLabel.setVisible(error);
         CVCErrLabel.setVisible(error);
     }
-    
-    public void setTextFieldBackgrounds(){
-        firstNameTextfield.setBackground(new Color(255,255,255));
-        lastNameTextfield.setBackground(new Color(255,255,255));
-        addressTextfield.setBackground(new Color(255,255,255));
-        postAddressTextfield.setBackground(new Color(255,255,255));
-        postCodeTextfield.setBackground(new Color(255,255,255));
-        phoneNumbTextfield.setBackground(new Color(255,255,255));
-        emailTextfield.setBackground(new Color(255,255,255));
-        cardNameTextfield.setBackground(new Color(255,255,255));
-        cardMonthTextfield.setBackground(new Color(255,255,255));
-        cardYearTextfield.setBackground(new Color(255,255,255));
-        cCardNumbfield1.setBackground(new Color(255,255,255));
-        cCardNumbfield2.setBackground(new Color(255,255,255));
-        cCardNumbfield3.setBackground(new Color(255,255,255));
-        cCardNumbfield4.setBackground(new Color(255,255,255));
-        cvcTextfield.setBackground(new Color(255,255,255));
+
+    public void setTextFieldBackgrounds() {
+        firstNameTextfield.setBackground(new Color(255, 255, 255));
+        lastNameTextfield.setBackground(new Color(255, 255, 255));
+        addressTextfield.setBackground(new Color(255, 255, 255));
+        postAddressTextfield.setBackground(new Color(255, 255, 255));
+        postCodeTextfield.setBackground(new Color(255, 255, 255));
+        phoneNumbTextfield.setBackground(new Color(255, 255, 255));
+        emailTextfield.setBackground(new Color(255, 255, 255));
+        cardNameTextfield.setBackground(new Color(255, 255, 255));
+        cardMonthTextfield.setBackground(new Color(255, 255, 255));
+        cardYearTextfield.setBackground(new Color(255, 255, 255));
+        cCardNumbfield1.setBackground(new Color(255, 255, 255));
+        cCardNumbfield2.setBackground(new Color(255, 255, 255));
+        cCardNumbfield3.setBackground(new Color(255, 255, 255));
+        cCardNumbfield4.setBackground(new Color(255, 255, 255));
+        cvcTextfield.setBackground(new Color(255, 255, 255));
     }
 
     /** This method is called from within the constructor to
@@ -903,19 +905,18 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     controller.saveInfo();
     jFieldIt = jField.iterator();
     setTextFieldBackgrounds();
-    while(jFieldIt.hasNext()){
+    while (jFieldIt.hasNext()) {
         jFieldIt.next().setBackground(new Color(255, 153, 153));
     }
     setErrorMessages(false);
     jLabelsIt = jLabels.iterator();
-    while(jLabelsIt.hasNext()){
+    while (jLabelsIt.hasNext()) {
         jLabelsIt.next().setVisible(true);
     }
     jField.clear();
     jLabels.clear();
-    
-}//GEN-LAST:event_confirmButtonActionPerformed
 
+}//GEN-LAST:event_confirmButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Betalningsinformation;
     private javax.swing.JLabel CVCErrLabel;

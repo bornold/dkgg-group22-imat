@@ -19,8 +19,12 @@ public class CheckoutPanelController {
         this.view = view;
         
         view.setErrorMessages(false);
+        atStart();
         
-        if(m.getCustomer().getAddress() != ""){
+    }
+    public void atStart(){
+        System.out.println(m.getCustomer().getFirstName());
+        if(!m.getCustomer().getFirstName().equals("")){
             view.setFirstName(m.getCustomer().getFirstName());
             view.setLastName(m.getCustomer().getLastName());
             view.setAddress(m.getCustomer().getAddress());
@@ -34,10 +38,11 @@ public class CheckoutPanelController {
                     m.getCreditCard().getValidMonth());
             view.setCardNumber(m.getCreditCard().getCardNumber());
             view.setCVC(m.getCreditCard().getVerificationCode());
+            System.out.println("Customer and CreditCard is used from before");
         }
-        
     }
     public void saveInfo(){ 
+        System.out.println(m.getCustomer().getFirstName());
         m.getCustomer().setFirstName(view.getFirstName());
         m.getCustomer().setLastName(view.getLastName());
         m.getCustomer().setAddress(view.getAddress());
@@ -51,5 +56,7 @@ public class CheckoutPanelController {
         m.getCreditCard().setValidYear(view.getCardYear());
         m.getCreditCard().setCardNumber(view.getCardNumber());
         m.getCreditCard().setVerificationCode(view.getVerificationCode());
+        System.out.println("Customer and CreditCard saved");
+        System.out.println(m.getCustomer().getFirstName());
     }
 }
