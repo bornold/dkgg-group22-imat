@@ -10,15 +10,148 @@
  */
 package dkgg2012group22imat.view.checkout;
 
+import dkgg2012group22imat.controller.checkout.CheckoutPanelController;
+import java.util.List;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jonas
  */
 public class CheckoutPanel extends javax.swing.JPanel {
 
+    int credCardKeyTyped;
+    List<JTextField> jField;
+    CheckoutPanelController controller;
+    boolean focusCardNumbfield1 = false;
+    boolean focusCardNumbfield2 = false;
+    boolean focusCardNumbfield3 = false;
+    boolean focusCardNumbfield4 = false;
+    String cardnumber = "";
+
     /** Creates new form CheckoutPanel */
     public CheckoutPanel() {
+        controller = new CheckoutPanelController(this);
         initComponents();
+    }
+
+    public void setFirstName(String name) {
+        preNameTextfield.setText(name);
+    }
+
+    public void setLastName(String lastName) {
+        lastNameTextfield.setText(lastName);
+    }
+
+    public void setAddress(String address) {
+        addressTextfield.setText(address);
+    }
+
+    public void setPostAddress(String pAddress) {
+        postAddressTextfield.setText(pAddress);
+    }
+
+    public void setPostcode(String postNumb) {
+        postCodeTextfield.setText(postNumb);
+    }
+
+    public void setPhoneNumb(String pNumb) {
+        phoneNumbTextfield.setText(pNumb);
+    }
+
+    public void setEmail(String email) {
+        emailTextfield.setText(email);
+    }
+
+    public void setCardType(String card) {
+        if (card.equals("Visa"))
+            visaRButton.setSelected(true);
+
+        if (card.equals("Mastercard")) 
+            masterRButton.setSelected(true);
+    }
+
+    public void setCardName(String name) {
+        cardNameTextfield.setText(name);
+    }
+
+    public void setCardDates(int y, int m) {
+        cardYearTextfield.setText(y + "");
+        cardMonthTextfield.setText(m + "");
+    }
+
+    public void setCardNumber(String number) {
+        cCardNumbfield1.setText(number.substring(0, 4));
+        cCardNumbfield1.setText(number.substring(4, 8));
+        cCardNumbfield1.setText(number.substring(8, 12));
+        cCardNumbfield1.setText(number.substring(12));
+    }
+    
+    public void setCVC(int cvc){
+        cvcTextfield.setText(cvc+"");
+    }
+
+    public String getFirstName() {
+        return preNameTextfield.getText();
+    }
+
+    public String getLastName() {
+        return lastNameTextfield.getText();
+    }
+
+    public String getAddress() {
+        return addressTextfield.getText();
+    }
+
+    public String getPostAddress() {
+        return postAddressTextfield.getText();
+    }
+
+    public String getPostcode() {
+        return postCodeTextfield.getText();
+    }
+
+    public String getPhoneNumb() {
+        return phoneNumbTextfield.getText();
+    }
+
+    public String getEmail() {
+        return emailTextfield.getText();
+    }
+
+    public String getCardType() {
+        if(visaRButton.isSelected())
+            return "visa";
+        else
+            return "mastercard";
+    }
+
+    public String getCardName() {
+        return cardNameTextfield.getText();
+    }
+
+    public int getCardYear() {
+        return Integer.parseInt(cardYearTextfield.getText());
+    }
+
+    public int getCardMonth() {
+        try{
+            Integer.parseInt(cardMonthTextfield.getText());
+        }
+        catch(NumberFormatException e){
+           jField.add(cardMonthTextfield);
+            return 0;
+        }
+        return Integer.parseInt(cardMonthTextfield.getText());
+    }
+
+    public int getVerificationCode() {
+        return Integer.parseInt(cvcTextfield.getText());
+    }
+
+    public String getCardNumber() {
+        return cCardNumbfield1.getText() + cCardNumbfield2.getText()
+                + cCardNumbfield3.getText() + cCardNumbfield4.getText();
     }
 
     /** This method is called from within the constructor to
@@ -30,131 +163,554 @@ public class CheckoutPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kontaktInfoLabel = new javax.swing.JLabel();
-        nameLabeel = new javax.swing.JLabel();
-        surNameLabel = new javax.swing.JLabel();
-        adressLabel = new javax.swing.JLabel();
-        postalAdressLabel = new javax.swing.JLabel();
-        phoneNumberLabel = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
-        surNameTextField = new javax.swing.JTextField();
-        adressTextField = new javax.swing.JTextField();
-        postAdressnameTextFieldTextField = new javax.swing.JTextField();
-        phoneNumbernameTextField = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 200), new java.awt.Dimension(0, 200), new java.awt.Dimension(32767, 200));
+        jPanel2 = new javax.swing.JPanel();
+        preNameTextfield = new javax.swing.JTextField();
+        addressTextfield = new javax.swing.JTextField();
+        postAddressTextfield = new javax.swing.JTextField();
+        postCodeTextfield = new javax.swing.JTextField();
+        phoneNumbTextfield = new javax.swing.JTextField();
+        emailTextfield = new javax.swing.JTextField();
+        lastNameTextfield = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        cardTypeLabel = new javax.swing.JLabel();
+        cardNameLabel = new javax.swing.JLabel();
+        cardDatesLabel = new javax.swing.JLabel();
+        cardNumberLabel = new javax.swing.JLabel();
+        CVCLabel = new javax.swing.JLabel();
+        Betalningsinformation = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        cvcTextfield = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        cCardNumbfield1 = new javax.swing.JTextField();
+        cCardNumbfield4 = new javax.swing.JTextField();
+        cCardNumbfield2 = new javax.swing.JTextField();
+        cCardNumbfield3 = new javax.swing.JTextField();
+        cardMonthTextfield = new javax.swing.JTextField();
+        cardYearTextfield = new javax.swing.JTextField();
+        cardNameTextfield = new javax.swing.JTextField();
+        visaRButton = new javax.swing.JRadioButton();
+        masterRButton = new javax.swing.JRadioButton();
+        confirmButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        förNamnLabel = new javax.swing.JLabel();
+        efterNamnLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        postAddressLabel = new javax.swing.JLabel();
+        postCodeLabel = new javax.swing.JLabel();
+        phoneNumbLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        kontaktinformation = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CheckoutPanel.class);
-        kontaktInfoLabel.setText(resourceMap.getString("kontaktInfoLabel.text")); // NOI18N
-        kontaktInfoLabel.setName("kontaktInfoLabel"); // NOI18N
-
-        nameLabeel.setText(resourceMap.getString("nameLabeel.text")); // NOI18N
-        nameLabeel.setName("nameLabeel"); // NOI18N
-
-        surNameLabel.setText(resourceMap.getString("surNameLabel.text")); // NOI18N
-        surNameLabel.setName("surNameLabel"); // NOI18N
-
-        adressLabel.setText(resourceMap.getString("adressLabel.text")); // NOI18N
-        adressLabel.setName("adressLabel"); // NOI18N
-
-        postalAdressLabel.setText(resourceMap.getString("postalAdressLabel.text")); // NOI18N
-        postalAdressLabel.setName("postalAdressLabel"); // NOI18N
-
-        phoneNumberLabel.setText(resourceMap.getString("phoneNumberLabel.text")); // NOI18N
-        phoneNumberLabel.setName("phoneNumberLabel"); // NOI18N
-
-        nameTextField.setText(resourceMap.getString("nameTextField.text")); // NOI18N
-        nameTextField.setName("nameTextField"); // NOI18N
-
-        surNameTextField.setText(resourceMap.getString("surNameTextField.text")); // NOI18N
-        surNameTextField.setName("surNameTextField"); // NOI18N
-
-        adressTextField.setText(resourceMap.getString("adressTextField.text")); // NOI18N
-        adressTextField.setName("adressTextField"); // NOI18N
-
-        postAdressnameTextFieldTextField.setText(resourceMap.getString("postAdressnameTextFieldTextField.text")); // NOI18N
-        postAdressnameTextFieldTextField.setName("postAdressnameTextFieldTextField"); // NOI18N
-
-        phoneNumbernameTextField.setText(resourceMap.getString("phoneNumbernameTextField.text")); // NOI18N
-        phoneNumbernameTextField.setName("phoneNumbernameTextField"); // NOI18N
-
         filler1.setName("filler1"); // NOI18N
+
+        jPanel2.setName("jPanel2"); // NOI18N
+
+        preNameTextfield.setName("preNameTextfield"); // NOI18N
+        preNameTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                preNameTextfieldMouseClicked(evt);
+            }
+        });
+
+        addressTextfield.setName("adressTextfield"); // NOI18N
+        addressTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addressTextfieldMouseClicked(evt);
+            }
+        });
+
+        postAddressTextfield.setName("postadressTextfield"); // NOI18N
+        postAddressTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                postAddressTextfieldMouseClicked(evt);
+            }
+        });
+
+        postCodeTextfield.setName("postcodetextfield"); // NOI18N
+        postCodeTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                postCodeTextfieldMouseClicked(evt);
+            }
+        });
+
+        phoneNumbTextfield.setName("phonenumberTextfield"); // NOI18N
+        phoneNumbTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                phoneNumbTextfieldMouseClicked(evt);
+            }
+        });
+
+        emailTextfield.setName("emailTextfield"); // NOI18N
+        emailTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                emailTextfieldMouseClicked(evt);
+            }
+        });
+
+        lastNameTextfield.setName("lastNameTextfield"); // NOI18N
+        lastNameTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lastNameTextfieldMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lastNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(preNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lastNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(preNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(addressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(emailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setName("jPanel5"); // NOI18N
+
+        jPanel3.setName("jPanel3"); // NOI18N
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CheckoutPanel.class);
+        cardTypeLabel.setText(resourceMap.getString("cardTypeLabel.text")); // NOI18N
+        cardTypeLabel.setName("cardTypeLabel"); // NOI18N
+
+        cardNameLabel.setText(resourceMap.getString("cardNameLabel.text")); // NOI18N
+        cardNameLabel.setName("cardNameLabel"); // NOI18N
+
+        cardDatesLabel.setText(resourceMap.getString("cardDatesLabel.text")); // NOI18N
+        cardDatesLabel.setName("cardDatesLabel"); // NOI18N
+
+        cardNumberLabel.setText(resourceMap.getString("cardNumberLabel.text")); // NOI18N
+        cardNumberLabel.setName("cardNumberLabel"); // NOI18N
+
+        CVCLabel.setText(resourceMap.getString("CVCLabel.text")); // NOI18N
+        CVCLabel.setName("CVCLabel"); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cardTypeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cardNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cardDatesLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cardNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CVCLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(cardTypeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(cardNameLabel)
+                .addGap(18, 18, 18)
+                .addComponent(cardDatesLabel)
+                .addGap(18, 18, 18)
+                .addComponent(cardNumberLabel)
+                .addGap(18, 18, 18)
+                .addComponent(CVCLabel)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        Betalningsinformation.setFont(resourceMap.getFont("Betalningsinformation.font")); // NOI18N
+        Betalningsinformation.setText(resourceMap.getString("Betalningsinformation.text")); // NOI18N
+        Betalningsinformation.setName("Betalningsinformation"); // NOI18N
+
+        jPanel4.setName("jPanel4"); // NOI18N
+
+        cvcTextfield.setName("cvcTextfield"); // NOI18N
+
+        jPanel6.setName("jPanel6"); // NOI18N
+
+        cCardNumbfield1.setName("cCardNumbfield1"); // NOI18N
+        cCardNumbfield1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cCardNumbfield1KeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cCardNumbfieldTyped(evt);
+            }
+        });
+
+        cCardNumbfield4.setName("cCardNumbfield4"); // NOI18N
+
+        cCardNumbfield2.setName("cCardNumbfield2"); // NOI18N
+        cCardNumbfield2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cCardNumbfield2KeyTyped(evt);
+            }
+        });
+
+        cCardNumbfield3.setName("cCardNumbfield3"); // NOI18N
+        cCardNumbfield3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cCardNumbfield3KeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(cCardNumbfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cCardNumbfield2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cCardNumbfield3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cCardNumbfield4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(cCardNumbfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cCardNumbfield2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cCardNumbfield3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cCardNumbfield4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        cardMonthTextfield.setName("cardMonthTextfield"); // NOI18N
+
+        cardYearTextfield.setName("cardYearTextfield"); // NOI18N
+
+        cardNameTextfield.setName("cardNameTextfield"); // NOI18N
+
+        buttonGroup1.add(visaRButton);
+        visaRButton.setText(resourceMap.getString("visaRButton.text")); // NOI18N
+        visaRButton.setName("visaRButton"); // NOI18N
+
+        buttonGroup1.add(masterRButton);
+        masterRButton.setText(resourceMap.getString("masterRButton.text")); // NOI18N
+        masterRButton.setName("masterRButton"); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(cardYearTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cardMonthTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cardNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cvcTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(visaRButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(masterRButton)))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(visaRButton)
+                    .addComponent(masterRButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cardNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardYearTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardMonthTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cvcTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Betalningsinformation)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Betalningsinformation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(77, 77, 77))
+        );
+
+        confirmButton.setText(resourceMap.getString("confirmButton.text")); // NOI18N
+        confirmButton.setName("confirmButton"); // NOI18N
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setName("jPanel1"); // NOI18N
+
+        förNamnLabel.setText(resourceMap.getString("förNamnLabel.text")); // NOI18N
+        förNamnLabel.setName("förNamnLabel"); // NOI18N
+
+        efterNamnLabel.setText(resourceMap.getString("efterNamnLabel.text")); // NOI18N
+        efterNamnLabel.setName("efterNamnLabel"); // NOI18N
+
+        addressLabel.setText(resourceMap.getString("addressLabel.text")); // NOI18N
+        addressLabel.setName("addressLabel"); // NOI18N
+
+        postAddressLabel.setText(resourceMap.getString("postAddressLabel.text")); // NOI18N
+        postAddressLabel.setName("postAddressLabel"); // NOI18N
+
+        postCodeLabel.setText(resourceMap.getString("postCodeLabel.text")); // NOI18N
+        postCodeLabel.setName("postCodeLabel"); // NOI18N
+
+        phoneNumbLabel.setText(resourceMap.getString("phoneNumbLabel.text")); // NOI18N
+        phoneNumbLabel.setName("phoneNumbLabel"); // NOI18N
+
+        emailLabel.setText(resourceMap.getString("emailLabel.text")); // NOI18N
+        emailLabel.setName("emailLabel"); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(phoneNumbLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(postCodeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(postAddressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(efterNamnLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(förNamnLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(förNamnLabel)
+                .addGap(18, 18, 18)
+                .addComponent(efterNamnLabel)
+                .addGap(29, 29, 29)
+                .addComponent(addressLabel)
+                .addGap(18, 18, 18)
+                .addComponent(postAddressLabel)
+                .addGap(18, 18, 18)
+                .addComponent(postCodeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(phoneNumbLabel)
+                .addGap(18, 18, 18)
+                .addComponent(emailLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        kontaktinformation.setFont(resourceMap.getFont("kontaktinformation.font")); // NOI18N
+        kontaktinformation.setText(resourceMap.getString("kontaktinformation.text")); // NOI18N
+        kontaktinformation.setName("kontaktinformation"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kontaktinformation)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(kontaktInfoLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(surNameLabel)
-                            .addComponent(nameLabeel)
-                            .addComponent(postalAdressLabel)
-                            .addComponent(phoneNumberLabel)
-                            .addComponent(adressLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(postAdressnameTextFieldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNumbernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(surNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(179, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(149, 149, 149)
+                            .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(kontaktInfoLabel)
-                .addGap(18, 18, 18)
+                .addComponent(kontaktinformation)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabeel)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(surNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(surNameLabel))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 0, Short.MAX_VALUE)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(453, 453, 453))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(adressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(postalAdressLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(postAdressnameTextFieldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(adressLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(phoneNumbernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneNumberLabel)))
-                    .addComponent(filler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
+                        .addComponent(confirmButton)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+private void preNameTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_preNameTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_preNameTextfieldMouseClicked
+
+private void lastNameTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastNameTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_lastNameTextfieldMouseClicked
+
+private void addressTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addressTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_addressTextfieldMouseClicked
+
+private void postAddressTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postAddressTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_postAddressTextfieldMouseClicked
+
+private void postCodeTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postCodeTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_postCodeTextfieldMouseClicked
+
+private void phoneNumbTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phoneNumbTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_phoneNumbTextfieldMouseClicked
+
+private void emailTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_emailTextfieldMouseClicked
+
+private void cCardNumbfield1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfield1KeyTyped
+    credCardKeyTyped++;
+    focusCardNumbfield1 = true;
+
+    if (credCardKeyTyped == 4 && focusCardNumbfield1) {
+        cCardNumbfield2.requestFocus();
+        credCardKeyTyped = 0;
+        focusCardNumbfield1 = false;
+    }
+
+}//GEN-LAST:event_cCardNumbfield1KeyTyped
+
+private void cCardNumbfield2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfield2KeyTyped
+    credCardKeyTyped++;
+    focusCardNumbfield2 = true;
+
+    if (credCardKeyTyped == 4 && focusCardNumbfield2) {
+        cCardNumbfield3.requestFocus();
+        credCardKeyTyped = 0;
+        focusCardNumbfield2 = false;
+    }
+}//GEN-LAST:event_cCardNumbfield2KeyTyped
+
+private void cCardNumbfield3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfield3KeyTyped
+    credCardKeyTyped++;
+    focusCardNumbfield3 = true;
+
+    if (credCardKeyTyped == 4 && focusCardNumbfield3) {
+        cCardNumbfield3.requestFocus();
+        credCardKeyTyped = 0;
+        focusCardNumbfield3 = false;
+    }
+}//GEN-LAST:event_cCardNumbfield3KeyTyped
+
+private void cCardNumbfieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfieldTyped
+    credCardKeyTyped++;
+    focusCardNumbfield1 = true;
+
+    if (credCardKeyTyped == 4 && focusCardNumbfield1) {
+        cCardNumbfield2.requestFocus();
+        credCardKeyTyped = 0;
+        focusCardNumbfield1 = false;
+    }
+}//GEN-LAST:event_cCardNumbfieldTyped
+
+private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+    controller.saveInfo();
+}//GEN-LAST:event_confirmButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel adressLabel;
-    private javax.swing.JTextField adressTextField;
+    private javax.swing.JLabel Betalningsinformation;
+    private javax.swing.JLabel CVCLabel;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JTextField addressTextfield;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField cCardNumbfield1;
+    private javax.swing.JTextField cCardNumbfield2;
+    private javax.swing.JTextField cCardNumbfield3;
+    private javax.swing.JTextField cCardNumbfield4;
+    private javax.swing.JLabel cardDatesLabel;
+    private javax.swing.JTextField cardMonthTextfield;
+    private javax.swing.JLabel cardNameLabel;
+    private javax.swing.JTextField cardNameTextfield;
+    private javax.swing.JLabel cardNumberLabel;
+    private javax.swing.JLabel cardTypeLabel;
+    private javax.swing.JTextField cardYearTextfield;
+    private javax.swing.JButton confirmButton;
+    private javax.swing.JTextField cvcTextfield;
+    private javax.swing.JLabel efterNamnLabel;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField emailTextfield;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel kontaktInfoLabel;
-    private javax.swing.JLabel nameLabeel;
-    private javax.swing.JTextField nameTextField;
-    private javax.swing.JLabel phoneNumberLabel;
-    private javax.swing.JTextField phoneNumbernameTextField;
-    private javax.swing.JTextField postAdressnameTextFieldTextField;
-    private javax.swing.JLabel postalAdressLabel;
-    private javax.swing.JLabel surNameLabel;
-    private javax.swing.JTextField surNameTextField;
+    private javax.swing.JLabel förNamnLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel kontaktinformation;
+    private javax.swing.JTextField lastNameTextfield;
+    private javax.swing.JRadioButton masterRButton;
+    private javax.swing.JLabel phoneNumbLabel;
+    private javax.swing.JTextField phoneNumbTextfield;
+    private javax.swing.JLabel postAddressLabel;
+    private javax.swing.JTextField postAddressTextfield;
+    private javax.swing.JLabel postCodeLabel;
+    private javax.swing.JTextField postCodeTextfield;
+    private javax.swing.JTextField preNameTextfield;
+    private javax.swing.JRadioButton visaRButton;
     // End of variables declaration//GEN-END:variables
 }
