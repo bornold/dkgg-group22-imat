@@ -7,6 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.ProductPanel;
 import dkgg2012group22imat.view.ProductsPanel;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
@@ -17,11 +18,13 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class ProductsPanelController {
 
+    private final int productWidth = 210;
+    private final int productHeight = 230;
     protected Model m = Model.getInstance();
     private List<Product> items;
     private List<List<Product>> pageList = new ArrayList<List<Product>>();
     private ProductsPanel view;
-    private int productsOnScreen;
+    private int productsOnScreen = 1;
     protected int currentPage = 0;
     private int nrOfPages;
     //TODO HTML manipulate current view
@@ -70,9 +73,21 @@ public class ProductsPanelController {
         }
     };
 
+    @Deprecated
     public ProductsPanelController(List<Product> prods, int amount, ProductsPanel panel) {
         this.view = panel;
         this.productsOnScreen = amount;
+        setList(prods);
+    }
+
+    public ProductsPanelController(List<Product> prods, ProductsPanel panel) {
+        this.view = panel;
+        int ppp = productsPerPage();
+        if (ppp > 1) {
+            productsOnScreen = ppp;
+        } else {
+            productsOnScreen = 1;
+        }
         setList(prods);
     }
 
@@ -93,7 +108,7 @@ public class ProductsPanelController {
         if (page < pageList.size()) {
             currentPage = page;
         } else {
-            currentPage = pageList.size()-1;
+            currentPage = pageList.size() - 1;
         }
         for (Product p : pageList.get(currentPage)) {
             view.productPanel.add(new ProductPanel(p));
@@ -134,7 +149,6 @@ public class ProductsPanelController {
                     end <= items.size();
                     front += productsOnScreen, end += productsOnScreen) {
                 pageList.add(items.subList(front, end));
-
             }
             nrOfPages = (items.size() / productsOnScreen);
 
@@ -151,6 +165,23 @@ public class ProductsPanelController {
         } else {
             nrOfPages = -1;
             setNavigation();
+        }
+    }
+
+    public final int productsPerPage() {
+        Dimension panelDimension = view.productPanel.getSize();
+        int produkterBredd = panelDimension.width / productWidth;
+        int produkterHöjd = panelDimension.height / productHeight;
+        return produkterBredd * produkterHöjd;
+    }
+
+    public void reSized() {
+        int ppp = productsPerPage();
+        System.out.println("PPP:" + ppp);
+        System.out.println("productsOnScreen: " + productsOnScreen);
+        if (ppp != productsOnScreen && ppp > 0) {
+            productsOnScreen = ppp;
+            setList(items);
         }
     }
 }
