@@ -48,7 +48,7 @@ public class ShopPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         leftPanel.setName("leftPanel"); // NOI18N
-        leftPanel.setLayout(new java.awt.GridLayout());
+        leftPanel.setLayout(new java.awt.GridLayout(1, 0));
         add(leftPanel, java.awt.BorderLayout.WEST);
 
         jPanel1.setName("jPanel1"); // NOI18N
@@ -60,8 +60,8 @@ public class ShopPanel extends javax.swing.JPanel {
         jPanel1.add(titleLabel, java.awt.BorderLayout.NORTH);
 
         mainPanel.setName("mainPanel"); // NOI18N
-        mainPanel.setLayout(new java.awt.GridLayout());
-        jPanel1.add(mainPanel, java.awt.BorderLayout.PAGE_START);
+        mainPanel.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.add(mainPanel, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
