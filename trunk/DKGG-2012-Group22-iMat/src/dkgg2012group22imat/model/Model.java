@@ -37,7 +37,8 @@ public class Model {
 
     private static Model instance = null;
     private IMatDataHandler iMatDataHandler;
-    private List<SavedCart> savedCarts = new ArrayList<SavedCart>(); //TODO get Saved Carts
+    //TODO get Saved Carts
+    private List<SavedCart> savedCarts = new ArrayList<SavedCart>();
 
     /**
      * Constructor that should never be called, use getInstance() instead.
@@ -74,6 +75,7 @@ public class Model {
 
     public synchronized void addSavedCartEventListener(SavedCartListener listener) {
         savedCartListeners.add(listener);
+        System.out.println("FavoriteListeners: " + savedCartListeners.size());
     }
 
     public synchronized void removeSavedCartEventListener(SavedCartListener listener) {
@@ -218,6 +220,13 @@ public class Model {
     }
 
     public List<SavedCart> getSavedCarts() {
+//        System.out.println("Saved carts:");
+//        for (SavedCart sc : savedCarts) {
+//            System.out.println("\t"+sc.getName());
+//            System.out.println("\t"+sc.getTotalPrice());
+//            System.out.println("\t"+sc.getItems().size());
+//        }
+                
         return savedCarts;
     }
 
@@ -231,7 +240,8 @@ public class Model {
         }
         return null;
     }
-    
+
+    @Deprecated
     public void saveNewCart(List<ShoppingItem> cart, String name) {
         System.out.println("Saved new Shoppingcart " + name);
         savedCarts.add(new SavedCart(cart, name));

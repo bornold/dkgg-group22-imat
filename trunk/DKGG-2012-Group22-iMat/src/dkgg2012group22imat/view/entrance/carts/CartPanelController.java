@@ -31,7 +31,7 @@ public class CartPanelController {
         this.parent = aParent;
         this.view = aView;
         view.cartName.setText(sv.getName());
-        //view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice()); //TODO Typecast double to int
+        //view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice());
         items = sv.getItems();
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {

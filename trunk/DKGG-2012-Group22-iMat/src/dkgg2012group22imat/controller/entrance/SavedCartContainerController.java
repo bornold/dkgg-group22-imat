@@ -26,7 +26,7 @@ public class SavedCartContainerController {
         this.view = _view;
         this.parent = _parent;
         view.cartNameLabel.setText(name);
-        view.cartPriceLabel.setText("price");//TODO bad bad bad uppbyggnad
+        view.cartPriceLabel.setText("price");
         view.innerPanel.add(new SavedCartPanel(items));
     }
 
