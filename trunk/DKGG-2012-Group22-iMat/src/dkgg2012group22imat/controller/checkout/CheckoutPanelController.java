@@ -18,6 +18,8 @@ public class CheckoutPanelController {
     public CheckoutPanelController(CheckoutPanel view){
         this.view = view;
         
+        view.setErrorMessages(false);
+        
         if(m.getCustomer().getAddress() != ""){
             view.setFirstName(m.getCustomer().getFirstName());
             view.setLastName(m.getCustomer().getLastName());
