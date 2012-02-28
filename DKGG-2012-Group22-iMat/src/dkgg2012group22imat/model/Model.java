@@ -149,7 +149,10 @@ public class Model {
         System.out.println("CartRemoving: " + p.getName());
         shoppingCart.removeProduct(p);
     }
+    public void removeFromShoppingCart(ShoppingItem si) {
+        iMatDataHandler.getShoppingCart().removeItem(si);
 
+    }
     public Customer getCustomer() {
         return iMatDataHandler.getCustomer();
     }
@@ -273,6 +276,10 @@ public class Model {
 
     public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
+    }
+    
+    public List<Product> search(String searchString) {
+        return iMatDataHandler.findProducts(searchString);
     }
 
     private List<Product> getRandomProducts() {
