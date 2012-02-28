@@ -4,6 +4,7 @@
  */
 package dkgg2012group22imat.view;
 
+import dkgg2012group22imat.model.IMatUtilities;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

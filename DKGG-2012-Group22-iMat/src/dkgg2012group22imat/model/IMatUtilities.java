@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dkgg2012group22imat.view;
+package dkgg2012group22imat.model;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
@@ -11,6 +11,11 @@ import aurelienribon.tweenengine.TweenCallback.EventType;
 import aurelienribon.tweenengine.TweenManager;
 import aurelienribon.tweenengine.equations.Expo;
 import dkgg2012group22imat.controller.iMatViewController;
+import dkgg2012group22imat.view.AnimateImage;
+import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
+import dkgg2012group22imat.view.DrawingCanvas;
+import dkgg2012group22imat.view.JComponentTweenAccessor;
+import dkgg2012group22imat.view.TargetedMouseListener;
 import java.awt.AWTEvent;
 import java.awt.Component;
 import java.awt.Dimension;

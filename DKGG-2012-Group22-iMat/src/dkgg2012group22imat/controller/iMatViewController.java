@@ -6,7 +6,7 @@ package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.DKGG2012Group22iMatView;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JPanel;

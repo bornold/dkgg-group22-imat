@@ -7,7 +7,7 @@ package dkgg2012group22imat.controller;
 import dkgg2012group22imat.controller.iMatViewController.MainView;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartPanel;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.view.SaveCartOverlay;
 import java.awt.Component;
 import java.awt.Point;

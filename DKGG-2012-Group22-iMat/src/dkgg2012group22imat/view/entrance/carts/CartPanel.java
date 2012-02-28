@@ -12,7 +12,7 @@ package dkgg2012group22imat.view.entrance.carts;
 
 import dkgg2012group22imat.model.SavedCart;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
-import dkgg2012group22imat.view.IMatUtilities;
+import dkgg2012group22imat.model.IMatUtilities;
 import java.awt.Color;
 import java.awt.Graphics;
 import org.jdesktop.application.ResourceMap;
