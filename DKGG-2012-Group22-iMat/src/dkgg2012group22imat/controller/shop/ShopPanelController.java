@@ -22,12 +22,12 @@ public class ShopPanelController {
     public ShopPanelController(ShopPanel view) {
         this.view = view;
         this.view.leftPanel.add(new CategoriesPanel(this));
-        this.view.mainPanel.add(new ProductsPanel(m.getOffers(), 3));
+        this.view.mainPanel.add(new ProductsPanel(m.getOffers()));
     }
     
     public void showCategory(Category c) {
         this.view.mainPanel.removeAll();
-        this.view.mainPanel.add(new ProductsPanel(m.getProductsByCategory(c), 3));
+        this.view.mainPanel.add(new ProductsPanel(m.getProducts(c)));
     }
 }
 

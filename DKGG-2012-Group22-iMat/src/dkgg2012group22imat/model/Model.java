@@ -267,7 +267,23 @@ public class Model {
 //    public void reset() {
 //        iMatDataHandler.reset();
 //    }
+    
+    public List<Product> getProducts(Category c) {
+        List<Product> returnList = new ArrayList();
 
+        if (c.getProductCategory() != null) {
+            returnList.addAll(this.getProducts(c.getProductCategory()));
+        }
+
+        if (c.getSubCategories().size() > 0) {
+            for (Category sub : c.getSubCategories()) {
+                returnList.addAll(this.getProducts(sub));
+            }
+        }
+        
+        return returnList;
+    }
+    
     public List<Product> getProducts(ProductCategory pc) {
         return iMatDataHandler.getProducts(pc);
     }
@@ -281,7 +297,8 @@ public class Model {
     }
 
     private List<Product> getRandomProducts() {
-        List<Product> l = getProducts();
+        List<Product> l = new ArrayList();
+        l.addAll(getProducts());
         Random generator = new Random();
         while (l.size() > 6) {
             l.remove(generator.nextInt(l.size()));
@@ -319,21 +336,5 @@ public class Model {
         }
     }
 
-    public List<Product> getProductsByCategory(Category c) {
-        List<Product> returnList = new ArrayList();
 
-        if (c.getProductCategory() != null) {
-            returnList.addAll(this.getProducts(c.getProductCategory()));
-        }
-
-        if (c.getSubCategories().size() > 0) {
-            for (Category sub : c.getSubCategories()) {
-                if (c.getProductCategory() != null) {
-                    returnList.addAll(getProductsByCategory(sub));
-                }
-            }
-        }
-
-        return returnList;
-    }
 }
