@@ -220,13 +220,6 @@ public class Model {
     }
 
     public List<SavedCart> getSavedCarts() {
-//        System.out.println("Saved carts:");
-//        for (SavedCart sc : savedCarts) {
-//            System.out.println("\t"+sc.getName());
-//            System.out.println("\t"+sc.getTotalPrice());
-//            System.out.println("\t"+sc.getItems().size());
-//        }
-                
         return savedCarts;
     }
 
