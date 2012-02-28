@@ -1,6 +1,10 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
   </Properties>
@@ -20,33 +24,25 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="kontaktinformation" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="kontaktInfoLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="surNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameLabeel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="postalAdressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="adressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="1">
+                          <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="filler1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="confirmButton" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="adressTextField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="postAdressnameTextFieldTextField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneNumbernameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="surNameTextField" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="179" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,114 +50,31 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="kontaktInfoLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="kontaktinformation" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="nameTextField" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="nameLabeel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="surNameTextField" min="-2" max="-2" attributes="0"/>
-                          <Component id="surNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="adressTextField" min="-2" max="-2" attributes="0"/>
-                          <Component id="postalAdressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="postAdressnameTextFieldTextField" min="-2" max="-2" attributes="0"/>
-                          <Component id="adressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="phoneNumbernameTextField" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="filler1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
               </Group>
-              <EmptySpace pref="170" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel5" min="-2" pref="253" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="0" max="32767" attributes="0"/>
+                      <Component id="filler1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="453" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="kontaktInfoLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="kontaktInfoLabel.text"/>
-        <Property name="name" type="java.lang.String" value="kontaktInfoLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="nameLabeel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="nameLabeel.text"/>
-        <Property name="name" type="java.lang.String" value="nameLabeel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="surNameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="surNameLabel.text"/>
-        <Property name="name" type="java.lang.String" value="surNameLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="adressLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="adressLabel.text"/>
-        <Property name="name" type="java.lang.String" value="adressLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="postalAdressLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="postalAdressLabel.text"/>
-        <Property name="name" type="java.lang.String" value="postalAdressLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="phoneNumberLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="phoneNumberLabel.text"/>
-        <Property name="name" type="java.lang.String" value="phoneNumberLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="nameTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="nameTextField.text"/>
-        <Property name="name" type="java.lang.String" value="nameTextField" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="surNameTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="surNameTextField.text"/>
-        <Property name="name" type="java.lang.String" value="surNameTextField" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="adressTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="adressTextField.text"/>
-        <Property name="name" type="java.lang.String" value="adressTextField" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="postAdressnameTextFieldTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="postAdressnameTextFieldTextField.text"/>
-        <Property name="name" type="java.lang.String" value="postAdressnameTextFieldTextField" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="phoneNumbernameTextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="phoneNumbernameTextField.text"/>
-        <Property name="name" type="java.lang.String" value="phoneNumbernameTextField" noResource="true"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.Box$Filler" name="filler1">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -178,6 +91,491 @@
       <AuxValues>
         <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.VerticalStrut"/>
       </AuxValues>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lastNameTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="preNameTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="postAddressTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="addressTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="postCodeTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="phoneNumbTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                      <Component id="emailTextfield" alignment="0" min="-2" pref="114" max="-2" attributes="1"/>
+                  </Group>
+                  <EmptySpace pref="59" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Component id="lastNameTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="preNameTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Component id="addressTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="postAddressTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="postCodeTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="phoneNumbTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="emailTextfield" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="preNameTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="preNameTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="preNameTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="addressTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="adressTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addressTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="postAddressTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="postadressTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="postAddressTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="postCodeTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="postcodetextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="postCodeTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="phoneNumbTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="phonenumberTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="phoneNumbTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="emailTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="emailTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="emailTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="lastNameTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="lastNameTextfield" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lastNameTextfieldMouseClicked"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel5">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+        <Property name="name" type="java.lang.String" value="jPanel5" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="Betalningsinformation" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="147" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Betalningsinformation" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="jPanel4" max="32767" attributes="1"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel3">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cardTypeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardDatesLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="CVCLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="cardTypeLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cardNameLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cardDatesLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cardNumberLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="CVCLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="cardTypeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="cardTypeLabel.text"/>
+                <Property name="name" type="java.lang.String" value="cardTypeLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="cardNameLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="cardNameLabel.text"/>
+                <Property name="name" type="java.lang.String" value="cardNameLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="cardDatesLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="cardDatesLabel.text"/>
+                <Property name="name" type="java.lang.String" value="cardDatesLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="cardNumberLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="cardNumberLabel.text"/>
+                <Property name="name" type="java.lang.String" value="cardNumberLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="CVCLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="CVCLabel.text"/>
+                <Property name="name" type="java.lang.String" value="CVCLabel" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="Betalningsinformation">
+          <Properties>
+            <Property name="font" type="java.awt.Font" resourceKey="Betalningsinformation.font"/>
+            <Property name="text" type="java.lang.String" resourceKey="Betalningsinformation.text"/>
+            <Property name="name" type="java.lang.String" value="Betalningsinformation" noResource="true"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel4">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jPanel4" noResource="true"/>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="cardYearTextfield" min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cardMonthTextfield" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="cardNameTextfield" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="cvcTextfield" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="visaRButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="masterRButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="visaRButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="masterRButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="cardNameTextfield" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cardYearTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardMonthTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cvcTextfield" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="cvcTextfield">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="cvcTextfield" noResource="true"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jPanel6" noResource="true"/>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="cCardNumbfield1" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield2" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield3" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield4" min="-2" pref="66" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cCardNumbfield1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cCardNumbfield4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="cCardNumbfield1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="cCardNumbfield1" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cCardNumbfield1KeyTyped"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cCardNumbfieldTyped"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="cCardNumbfield4">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="cCardNumbfield4" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="cCardNumbfield2">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="cCardNumbfield2" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cCardNumbfield2KeyTyped"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="cCardNumbfield3">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="cCardNumbfield3" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cCardNumbfield3KeyTyped"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JTextField" name="cardMonthTextfield">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="cardMonthTextfield" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="cardYearTextfield">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="cardYearTextfield" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="cardNameTextfield">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="cardNameTextfield" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="visaRButton">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="visaRButton.text"/>
+                <Property name="name" type="java.lang.String" value="visaRButton" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="masterRButton">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="masterRButton.text"/>
+                <Property name="name" type="java.lang.String" value="masterRButton" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="confirmButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="confirmButton.text"/>
+        <Property name="name" type="java.lang.String" value="confirmButton" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace pref="115" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="emailLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="phoneNumbLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="postCodeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="postAddressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="addressLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="efterNamnLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="förNamnLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="förNamnLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="efterNamnLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="postAddressLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="postCodeLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="phoneNumbLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="f&#xf6;rNamnLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="f&#xf6;rNamnLabel.text"/>
+            <Property name="name" type="java.lang.String" value="f&#xf6;rNamnLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="efterNamnLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="efterNamnLabel.text"/>
+            <Property name="name" type="java.lang.String" value="efterNamnLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="addressLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="addressLabel.text"/>
+            <Property name="name" type="java.lang.String" value="addressLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="postAddressLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="postAddressLabel.text"/>
+            <Property name="name" type="java.lang.String" value="postAddressLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="postCodeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="postCodeLabel.text"/>
+            <Property name="name" type="java.lang.String" value="postCodeLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="phoneNumbLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="phoneNumbLabel.text"/>
+            <Property name="name" type="java.lang.String" value="phoneNumbLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="emailLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="emailLabel.text"/>
+            <Property name="name" type="java.lang.String" value="emailLabel" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="kontaktinformation">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="kontaktinformation.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="kontaktinformation.text"/>
+        <Property name="name" type="java.lang.String" value="kontaktinformation" noResource="true"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

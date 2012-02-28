@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
@@ -151,6 +152,10 @@ public class Model {
 
     public Customer getCustomer() {
         return iMatDataHandler.getCustomer();
+    }
+    
+    public CreditCard getCreditCard() {
+        return iMatDataHandler.getCreditCard();
     }
 
     public ShoppingCart getShoppingCart() {
