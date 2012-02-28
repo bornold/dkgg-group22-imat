@@ -28,6 +28,8 @@ public class ShopPanelController {
     public void showCategory(Category c) {
         this.view.mainPanel.removeAll();
         this.view.mainPanel.add(new ProductsPanel(m.getProducts(c)));
+        this.view.titleLabel.setText(c.getName());
     }
+    
 }
 
