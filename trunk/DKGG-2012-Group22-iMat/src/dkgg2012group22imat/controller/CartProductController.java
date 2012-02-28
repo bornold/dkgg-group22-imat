@@ -4,6 +4,7 @@
  */
 package dkgg2012group22imat.controller;
 
+import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartPanel;
 import dkgg2012group22imat.view.CartProductPanel;
@@ -30,7 +31,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jonas
  */
-public class CartProductController {
+public class CartProductController implements FavoriteListener {
 
     Model m = Model.getInstance();
     ShoppingItem si;
@@ -50,6 +51,7 @@ public class CartProductController {
         view.unitLabel.setText(si.getProduct().getUnitSuffix()+" för");
         view.favoriteToggleButton.setVisible(false);
         setFavoButton();
+        m.addFavouriteEventListener(this);
 
     }
 
@@ -73,7 +75,7 @@ public class CartProductController {
     }
     
     public void delete() {
-        
+        m.removeFromShoppingCart(si);
     }
     
     public void removeFromCart() {
