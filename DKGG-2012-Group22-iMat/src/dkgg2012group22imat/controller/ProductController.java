@@ -23,7 +23,7 @@ import se.chalmers.ait.dat215.project.Product;
  * @author jonas
  */
 public class ProductController implements FavoriteListener,TweenCallback {
-
+//TODO Remove itself from favorite listener before its removed.
     Model m = Model.getInstance();
     Product p;
     ProductPanel view;
