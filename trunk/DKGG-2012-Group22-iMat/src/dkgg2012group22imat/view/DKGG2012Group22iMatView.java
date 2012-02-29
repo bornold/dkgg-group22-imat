@@ -53,6 +53,8 @@ public class DKGG2012Group22iMatView extends FrameView {
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"CHECKOUT");
                 if(checkoutPanel1.getLayoutCard().equals("thirdView")){
                     ((CardLayout)checkoutPanel1.getLayout()).first(checkoutPanel1);
+                }else if(checkoutPanel1.getLayoutCard().equals("secondView")){
+                    checkoutPanel1.goTo2ndView();
                 }
                 break;
             default:

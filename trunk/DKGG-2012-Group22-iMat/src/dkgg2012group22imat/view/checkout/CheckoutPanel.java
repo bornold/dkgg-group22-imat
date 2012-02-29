@@ -24,21 +24,20 @@ import javax.swing.JTextField;
  */
 public class CheckoutPanel extends javax.swing.JPanel {
 
-    boolean credCardKeyTypedbool = false;
-    int credCardKeyTyped = 0;
-    ArrayList<JTextField> jField;
-    Iterator<JTextField> jFieldIt;
-    ArrayList<JLabel> jLabels;
-    Iterator<JLabel> jLabelsIt;
-    CheckoutPanelController controller;
-    boolean focusCardNumbfield1 = false;
-    boolean focusCardNumbfield2 = false;
-    boolean focusCardNumbfield3 = false;
-    boolean focusCardNumbfield4 = false;
-    String cardnumber = "";
-    CardLayout cl;
-    String card;
-
+    private boolean credCardKeyTypedbool = false;
+    private int credCardKeyTyped = 0;
+    private ArrayList<JTextField> jField;
+    private Iterator<JTextField> jFieldIt;
+    private ArrayList<JLabel> jLabels;
+    private Iterator<JLabel> jLabelsIt;
+    private CheckoutPanelController controller;
+    private boolean focusCardNumbfield1 = false;
+    private boolean focusCardNumbfield2 = false;
+    private boolean focusCardNumbfield3 = false;
+    private boolean focusCardNumbfield4 = false;
+    private String cardnumber = "";
+    private CardLayout cl;
+    private String card;
 
     /** Creates new form CheckoutPanel */
     public CheckoutPanel() {
@@ -52,7 +51,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 + " sätt dig i en stol och invänta "
                 + "resultat eller slösa gärna lite mer hos oss ;)");
         getLayoutCard();
-        
+        card = "firstView";
+
     }
 
     public void setFirstName(String name) {
@@ -270,9 +270,19 @@ public class CheckoutPanel extends javax.swing.JPanel {
         cCardNumbfield4.setBackground(new Color(255, 255, 255));
         cvcTextfield.setBackground(new Color(255, 255, 255));
     }
-    
-    public String getLayoutCard(){
+
+    public String getLayoutCard() {
         return card;
+    }
+
+    public void goTo2ndView() {
+        card = "secondView";
+        cl.show(this, "secondView");
+    kVaror.setText(controller.getProducts());
+    kundinfoLabel.setText(controller.getCustomer());
+    totalPriceLabel.setText("Totalsumman blir: " + controller.getTotal());
+
+
     }
 
     /** This method is called from within the constructor to
@@ -343,6 +353,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         kVaror = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -870,19 +881,26 @@ public class CheckoutPanel extends javax.swing.JPanel {
         kVaror.setText(resourceMap.getString("kVaror.text")); // NOI18N
         kVaror.setName("kVaror"); // NOI18N
 
+        totalPriceLabel.setText(resourceMap.getString("totalPriceLabel.text")); // NOI18N
+        totalPriceLabel.setName("totalPriceLabel"); // NOI18N
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(totalPriceLabel)
+                .addContainerGap(191, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,7 +910,9 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(kVaror, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(totalPriceLabel)
                 .addContainerGap())
         );
 
@@ -912,15 +932,15 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(kundinfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -930,7 +950,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -963,10 +983,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(secondViewLayout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(32, 32, 32)
                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
-                        .addContainerGap(383, Short.MAX_VALUE))
+                        .addContainerGap(348, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondViewLayout.createSequentialGroup()
                         .addComponent(bakKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
@@ -977,15 +997,18 @@ public class CheckoutPanel extends javax.swing.JPanel {
             .addGroup(secondViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(confirmKnapp, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
-                        .addComponent(bakKnapp))
-                    .addComponent(confirmKnapp, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(secondViewLayout.createSequentialGroup()
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(235, 235, 235))
+                            .addGroup(secondViewLayout.createSequentialGroup()
+                                .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                                .addComponent(bakKnapp))))))
         );
 
         add(secondView, "secondView");
@@ -1109,11 +1132,9 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     while (jLabelsIt.hasNext()) {
         jLabelsIt.next().setVisible(true);
     }
-        kVaror.setText(controller.getProducts());
-        kundinfoLabel.setText(controller.getCustomer());
-        if(jLabels.isEmpty())
-        cl.show(this, "secondView");
-    card = "secondView";
+    if (jLabels.isEmpty()) {
+        goTo2ndView();
+    }
     jField.clear();
     jLabels.clear();
 
@@ -1122,6 +1143,7 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 private void confirmKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmKnappActionPerformed
     cl.show(this, "thirdView");
     card = "thirdView";
+    controller.performBuy();
     controller.clearCart();
 }//GEN-LAST:event_confirmKnappActionPerformed
 
@@ -1129,7 +1151,6 @@ private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     cl.show(this, "firstView");
     card = "firstView";
 }//GEN-LAST:event_bakKnappActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Betalningsinformation;
     private javax.swing.JLabel CVCErrLabel;
@@ -1197,6 +1218,7 @@ private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JTextField postCodeTextfield;
     private javax.swing.JPanel secondView;
     private javax.swing.JPanel thirdView;
+    private javax.swing.JLabel totalPriceLabel;
     private javax.swing.JRadioButton visaRButton;
     // End of variables declaration//GEN-END:variables
 }
