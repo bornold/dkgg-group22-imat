@@ -92,7 +92,7 @@ public class ProductsPanelController {
             int lowerBound = 0;
             int upperBound = nrOfPages;
             if (nrOfPages >= 8) {
-                if (currentPage > 4) {
+                if (currentPage > 3) {
                     if (currentPage + 4 > nrOfPages) {
                         lowerBound = nrOfPages - 7;
                         upperBound = nrOfPages;
