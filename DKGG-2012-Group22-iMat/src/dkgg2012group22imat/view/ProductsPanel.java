@@ -51,7 +51,7 @@ public class ProductsPanel extends javax.swing.JPanel {
         navigationPanel = new javax.swing.JPanel();
         forwardButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        navigationLabel = new javax.swing.JLabel();
+        pagenationPanel = new javax.swing.JPanel();
         productPanel = new javax.swing.JPanel();
 
         setName("Form"); // NOI18N
@@ -123,10 +123,9 @@ public class ProductsPanel extends javax.swing.JPanel {
         });
         navigationPanel.add(backButton, java.awt.BorderLayout.WEST);
 
-        navigationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        navigationLabel.setText(resourceMap.getString("navigationLabel.text")); // NOI18N
-        navigationLabel.setName("navigationLabel"); // NOI18N
-        navigationPanel.add(navigationLabel, java.awt.BorderLayout.CENTER);
+        pagenationPanel.setName("pagenationPanel"); // NOI18N
+        pagenationPanel.setOpaque(false);
+        navigationPanel.add(pagenationPanel, java.awt.BorderLayout.CENTER);
 
         add(navigationPanel, java.awt.BorderLayout.NORTH);
 
@@ -170,8 +169,8 @@ private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRS
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton backButton;
     public javax.swing.JButton forwardButton;
-    public javax.swing.JLabel navigationLabel;
     public javax.swing.JPanel navigationPanel;
+    public javax.swing.JPanel pagenationPanel;
     public javax.swing.JPanel productPanel;
     // End of variables declaration//GEN-END:variables
 }
