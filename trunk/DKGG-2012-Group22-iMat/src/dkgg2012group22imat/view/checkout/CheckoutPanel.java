@@ -1140,7 +1140,7 @@ private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_bakKnappActionPerformed
 
 private void view3bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3bakKnappActionPerformed
-// TODO add your handling code here:
+    cl.show(this, "secondView");
 }//GEN-LAST:event_view3bakKnappActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
