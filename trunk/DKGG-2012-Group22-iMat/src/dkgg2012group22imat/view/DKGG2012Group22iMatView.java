@@ -7,8 +7,6 @@ package dkgg2012group22imat.view;
 import dkgg2012group22imat.controller.iMatViewController;
 import dkgg2012group22imat.controller.iMatViewController.MainView;
 import java.awt.CardLayout;
-import java.util.HashSet;
-import java.util.Set;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -16,8 +14,6 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.OverlayLayout;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  * The application's main frame.
@@ -25,12 +21,12 @@ import javax.swing.event.ChangeListener;
 public class DKGG2012Group22iMatView extends FrameView {
     
     private iMatViewController controller;
-    
 
     public DKGG2012Group22iMatView(SingleFrameApplication app) {
         super(app);
 
         controller = new iMatViewController(this);
+        
         //initComponents();
         //animationPanel.setLayout(new OverlayLayout(animationPanel));
     }
@@ -55,6 +51,9 @@ public class DKGG2012Group22iMatView extends FrameView {
                 break;
             case CHECKOUT:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"CHECKOUT");
+                if(checkoutPanel1.getLayoutCard().equals("thirdView")){
+                    ((CardLayout)checkoutPanel1.getLayout()).first(checkoutPanel1);
+                }
                 break;
             default:
                 setView(MainView.ENTRANCE);

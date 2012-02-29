@@ -86,9 +86,12 @@ public class CheckoutPanelController {
         siString = "<html>";
         for(ShoppingItem sit : si){
             siString = siString + sit.getProduct().getName() + "       "
-                    + "------- Pris: " + sit.getProduct().getPrice() + " kr <br>";
+                    + "------- Pris: " + sit.getTotal() + " kr <br>";
         }
         siString += "</html>";
         return siString;
+    }
+    public void clearCart(){
+        m.getShoppingCart().clear();
     }
 }

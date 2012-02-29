@@ -42,13 +42,16 @@ public class SearchPanel extends javax.swing.JPanel {
         resultLabel = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         resultPanel.setName("resultPanel"); // NOI18N
+        resultPanel.setOpaque(false);
         resultPanel.setLayout(new java.awt.GridLayout(1, 0));
         add(resultPanel, java.awt.BorderLayout.CENTER);
 
         searchPanel.setName("searchPanel"); // NOI18N
+        searchPanel.setOpaque(false);
 
         searchTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SearchPanel.class);
@@ -79,7 +82,7 @@ public class SearchPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
-                        .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                        .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchButton))
                     .addComponent(resultLabel))
@@ -88,7 +91,7 @@ public class SearchPanel extends javax.swing.JPanel {
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(20, 20, 20)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
