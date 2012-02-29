@@ -19,6 +19,7 @@ import dkgg2012group22imat.controller.shop.SearchPanelController;
 public class SearchPanel extends javax.swing.JPanel {
 
     SearchPanelController controller;
+
     /** Creates new form SearchPanel */
     public SearchPanel() {
         initComponents();
@@ -53,6 +54,11 @@ public class SearchPanel extends javax.swing.JPanel {
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SearchPanel.class);
         searchTextField.setText(resourceMap.getString("searchTextField.text")); // NOI18N
         searchTextField.setName("searchTextField"); // NOI18N
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
 
         searchButton.setText(resourceMap.getString("searchButton.text")); // NOI18N
         searchButton.setName("searchButton"); // NOI18N
@@ -97,6 +103,9 @@ private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     controller.search(searchTextField.getText());
 }//GEN-LAST:event_searchButtonActionPerformed
 
+private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
+    controller.search(searchTextField.getText());
+}//GEN-LAST:event_searchTextFieldActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel resultLabel;
     public javax.swing.JPanel resultPanel;
