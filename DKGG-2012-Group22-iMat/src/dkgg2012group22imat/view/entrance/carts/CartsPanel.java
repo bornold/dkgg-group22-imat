@@ -10,6 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.controller.entrance.CartsPanelController;
+import dkgg2012group22imat.controller.entrance.SuperCartsPanelController;
 import dkgg2012group22imat.model.SavedCart;
 import java.util.List;
 

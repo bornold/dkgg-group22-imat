@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dkgg2012group22imat.view.entrance.carts;
+package dkgg2012group22imat.controller.entrance;
 
-import dkgg2012group22imat.view.entrance.carts.SuperCartsPanelController;
+import dkgg2012group22imat.controller.entrance.SuperCartsPanelController;
 import dkgg2012group22imat.model.SavedCart;
 import dkgg2012group22imat.view.entrance.carts.CartPanel;
+import dkgg2012group22imat.view.entrance.carts.CartPanel;
+import dkgg2012group22imat.view.entrance.carts.CartsPanel;
 import dkgg2012group22imat.view.entrance.carts.CartsPanel;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class CartsPanelController {
     SuperCartsPanelController parent;
     CartsPanel view;
 
-    CartsPanelController(List<SavedCart> aCarts, SuperCartsPanelController aParent, CartsPanel aView) {
+    public CartsPanelController(List<SavedCart> aCarts, SuperCartsPanelController aParent, CartsPanel aView) {
         this.carts = aCarts;
         this.parent = aParent;
         this.view = aView;
@@ -30,7 +32,7 @@ public class CartsPanelController {
         }
     }
 
-    void showCart(SavedCart cart) {
+    public void showCart(SavedCart cart) {
         parent.showCart(cart);
     }
 }

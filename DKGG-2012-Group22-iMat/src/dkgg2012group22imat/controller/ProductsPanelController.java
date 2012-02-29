@@ -101,16 +101,14 @@ public class ProductsPanelController {
     }
 
     private void viewPage(int page) {
-        view.productPanel.removeAll();
         Component[] list = view.productPanel.getComponents();
         for (Component c : list) {
             if (c instanceof ProductPanel) {
                 ProductPanel pp = (ProductPanel) c;
                 pp.getController().remove();
             }
-            view.productPanel.remove(c);
         }
-
+        view.productPanel.removeAll();
         if (page < pageList.size()) {
             currentPage = page;
         } else {
@@ -131,8 +129,16 @@ public class ProductsPanelController {
             view.navigationLabel.setText("");
         } else {
             //TODO change to view.navigationLabel.setText(navigationChart[0][nrOfPages][currentPage]);
-            view.navigationLabel.setText("Visar sida " + (currentPage + 1)
-                    + " av " + nrOfPages);
+            String pagination = "<html>";
+            for (int i = 1; i <= nrOfPages; i++) {
+                if (i == currentPage + 1) {
+                    pagination += " <b>"+i+"</b> ";
+                } else {
+                    pagination += " "+i+" ";
+                }
+            }
+            pagination += "</html>";
+            view.navigationLabel.setText(pagination);
             view.productPanel.setVisible(true);
             if (currentPage == 0) {
                 view.backButton.setVisible(false);

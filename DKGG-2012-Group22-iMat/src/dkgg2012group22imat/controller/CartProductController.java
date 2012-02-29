@@ -84,6 +84,10 @@ public class CartProductController implements FavoriteListener {
     public void handleFavoriteEvent(EventObject e) {
         setFavoButton();
     }
-    
+    public void removeEventListener(){
+        m.removeFavouriteEventListener(this);
+    }
+
+
     
 }

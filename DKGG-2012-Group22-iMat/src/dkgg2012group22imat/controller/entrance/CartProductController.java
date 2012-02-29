@@ -5,7 +5,8 @@
 package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.Model;
-import dkgg2012group22imat.view.entrance.SavedCartProductPanel;
+import dkgg2012group22imat.view.entrance.carts.CartProductPanel;
+import dkgg2012group22imat.view.entrance.carts.CartProductPanel;
 import java.awt.Dimension;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -13,12 +14,12 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jonas
  */
-public class SavedCartProductController {
+public class CartProductController {
     ShoppingItem item;
-    SavedCartProductPanel view;
+    CartProductPanel view;
     Model m = Model.getInstance();
     Dimension d = new Dimension(20, 20);
-    public SavedCartProductController(ShoppingItem si, SavedCartProductPanel cartPanel){
+    public CartProductController(ShoppingItem si, CartProductPanel cartPanel){
         this.item = si;
         this.view = cartPanel;
         view.icon.setIcon(m.getImageIcon(si.getProduct(), d));

@@ -10,6 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.controller.entrance.CartsWrapperController;
+import dkgg2012group22imat.controller.entrance.SuperCartProductsController;
 import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.model.SavedCart;
 import java.awt.Color;
@@ -26,7 +28,7 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
     SuperCartProductsController controller;
 
     /** Creates new form SuperCartProductPanel */
-    SuperCartProductsPanel(SavedCart cart, CartsWrapperController parent) {
+    public SuperCartProductsPanel(SavedCart cart, CartsWrapperController parent) {
         initComponents();
         controller = new SuperCartProductsController(cart, parent, this);
     }
@@ -152,7 +154,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    controller.delete();
+//    controller.delete();
 }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

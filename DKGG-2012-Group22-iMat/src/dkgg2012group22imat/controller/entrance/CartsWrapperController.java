@@ -2,9 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dkgg2012group22imat.view.entrance.carts;
+package dkgg2012group22imat.controller.entrance;
 
 import dkgg2012group22imat.model.SavedCart;
+import dkgg2012group22imat.view.entrance.carts.CartsWrapper;
+import dkgg2012group22imat.view.entrance.carts.SuperCartProductsPanel;
+import dkgg2012group22imat.view.entrance.carts.SuperCartsPanel;
 
 /**
  *
@@ -14,19 +17,19 @@ public class CartsWrapperController {
 
     CartsWrapper view;
 
-    CartsWrapperController(CartsWrapper aWrapper) {
+    public CartsWrapperController(CartsWrapper aWrapper) {
  
         view = aWrapper;
         view.add(new SuperCartsPanel(this));
     }
 
-    void showCart(SavedCart cart) {
+    public void showCart(SavedCart cart) {
         view.removeAll();
         view.add(new SuperCartProductsPanel(cart, this));
         view.updateUI();
     }
 
-    void showAllCarts() {
+    public void showAllCarts() {
         view.removeAll();
         view.add(new SuperCartsPanel(this));
         view.updateUI();
