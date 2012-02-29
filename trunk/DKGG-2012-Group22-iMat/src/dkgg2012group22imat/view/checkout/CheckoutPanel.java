@@ -45,6 +45,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         controller = new CheckoutPanelController(this);
         jField = new ArrayList();
         jLabels = new ArrayList();
+        visaRButton.setSelected(true);
         cl = (CardLayout) this.getLayout();
         endText.setText("<html>Tack för att du handlade hos oss! <br><br>"
                 + "Var nu god och stäng av programmet,"
@@ -278,9 +279,9 @@ public class CheckoutPanel extends javax.swing.JPanel {
     public void goTo2ndView() {
         card = "secondView";
         cl.show(this, "secondView");
-    kVaror.setText(controller.getProducts());
-    kundinfoLabel.setText(controller.getCustomer());
-    totalPriceLabel.setText("Totalsumman blir: " + controller.getTotal());
+        kVaror.setText(controller.getProducts());
+        kundinfoLabel.setText(controller.getCustomer());
+        totalPriceLabel.setText("Totalsumman blir: " + controller.getTotal());
 
 
     }
@@ -360,6 +361,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         kundinfoLabel = new javax.swing.JLabel();
         confirmKnapp = new javax.swing.JButton();
         bakKnapp = new javax.swing.JButton();
+        amountErr = new javax.swing.JLabel();
         thirdView = new javax.swing.JPanel();
         endText = new javax.swing.JLabel();
 
@@ -736,13 +738,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Betalningsinformation)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -839,25 +839,27 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstViewLayout.createSequentialGroup()
-                .addContainerGap(723, Short.MAX_VALUE)
-                .addComponent(confirmButton))
+                    .addGroup(firstViewLayout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         firstViewLayout.setVerticalGroup(
             firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstViewLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(kontaktinformation)
-                .addGap(10, 10, 10)
-                .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmButton))
+                .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(confirmButton)
+                    .addGroup(firstViewLayout.createSequentialGroup()
+                        .addComponent(kontaktinformation)
+                        .addGap(10, 10, 10)
+                        .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         add(firstView, "firstView");
@@ -911,7 +913,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kVaror, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(totalPriceLabel)
                 .addContainerGap())
         );
@@ -950,7 +952,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -972,6 +974,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
             }
         });
 
+        amountErr.setFont(resourceMap.getFont("amountErr.font")); // NOI18N
+        amountErr.setForeground(resourceMap.getColor("amountErr.foreground")); // NOI18N
+        amountErr.setText(resourceMap.getString("amountErr.text")); // NOI18N
+        amountErr.setName("amountErr"); // NOI18N
+
         javax.swing.GroupLayout secondViewLayout = new javax.swing.GroupLayout(secondView);
         secondView.setLayout(secondViewLayout);
         secondViewLayout.setHorizontalGroup(
@@ -980,35 +987,37 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(secondViewLayout.createSequentialGroup()
-                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(secondViewLayout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addContainerGap(348, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondViewLayout.createSequentialGroup()
                         .addComponent(bakKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
-                        .addComponent(confirmKnapp))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confirmKnapp)
+                            .addComponent(amountErr)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         secondViewLayout.setVerticalGroup(
             secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondViewLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondViewLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmKnapp, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
+                        .addComponent(bakKnapp))
+                    .addGroup(secondViewLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(secondViewLayout.createSequentialGroup()
                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(235, 235, 235))
-                            .addGroup(secondViewLayout.createSequentialGroup()
-                                .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                                .addComponent(bakKnapp))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                                .addComponent(amountErr)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(confirmKnapp))
+                            .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(195, 195, 195))
         );
 
         add(secondView, "secondView");
@@ -1028,14 +1037,14 @@ public class CheckoutPanel extends javax.swing.JPanel {
             .addGroup(thirdViewLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         thirdViewLayout.setVerticalGroup(
             thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(thirdViewLayout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         add(thirdView, "thirdView");
@@ -1141,10 +1150,14 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 }//GEN-LAST:event_confirmButtonActionPerformed
 
 private void confirmKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmKnappActionPerformed
-    cl.show(this, "thirdView");
-    card = "thirdView";
-    controller.performBuy();
-    controller.clearCart();
+    if (controller.getProductsAmount() > 0) {
+        cl.show(this, "thirdView");
+        card = "thirdView";
+        controller.performBuy();
+        controller.clearCart();
+    } else{
+        amountErr.setText("Var god köp minst en vara!");
+    }
 }//GEN-LAST:event_confirmKnappActionPerformed
 
 private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bakKnappActionPerformed
@@ -1158,6 +1171,7 @@ private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel addressErrLabel;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextfield;
+    private javax.swing.JLabel amountErr;
     private javax.swing.JButton bakKnapp;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cCardNumbfield1;

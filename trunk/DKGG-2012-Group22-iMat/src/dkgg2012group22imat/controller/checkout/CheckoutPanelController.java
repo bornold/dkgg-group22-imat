@@ -91,13 +91,20 @@ public class CheckoutPanelController {
         siString += "</html>";
         return siString;
     }
+    
     public void clearCart(){
         m.getShoppingCart().clear();
     }
+    
     public String getTotal(){
         return ""+m.getShoppingCart().getTotal();
     }
+    
     public void performBuy(){
         m.placeOrder();
+    }
+    
+    public int getProductsAmount(){
+        return m.getShoppingCart().getItems().size();
     }
 }
