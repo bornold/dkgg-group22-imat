@@ -17,6 +17,8 @@ package dkgg2012group22imat.model;
 //---Tveksamma saker, extra 
 //TODO Input Hints s.364 eller Input Promt s.369 i kassa
 //
+//TODO favoritvara syns alltid gul stjärna på
+//
 //TODO (Tveksamm) Mindre ProductPaneler?
 //
 //TODO (Tveksamm) Resize på ProductPaneler?
