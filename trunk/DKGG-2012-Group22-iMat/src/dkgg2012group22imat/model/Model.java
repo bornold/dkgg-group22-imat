@@ -3,43 +3,33 @@
  * and open the template in the editor.
  */
 package dkgg2012group22imat.model;
-//---Viktiga
 //
-//TODO-Visa spara/historisk kundvagn snyggt
+//TODO TOOL TIPS ALL THE BUTTONS
 //
-//TODO-Ta bort favoriteListener från cartProductsen
+//TODO Request focus på sparad kundvagn + add actionPreformed på textfielden
 //
-//----Mindre viktiga
+//TODO Ta bort favoriteListener från cartProductsen
 //
-//TODO-Kundvagns pris till närmaste 50 öring alternativt 10 öring (ex: 44,50kr 64,00);
+//TODO Kundvagns pris till närmaste 50 öring alternativt 10 öring (ex: 44,50kr 64,00);
 //
-//TODO-HistoryCarts ges bättre namn
-//
-//TODO-Styla spara kundvagn pop-upen
-//
-//TODO-Styla sökvyn
-//
-//TODO-ett sätt att ta bort kundvagn från favorit
-//
-//TODO-ändra ProductsPanel info text från visar x av y till 1-_2_-3-...-8-9
-//
-//TODO-Till kassa knappen på kundvagnen bytas ut/inaktiveras/tas bort i kassan
+//TODO -Till kassa knappen på kundvagnen bytas ut/inaktiveras/tas bort i kassan
 //
 //---Tveksamma saker, extra 
+//TODO Input Hints s.364 eller Input Promt s.369 i kassa
 //
-//TODO-Mindre ProductPaneler?
+//TODO (Tveksamm) Mindre ProductPaneler?
 //
-//TODO-Resize på ProductPaneler?
+//TODO (Tveksamm) Resize på ProductPaneler?
 //
-//TODO-Spara kundvagnknapp längst upp?
+//TODO (Tveksamm) Spara kundvagnknapp längst upp?
 //
-//TODO-Töm kundvagn knapp?
+//TODO (Tveksamm)Töm kundvagn knapp?
 //
-//TODO-Skriva text i tomma kundvagnen, favoritprodukter, gamla/sparade kundvagnar?
+//TODO (Tveksamm) Skriva text i tomma kundvagnen, favoritprodukter, gamla/sparade kundvagnar?
 //
-//TODO-First run? Gå till butik knapp på entré?
+//TODO (Tveksamm) First run? Gå till butik knapp på entré?
 //
-//TODO-Göm scrollbar i kundvagn och panelerna när de inte behövs
+//TODO (Tveksamm) Göm scrollbar i kundvagn och panelerna när de inte behövs
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -108,7 +98,7 @@ public class Model {
 
     public synchronized void addFavouriteEventListener(FavoriteListener listener) {
         favouriteListeners.add(listener);
-        System.out.println("FavouriteEventListener: " + favouriteListeners.size());
+//        System.out.println("FavouriteEventListener: " + favouriteListeners.size());
     }
 
     public synchronized void removeFavouriteEventListener(FavoriteListener listener) {
@@ -118,7 +108,7 @@ public class Model {
 
     public synchronized void addSavedCartEventListener(SavedCartListener listener) {
         savedCartListeners.add(listener);
-        System.out.println("SavedCartsListeners: " + savedCartListeners.size());
+//        System.out.println("SavedCartsListeners: " + savedCartListeners.size());
     }
 
     public synchronized void removeSavedCartEventListener(SavedCartListener listener) {
