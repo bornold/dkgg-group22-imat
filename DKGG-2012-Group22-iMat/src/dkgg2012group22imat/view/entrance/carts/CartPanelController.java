@@ -29,7 +29,7 @@ public class CartPanelController {
         this.view = aView;
         view.cartName.setText(sv.getName());
         items = sv.getItems();
-        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice()+"+kr");
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice()+" kr");
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
