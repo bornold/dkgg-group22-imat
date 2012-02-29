@@ -12,6 +12,10 @@ package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartPanelController;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -27,6 +31,13 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         this.controller = controller;
         this.contract();
         this.jPanel3.setVisible(false);
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        Image img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_1.png")).getImage();
+        Graphics2D g2d = (Graphics2D)g.create();
+        g2d.drawImage(img, 0, 0, null, null);
     }
 
     /** This method is called from within the constructor to
@@ -57,6 +68,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         setSize(new java.awt.Dimension(240, 70));
 
         jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(250, 60));
         jPanel1.setLayout(null);
 
@@ -84,6 +96,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         add(jPanel1);
 
         jPanel3.setName("jPanel3"); // NOI18N
+        jPanel3.setOpaque(false);
         jPanel3.setPreferredSize(new java.awt.Dimension(250, 25));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
 
@@ -95,6 +108,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         add(jPanel3);
 
         jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(250, 60));
         jPanel2.setLayout(null);
 
@@ -121,6 +135,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         add(jPanel2);
 
         jPanel4.setName("jPanel4"); // NOI18N
+        jPanel4.setOpaque(false);
         jPanel4.setPreferredSize(new java.awt.Dimension(250, 40));
         jPanel4.setSize(new java.awt.Dimension(250, 40));
 

@@ -105,6 +105,7 @@ public class CartPanel extends javax.swing.JPanel {
         toggleFavouriteCart.setText(resourceMap.getString("toggleFavouriteCart.text")); // NOI18N
         toggleFavouriteCart.setBorderPainted(false);
         toggleFavouriteCart.setDisabledIcon(resourceMap.getIcon("toggleFavouriteCart.disabledIcon")); // NOI18N
+        toggleFavouriteCart.setDisabledSelectedIcon(resourceMap.getIcon("toggleFavouriteCart.disabledSelectedIcon")); // NOI18N
         toggleFavouriteCart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         toggleFavouriteCart.setIconTextGap(0);
         toggleFavouriteCart.setMargin(new java.awt.Insets(0, 0, 0, 0));

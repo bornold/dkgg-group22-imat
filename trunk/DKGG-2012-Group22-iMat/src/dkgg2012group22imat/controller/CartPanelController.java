@@ -32,6 +32,7 @@ public class CartPanelController implements ShoppingCartListener{
         this.sc.addShoppingCartListener(this);
         this.view = cartPanel;
         this.name = "Favorit"+m.getSavedCarts().size();
+        this.shoppingCartChanged();
     }
     
     public void gotoCheckout() {
@@ -45,9 +46,11 @@ public class CartPanelController implements ShoppingCartListener{
         p.x = p.x-(int)saveCartDialog.getPreferredSize().getWidth()+38;
         p.y = p.y-(int)saveCartDialog.getPreferredSize().getHeight()+50;
         IMatUtilities.displayOverlay(saveCartDialog, p);
+        this.view.toggleFavouriteCart.setEnabled(false);
     }
     public void closeSaveCartDialog() {
         IMatUtilities.removeOverlay(saveCartDialog);
+        this.view.toggleFavouriteCart.setEnabled(true);
     }
     
     public int saveCart(String name, boolean overwrite) {
@@ -55,6 +58,7 @@ public class CartPanelController implements ShoppingCartListener{
             return -1;
         } else {
             m.saveCart(sc.getItems(), name);
+            view.toggleFavouriteCart.setDisabledIcon(view.toggleFavouriteCart.getDisabledSelectedIcon());
             view.toggleFavouriteCart.setEnabled(false);
             view.toggleFavouriteCart.setText("Kundvagnen sparad som "+name);
             return 1;
@@ -66,6 +70,7 @@ public class CartPanelController implements ShoppingCartListener{
         if(sc.getItems().size()>0) {
             view.toggleFavouriteCart.setText("Spara kundvagnen");
             view.toggleFavouriteCart.setEnabled(true);
+            view.toggleFavouriteCart.setDisabledIcon(view.toggleFavouriteCart.getPressedIcon());
             view.toggleFavouriteCart.setVisible(true);
         } else {
             view.toggleFavouriteCart.setVisible(false);

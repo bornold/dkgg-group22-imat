@@ -103,6 +103,7 @@
             <Property name="text" type="java.lang.String" resourceKey="toggleFavouriteCart.text"/>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="disabledIcon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.disabledIcon"/>
+            <Property name="disabledSelectedIcon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.disabledSelectedIcon"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
