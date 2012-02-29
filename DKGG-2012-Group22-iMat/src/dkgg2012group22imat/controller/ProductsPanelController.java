@@ -118,20 +118,20 @@ public class ProductsPanelController {
             if (currentPage == 0) {
 //                view.backButton.setVisible(false);
                 view.backButton.setEnabled(false);
-                view.backButton.setBorderPainted(false);
+//                view.backButton.setBorderPainted(false);
             } else {
 //                view.backButton.setVisible(true);
                 view.backButton.setEnabled(true);
-                view.backButton.setBorderPainted(true);
+//                view.backButton.setBorderPainted(true);
             }
             if (currentPage == (nrOfPages - 1)) {
 //                view.forwardButton.setVisible(false);
                 view.forwardButton.setEnabled(false);
-                view.forwardButton.setBorderPainted(false);
+//                view.forwardButton.setBorderPainted(false);
             } else {
 //                view.forwardButton.setVisible(true);
                 view.forwardButton.setEnabled(true);
-                view.forwardButton.setBorderPainted(true);
+//                view.forwardButton.setBorderPainted(true);
             }
         }
     }

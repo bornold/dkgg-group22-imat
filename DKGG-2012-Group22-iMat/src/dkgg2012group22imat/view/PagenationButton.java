@@ -5,6 +5,7 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.ProductsPanelController;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -20,6 +21,8 @@ public class PagenationButton extends JButton implements ActionListener {
         super(""+(aPage+1));
         this.page = aPage;
         this.parent = aParent;
+        this.setBorderPainted(false);
+        this.setPreferredSize(new Dimension(60,60));
         super.addActionListener(this);
     }
 

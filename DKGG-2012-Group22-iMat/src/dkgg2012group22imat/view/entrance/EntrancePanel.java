@@ -34,7 +34,11 @@ public class EntrancePanel extends javax.swing.JPanel {
         wrapper1 = new dkgg2012group22imat.view.entrance.carts.CartsWrapper();
         cartsWrapper1 = new dkgg2012group22imat.view.entrance.carts.CartsWrapper();
         contentPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         spotlightProductsPanel1 = new dkgg2012group22imat.view.entrance.SpotlightProductsPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         favoriteProductsPanel1 = new dkgg2012group22imat.view.entrance.FavoriteProductsPanel();
 
         wrapper1.setName("wrapper1"); // NOI18N
@@ -46,20 +50,45 @@ public class EntrancePanel extends javax.swing.JPanel {
 
         cartsWrapper1.setBackground(resourceMap.getColor("cartsWrapper1.background")); // NOI18N
         cartsWrapper1.setName("cartsWrapper1"); // NOI18N
-        cartsWrapper1.setOpaque(false);
         add(cartsWrapper1, java.awt.BorderLayout.LINE_START);
 
         contentPanel.setBackground(resourceMap.getColor("contentPanel.background")); // NOI18N
         contentPanel.setName("contentPanel"); // NOI18N
         contentPanel.setLayout(new java.awt.GridLayout(2, 1));
 
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
         spotlightProductsPanel1.setName("spotlightProductsPanel1"); // NOI18N
-        spotlightProductsPanel1.setOpaque(false);
-        contentPanel.add(spotlightProductsPanel1);
+        jPanel1.add(spotlightProductsPanel1, java.awt.BorderLayout.CENTER);
+
+        jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setName("jLabel1"); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(152, 60));
+        jPanel1.add(jLabel1, java.awt.BorderLayout.NORTH);
+
+        contentPanel.add(jPanel1);
+
+        jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setFont(resourceMap.getFont("jLabel2.font")); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+        jPanel2.add(jLabel2, java.awt.BorderLayout.NORTH);
 
         favoriteProductsPanel1.setBackground(resourceMap.getColor("favoriteProductsPanel1.background")); // NOI18N
         favoriteProductsPanel1.setName("favoriteProductsPanel1"); // NOI18N
-        contentPanel.add(favoriteProductsPanel1);
+        jPanel2.add(favoriteProductsPanel1, java.awt.BorderLayout.CENTER);
+
+        contentPanel.add(jPanel2);
 
         add(contentPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -67,6 +96,10 @@ public class EntrancePanel extends javax.swing.JPanel {
     private dkgg2012group22imat.view.entrance.carts.CartsWrapper cartsWrapper1;
     private javax.swing.JPanel contentPanel;
     private dkgg2012group22imat.view.entrance.FavoriteProductsPanel favoriteProductsPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private dkgg2012group22imat.view.entrance.SpotlightProductsPanel spotlightProductsPanel1;
     private dkgg2012group22imat.view.entrance.carts.CartsWrapper wrapper1;
     // End of variables declaration//GEN-END:variables
