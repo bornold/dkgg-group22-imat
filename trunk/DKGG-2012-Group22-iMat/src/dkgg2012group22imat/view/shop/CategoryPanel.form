@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+    <Property name="opaque" type="boolean" value="false"/>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
@@ -40,10 +41,10 @@
           <Insets value="[0, 0, 0, 0]"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 30]"/>
+          <Dimension value="[248, 28]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[0, 30]"/>
+          <Dimension value="[0, 28]"/>
         </Property>
         <Property name="name" type="java.lang.String" value="categoryButton" noResource="true"/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -77,6 +78,7 @@
         <Container class="javax.swing.JPanel" name="subCategoriesPanel">
           <Properties>
             <Property name="name" type="java.lang.String" value="subCategoriesPanel" noResource="true"/>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

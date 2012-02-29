@@ -132,6 +132,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 32767));
 
         setName("Form"); // NOI18N
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CategoryPanel.class);
@@ -145,8 +146,8 @@ public class CategoryPanel extends javax.swing.JPanel {
         categoryButton.setDisabledSelectedIcon(resourceMap.getIcon("categoryButton.disabledSelectedIcon")); // NOI18N
         categoryButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         categoryButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        categoryButton.setMaximumSize(new java.awt.Dimension(250, 30));
-        categoryButton.setMinimumSize(new java.awt.Dimension(0, 30));
+        categoryButton.setMaximumSize(new java.awt.Dimension(248, 28));
+        categoryButton.setMinimumSize(new java.awt.Dimension(0, 28));
         categoryButton.setName("categoryButton"); // NOI18N
         categoryButton.setOpaque(true);
         categoryButton.setPressedIcon(resourceMap.getIcon("categoryButton.pressedIcon")); // NOI18N
@@ -171,6 +172,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         subCategoriesPanel.setName("subCategoriesPanel"); // NOI18N
+        subCategoriesPanel.setOpaque(false);
         subCategoriesPanel.setLayout(new javax.swing.BoxLayout(subCategoriesPanel, javax.swing.BoxLayout.Y_AXIS));
         jPanel1.add(subCategoriesPanel, java.awt.BorderLayout.CENTER);
 

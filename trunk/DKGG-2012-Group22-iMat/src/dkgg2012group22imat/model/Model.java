@@ -8,6 +8,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Dimension;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,7 +63,7 @@ public class Model {
 
     private void init() {
         iMatDataHandler = IMatDataHandler.getInstance();
-//        readSavedCartFile();
+        readSavedCartFile();
     }
     private List favouriteListeners = new ArrayList();
 
@@ -254,7 +256,7 @@ public class Model {
 
     public synchronized void saveCart(List<ShoppingItem> cart, String name) {
         System.out.println("Saved new Shoppingcart " + name);
-        for(SavedCart savedCart : this.getSavedCarts()) {
+        for (SavedCart savedCart : this.getSavedCarts()) {
             if (savedCart.getName().equals(name)) {
                 savedCarts.remove(savedCart);
             }
@@ -347,7 +349,7 @@ public class Model {
 
         try {
             //write converted json data to a file named "file.json"
-            FileWriter writer = new FileWriter("./build/classes/dkgg2012group22imat/model/carts.json");
+            FileWriter writer = new FileWriter(new File(this.getSettingsDirectory().getPath()+"/carts.json"));
             writer.write(json);
             writer.close();
         } catch (IOException e) {
@@ -357,10 +359,11 @@ public class Model {
 
     private void readSavedCartFile() {
         try {
-            InputStream in = this.getClass().getResourceAsStream("carts.json");
-            InputStreamReader isr = new InputStreamReader(in, "utf-8");
+            /*InputStream in = this.getClass().getResourceAsStream("./carts.json");
+            InputStreamReader isr = new InputStreamReader(in, "utf-8");*/
+            FileReader fr = new FileReader(new File(this.getSettingsDirectory().getPath()+"/carts.json"));
             BufferedReader br =
-                    new BufferedReader(isr);
+                    new BufferedReader(fr);
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             String line;
@@ -378,5 +381,20 @@ public class Model {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static File getSettingsDirectory() {
+        String userHome = System.getProperty("user.home");
+        if (userHome == null) {
+            throw new IllegalStateException("user.home==null");
+        }
+        File home = new File(userHome);
+        File settingsDirectory = new File(home, ".dat215/imat/");
+        if (!settingsDirectory.exists()) {
+            if (!settingsDirectory.mkdir()) {
+                throw new IllegalStateException(settingsDirectory.toString());
+            }
+        }
+        return settingsDirectory;
     }
 }

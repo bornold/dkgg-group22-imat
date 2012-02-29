@@ -65,6 +65,7 @@ public class ProductsPanel extends javax.swing.JPanel {
 
         navigationPanel.setName("navigationPanel"); // NOI18N
         navigationPanel.setOpaque(false);
+        navigationPanel.setLayout(new java.awt.BorderLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductsPanel.class);
         forwardButton.setFont(resourceMap.getFont("forwardButton.font")); // NOI18N
@@ -92,6 +93,7 @@ public class ProductsPanel extends javax.swing.JPanel {
                 forwardButtonActionPerformed(evt);
             }
         });
+        navigationPanel.add(forwardButton, java.awt.BorderLayout.EAST);
 
         backButton.setBackground(resourceMap.getColor("backButton.background")); // NOI18N
         backButton.setFont(resourceMap.getFont("backButton.font")); // NOI18N
@@ -119,33 +121,12 @@ public class ProductsPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        navigationPanel.add(backButton, java.awt.BorderLayout.WEST);
 
         navigationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         navigationLabel.setText(resourceMap.getString("navigationLabel.text")); // NOI18N
         navigationLabel.setName("navigationLabel"); // NOI18N
-
-        javax.swing.GroupLayout navigationPanelLayout = new javax.swing.GroupLayout(navigationPanel);
-        navigationPanel.setLayout(navigationPanelLayout);
-        navigationPanelLayout.setHorizontalGroup(
-            navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanelLayout.createSequentialGroup()
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(navigationPanelLayout.createSequentialGroup()
-                        .addComponent(navigationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                        .addGap(154, 154, 154))
-                    .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        navigationPanelLayout.setVerticalGroup(
-            navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(navigationPanelLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(navigationLabel))
-        );
+        navigationPanel.add(navigationLabel, java.awt.BorderLayout.CENTER);
 
         add(navigationPanel, java.awt.BorderLayout.NORTH);
 
@@ -164,19 +145,19 @@ private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_backButtonActionPerformed
 
 private void forwardButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseEntered
-    forwardButton.setText("Visa fler varor");
+//    forwardButton.setText("Visa fler varor");
 }//GEN-LAST:event_forwardButtonMouseEntered
 
 private void forwardButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseExited
-    forwardButton.setText("");
+//    forwardButton.setText("");
 }//GEN-LAST:event_forwardButtonMouseExited
 
 private void backButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseEntered
-    backButton.setText("Tillbaka");
+//    backButton.setText("Tillbaka");
 }//GEN-LAST:event_backButtonMouseEntered
 
 private void backButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseExited
-    backButton.setText("");
+//    backButton.setText("");
 }//GEN-LAST:event_backButtonMouseExited
 
 private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized

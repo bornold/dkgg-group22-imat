@@ -50,13 +50,16 @@ public class ShopPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         leftPanel.setName("leftPanel"); // NOI18N
+        leftPanel.setOpaque(false);
         leftPanel.setLayout(new java.awt.GridLayout(1, 0));
         add(leftPanel, java.awt.BorderLayout.WEST);
 
         jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         filler1.setName("filler1"); // NOI18N
@@ -72,6 +75,7 @@ public class ShopPanel extends javax.swing.JPanel {
         jPanel1.add(jPanel2, java.awt.BorderLayout.NORTH);
 
         mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setOpaque(false);
         mainPanel.setLayout(new java.awt.GridLayout(1, 0));
         jPanel1.add(mainPanel, java.awt.BorderLayout.CENTER);
 
