@@ -82,15 +82,15 @@ public class ProductsPanelController {
     }
 
     private void setNavigation() {
+        view.pagenationPanel.removeAll();
         if (nrOfPages < 0) {
             view.productPanel.setVisible(false);
-            view.backButton.setVisible(false);
-            view.forwardButton.setVisible(false);
-
+            view.backButton.setEnabled(false);
+            view.forwardButton.setEnabled(false);
         } else {
-            view.pagenationPanel.removeAll();
+//            view.pagenationPanel.removeAll();
             int lowerBound = 0;
-            int upperBound = nrOfPages;
+            int upperBound = nrOfPages>1?nrOfPages:0;
             if (nrOfPages >= 8) {
                 if (currentPage > 3) {
                     if (currentPage + 4 > nrOfPages) {
