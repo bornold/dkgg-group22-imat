@@ -317,7 +317,7 @@ public class Model {
     }
 
     public void removeSavedCart(SavedCart cart) {
-        this.savedCarts.remove(cart);
+        this.savedCarts.clear();
     }
 
 //    public void reset() {
