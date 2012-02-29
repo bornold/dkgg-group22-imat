@@ -55,6 +55,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -265,7 +266,12 @@ public class Model {
         List<SavedCart> historySavedCarts = new ArrayList<SavedCart>();
         //TODO make getDate().toString() better.
         for (Order o : orders) {
-            historySavedCarts.add(new SavedCart(o.getItems(), o.getDate().toString()));
+            Date d = o.getDate();
+            String day = d.getDay()<10 ? "0"+d.getDay():""+d.getDay();
+            String month = d.getMonth()<10 ? "0"+d.getMonth():""+d.getMonth();
+            String year = ""+(d.getYear()+1900);
+            String name = ""+day +"-"+ month +"-"+ year;
+            historySavedCarts.add(new SavedCart(o.getItems(), name));
         }
         return historySavedCarts;
     }
