@@ -12,6 +12,7 @@ package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartWithProductsPanelController;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -28,6 +29,9 @@ public class CartWithProductsPanel extends javax.swing.JPanel {
     
     public JPanel getProductListPanel() {
         return jPanel1;
+    }
+    public JScrollPane getScrollPane() {
+        return jScrollPane1;
     }
     
     
