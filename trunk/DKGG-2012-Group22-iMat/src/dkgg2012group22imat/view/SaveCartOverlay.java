@@ -32,11 +32,18 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         this.contract();
         this.jPanel3.setVisible(false);
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
-        Image img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_1.png")).getImage();
-        Graphics2D g2d = (Graphics2D)g.create();
+        Image img = null;
+        if (this.getHeight() > 149) {
+            img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_150.png")).getImage();
+        } else if (this.getHeight() > 129) {
+            img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_130.png")).getImage();
+        } else {
+            img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_110.png")).getImage();
+        }
+        Graphics2D g2d = (Graphics2D) g.create();
         g2d.drawImage(img, 0, 0, null, null);
     }
 
@@ -64,12 +71,12 @@ public class SaveCartOverlay extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(240, 200));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(240, 70));
-        setSize(new java.awt.Dimension(240, 70));
+        setPreferredSize(new java.awt.Dimension(230, 70));
+        setSize(new java.awt.Dimension(230, 70));
 
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(250, 60));
+        jPanel1.setPreferredSize(new java.awt.Dimension(240, 60));
         jPanel1.setLayout(null);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SaveCartOverlay.class);
@@ -81,12 +88,12 @@ public class SaveCartOverlay extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(150, 30, 78, 29);
+        jButton1.setBounds(140, 30, 78, 29);
 
         jTextField1.setText(resourceMap.getString("jTextField1.text")); // NOI18N
         jTextField1.setName("jTextField1"); // NOI18N
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(20, 30, 120, 28);
+        jTextField1.setBounds(20, 30, 130, 28);
 
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
@@ -97,7 +104,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
 
         jPanel3.setName("jPanel3"); // NOI18N
         jPanel3.setOpaque(false);
-        jPanel3.setPreferredSize(new java.awt.Dimension(250, 25));
+        jPanel3.setPreferredSize(new java.awt.Dimension(240, 25));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
 
         errorLabel.setForeground(resourceMap.getColor("errorLabel.foreground")); // NOI18N
@@ -109,7 +116,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
 
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setOpaque(false);
-        jPanel2.setPreferredSize(new java.awt.Dimension(250, 60));
+        jPanel2.setPreferredSize(new java.awt.Dimension(240, 60));
         jPanel2.setLayout(null);
 
         yesButton.setText(resourceMap.getString("yesButton.text")); // NOI18N
@@ -120,20 +127,21 @@ public class SaveCartOverlay extends javax.swing.JPanel {
             }
         });
         jPanel2.add(yesButton);
-        yesButton.setBounds(180, 30, 70, 29);
+        yesButton.setBounds(150, 30, 70, 29);
 
         jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 0, 180, 16);
+        jLabel2.setBounds(20, 0, 180, 16);
 
         jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
         jLabel3.setName("jLabel3"); // NOI18N
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(10, 15, 160, 16);
+        jLabel3.setBounds(20, 20, 160, 16);
 
         add(jPanel2);
 
+        jPanel4.setMinimumSize(new java.awt.Dimension(240, 40));
         jPanel4.setName("jPanel4"); // NOI18N
         jPanel4.setOpaque(false);
         jPanel4.setPreferredSize(new java.awt.Dimension(250, 40));
@@ -152,13 +160,13 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
-                .add(cancelButton))
+                .addContainerGap(139, Short.MAX_VALUE)
+                .add(cancelButton)
+                .add(26, 26, 26))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel4Layout.createSequentialGroup()
-                .add(8, 8, 8)
                 .add(cancelButton)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -191,10 +199,10 @@ private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     controller.closeSaveCartDialog();
 }//GEN-LAST:event_cancelButtonActionPerformed
 
-private void showError(String error) {
-    this.jPanel3.setVisible(true);
-    this.errorLabel.setText(error);
-}
+    private void showError(String error) {
+        this.jPanel3.setVisible(true);
+        this.errorLabel.setText(error);
+    }
 
     private void expand() {
         this.jPanel2.setVisible(true);
@@ -210,7 +218,7 @@ private void showError(String error) {
         setPreferredSize(new Dimension(250, 110));
         setSize(new Dimension(250, 110));
     }
-    
+
     public void setName(String name) {
         this.jTextField1.setText(name);
     }

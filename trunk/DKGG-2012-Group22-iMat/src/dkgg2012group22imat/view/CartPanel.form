@@ -123,6 +123,8 @@
             <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.rolloverIcon"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toggleFavouriteCartMouseExited"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toggleFavouriteCartMouseEntered"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toggleFavouriteCartActionPerformed"/>
           </Events>
           <AuxValues>
