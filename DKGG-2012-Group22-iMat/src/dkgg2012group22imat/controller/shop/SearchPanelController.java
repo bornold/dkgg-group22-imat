@@ -24,20 +24,23 @@ public class SearchPanelController {
     }
 
     public void search(String searchString) {
-        //TODO check if empty string
-        view.resultPanel.removeAll(); 
-        List<Product> result = m.search(searchString);
-        if (result.isEmpty()) {
-            view.resultLabel.setText("Inga varor funna från sökningen " + searchString);
+        if (searchString.equals("")) {
+            view.resultLabel.setText("Skriv något i textfältet ovan för att söka");
         } else {
-            if (result.size() > 1) {
-                view.resultLabel.setText(result.size() + " matchande varor från sökningen \"" + searchString +"\"");
+            view.resultPanel.removeAll();
+            List<Product> result = m.search(searchString);
+            if (result.isEmpty()) {
+                view.resultLabel.setText("Inga varor funna från sökningen " + searchString);
             } else {
-                view.resultLabel.setText(result.size() + " vara funnen från sökningen \"" + searchString + "\"");
+                if (result.size() > 1) {
+                    view.resultLabel.setText(result.size() + " matchande varor från sökningen \"" + searchString + "\"");
+                } else {
+                    view.resultLabel.setText(result.size() + " vara funnen från sökningen \"" + searchString + "\"");
+                }
+                view.resultPanel.add(new ProductsPanel(result));
             }
-            view.resultPanel.add(new ProductsPanel(result));
+            view.resultPanel.revalidate();
+            view.resultPanel.repaint();
         }
-        view.resultPanel.revalidate();
-        view.resultPanel.repaint();
     }
 }

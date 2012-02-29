@@ -38,8 +38,7 @@ public class SuperCartProductsController {
         this.parent = aParent;
         this.view = aView;
         view.cartName.setText(cart.getName());
-        //TODO WARNING typecast double to int
-        view.priceLabel.setText("total kostnad " + (int) cart.getTotalPrice());
+        view.priceLabel.setText("total kostnad " + (int) (cart.getTotalPrice()+0.5));
         items = cart.getItems();
         for (ShoppingItem si : items) {
             view.productsPanel.add(new CartProductPanel(si));

@@ -216,7 +216,6 @@ private void productImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN
     }
 
     public void setAmount(double amount) {
-        //TODO WARNING: double->int typecast
         quantitySpinner.setValue(new Integer((int) amount));
     }
 
