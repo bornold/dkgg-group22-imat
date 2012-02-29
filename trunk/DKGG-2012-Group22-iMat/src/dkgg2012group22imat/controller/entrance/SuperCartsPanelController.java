@@ -19,8 +19,8 @@ public class SuperCartsPanelController implements SavedCartListener {
 
     CartsWrapperController parent;
     SuperCartsPanel view;
-
     Model m = Model.getInstance();
+    
     public SuperCartsPanelController(CartsWrapperController aParent, SuperCartsPanel aView) {
         this.view = aView;
         this.parent = aParent;
@@ -29,7 +29,6 @@ public class SuperCartsPanelController implements SavedCartListener {
         view.favoriteCartsPanel.add(new CartsPanel(m.getSavedCarts(), this));
         
         m.addSavedCartEventListener(this);
-        
     }
 
     public void showCart(SavedCart cart) {

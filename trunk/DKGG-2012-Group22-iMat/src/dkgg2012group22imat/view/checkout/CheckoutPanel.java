@@ -282,6 +282,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         kVaror.setText(controller.getProducts());
         kundinfoLabel.setText(controller.getCustomer());
         totalPriceLabel.setText("Totalsumman blir: " + controller.getTotal());
+        amountErr.setText("");
 
 
     }

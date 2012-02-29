@@ -27,14 +27,15 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class SuperCartProductsController {
 
     SavedCart cart;
+    List hCart;
     CartsWrapperController parent;
     SuperCartProductsPanel view;
     List<ShoppingItem> items;
     Model m = Model.getInstance();
 
-    public SuperCartProductsController(SavedCart aCart, CartsWrapperController aParent,
+    public SuperCartProductsController(SavedCart sCart, CartsWrapperController aParent,
             SuperCartProductsPanel aView) {
-        this.cart = aCart;
+        this.cart = sCart;
         this.parent = aParent;
         this.view = aView;
         view.cartName.setText(cart.getName());
@@ -50,8 +51,12 @@ public class SuperCartProductsController {
     }
 
     public void delete() {
-        m.removeSavedCart(this.cart);
-        this.hide();
+        parent.delete(this.cart);
+        m.removeSavedCartHistory(parent);
+    }
+    
+    public List getCart(){
+        return hCart;
     }
 
     public void addAll() {

@@ -34,4 +34,10 @@ public class CartsWrapperController {
         view.add(new SuperCartsPanel(this));
         view.updateUI();
     }
+    
+    public void delete(SavedCart cart) {
+        view.removeAll();
+        view.add(new SuperCartsPanel(this));
+        view.updateUI();
+    }
 }

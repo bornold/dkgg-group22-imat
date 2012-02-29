@@ -25,7 +25,10 @@ public class CartsWrapper extends javax.swing.JPanel {
         initComponents();
         controller = new CartsWrapperController(this);
     }
-
+    
+    public void update(){
+        controller.showAllCarts();
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
