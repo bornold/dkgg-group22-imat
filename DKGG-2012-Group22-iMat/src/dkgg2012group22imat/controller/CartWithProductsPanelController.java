@@ -70,12 +70,13 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
     }
 
     public static Rectangle getImageBoundsOf(Product p) {
+        int scrolladd = view.getScrollPane().getVerticalScrollBar().getValue();
         CartProductPanel temp = new CartProductPanel(new ShoppingItem(p, 1));
         int border = 0;
         int locationx = view.getLocationOnScreen().x + 13;//temp.productImageLabel.getX();
         int locationy = 0;
         if (productList.indexOf(p) >= 0) {
-            locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
+            locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19 + scrolladd;// temp.productImageLabel.getY();
 
         } else {
             int next = 0;
@@ -83,7 +84,7 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
                 next = -1;
             }
 
-            locationy = view.getLocationOnScreen().y + ((int) (productList.size() + queuedProducts.size() + next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
+            locationy = view.getLocationOnScreen().y + ((int) (productList.size() + queuedProducts.size() + next) * temp.getPreferredSize().height) + 19 + scrolladd;// temp.productImageLabel.getY();
             queuedProducts.add(p);
         }
         Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));
