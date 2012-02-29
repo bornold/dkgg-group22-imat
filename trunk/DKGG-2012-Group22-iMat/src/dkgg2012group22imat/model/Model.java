@@ -278,7 +278,7 @@ public class Model {
         return historySavedCarts;
     }
     
-    public void removeSavedCartHistory(CartsWrapperController parent){
+    public void removeSavedCartHistory(CartsWrapperController parent, SavedCart cart){
         getOrders().clear();
         parent.showAllCarts();
     }
@@ -317,7 +317,7 @@ public class Model {
     }
 
     public void removeSavedCart(SavedCart cart) {
-        this.savedCarts.clear();
+        this.savedCarts.remove(cart);
     }
 
 //    public void reset() {

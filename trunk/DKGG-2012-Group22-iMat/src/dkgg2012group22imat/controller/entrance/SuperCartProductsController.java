@@ -50,9 +50,10 @@ public class SuperCartProductsController {
         parent.showAllCarts();
     }
 
-    public void delete() {
+    public void delete(SavedCart cart) {
         parent.delete(this.cart);
-        m.removeSavedCartHistory(parent);
+        m.removeSavedCart(cart);
+        m.removeSavedCartHistory(parent,cart);
     }
     
     public List getCart(){
