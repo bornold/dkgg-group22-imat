@@ -83,39 +83,7 @@ public class ProductController implements FavoriteListener,TweenCallback {
         }
         view.setAmount(1);
     }
-
-    public void enhance() {
-        if (!isEnhanced) {
-            Point p = view.getLocation();
-            int x = p.x - (big.width - small.width) / 2;
-            int y = p.y - (big.height - small.height) / 2;
-            view.setLocation(x, y);
-            view.setSize(big);
-            view.expandShadow();
-            view.addButton.setVisible(true);
-            view.unitLabel.setVisible(true);
-            view.quantitySpinner.setVisible(true);
-            view.favoriteToggleButton.setVisible(true);
-            isEnhanced = true;
-        }
-    }
-
-    public void defile() {
-        if (isEnhanced) {
-            Point p = view.getLocation();
-            int x = p.x + (big.width - small.width) / 2;
-            int y = p.y + (big.height - small.height) / 2;
-            view.addButton.setVisible(false);
-            view.quantitySpinner.setVisible(false);
-            view.favoriteToggleButton.setVisible(false);
-            view.unitLabel.setVisible(false);
-            view.resetShadow();
-            view.setLocation(x, y);
-            view.setSize(small);
-            isEnhanced = false;
-        }
-    }
-
+    
     public void handleFavoriteEvent(EventObject e) {
         setFavoButton();
     }

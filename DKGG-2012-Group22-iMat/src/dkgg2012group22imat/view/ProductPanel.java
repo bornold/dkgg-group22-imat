@@ -236,21 +236,23 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         this.shadowSize = 3;
 
     }
-    
+
     public ProductController getController() {
         return this.controller;
     }
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {
-
-        controller.enhance();
-
-
+        formMouseE();
     }
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {
+        formMouseE();
+    }
 
-        controller.defile();
-
+    private void formMouseE() {
+        addButton.setVisible(!addButton.isVisible());
+        unitLabel.setVisible(!unitLabel.isVisible());
+        quantitySpinner.setVisible(!quantitySpinner.isVisible());
+        favoriteToggleButton.setVisible(!favoriteToggleButton.isVisible());
     }
 }
