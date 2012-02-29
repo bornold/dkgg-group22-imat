@@ -4,10 +4,20 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import aurelienribon.tweenengine.BaseTween;
+import aurelienribon.tweenengine.TweenCallback;
+import aurelienribon.tweenengine.TweenCallback.EventType;
+import dkgg2012group22imat.controller.CartWithProductsPanelController;
+import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.model.SavedCart;
+import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
+import dkgg2012group22imat.view.ProductImageLabel;
 import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.List;
+import org.jdesktop.application.Application;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -29,7 +39,7 @@ public class CartPanelController {
         this.view = aView;
         view.cartName.setText(sv.getName());
         items = sv.getItems();
-        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice()+" kr");
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice() + " kr");
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:
@@ -45,7 +55,42 @@ public class CartPanelController {
     }
 
     void addAll() {
-        m.addToShoppingCart(items);
+
+        int a = 1;
+        for (final ShoppingItem item : items) {
+            ProductImageLabel icon = view.icon1;
+            switch (a%4) {
+                case 1:
+                    icon = view.icon1;
+                    break;
+                case 2:
+                    icon = view.icon2;
+                    break;
+                case 3:
+                    icon = view.icon3;
+                    break;
+                case 4:
+                    icon = view.icon4;
+                    break;
+            }
+            int locationx = icon.getLocationOnScreen().x;
+            int locationy = icon.getLocationOnScreen().y;
+
+            
+
+            Point loc = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));
+            
+            Rectangle from = new Rectangle(loc, icon.getBounds().getSize());
+            Rectangle to = CartWithProductsPanelController.getImageBoundsOf(item.getProduct());
+            for (int i = 1; i < item.getAmount()+1; i++) {
+                IMatUtilities.imageFlyAnimation(m.getImageIcon(item.getProduct(), new Dimension(120,106)).getImage(), from, to, 80 * i * a, new TweenCallback() {
+                    public void onEvent(EventType et, BaseTween bt) {
+                        m.addToShoppingCart(item.getProduct(), 1);
+                    }
+                });
+            }
+            a++;
+        }
     }
 
     void showThis() {

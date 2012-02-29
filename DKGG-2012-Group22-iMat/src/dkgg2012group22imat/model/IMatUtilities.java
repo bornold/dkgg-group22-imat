@@ -39,7 +39,7 @@ import org.jdesktop.application.Application;
  *
  * @author Simon
  */
-public class IMatUtilities implements TweenCallback {
+public class IMatUtilities {
 
     private static final TweenManager tweenManager = new TweenManager();
     private static boolean tweenInit = false;
@@ -115,12 +115,19 @@ public class IMatUtilities implements TweenCallback {
         System.out.println("ANIMATE");
 
 
-        AnimateImage aniImage = new AnimateImage(image, from);
+        final AnimateImage aniImage = new AnimateImage(image, from);
 
         aniStack.push(aniImage);
         aniPanel.add(aniImage);
 
-        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900).target(to.x, to.y, to.width, to.height).delay(delay).ease(Expo.INOUT).addCallback(EventType.COMPLETE, new IMatUtilities(aniImage)).addCallback(EventType.COMPLETE, callback).start(tweenManager);
+        Tween.to(aniImage, JComponentTweenAccessor.POSITION_SCALE_XY, 900).target(to.x, to.y, to.width, to.height).delay(delay).ease(Expo.INOUT).addCallback(EventType.COMPLETE, new TweenCallback() {
+
+            public void onEvent(EventType et, BaseTween bt) {
+
+                aniImage.setVisible(false);
+                aniPanel.remove(aniImage);
+            }
+        }).addCallback(EventType.COMPLETE, callback).start(tweenManager);
 
         /*Thread t = new Thread() {
         
@@ -163,15 +170,5 @@ public class IMatUtilities implements TweenCallback {
 
     public static iMatViewController getIMatViewController() {
         return DKGG2012Group22iMatApp.getApplication().getIMatView().getController();
-    }
-    private AnimateImage aniImage;
-
-    public IMatUtilities(AnimateImage i) {
-        this.aniImage = i;
-    }
-
-    public void onEvent(EventType et, BaseTween bt) {
-        this.aniImage.setVisible(false);
-        this.aniPanel.remove(aniImage);
     }
 }
