@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class CategoriesPanel extends javax.swing.JPanel {
     
-    CategoriesController controller;
+    public CategoriesController controller;
     
 
     /** Creates new form CategoryPanel */
@@ -45,6 +45,7 @@ public class CategoriesPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(250, 32767));
         setMinimumSize(new java.awt.Dimension(250, 0));
         setName("Form"); // NOI18N
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(250, 0));
         setSize(new java.awt.Dimension(250, 0));
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
