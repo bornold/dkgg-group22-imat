@@ -5,6 +5,7 @@
 package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.Model;
+import dkgg2012group22imat.view.PagenationButton;
 import dkgg2012group22imat.view.ProductPanel;
 import dkgg2012group22imat.view.ProductsPanel;
 import java.awt.Component;
@@ -28,51 +29,6 @@ public class ProductsPanelController {
     private int productsOnScreen = 1;
     protected int currentPage = 0;
     private int nrOfPages;
-    //TODO HTML manipulate current view
-    private String navigationChart[][][] = {
-        {
-            {""}
-        },
-        {
-            {"1 2"},
-            {"1 2"}
-        },
-        {
-            {"1 2 3"},
-            {"1 2 3"},
-            {"1 2 3"}
-        },
-        {
-            {"1 2 3 4"},
-            {"1 2 3 4"},
-            {"1 2 3 4"},
-            {"1 2 3 4"}
-        },
-        {
-            {"1 2 3 4 5"},
-            {"1 2 3 4 5"},
-            {"1 2 3 4 5"},
-            {"1 2 3 4 5"},
-            {"1 2 3 4 5"}
-        },
-        {
-            {"1 2 3 4 5 6"},
-            {"1 2 3 4 5 6"},
-            {"1 2 3 4 5 6"},
-            {"1 2 3 4 5 6"},
-            {"1 2 3 4 5 6"},
-            {"1 2 3 4 5 6"}
-        },
-        {
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"},
-            {"1 2 3 4 5 6 7"}
-        }
-    };
 
     @Deprecated
     public ProductsPanelController(List<Product> prods, int amount, ProductsPanel panel) {
@@ -98,6 +54,10 @@ public class ProductsPanelController {
         if (currentPage - 1 >= 0) {
             viewPage(currentPage - 1);
         }
+    }
+
+    public void goToPage(int page) {
+        viewPage(page);
     }
 
     private void viewPage(int page) {
@@ -126,29 +86,52 @@ public class ProductsPanelController {
             view.productPanel.setVisible(false);
             view.backButton.setVisible(false);
             view.forwardButton.setVisible(false);
-            view.navigationLabel.setText("");
+
         } else {
-            //TODO change to view.navigationLabel.setText(navigationChart[0][nrOfPages][currentPage]);
-            String pagination = "<html>";
-            for (int i = 1; i <= nrOfPages; i++) {
-                if (i == currentPage + 1) {
-                    pagination += " <b>"+i+"</b> ";
+            view.pagenationPanel.removeAll();
+            int lowerBound = 0;
+            int upperBound = nrOfPages;
+            if (nrOfPages >= 8) {
+                if (currentPage > 4) {
+                    if (currentPage + 4 > nrOfPages) {
+                        lowerBound = nrOfPages - 7;
+                        upperBound = nrOfPages;
+                    } else {
+                        lowerBound = currentPage - 3;
+                        upperBound = currentPage + 4;
+                    }
                 } else {
-                    pagination += " "+i+" ";
+                    lowerBound = 0;
+                    upperBound = 8;
                 }
             }
-            pagination += "</html>";
-            view.navigationLabel.setText(pagination);
+            for (int i = lowerBound; i < upperBound; i++) {
+                if (i == currentPage) {
+                    PagenationButton pb = new PagenationButton(i, this);
+                    pb.setEnabled(false);
+                    view.pagenationPanel.add(pb);
+                } else {
+                    view.pagenationPanel.add(new PagenationButton(i, this));
+                }
+            }
             view.productPanel.setVisible(true);
             if (currentPage == 0) {
-                view.backButton.setVisible(false);
+//                view.backButton.setVisible(false);
+                view.backButton.setEnabled(false);
+                view.backButton.setBorderPainted(false);
             } else {
-                view.backButton.setVisible(true);
+//                view.backButton.setVisible(true);
+                view.backButton.setEnabled(true);
+                view.backButton.setBorderPainted(true);
             }
             if (currentPage == (nrOfPages - 1)) {
-                view.forwardButton.setVisible(false);
+//                view.forwardButton.setVisible(false);
+                view.forwardButton.setEnabled(false);
+                view.forwardButton.setBorderPainted(false);
             } else {
-                view.forwardButton.setVisible(true);
+//                view.forwardButton.setVisible(true);
+                view.forwardButton.setEnabled(true);
+                view.forwardButton.setBorderPainted(true);
             }
         }
     }
