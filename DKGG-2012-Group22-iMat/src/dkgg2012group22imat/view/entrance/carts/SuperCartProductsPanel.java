@@ -156,7 +156,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controller.delete();
+    controller.delete(cart);
 }//GEN-LAST:event_jButton3ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel cartName;
