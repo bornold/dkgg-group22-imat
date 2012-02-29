@@ -37,6 +37,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     boolean focusCardNumbfield4 = false;
     String cardnumber = "";
     CardLayout cl;
+    String card;
 
 
     /** Creates new form CheckoutPanel */
@@ -49,7 +50,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
         endText.setText("<html>Tack för att du handlade hos oss! <br><br>"
                 + "Var nu god och stäng av programmet,"
                 + " sätt dig i en stol och invänta "
-                + "resultat.");
+                + "resultat eller slösa gärna lite mer hos oss ;)");
+        getLayoutCard();
         
     }
 
@@ -268,6 +270,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
         cCardNumbfield4.setBackground(new Color(255, 255, 255));
         cvcTextfield.setBackground(new Color(255, 255, 255));
     }
+    
+    public String getLayoutCard(){
+        return card;
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -345,7 +351,6 @@ public class CheckoutPanel extends javax.swing.JPanel {
         bakKnapp = new javax.swing.JButton();
         thirdView = new javax.swing.JPanel();
         endText = new javax.swing.JLabel();
-        view3bakKnapp = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
         setLayout(new java.awt.CardLayout());
@@ -978,7 +983,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                         .addComponent(bakKnapp))
                     .addComponent(confirmKnapp, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
@@ -993,39 +998,21 @@ public class CheckoutPanel extends javax.swing.JPanel {
         endText.setText(resourceMap.getString("endText.text")); // NOI18N
         endText.setName("endText"); // NOI18N
 
-        view3bakKnapp.setBackground(resourceMap.getColor("view3bakKnapp.background")); // NOI18N
-        view3bakKnapp.setFont(resourceMap.getFont("view3bakKnapp.font")); // NOI18N
-        view3bakKnapp.setIcon(resourceMap.getIcon("view3bakKnapp.icon")); // NOI18N
-        view3bakKnapp.setText(resourceMap.getString("view3bakKnapp.text")); // NOI18N
-        view3bakKnapp.setName("view3bakKnapp"); // NOI18N
-        view3bakKnapp.setOpaque(true);
-        view3bakKnapp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3bakKnappActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout thirdViewLayout = new javax.swing.GroupLayout(thirdView);
         thirdView.setLayout(thirdViewLayout);
         thirdViewLayout.setHorizontalGroup(
             thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(thirdViewLayout.createSequentialGroup()
-                .addGroup(thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(thirdViewLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(thirdViewLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(view3bakKnapp)))
+                .addGap(72, 72, 72)
+                .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         thirdViewLayout.setVerticalGroup(
             thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(thirdViewLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(94, 94, 94)
                 .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(view3bakKnapp))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         add(thirdView, "thirdView");
@@ -1126,6 +1113,7 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         kundinfoLabel.setText(controller.getCustomer());
         if(jLabels.isEmpty())
         cl.show(this, "secondView");
+    card = "secondView";
     jField.clear();
     jLabels.clear();
 
@@ -1133,15 +1121,14 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
 private void confirmKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmKnappActionPerformed
     cl.show(this, "thirdView");
+    card = "thirdView";
+    controller.clearCart();
 }//GEN-LAST:event_confirmKnappActionPerformed
 
 private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bakKnappActionPerformed
     cl.show(this, "firstView");
+    card = "firstView";
 }//GEN-LAST:event_bakKnappActionPerformed
-
-private void view3bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3bakKnappActionPerformed
-    cl.show(this, "secondView");
-}//GEN-LAST:event_view3bakKnappActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Betalningsinformation;
@@ -1210,7 +1197,6 @@ private void view3bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JTextField postCodeTextfield;
     private javax.swing.JPanel secondView;
     private javax.swing.JPanel thirdView;
-    private javax.swing.JButton view3bakKnapp;
     private javax.swing.JRadioButton visaRButton;
     // End of variables declaration//GEN-END:variables
 }
