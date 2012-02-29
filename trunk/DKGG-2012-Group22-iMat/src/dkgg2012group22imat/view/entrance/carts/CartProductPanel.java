@@ -10,6 +10,12 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.model.IMatUtilities;
+import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import org.jdesktop.application.ResourceMap;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -19,12 +25,28 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class CartProductPanel extends javax.swing.JPanel {
 
     private CartProductController controller;
+    private ShoppingItem shoppingItem;
 
     /** Creates new form SavedCartPanel */
     public CartProductPanel(ShoppingItem si) {
         initComponents();
         controller = new CartProductController(si, this);
         addButton.setVisible(false);
+        this.shoppingItem=si;
+    }
+    
+    public ShoppingItem getShoppingItem() {
+        return this.shoppingItem;
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+//        ResourceMap resourceMap = DKGG2012Group22iMatApp.getApplication().getContext().getResourceMap(CartProductPanel.class);
+
+        IMatUtilities.drawTiled(g, this.getSize(), new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/gradient_cartproduct.png")));
+
+        g.setColor(new Color(204, 204, 204));
+        g.drawRect(-1, -1, this.getWidth() + 1, this.getHeight());//top and bottom border
     }
 
     /** This method is called from within the constructor to
@@ -38,11 +60,14 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         nameLabel = new javax.swing.JLabel();
         informationLabel = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
+        icon = new dkgg2012group22imat.view.ProductImageLabel();
 
+        setMaximumSize(new java.awt.Dimension(250, 80));
+        setMinimumSize(new java.awt.Dimension(250, 80));
         setName("Form"); // NOI18N
         setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(250, 80));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 formMouseExited(evt);
@@ -51,19 +76,26 @@ public class CartProductPanel extends javax.swing.JPanel {
                 formMouseEntered(evt);
             }
         });
+        setLayout(null);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
+        nameLabel.setFont(resourceMap.getFont("nameLabel.font")); // NOI18N
         nameLabel.setText(resourceMap.getString("nameLabel.text")); // NOI18N
         nameLabel.setName("nameLabel"); // NOI18N
+        add(nameLabel);
+        nameLabel.setBounds(80, 10, 160, 22);
 
         informationLabel.setText(resourceMap.getString("informationLabel.text")); // NOI18N
         informationLabel.setName("informationLabel"); // NOI18N
+        add(informationLabel);
+        informationLabel.setBounds(80, 30, 160, 16);
 
-        icon.setText(resourceMap.getString("icon.text")); // NOI18N
-        icon.setName("icon"); // NOI18N
-
+        addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
+        addButton.setBorderPainted(false);
         addButton.setName("addButton"); // NOI18N
+        addButton.setPressedIcon(resourceMap.getIcon("addButton.pressedIcon")); // NOI18N
+        addButton.setRolloverIcon(resourceMap.getIcon("addButton.rolloverIcon")); // NOI18N
         addButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 addButtonMouseExited(evt);
@@ -77,39 +109,14 @@ public class CartProductPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
+        add(addButton);
+        addButton.setBounds(165, 45, 80, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(icon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel)
-                    .addComponent(informationLabel))
-                .addGap(51, 51, 51)
-                .addComponent(addButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(icon))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addButton)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(informationLabel)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        icon.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("icon.border.lineColor"))); // NOI18N
+        icon.setText(resourceMap.getString("icon.text")); // NOI18N
+        icon.setName("icon"); // NOI18N
+        add(icon);
+        icon.setBounds(10, 10, 60, 53);
     }// </editor-fold>//GEN-END:initComponents
 
 private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
@@ -129,12 +136,11 @@ private void addButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:ev
 }//GEN-LAST:event_addButtonMouseExited
 
 private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-controller.addItem();
+    controller.addItem();
 }//GEN-LAST:event_addButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addButton;
-    public javax.swing.JLabel icon;
+    public dkgg2012group22imat.view.ProductImageLabel icon;
     public javax.swing.JLabel informationLabel;
     public javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables

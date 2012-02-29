@@ -146,18 +146,22 @@ private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
 private void forwardButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseEntered
 //    forwardButton.setText("Visa fler varor");
+    forwardButton.setForeground(new Color(51,51,51));
 }//GEN-LAST:event_forwardButtonMouseEntered
 
 private void forwardButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forwardButtonMouseExited
 //    forwardButton.setText("");
+    forwardButton.setForeground(new Color(102,102,102));
 }//GEN-LAST:event_forwardButtonMouseExited
 
 private void backButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseEntered
 //    backButton.setText("Tillbaka");
+    backButton.setForeground(new Color(51,51,51));
 }//GEN-LAST:event_backButtonMouseEntered
 
 private void backButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseExited
 //    backButton.setText("");
+    backButton.setForeground(new Color(102,102,102));
 }//GEN-LAST:event_backButtonMouseExited
 
 private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
