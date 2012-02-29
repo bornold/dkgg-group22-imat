@@ -523,25 +523,31 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("jPanel5.border.lineColor"))); // NOI18N
+        jPanel5.setForeground(resourceMap.getColor("jPanel5.foreground")); // NOI18N
         jPanel5.setName("jPanel5"); // NOI18N
         jPanel5.setOpaque(false);
 
         jPanel3.setName("jPanel3"); // NOI18N
         jPanel3.setOpaque(false);
 
+        cardTypeLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         cardTypeLabel.setText(resourceMap.getString("cardTypeLabel.text")); // NOI18N
         cardTypeLabel.setName("cardTypeLabel"); // NOI18N
 
+        cardNameLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         cardNameLabel.setText(resourceMap.getString("cardNameLabel.text")); // NOI18N
         cardNameLabel.setName("cardNameLabel"); // NOI18N
 
+        cardDatesLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         cardDatesLabel.setText(resourceMap.getString("cardDatesLabel.text")); // NOI18N
         cardDatesLabel.setName("cardDatesLabel"); // NOI18N
 
+        cardNumberLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         cardNumberLabel.setText(resourceMap.getString("cardNumberLabel.text")); // NOI18N
         cardNumberLabel.setName("cardNumberLabel"); // NOI18N
 
+        CVCLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         CVCLabel.setText(resourceMap.getString("CVCLabel.text")); // NOI18N
         CVCLabel.setName("CVCLabel"); // NOI18N
 
@@ -574,6 +580,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         );
 
         Betalningsinformation.setFont(resourceMap.getFont("Betalningsinformation.font")); // NOI18N
+        Betalningsinformation.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         Betalningsinformation.setText(resourceMap.getString("Betalningsinformation.text")); // NOI18N
         Betalningsinformation.setName("Betalningsinformation"); // NOI18N
 
@@ -642,10 +649,12 @@ public class CheckoutPanel extends javax.swing.JPanel {
         cardNameTextfield.setName("cardNameTextfield"); // NOI18N
 
         buttonGroup1.add(visaRButton);
+        visaRButton.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         visaRButton.setText(resourceMap.getString("visaRButton.text")); // NOI18N
         visaRButton.setName("visaRButton"); // NOI18N
 
         buttonGroup1.add(masterRButton);
+        masterRButton.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         masterRButton.setText(resourceMap.getString("masterRButton.text")); // NOI18N
         masterRButton.setName("masterRButton"); // NOI18N
 
@@ -759,7 +768,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
         confirmButton.setIcon(resourceMap.getIcon("confirmButton.icon")); // NOI18N
         confirmButton.setText(resourceMap.getString("confirmButton.text")); // NOI18N
+        confirmButton.setBorderPainted(false);
         confirmButton.setName("confirmButton"); // NOI18N
+        confirmButton.setPressedIcon(resourceMap.getIcon("confirmButton.pressedIcon")); // NOI18N
+        confirmButton.setRolloverIcon(resourceMap.getIcon("confirmButton.rolloverIcon")); // NOI18N
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
@@ -769,24 +781,31 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
 
+        förNamnLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         förNamnLabel.setText(resourceMap.getString("förNamnLabel.text")); // NOI18N
         förNamnLabel.setName("förNamnLabel"); // NOI18N
 
+        efterNamnLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         efterNamnLabel.setText(resourceMap.getString("efterNamnLabel.text")); // NOI18N
         efterNamnLabel.setName("efterNamnLabel"); // NOI18N
 
+        addressLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         addressLabel.setText(resourceMap.getString("addressLabel.text")); // NOI18N
         addressLabel.setName("addressLabel"); // NOI18N
 
+        postAddressLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         postAddressLabel.setText(resourceMap.getString("postAddressLabel.text")); // NOI18N
         postAddressLabel.setName("postAddressLabel"); // NOI18N
 
+        postCodeLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         postCodeLabel.setText(resourceMap.getString("postCodeLabel.text")); // NOI18N
         postCodeLabel.setName("postCodeLabel"); // NOI18N
 
+        phoneNumbLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         phoneNumbLabel.setText(resourceMap.getString("phoneNumbLabel.text")); // NOI18N
         phoneNumbLabel.setName("phoneNumbLabel"); // NOI18N
 
+        emailLabel.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         emailLabel.setText(resourceMap.getString("emailLabel.text")); // NOI18N
         emailLabel.setName("emailLabel"); // NOI18N
 
@@ -825,6 +844,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         );
 
         kontaktinformation.setFont(resourceMap.getFont("kontaktinformation.font")); // NOI18N
+        kontaktinformation.setForeground(resourceMap.getColor("efterNamnLabel.foreground")); // NOI18N
         kontaktinformation.setText(resourceMap.getString("kontaktinformation.text")); // NOI18N
         kontaktinformation.setName("kontaktinformation"); // NOI18N
 
@@ -844,14 +864,14 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(confirmButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         firstViewLayout.setVerticalGroup(
             firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(confirmButton)
+                    .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(firstViewLayout.createSequentialGroup()
                         .addComponent(kontaktinformation)
                         .addGap(10, 10, 10)
@@ -872,7 +892,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("jPanel7.border.lineColor"))); // NOI18N
         jPanel7.setName("jPanel7"); // NOI18N
 
         jLabel2.setFont(resourceMap.getFont("jLabel2.font")); // NOI18N
@@ -916,12 +936,12 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
                 .addComponent(totalPriceLabel)
                 .addContainerGap())
         );
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(resourceMap.getColor("jPanel8.border.lineColor"))); // NOI18N
         jPanel8.setName("jPanel8"); // NOI18N
 
         jLabel4.setFont(resourceMap.getFont("jLabel4.font")); // NOI18N
@@ -961,7 +981,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
         confirmKnapp.setIcon(resourceMap.getIcon("confirmKnapp.icon")); // NOI18N
         confirmKnapp.setText(resourceMap.getString("confirmKnapp.text")); // NOI18N
+        confirmKnapp.setBorderPainted(false);
         confirmKnapp.setName("confirmKnapp"); // NOI18N
+        confirmKnapp.setPressedIcon(resourceMap.getIcon("confirmKnapp.pressedIcon")); // NOI18N
+        confirmKnapp.setRolloverIcon(resourceMap.getIcon("confirmKnapp.rolloverIcon")); // NOI18N
         confirmKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmKnappActionPerformed(evt);
@@ -970,7 +993,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
         bakKnapp.setIcon(resourceMap.getIcon("bakKnapp.icon")); // NOI18N
         bakKnapp.setText(resourceMap.getString("bakKnapp.text")); // NOI18N
+        bakKnapp.setBorderPainted(false);
         bakKnapp.setName("bakKnapp"); // NOI18N
+        bakKnapp.setPressedIcon(resourceMap.getIcon("bakKnapp.pressedIcon")); // NOI18N
+        bakKnapp.setRolloverIcon(resourceMap.getIcon("bakKnapp.rolloverIcon")); // NOI18N
         bakKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bakKnappActionPerformed(evt);
@@ -999,7 +1025,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                             .addComponent(amountErr)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         secondViewLayout.setVerticalGroup(
             secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1008,17 +1034,17 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
                         .addComponent(bakKnapp))
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(secondViewLayout.createSequentialGroup()
                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                                 .addComponent(amountErr)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(confirmKnapp))
+                                .addGap(18, 18, 18)
+                                .addComponent(confirmKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(195, 195, 195))
         );
@@ -1040,7 +1066,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
             .addGroup(thirdViewLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         thirdViewLayout.setVerticalGroup(
             thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

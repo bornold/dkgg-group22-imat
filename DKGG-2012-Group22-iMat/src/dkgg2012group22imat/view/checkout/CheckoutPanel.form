@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,5,0,0,3,-65"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,5,0,0,3,-33"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -52,7 +52,7 @@
                           <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -61,7 +61,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="confirmButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmButton" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="kontaktinformation" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -285,9 +285,12 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
+                <LineBorder>
+                  <Property name="color" resourceKey="jPanel5.border.lineColor"/>
+                </LineBorder>
               </Border>
             </Property>
+            <Property name="foreground" type="java.awt.Color" resourceKey="jPanel5.foreground"/>
             <Property name="name" type="java.lang.String" value="jPanel5" noResource="true"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
@@ -362,30 +365,35 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="cardTypeLabel">
                   <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="cardTypeLabel.text"/>
                     <Property name="name" type="java.lang.String" value="cardTypeLabel" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cardNameLabel">
                   <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="cardNameLabel.text"/>
                     <Property name="name" type="java.lang.String" value="cardNameLabel" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cardDatesLabel">
                   <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="cardDatesLabel.text"/>
                     <Property name="name" type="java.lang.String" value="cardDatesLabel" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cardNumberLabel">
                   <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="cardNumberLabel.text"/>
                     <Property name="name" type="java.lang.String" value="cardNumberLabel" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="CVCLabel">
                   <Properties>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="CVCLabel.text"/>
                     <Property name="name" type="java.lang.String" value="CVCLabel" noResource="true"/>
                   </Properties>
@@ -395,6 +403,7 @@
             <Component class="javax.swing.JLabel" name="Betalningsinformation">
               <Properties>
                 <Property name="font" type="java.awt.Font" resourceKey="Betalningsinformation.font"/>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="Betalningsinformation.text"/>
                 <Property name="name" type="java.lang.String" value="Betalningsinformation" noResource="true"/>
               </Properties>
@@ -575,6 +584,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="visaRButton.text"/>
                     <Property name="name" type="java.lang.String" value="visaRButton" noResource="true"/>
                   </Properties>
@@ -584,6 +594,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                     <Property name="text" type="java.lang.String" resourceKey="masterRButton.text"/>
                     <Property name="name" type="java.lang.String" value="masterRButton" noResource="true"/>
                   </Properties>
@@ -637,7 +648,10 @@
           <Properties>
             <Property name="icon" type="javax.swing.Icon" resourceKey="confirmButton.icon"/>
             <Property name="text" type="java.lang.String" resourceKey="confirmButton.text"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="confirmButton" noResource="true"/>
+            <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="confirmButton.pressedIcon"/>
+            <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="confirmButton.rolloverIcon"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButtonActionPerformed"/>
@@ -690,42 +704,49 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="f&#xf6;rNamnLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="f&#xf6;rNamnLabel.text"/>
                 <Property name="name" type="java.lang.String" value="f&#xf6;rNamnLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="efterNamnLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="efterNamnLabel.text"/>
                 <Property name="name" type="java.lang.String" value="efterNamnLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="addressLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="addressLabel.text"/>
                 <Property name="name" type="java.lang.String" value="addressLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="postAddressLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="postAddressLabel.text"/>
                 <Property name="name" type="java.lang.String" value="postAddressLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="postCodeLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="postCodeLabel.text"/>
                 <Property name="name" type="java.lang.String" value="postCodeLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="phoneNumbLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="phoneNumbLabel.text"/>
                 <Property name="name" type="java.lang.String" value="phoneNumbLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="emailLabel">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="emailLabel.text"/>
                 <Property name="name" type="java.lang.String" value="emailLabel" noResource="true"/>
               </Properties>
@@ -735,6 +756,7 @@
         <Component class="javax.swing.JLabel" name="kontaktinformation">
           <Properties>
             <Property name="font" type="java.awt.Font" resourceKey="kontaktinformation.font"/>
+            <Property name="foreground" type="java.awt.Color" resourceKey="efterNamnLabel.foreground"/>
             <Property name="text" type="java.lang.String" resourceKey="kontaktinformation.text"/>
             <Property name="name" type="java.lang.String" value="kontaktinformation" noResource="true"/>
           </Properties>
@@ -764,14 +786,14 @@
                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="confirmKnapp" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="confirmKnapp" min="-2" max="-2" attributes="0"/>
                               <Component id="amountErr" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="146" max="32767" attributes="0"/>
+                  <EmptySpace pref="168" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -782,7 +804,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="486" max="32767" attributes="0"/>
+                          <EmptySpace pref="455" max="32767" attributes="0"/>
                           <Component id="bakKnapp" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -790,10 +812,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jPanel8" min="-2" max="-2" attributes="1"/>
-                                  <EmptySpace pref="381" max="32767" attributes="0"/>
+                                  <EmptySpace pref="350" max="32767" attributes="0"/>
                                   <Component id="amountErr" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="confirmKnapp" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="confirmKnapp" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel7" min="0" max="32767" attributes="1"/>
                           </Group>
@@ -816,7 +838,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
+                <LineBorder>
+                  <Property name="color" resourceKey="jPanel7.border.lineColor"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="name" type="java.lang.String" value="jPanel7" noResource="true"/>
@@ -852,7 +876,7 @@
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="kVaror" max="32767" attributes="0"/>
-                      <EmptySpace pref="425" max="32767" attributes="0"/>
+                      <EmptySpace pref="413" max="32767" attributes="0"/>
                       <Component id="totalPriceLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -896,7 +920,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
+                <LineBorder>
+                  <Property name="color" resourceKey="jPanel8.border.lineColor"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="name" type="java.lang.String" value="jPanel8" noResource="true"/>
@@ -957,7 +983,10 @@
           <Properties>
             <Property name="icon" type="javax.swing.Icon" resourceKey="confirmKnapp.icon"/>
             <Property name="text" type="java.lang.String" resourceKey="confirmKnapp.text"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="confirmKnapp" noResource="true"/>
+            <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="confirmKnapp.pressedIcon"/>
+            <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="confirmKnapp.rolloverIcon"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmKnappActionPerformed"/>
@@ -967,7 +996,10 @@
           <Properties>
             <Property name="icon" type="javax.swing.Icon" resourceKey="bakKnapp.icon"/>
             <Property name="text" type="java.lang.String" resourceKey="bakKnapp.text"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="bakKnapp" noResource="true"/>
+            <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="bakKnapp.pressedIcon"/>
+            <Property name="rolloverIcon" type="javax.swing.Icon" resourceKey="bakKnapp.rolloverIcon"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bakKnappActionPerformed"/>
@@ -1003,7 +1035,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   <Component id="endText" min="-2" pref="711" max="-2" attributes="0"/>
-                  <EmptySpace pref="176" max="32767" attributes="0"/>
+                  <EmptySpace pref="208" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

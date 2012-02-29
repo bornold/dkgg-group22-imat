@@ -39,7 +39,7 @@ public class SuperCartProductsController {
         this.parent = aParent;
         this.view = aView;
         view.cartName.setText(cart.getName());
-        view.priceLabel.setText("total kostnad " + (int) (cart.getTotalPrice()+0.5));
+        view.priceLabel.setText(cart.getItems().size() + " varor för totalt " + (int) (cart.getTotalPrice()+0.5) + " kr");
         items = cart.getItems();
         for (ShoppingItem si : items) {
             view.productsPanel.add(new CartProductPanel(si));
@@ -83,8 +83,8 @@ public class SuperCartProductsController {
 
             Rectangle from = new Rectangle(loc, icon.getBounds().getSize());
             Rectangle to = CartWithProductsPanelController.getImageBoundsOf(item.getProduct());
-            for (int i = 1; i < item.getAmount() + 1; i++) {
-                IMatUtilities.imageFlyAnimation(icon.getImage(), from, to, 80 * i * a, new TweenCallback() {
+            for (int i = 0; i < item.getAmount(); i++) {
+                IMatUtilities.imageFlyAnimation(icon.getImage(), from, to, 80 * i + 80 * a, new TweenCallback() {
 
                     public void onEvent(EventType et, BaseTween bt) {
                         m.addToShoppingCart(item.getProduct(), 1);

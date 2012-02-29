@@ -70,7 +70,9 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
     }
 
     public static Rectangle getImageBoundsOf(Product p) {
-        int scrolladd = view.getScrollPane().getViewport().getY();//.getVerticalScrollBar().getModel().getValue();
+//        int scrolladd = view.getScrollPane().getViewport().getY();//.getVerticalScrollBar().getModel().getValue();
+        int scrolladd = - view.getScrollPane().getViewport().getViewPosition().y;
+        
         CartProductPanel temp = new CartProductPanel(new ShoppingItem(p, 1));
         int border = 0;
         int locationx = view.getLocationOnScreen().x + 13;//temp.productImageLabel.getX();

@@ -153,7 +153,7 @@ public class Model {
         List<ShoppingItem> list = shoppingCart.getItems();
         boolean shoppingCartUpdated = false;
         for (ShoppingItem item : list) {
-            if (item.getProduct() == p) {
+            if (item.getProduct().equals(p)) {
                 item.setAmount(item.getAmount() + amount);
                 shoppingCartUpdated = true;
             }
@@ -310,6 +310,7 @@ public class Model {
 
     public void removeSavedCart(SavedCart cart) {
         this.savedCarts.remove(cart);
+        this.fireSavedCartEvent();
     }
 
 //    public void reset() {
