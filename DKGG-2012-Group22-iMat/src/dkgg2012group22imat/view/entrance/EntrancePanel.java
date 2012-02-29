@@ -10,6 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance;
 
+import dkgg2012group22imat.view.entrance.carts.CartsWrapper;
+
 
 /**
  *
@@ -21,6 +23,10 @@ public class EntrancePanel extends javax.swing.JPanel {
     public EntrancePanel() {
         initComponents();
     }
+    public void update(){
+        cartsWrapper1.update();
+    }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.

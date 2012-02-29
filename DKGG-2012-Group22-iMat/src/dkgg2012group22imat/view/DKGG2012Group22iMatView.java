@@ -6,6 +6,7 @@ package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.iMatViewController;
 import dkgg2012group22imat.controller.iMatViewController.MainView;
+import dkgg2012group22imat.view.entrance.EntrancePanel;
 import java.awt.CardLayout;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.SingleFrameApplication;
@@ -45,6 +46,7 @@ public class DKGG2012Group22iMatView extends FrameView {
         switch(viewEnum) {
             case ENTRANCE:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"ENTRANCE");
+                entrancePanel1.update();
                 break;
             case SHOP:
                 ((CardLayout)mainContentPanel.getLayout()).show(mainContentPanel,"SHOP");

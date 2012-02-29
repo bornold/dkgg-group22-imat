@@ -43,6 +43,7 @@ package dkgg2012group22imat.model;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import dkgg2012group22imat.controller.entrance.CartsWrapperController;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
@@ -117,7 +118,7 @@ public class Model {
 
     public synchronized void addSavedCartEventListener(SavedCartListener listener) {
         savedCartListeners.add(listener);
-        System.out.println("FavoriteListeners: " + savedCartListeners.size());
+        System.out.println("SavedCartsListeners: " + savedCartListeners.size());
     }
 
     public synchronized void removeSavedCartEventListener(SavedCartListener listener) {
@@ -139,6 +140,7 @@ public class Model {
             ((SavedCartListener) savedCartListeners.get(i)).onSavedCartEvent(event);
         }
     }
+
 
     public Product getProduct(int idNbr) {
         return iMatDataHandler.getProduct(idNbr);
@@ -261,7 +263,7 @@ public class Model {
         return iMatDataHandler.getOrders();
     }
 
-    public List<SavedCart> getSavedCartHistory() {
+    public List<SavedCart> getSavedCartHistory() {//TODO: Kolla på att ta bort bättre
         List<Order> orders = getOrders();
         List<SavedCart> historySavedCarts = new ArrayList<SavedCart>();
         //TODO make getDate().toString() better.
@@ -274,6 +276,11 @@ public class Model {
             historySavedCarts.add(new SavedCart(o.getItems(), name));
         }
         return historySavedCarts;
+    }
+    
+    public void removeSavedCartHistory(CartsWrapperController parent){
+        getOrders().clear();
+        parent.showAllCarts();
     }
 
     public List<SavedCart> getSavedCarts() {
@@ -393,7 +400,7 @@ public class Model {
 
         try {
             //write converted json data to a file named "file.json"
-            FileWriter writer = new FileWriter(new File(this.getSettingsDirectory().getPath()+"/carts.json"));
+            FileWriter writer = new FileWriter(new File(this.getSettingsDirectory().getPath() + "/carts.json"));
             writer.write(json);
             writer.close();
         } catch (IOException e) {
@@ -405,7 +412,7 @@ public class Model {
         try {
             /*InputStream in = this.getClass().getResourceAsStream("./carts.json");
             InputStreamReader isr = new InputStreamReader(in, "utf-8");*/
-            FileReader fr = new FileReader(new File(this.getSettingsDirectory().getPath()+"/carts.json"));
+            FileReader fr = new FileReader(new File(this.getSettingsDirectory().getPath() + "/carts.json"));
             BufferedReader br =
                     new BufferedReader(fr);
             StringWriter sw = new StringWriter();
