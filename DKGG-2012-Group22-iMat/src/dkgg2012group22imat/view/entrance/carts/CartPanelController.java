@@ -6,9 +6,6 @@ package dkgg2012group22imat.view.entrance.carts;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.model.SavedCart;
-import dkgg2012group22imat.view.entrance.carts.CartPanel;
-import dkgg2012group22imat.view.entrance.carts.CartPanel;
-import dkgg2012group22imat.view.entrance.carts.CartsPanelController;
 import java.awt.Dimension;
 import java.util.List;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -31,8 +28,8 @@ public class CartPanelController {
         this.parent = aParent;
         this.view = aView;
         view.cartName.setText(sv.getName());
-        //view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice());
         items = sv.getItems();
+        view.informationLabel.setText(items.size() + " varor för totalt " + (int) sv.getTotalPrice()+"+kr");
         int amount = items.size() > 4 ? 4 : items.size();
         switch (amount) {
             case 4:

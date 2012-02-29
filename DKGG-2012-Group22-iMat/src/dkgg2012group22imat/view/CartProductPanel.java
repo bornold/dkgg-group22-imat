@@ -227,4 +227,7 @@ private void productImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN
     private void formMouseEntered(java.awt.event.MouseEvent evt) {
         controller.hooverd();
     }
+    public CartProductController getController(){
+        return controller;
+    }
 }

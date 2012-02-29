@@ -6,25 +6,9 @@ package dkgg2012group22imat.controller;
 
 import dkgg2012group22imat.model.FavoriteListener;
 import dkgg2012group22imat.model.Model;
-import dkgg2012group22imat.view.CartPanel;
 import dkgg2012group22imat.view.CartProductPanel;
-import dkgg2012group22imat.view.CartWithProductsPanel;
-import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
-import dkgg2012group22imat.model.IMatUtilities;
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.image.ColorModel;
-import java.awt.image.ImageConsumer;
 import java.util.EventObject;
-import java.util.Hashtable;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JViewport;
-import org.jdesktop.application.Application;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
