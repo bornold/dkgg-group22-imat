@@ -3,6 +3,44 @@
  * and open the template in the editor.
  */
 package dkgg2012group22imat.model;
+//---Viktiga
+//
+//	//TODO-Visa spara/historisk kundvagn snyggt
+//
+//----Mindre viktiga
+//
+//	//TODO-Kundvagns pris till närmaste 50 öring alternativt 10 öring (ex: 44,50kr 64,00);
+//
+//	//TODO-Spara kundvagn till fil
+//
+//	//TODO-HistoryCart ges bättre namn
+//
+//	//TODO-Styla spara kundvagn pop-upen
+//
+//	//TODO-Styla sökvyn
+//
+//	//TODO-Ta bort favoriteListener från cartProductsen
+//
+//	//TODO-ett sätt att ta bort kundvagn från favorit
+//
+//	//TODO-ändra ProductsPanel info text från visar x av y till 1-_2_-3-...-8-9
+//
+//	//TODO-Till kassa knappen på kundvagnen bytas ut/inaktiveras/tas bort i kassan
+//
+//---Tveksamma saker, extra 
+//
+//	//TODO-Mindre ProductPaneler?
+//
+//	//TODO-Resize på ProductPaneler?
+//
+//	//TODO-Spara kundvagnknapp längst upp?
+//
+//	//TODO-Töm kundvagn knapp?
+//
+//	//TODO-Skriva text i tomma kundvagnen, favoritprodukter, gamla/sparade kundvagnar?
+//
+//	//TODO-First run? Gå till butik knapp på entré?
+//	//TODO-Göm scrollbar i kundvagn och panelerna när de inte behövs
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -69,6 +107,7 @@ public class Model {
 
     public synchronized void addFavouriteEventListener(FavoriteListener listener) {
         favouriteListeners.add(listener);
+        System.out.println("FavouriteEventListener: " + favouriteListeners.size());
     }
 
     public synchronized void removeFavouriteEventListener(FavoriteListener listener) {
