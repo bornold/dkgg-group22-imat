@@ -36,9 +36,11 @@ public class SaveCartOverlay extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g) {
         Image img = null;
-        if (this.getHeight() > 149) {
+        if (this.getHeight() > 150) {
+            img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_170.png")).getImage();
+        } else if (this.getHeight() > 130) {
             img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_150.png")).getImage();
-        } else if (this.getHeight() > 129) {
+        } else if (this.getHeight() > 110) {
             img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_130.png")).getImage();
         } else {
             img = new ImageIcon(this.getClass().getResource("/dkgg2012group22imat/resources/overlay_110.png")).getImage();
@@ -69,10 +71,9 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         cancelButton = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(240, 200));
+        setMaximumSize(new java.awt.Dimension(240, 500));
+        setMinimumSize(new java.awt.Dimension(240, 0));
         setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(230, 70));
-        setSize(new java.awt.Dimension(230, 70));
 
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
@@ -175,7 +176,7 @@ public class SaveCartOverlay extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if (jTextField1.getText() != "" && jTextField1.getText() != null) {
+    if (!"".equals(jTextField1.getText()) && jTextField1.getText() != null) {
         if (controller.saveCart(jTextField1.getText(), false) == -1) {
             this.expand();
         } else {
@@ -187,7 +188,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton1ActionPerformed
 
 private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-    if (jTextField1.getText() != "" && jTextField1.getText() != null) {
+    if (!"".equals(jTextField1.getText()) && jTextField1.getText() != null) {
         controller.saveCart(jTextField1.getText(), true);
         controller.closeSaveCartDialog();
     } else {
@@ -202,6 +203,8 @@ private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private void showError(String error) {
         this.jPanel3.setVisible(true);
         this.errorLabel.setText(error);
+        this.revalidate();
+        this.repaint();
     }
 
     private void expand() {
@@ -221,6 +224,7 @@ private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
     public void setName(String name) {
         this.jTextField1.setText(name);
+        this.jLabel2.setText("Vill du ersätta \""+name+"\"");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;

@@ -81,11 +81,13 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(CartProductPanel.class);
         nameLabel.setFont(resourceMap.getFont("nameLabel.font")); // NOI18N
+        nameLabel.setForeground(resourceMap.getColor("nameLabel.foreground")); // NOI18N
         nameLabel.setText(resourceMap.getString("nameLabel.text")); // NOI18N
         nameLabel.setName("nameLabel"); // NOI18N
         add(nameLabel);
         nameLabel.setBounds(80, 10, 160, 22);
 
+        informationLabel.setForeground(resourceMap.getColor("informationLabel.foreground")); // NOI18N
         informationLabel.setText(resourceMap.getString("informationLabel.text")); // NOI18N
         informationLabel.setName("informationLabel"); // NOI18N
         add(informationLabel);

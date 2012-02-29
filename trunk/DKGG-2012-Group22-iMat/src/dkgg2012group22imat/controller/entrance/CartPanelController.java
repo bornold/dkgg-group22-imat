@@ -82,7 +82,7 @@ public class CartPanelController {
             Rectangle from = new Rectangle(loc, icon.getBounds().getSize());
             Rectangle to = CartWithProductsPanelController.getImageBoundsOf(item.getProduct());
             for (int i = 1; i < item.getAmount()+1; i++) {
-                IMatUtilities.imageFlyAnimation(m.getImageIcon(item.getProduct(), new Dimension(120,106)).getImage(), from, to, 80 * i * a, new TweenCallback() {
+                IMatUtilities.imageFlyAnimation(m.getImageIcon(item.getProduct(), new Dimension(120,106)).getImage(), from, to, 80 * i + 80 * a, new TweenCallback() {
 
                     public void onEvent(EventType et, BaseTween bt) {
                         m.addToShoppingCart(item.getProduct(), 1);

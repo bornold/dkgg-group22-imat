@@ -36,7 +36,7 @@ public class ProductController implements FavoriteListener,TweenCallback {
         this.view = panel;
         view.productNameLabel.setText(p.getName());
         view.productImageLabel.setImage(m.getImageIcon(p, new Dimension(266,200)));
-        view.priceLabel.setText(p.getPrice() + " " + p.getUnit());
+        view.priceLabel.setText((int)(p.getPrice()+0.5) + " " + p.getUnit());
         view.addButton.setVisible(false);
         view.quantitySpinner.setVisible(false);
         view.favoriteToggleButton.setVisible(false);

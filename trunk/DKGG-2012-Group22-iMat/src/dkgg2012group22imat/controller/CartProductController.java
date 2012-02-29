@@ -29,7 +29,7 @@ public class CartProductController implements FavoriteListener {
         view.productNameLabel.setText(si.getProduct().getName());
         view.productImageLabel.setImage(m.getImageIcon(si.getProduct(), new Dimension(140, 106)));
         
-        view.priceLabel.setText((int)si.getTotal()+"kr");
+        view.priceLabel.setText((int)(si.getTotal()+0.5)+"kr");
         view.deleteButton.setVisible(false);
 //        view.quantityLabel.setText(p.getUnitSuffix());
         view.unitLabel.setText(si.getProduct().getUnitSuffix()+" för");
