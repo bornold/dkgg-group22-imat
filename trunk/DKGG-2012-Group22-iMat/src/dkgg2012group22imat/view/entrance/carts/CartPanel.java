@@ -10,6 +10,8 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.controller.entrance.CartPanelController;
+import dkgg2012group22imat.controller.entrance.CartsPanelController;
 import dkgg2012group22imat.model.SavedCart;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
 import dkgg2012group22imat.model.IMatUtilities;

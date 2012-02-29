@@ -13,7 +13,7 @@ package dkgg2012group22imat.model;
 //
 //TODO-Kundvagns pris till närmaste 50 öring alternativt 10 öring (ex: 44,50kr 64,00);
 //
-//TODO-HistoryCart ges bättre namn
+//TODO-HistoryCarts ges bättre namn
 //
 //TODO-Styla spara kundvagn pop-upen
 //

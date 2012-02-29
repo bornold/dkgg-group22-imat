@@ -8,6 +8,7 @@ import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.CartProductPanel;
 import dkgg2012group22imat.view.CartWithProductsPanel;
 import dkgg2012group22imat.model.IMatUtilities;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -43,6 +44,13 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
     public void shoppingCartChanged() {
         items = shoppingCart.getItems();
+        Component[] list = view.getProductListPanel().getComponents();
+        for (Component c : list) {
+            if (c instanceof CartProductPanel) {
+                CartProductPanel cpp = (CartProductPanel) c;
+                cpp.getController().removeEventListener();
+            }
+        }
         view.getProductListPanel().removeAll();
 
         productList = new ArrayList();
@@ -51,11 +59,11 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
 
             CartProductPanel pane = new CartProductPanel(si);
             productList.add(si.getProduct());
-            if(queuedProducts.size()>0)
+            if (queuedProducts.size() > 0) {
                 queuedProducts.remove(si.getProduct());
+            }
             view.getProductListPanel().add(pane);
         }
-        System.out.println("Cart increased with " + view.getComponents().length);
         view.updateUI();
         view.revalidate();
         view.repaint();
@@ -68,13 +76,14 @@ public class CartWithProductsPanelController implements ShoppingCartListener {
         int locationy = 0;
         if (productList.indexOf(p) >= 0) {
             locationy = view.getLocationOnScreen().y + ((int) (productList.indexOf(p)) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
-            
+
         } else {
             int next = 0;
-            if(queuedProducts.contains(p))
+            if (queuedProducts.contains(p)) {
                 next = -1;
-                
-            locationy = view.getLocationOnScreen().y + ((int)(productList.size()+queuedProducts.size()+next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
+            }
+
+            locationy = view.getLocationOnScreen().y + ((int) (productList.size() + queuedProducts.size() + next) * temp.getPreferredSize().height) + 19;// temp.productImageLabel.getY();
             queuedProducts.add(p);
         }
         Point point = IMatUtilities.getLocationRelativeToFrame(new Point(locationx, locationy));

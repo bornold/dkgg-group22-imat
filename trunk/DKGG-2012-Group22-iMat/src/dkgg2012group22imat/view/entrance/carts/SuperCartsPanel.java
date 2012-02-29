@@ -10,6 +10,9 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.controller.entrance.CartsWrapperController;
+import dkgg2012group22imat.controller.entrance.SuperCartsPanelController;
+
 /**
  *
  * @author jonas

@@ -10,6 +10,7 @@
  */
 package dkgg2012group22imat.view.entrance.carts;
 
+import dkgg2012group22imat.controller.entrance.CartProductController;
 import dkgg2012group22imat.model.IMatUtilities;
 import dkgg2012group22imat.view.DKGG2012Group22iMatApp;
 import java.awt.Color;
