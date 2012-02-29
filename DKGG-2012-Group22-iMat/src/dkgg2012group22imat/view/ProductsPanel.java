@@ -132,6 +132,7 @@ public class ProductsPanel extends javax.swing.JPanel {
         productPanel.setBackground(resourceMap.getColor("productPanel.background")); // NOI18N
         productPanel.setName("productPanel"); // NOI18N
         productPanel.setOpaque(false);
+        productPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
         add(productPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 

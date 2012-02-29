@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view;
 
 import dkgg2012group22imat.controller.CartPanelController;
+import java.awt.Color;
 import javax.swing.OverlayLayout;
 
 /**
@@ -115,6 +116,14 @@ public class CartPanel extends javax.swing.JPanel {
         toggleFavouriteCart.setPreferredSize(new java.awt.Dimension(290, 28));
         toggleFavouriteCart.setPressedIcon(resourceMap.getIcon("toggleFavouriteCart.pressedIcon")); // NOI18N
         toggleFavouriteCart.setRolloverIcon(resourceMap.getIcon("toggleFavouriteCart.rolloverIcon")); // NOI18N
+        toggleFavouriteCart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                toggleFavouriteCartMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                toggleFavouriteCartMouseEntered(evt);
+            }
+        });
         toggleFavouriteCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toggleFavouriteCartActionPerformed(evt);
@@ -162,6 +171,14 @@ controller.openSaveCartDialog();
 private void gotoCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotoCheckoutActionPerformed
 controller.gotoCheckout();
 }//GEN-LAST:event_gotoCheckoutActionPerformed
+
+private void toggleFavouriteCartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toggleFavouriteCartMouseEntered
+jLabel1.setForeground(new Color(0,0,0));
+}//GEN-LAST:event_toggleFavouriteCartMouseEntered
+
+private void toggleFavouriteCartMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toggleFavouriteCartMouseExited
+jLabel1.setForeground(new Color(102,102,102));
+}//GEN-LAST:event_toggleFavouriteCartMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private dkgg2012group22imat.view.CartWithProductsPanel cartWithProductsPanel;
