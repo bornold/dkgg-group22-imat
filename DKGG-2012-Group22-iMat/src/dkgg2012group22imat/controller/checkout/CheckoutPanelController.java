@@ -6,6 +6,9 @@ package dkgg2012group22imat.controller.checkout;
 
 import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.checkout.CheckoutPanel;
+import java.util.Iterator;
+import java.util.List;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -14,6 +17,8 @@ import dkgg2012group22imat.view.checkout.CheckoutPanel;
 public class CheckoutPanelController {
     CheckoutPanel view;
     Model m = Model.getInstance();
+    List<ShoppingItem> si;
+    Iterator<ShoppingItem> siIt;
     
     public CheckoutPanelController(CheckoutPanel view){
         this.view = view;
@@ -23,7 +28,6 @@ public class CheckoutPanelController {
         
     }
     public void atStart(){
-        System.out.println(m.getCustomer().getFirstName());
         if(!m.getCustomer().getFirstName().equals("")){
             view.setFirstName(m.getCustomer().getFirstName());
             view.setLastName(m.getCustomer().getLastName());
@@ -42,7 +46,6 @@ public class CheckoutPanelController {
         }
     }
     public void saveInfo(){ 
-        System.out.println(m.getCustomer().getFirstName());
         m.getCustomer().setFirstName(view.getFirstName());
         m.getCustomer().setLastName(view.getLastName());
         m.getCustomer().setAddress(view.getAddress());
@@ -57,6 +60,35 @@ public class CheckoutPanelController {
         m.getCreditCard().setCardNumber(view.getCardNumber());
         m.getCreditCard().setVerificationCode(view.getVerificationCode());
         System.out.println("Customer and CreditCard saved");
-        System.out.println(m.getCustomer().getFirstName());
+    }
+    
+    public String getCustomer(){
+        return "<html>"+"Förnamn: " + m.getCustomer().getFirstName() + "<br>"
+                + "Efternamn: " + m.getCustomer().getLastName() + "<br>"
+                + "Address: " + m.getCustomer().getAddress() + "<br>"
+                + "Postnummer: " + m.getCustomer().getPostCode() + "<br>"
+                + "Postaddress: " + m.getCustomer().getPostAddress() + "<br>"
+                + "Telefonnummer: " + m.getCustomer().getPhoneNumber() + "<br>"
+                + "Email: " + m.getCustomer().getEmail() + "<br>"
+                + "Kort typ: " + m.getCreditCard().getCardType() + "<br>"
+                + "Kortnamn: " + m.getCreditCard().getHoldersName() + "<br>"
+                + "Utgångsdatum(År/Månad): " + m.getCreditCard().getValidYear() 
+                        + " / " + m.getCreditCard().getValidMonth() + "<br>"
+                + "Kortnummer: " + m.getCreditCard().getCardNumber() + "<br>"
+                + "Kortets CVC: " + m.getCreditCard().getVerificationCode()
+                + "</html>";
+    }
+    
+    public String getProducts(){
+        String siString = "";
+        si = m.getShoppingCart().getItems();
+        siIt = si.iterator();
+        siString = "<html>";
+        for(ShoppingItem sit : si){
+            siString = siString + sit.getProduct().getName() + "       "
+                    + "------- Pris: " + sit.getProduct().getPrice() + " kr <br>";
+        }
+        siString += "</html>";
+        return siString;
     }
 }

@@ -11,6 +11,7 @@
 package dkgg2012group22imat.view.checkout;
 
 import dkgg2012group22imat.controller.checkout.CheckoutPanelController;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,7 +24,8 @@ import javax.swing.JTextField;
  */
 public class CheckoutPanel extends javax.swing.JPanel {
 
-    int credCardKeyTyped;
+    boolean credCardKeyTypedbool = false;
+    int credCardKeyTyped = 0;
     ArrayList<JTextField> jField;
     Iterator<JTextField> jFieldIt;
     ArrayList<JLabel> jLabels;
@@ -34,6 +36,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
     boolean focusCardNumbfield3 = false;
     boolean focusCardNumbfield4 = false;
     String cardnumber = "";
+    CardLayout cl;
+
 
     /** Creates new form CheckoutPanel */
     public CheckoutPanel() {
@@ -41,7 +45,12 @@ public class CheckoutPanel extends javax.swing.JPanel {
         controller = new CheckoutPanelController(this);
         jField = new ArrayList();
         jLabels = new ArrayList();
-        controller.atStart();
+        cl = (CardLayout) this.getLayout();
+        endText.setText("<html>Tack för att du handlade hos oss! <br><br>"
+                + "Var nu god och stäng av programmet,"
+                + " sätt dig i en stol och invänta "
+                + "resultat.");
+        
     }
 
     public void setFirstName(String name) {
@@ -57,11 +66,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setPostAddress(String pAddress) {
-        postAddressTextfield.setText(pAddress);
+        postCodeTextfield.setText(pAddress);
     }
 
     public void setPostcode(String postNumb) {
-        postCodeTextfield.setText(postNumb);
+        postAddressTextfield.setText(postNumb);
     }
 
     public void setPhoneNumb(String pNumb) {
@@ -93,10 +102,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     public void setCardNumber(String number) {
         if (number.length() > 15) {
-            cCardNumbfield1.setText(number.substring(0, 3));
-            cCardNumbfield1.setText(number.substring(4, 7));
-            cCardNumbfield1.setText(number.substring(8, 11));
-            cCardNumbfield1.setText(number.substring(12));
+            cCardNumbfield1.setText(number.substring(0, 4));
+            cCardNumbfield2.setText(number.substring(4, 8));
+            cCardNumbfield3.setText(number.substring(8, 12));
+            cCardNumbfield4.setText(number.substring(12));
         }
     }
 
@@ -129,19 +138,19 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public String getPostAddress() {
-        if (postAddressTextfield.getText().equals("")) {
-            jField.add(postAddressTextfield);
+        if (postCodeTextfield.getText().equals("")) {
+            jField.add(postCodeTextfield);
             jLabels.add(postAddressErrLabel);
         }
-        return postAddressTextfield.getText();
+        return postCodeTextfield.getText();
     }
 
     public String getPostcode() {
-        if (postCodeTextfield.getText().equals("")) {
-            jField.add(postCodeTextfield);
+        if (postAddressTextfield.getText().equals("")) {
+            jField.add(postAddressTextfield);
             jLabels.add(postCodeErrLabel);
         }
-        return postCodeTextfield.getText();
+        return postAddressTextfield.getText();
     }
 
     public String getPhoneNumb() {
@@ -165,9 +174,9 @@ public class CheckoutPanel extends javax.swing.JPanel {
             jLabels.add(cardTypeErrLabel);
         }
         if (visaRButton.isSelected()) {
-            return "visa";
+            return "Visa";
         } else {
-            return "mastercard";
+            return "Mastercard";
         }
     }
 
@@ -246,8 +255,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
         firstNameTextfield.setBackground(new Color(255, 255, 255));
         lastNameTextfield.setBackground(new Color(255, 255, 255));
         addressTextfield.setBackground(new Color(255, 255, 255));
-        postAddressTextfield.setBackground(new Color(255, 255, 255));
         postCodeTextfield.setBackground(new Color(255, 255, 255));
+        postAddressTextfield.setBackground(new Color(255, 255, 255));
         phoneNumbTextfield.setBackground(new Color(255, 255, 255));
         emailTextfield.setBackground(new Color(255, 255, 255));
         cardNameTextfield.setBackground(new Color(255, 255, 255));
@@ -270,12 +279,12 @@ public class CheckoutPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 200), new java.awt.Dimension(0, 200), new java.awt.Dimension(32767, 200));
+        firstView = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lastNameTextfield = new javax.swing.JTextField();
         addressTextfield = new javax.swing.JTextField();
-        postAddressTextfield = new javax.swing.JTextField();
         postCodeTextfield = new javax.swing.JTextField();
+        postAddressTextfield = new javax.swing.JTextField();
         phoneNumbTextfield = new javax.swing.JTextField();
         emailTextfield = new javax.swing.JTextField();
         firstNameTextfield = new javax.swing.JTextField();
@@ -322,10 +331,27 @@ public class CheckoutPanel extends javax.swing.JPanel {
         phoneNumbLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         kontaktinformation = new javax.swing.JLabel();
+        secondView = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        kVaror = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        kundinfoLabel = new javax.swing.JLabel();
+        confirmKnapp = new javax.swing.JButton();
+        bakKnapp = new javax.swing.JButton();
+        thirdView = new javax.swing.JPanel();
+        endText = new javax.swing.JLabel();
+        view3bakKnapp = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
+        setLayout(new java.awt.CardLayout());
 
-        filler1.setName("filler1"); // NOI18N
+        firstView.setName("firstView"); // NOI18N
+        firstView.setOpaque(false);
 
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setOpaque(false);
@@ -344,17 +370,17 @@ public class CheckoutPanel extends javax.swing.JPanel {
             }
         });
 
-        postAddressTextfield.setName("postadressTextfield"); // NOI18N
-        postAddressTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                postAddressTextfieldMouseClicked(evt);
-            }
-        });
-
-        postCodeTextfield.setName("postcodetextfield"); // NOI18N
+        postCodeTextfield.setName("postadressTextfield"); // NOI18N
         postCodeTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 postCodeTextfieldMouseClicked(evt);
+            }
+        });
+
+        postAddressTextfield.setName("postcodetextfield"); // NOI18N
+        postAddressTextfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                postAddressTextfieldMouseClicked(evt);
             }
         });
 
@@ -412,38 +438,38 @@ public class CheckoutPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(firstNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(firstNameErrLabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(postAddressErrLabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(postCodeErrLabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(phoneNumbErrLabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(emailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(emailErrLabel))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(addressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addressErrLabel))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(lastNameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lastNameErrLabel))))
-                .addContainerGap(106, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lastNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lastNameErrLabel)
+                        .addGap(8, 8, 8))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(addressTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addressErrLabel)))
+                .addGap(57, 57, 57))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,11 +487,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
                     .addComponent(addressErrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(postAddressErrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(postCodeErrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -714,6 +740,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGap(9, 9, 9))
         );
 
+        confirmButton.setIcon(resourceMap.getIcon("confirmButton.icon")); // NOI18N
         confirmButton.setText(resourceMap.getString("confirmButton.text")); // NOI18N
         confirmButton.setName("confirmButton"); // NOI18N
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
@@ -755,11 +782,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(phoneNumbLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(postCodeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(postAddressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(efterNamnLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(förNamnLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(förNamnLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(postAddressLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(postCodeLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -770,9 +797,9 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(addressLabel)
                 .addGap(18, 18, 18)
-                .addComponent(postAddressLabel)
-                .addGap(18, 18, 18)
                 .addComponent(postCodeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(postAddressLabel)
                 .addGap(18, 18, 18)
                 .addComponent(phoneNumbLabel)
                 .addGap(18, 18, 18)
@@ -784,48 +811,224 @@ public class CheckoutPanel extends javax.swing.JPanel {
         kontaktinformation.setText(resourceMap.getString("kontaktinformation.text")); // NOI18N
         kontaktinformation.setName("kontaktinformation"); // NOI18N
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout firstViewLayout = new javax.swing.GroupLayout(firstView);
+        firstView.setLayout(firstViewLayout);
+        firstViewLayout.setHorizontalGroup(
+            firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstViewLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(kontaktinformation)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(firstViewLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(149, 149, 149)
-                            .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstViewLayout.createSequentialGroup()
+                .addContainerGap(723, Short.MAX_VALUE)
+                .addComponent(confirmButton))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        firstViewLayout.setVerticalGroup(
+            firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(kontaktinformation)
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 0, Short.MAX_VALUE)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(453, 453, 453))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(confirmButton)
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(confirmButton))
         );
+
+        add(firstView, "firstView");
+
+        secondView.setName("SecondView"); // NOI18N
+        secondView.setOpaque(false);
+
+        jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setName("jPanel7"); // NOI18N
+
+        jLabel2.setFont(resourceMap.getFont("jLabel2.font")); // NOI18N
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+
+        jSeparator1.setName("jSeparator1"); // NOI18N
+
+        kVaror.setText(resourceMap.getString("kVaror.text")); // NOI18N
+        kVaror.setName("kVaror"); // NOI18N
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(1, 1, 1)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kVaror, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.setName("jPanel8"); // NOI18N
+
+        jLabel4.setFont(resourceMap.getFont("jLabel4.font")); // NOI18N
+        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+
+        jSeparator2.setName("jSeparator2"); // NOI18N
+
+        kundinfoLabel.setText(resourceMap.getString("kundinfoLabel.text")); // NOI18N
+        kundinfoLabel.setName("kundinfoLabel"); // NOI18N
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kundinfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        confirmKnapp.setIcon(resourceMap.getIcon("confirmKnapp.icon")); // NOI18N
+        confirmKnapp.setText(resourceMap.getString("confirmKnapp.text")); // NOI18N
+        confirmKnapp.setName("confirmKnapp"); // NOI18N
+        confirmKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmKnappActionPerformed(evt);
+            }
+        });
+
+        bakKnapp.setIcon(resourceMap.getIcon("bakKnapp.icon")); // NOI18N
+        bakKnapp.setText(resourceMap.getString("bakKnapp.text")); // NOI18N
+        bakKnapp.setName("bakKnapp"); // NOI18N
+        bakKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bakKnappActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout secondViewLayout = new javax.swing.GroupLayout(secondView);
+        secondView.setLayout(secondViewLayout);
+        secondViewLayout.setHorizontalGroup(
+            secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(secondViewLayout.createSequentialGroup()
+                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(secondViewLayout.createSequentialGroup()
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addContainerGap(383, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondViewLayout.createSequentialGroup()
+                        .addComponent(bakKnapp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
+                        .addComponent(confirmKnapp))))
+        );
+        secondViewLayout.setVerticalGroup(
+            secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondViewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(secondViewLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                        .addComponent(bakKnapp))
+                    .addComponent(confirmKnapp, javax.swing.GroupLayout.Alignment.TRAILING)))
+        );
+
+        add(secondView, "secondView");
+
+        thirdView.setLocation(new java.awt.Point(-32570, -32149));
+        thirdView.setName("thirdView"); // NOI18N
+        thirdView.setOpaque(false);
+
+        endText.setFont(resourceMap.getFont("endText.font")); // NOI18N
+        endText.setText(resourceMap.getString("endText.text")); // NOI18N
+        endText.setName("endText"); // NOI18N
+
+        view3bakKnapp.setBackground(resourceMap.getColor("view3bakKnapp.background")); // NOI18N
+        view3bakKnapp.setFont(resourceMap.getFont("view3bakKnapp.font")); // NOI18N
+        view3bakKnapp.setIcon(resourceMap.getIcon("view3bakKnapp.icon")); // NOI18N
+        view3bakKnapp.setText(resourceMap.getString("view3bakKnapp.text")); // NOI18N
+        view3bakKnapp.setName("view3bakKnapp"); // NOI18N
+        view3bakKnapp.setOpaque(true);
+        view3bakKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view3bakKnappActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout thirdViewLayout = new javax.swing.GroupLayout(thirdView);
+        thirdView.setLayout(thirdViewLayout);
+        thirdViewLayout.setHorizontalGroup(
+            thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdViewLayout.createSequentialGroup()
+                .addGroup(thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(thirdViewLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(thirdViewLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(view3bakKnapp)))
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+        thirdViewLayout.setVerticalGroup(
+            thirdViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdViewLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(endText, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(view3bakKnapp))
+        );
+
+        add(thirdView, "thirdView");
     }// </editor-fold>//GEN-END:initComponents
 
 private void lastNameTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastNameTextfieldMouseClicked
@@ -840,13 +1043,13 @@ private void addressTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-
 // TODO add your handling code here:
 }//GEN-LAST:event_addressTextfieldMouseClicked
 
-private void postAddressTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postAddressTextfieldMouseClicked
-// TODO add your handling code here:
-}//GEN-LAST:event_postAddressTextfieldMouseClicked
-
 private void postCodeTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postCodeTextfieldMouseClicked
 // TODO add your handling code here:
 }//GEN-LAST:event_postCodeTextfieldMouseClicked
+
+private void postAddressTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postAddressTextfieldMouseClicked
+// TODO add your handling code here:
+}//GEN-LAST:event_postAddressTextfieldMouseClicked
 
 private void phoneNumbTextfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phoneNumbTextfieldMouseClicked
 // TODO add your handling code here:
@@ -884,20 +1087,26 @@ private void cCardNumbfield3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     focusCardNumbfield3 = true;
 
     if (credCardKeyTyped == 4 && focusCardNumbfield3) {
-        cCardNumbfield3.requestFocus();
+        cCardNumbfield4.requestFocus();
         credCardKeyTyped = 0;
         focusCardNumbfield3 = false;
     }
 }//GEN-LAST:event_cCardNumbfield3KeyTyped
 
 private void cCardNumbfieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfieldTyped
-    credCardKeyTyped++;
+    if (!credCardKeyTypedbool) {
+        credCardKeyTyped = 0;
+        credCardKeyTypedbool = true;
+    }
+
+
     focusCardNumbfield1 = true;
 
     if (credCardKeyTyped == 4 && focusCardNumbfield1) {
-        cCardNumbfield2.requestFocus();
+        cCardNumbfield1.requestFocus();
         credCardKeyTyped = 0;
         focusCardNumbfield1 = false;
+        credCardKeyTypedbool = false;
     }
 }//GEN-LAST:event_cCardNumbfieldTyped
 
@@ -913,10 +1122,27 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     while (jLabelsIt.hasNext()) {
         jLabelsIt.next().setVisible(true);
     }
+        kVaror.setText(controller.getProducts());
+        kundinfoLabel.setText(controller.getCustomer());
+        if(jLabels.isEmpty())
+        cl.show(this, "secondView");
     jField.clear();
     jLabels.clear();
 
 }//GEN-LAST:event_confirmButtonActionPerformed
+
+private void confirmKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmKnappActionPerformed
+    cl.show(this, "thirdView");
+}//GEN-LAST:event_confirmKnappActionPerformed
+
+private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bakKnappActionPerformed
+    cl.show(this, "firstView");
+}//GEN-LAST:event_bakKnappActionPerformed
+
+private void view3bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3bakKnappActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_view3bakKnappActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Betalningsinformation;
     private javax.swing.JLabel CVCErrLabel;
@@ -924,6 +1150,7 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel addressErrLabel;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextfield;
+    private javax.swing.JButton bakKnapp;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cCardNumbfield1;
     private javax.swing.JTextField cCardNumbfield2;
@@ -941,23 +1168,34 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel cardTypeLabel;
     private javax.swing.JTextField cardYearTextfield;
     private javax.swing.JButton confirmButton;
+    private javax.swing.JButton confirmKnapp;
     private javax.swing.JTextField cvcTextfield;
     private javax.swing.JLabel efterNamnLabel;
     private javax.swing.JLabel emailErrLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextfield;
-    private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel endText;
     private javax.swing.JLabel firstNameErrLabel;
     private javax.swing.JTextField firstNameTextfield;
+    private javax.swing.JPanel firstView;
     private javax.swing.JLabel förNamnLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel kVaror;
     private javax.swing.JLabel kontaktinformation;
+    private javax.swing.JLabel kundinfoLabel;
     private javax.swing.JLabel lastNameErrLabel;
     private javax.swing.JTextField lastNameTextfield;
     private javax.swing.JRadioButton masterRButton;
@@ -970,6 +1208,9 @@ private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JLabel postCodeErrLabel;
     private javax.swing.JLabel postCodeLabel;
     private javax.swing.JTextField postCodeTextfield;
+    private javax.swing.JPanel secondView;
+    private javax.swing.JPanel thirdView;
+    private javax.swing.JButton view3bakKnapp;
     private javax.swing.JRadioButton visaRButton;
     // End of variables declaration//GEN-END:variables
 }
