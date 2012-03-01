@@ -88,11 +88,6 @@ public class DKGG2012Group22iMatView extends FrameView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menuBar = new javax.swing.JMenuBar();
-        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
-        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         animationPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
@@ -104,30 +99,9 @@ public class DKGG2012Group22iMatView extends FrameView {
         shopPanel1 = new dkgg2012group22imat.view.shop.ShopPanel();
         checkoutPanel1 = new dkgg2012group22imat.view.checkout.CheckoutPanel();
 
-        menuBar.setName("menuBar"); // NOI18N
-
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
-        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
-        fileMenu.setName("fileMenu"); // NOI18N
-
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getActionMap(DKGG2012Group22iMatView.class, this);
-        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
-        exitMenuItem.setName("exitMenuItem"); // NOI18N
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
-        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
-        helpMenu.setName("helpMenu"); // NOI18N
-
-        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
-        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         jLayeredPane1.setName("jLayeredPane1"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(DKGG2012Group22iMatView.class);
         animationPanel.setBackground(resourceMap.getColor("animationPanel.background")); // NOI18N
         animationPanel.setName("animationPanel"); // NOI18N
         animationPanel.setOpaque(false);
@@ -166,7 +140,6 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         shopPanel1.setBackground(resourceMap.getColor("shopPanel1.background")); // NOI18N
         shopPanel1.setName("shopPanel1"); // NOI18N
-        shopPanel1.setOpaque(false);
         mainContentPanel.add(shopPanel1, "SHOP");
 
         checkoutPanel1.setBackground(resourceMap.getColor("checkoutPanel1.background")); // NOI18N
@@ -178,11 +151,10 @@ public class DKGG2012Group22iMatView extends FrameView {
 
         mainPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        mainPanel.setBounds(0, 0, 985, 664);
+        mainPanel.setBounds(0, 0, 1281, 887);
         jLayeredPane1.add(mainPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         setComponent(jLayeredPane1);
-        setMenuBar(menuBar);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -195,7 +167,6 @@ public class DKGG2012Group22iMatView extends FrameView {
     private dkgg2012group22imat.view.MainButtonPanel mainButtonPanel1;
     private javax.swing.JPanel mainContentPanel;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JMenuBar menuBar;
     private dkgg2012group22imat.view.shop.ShopPanel shopPanel1;
     // End of variables declaration//GEN-END:variables
 

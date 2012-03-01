@@ -14,6 +14,8 @@ import dkgg2012group22imat.view.SaveCartOverlay;
 import java.awt.Component;
 import java.awt.Point;
 import java.util.EventObject;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -22,7 +24,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jonas
  */
-public class CartPanelController implements ShoppingCartListener, SavedCartListener {
+public class CartPanelController implements ShoppingCartListener, SavedCartListener, ChangeListener {
 
     Model m;
     ShoppingCart sc;
@@ -38,6 +40,7 @@ public class CartPanelController implements ShoppingCartListener, SavedCartListe
         this.initPrefferedName("Favorit",0);
         this.shoppingCartChanged();
         m.addSavedCartEventListener(this);
+        IMatUtilities.getIMatViewController().addChangeListener(this);
     }
     
     private void initPrefferedName(String n, int i) {
@@ -125,4 +128,17 @@ public class CartPanelController implements ShoppingCartListener, SavedCartListe
     public void onSavedCartEvent(EventObject e) {
         this.shoppingCartChanged();
     }
+
+    public void stateChanged(ChangeEvent ce) {
+        MainView currentView = IMatUtilities.getIMatViewController().getCurrentView();
+        switch(currentView) {
+            case CHECKOUT:
+                this.view.gotoCheckout.setEnabled(false);
+                break;
+            default:
+                this.view.gotoCheckout.setEnabled(true);
+        }
+    }
+    
+    
 }
