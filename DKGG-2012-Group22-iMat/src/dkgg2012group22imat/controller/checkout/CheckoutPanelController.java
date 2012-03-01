@@ -8,13 +8,14 @@ import dkgg2012group22imat.model.Model;
 import dkgg2012group22imat.view.checkout.CheckoutPanel;
 import java.util.Iterator;
 import java.util.List;
+import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author jonas
  */
-public class CheckoutPanelController {
+public class CheckoutPanelController implements ShoppingCartListener {
     CheckoutPanel view;
     Model m = Model.getInstance();
     List<ShoppingItem> si;
@@ -24,6 +25,9 @@ public class CheckoutPanelController {
         this.view = view;
         
         view.setErrorMessages(false);
+        
+        m.getShoppingCart().addShoppingCartListener(this);
+        
         atStart();
         
     }
@@ -86,7 +90,7 @@ public class CheckoutPanelController {
         siString = "<html>";
         for(ShoppingItem sit : si){
             siString = siString + sit.getProduct().getName() + "       "
-                    + "------- Pris: " + sit.getTotal() + " kr <br>";
+                    + "------- Pris: " + (Math.round(sit.getTotal() * 100.0) /100.0) + " kr <br>";
         }
         siString += "</html>";
         return siString;
@@ -97,7 +101,7 @@ public class CheckoutPanelController {
     }
     
     public String getTotal(){
-        return ""+m.getShoppingCart().getTotal();
+        return ""+(Math.round(m.getShoppingCart().getTotal() * 100.0) /100.0) + " kr";
     }
     
     public void performBuy(){
@@ -106,5 +110,9 @@ public class CheckoutPanelController {
     
     public int getProductsAmount(){
         return m.getShoppingCart().getItems().size();
+    }
+
+    public void shoppingCartChanged() {
+        this.view.updateSecondView();
     }
 }
