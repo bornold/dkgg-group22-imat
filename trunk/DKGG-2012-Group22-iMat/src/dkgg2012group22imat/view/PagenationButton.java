@@ -32,7 +32,7 @@ public class PagenationButton extends JButton implements ActionListener {
         this.setHorizontalTextPosition(CENTER);
         this.setBorderPainted(false);
         this.setOpaque(false);
-        this.setPreferredSize(new Dimension(60, 60));
+        this.setPreferredSize(new Dimension(60, 30));
         this.setCursor(new Cursor(Cursor.HAND_CURSOR));
         super.addActionListener(this);
     }

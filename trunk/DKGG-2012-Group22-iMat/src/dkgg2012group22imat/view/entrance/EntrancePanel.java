@@ -75,7 +75,7 @@ public class EntrancePanel extends javax.swing.JPanel {
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setName("jLabel1"); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(152, 60));
+        jLabel1.setPreferredSize(new java.awt.Dimension(152, 40));
         jPanel1.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         contentPanel.add(jPanel1);

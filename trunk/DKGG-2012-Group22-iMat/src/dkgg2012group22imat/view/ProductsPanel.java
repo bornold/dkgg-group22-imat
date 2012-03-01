@@ -65,6 +65,7 @@ public class ProductsPanel extends javax.swing.JPanel {
 
         navigationPanel.setName("navigationPanel"); // NOI18N
         navigationPanel.setOpaque(false);
+        navigationPanel.setPreferredSize(new java.awt.Dimension(290, 40));
         navigationPanel.setLayout(new java.awt.BorderLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(ProductsPanel.class);

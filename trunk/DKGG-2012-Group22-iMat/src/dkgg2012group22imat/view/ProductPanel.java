@@ -253,5 +253,8 @@ private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         unitLabel.setVisible(!unitLabel.isVisible());
         quantitySpinner.setVisible(!quantitySpinner.isVisible());
         favoriteToggleButton.setVisible(!favoriteToggleButton.isVisible());
+        this.shadowSize=this.shadowSize>3?3:6;
+        revalidate();
+        repaint();
     }
 }
