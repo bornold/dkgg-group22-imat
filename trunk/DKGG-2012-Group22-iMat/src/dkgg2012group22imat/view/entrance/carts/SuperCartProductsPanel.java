@@ -72,6 +72,7 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(dkgg2012group22imat.view.DKGG2012Group22iMatApp.class).getContext().getResourceMap(SuperCartProductsPanel.class);
         jButton3.setIcon(resourceMap.getIcon("jButton3.icon")); // NOI18N
         jButton3.setText(resourceMap.getString("jButton3.text")); // NOI18N
+        jButton3.setToolTipText(resourceMap.getString("jButton3.toolTipText")); // NOI18N
         jButton3.setBorderPainted(false);
         jButton3.setName("jButton3"); // NOI18N
         jButton3.setPressedIcon(resourceMap.getIcon("jButton3.pressedIcon")); // NOI18N
@@ -85,6 +86,7 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
 
         jButton1.setIcon(resourceMap.getIcon("jButton1.icon")); // NOI18N
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
+        jButton1.setToolTipText(resourceMap.getString("jButton1.toolTipText")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setName("jButton1"); // NOI18N
         jButton1.setPressedIcon(resourceMap.getIcon("jButton1.pressedIcon")); // NOI18N
@@ -119,6 +121,7 @@ public class SuperCartProductsPanel extends javax.swing.JPanel {
 
         jButton2.setIcon(resourceMap.getIcon("jButton2.icon")); // NOI18N
         jButton2.setText(resourceMap.getString("jButton2.text")); // NOI18N
+        jButton2.setToolTipText(resourceMap.getString("jButton2.toolTipText")); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setName("jButton2"); // NOI18N
         jButton2.setPressedIcon(resourceMap.getIcon("jButton2.pressedIcon")); // NOI18N

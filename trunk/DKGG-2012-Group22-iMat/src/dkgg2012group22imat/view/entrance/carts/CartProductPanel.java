@@ -91,10 +91,11 @@ public class CartProductPanel extends javax.swing.JPanel {
         informationLabel.setText(resourceMap.getString("informationLabel.text")); // NOI18N
         informationLabel.setName("informationLabel"); // NOI18N
         add(informationLabel);
-        informationLabel.setBounds(80, 30, 160, 16);
+        informationLabel.setBounds(80, 30, 160, 18);
 
         addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
+        addButton.setToolTipText(resourceMap.getString("addButton.toolTipText")); // NOI18N
         addButton.setBorderPainted(false);
         addButton.setName("addButton"); // NOI18N
         addButton.setPressedIcon(resourceMap.getIcon("addButton.pressedIcon")); // NOI18N

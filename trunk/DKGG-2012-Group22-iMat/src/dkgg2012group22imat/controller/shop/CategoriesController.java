@@ -115,6 +115,7 @@ public class CategoriesController {
         button.setMinimumSize(new java.awt.Dimension(0, 28));
         button.setName("categoryButton"); // NOI18N
         button.setOpaque(true);
+        button.setToolTipText("Sök i vårt sortiment");
         button.addMouseListener(new java.awt.event.MouseAdapter() {
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -161,6 +162,7 @@ public class CategoriesController {
         button.setMinimumSize(new java.awt.Dimension(0, 28));
         button.setName("categoryButton"); // NOI18N
         button.setOpaque(true);
+        button.setToolTipText("Visa varor du markerat som favorit");
         button.addMouseListener(new java.awt.event.MouseAdapter() {
 
             public void mouseExited(java.awt.event.MouseEvent evt) {

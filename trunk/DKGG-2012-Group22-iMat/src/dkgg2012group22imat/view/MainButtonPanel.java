@@ -50,6 +50,9 @@ public class MainButtonPanel extends javax.swing.JPanel {
         mainTabCheckoutButton.setShadow(false);
         mainTabShopButton.setShadow(false);
         mainTabEntranceButton.setShadow(true);
+        mainTabCheckoutButton.setToolTipText("Gå direkt till kassan");
+        mainTabShopButton.setToolTipText("Gå direkt till Butiken");
+        mainTabEntranceButton.setToolTipText("Gå direkt till Entrén");
 
     }
 

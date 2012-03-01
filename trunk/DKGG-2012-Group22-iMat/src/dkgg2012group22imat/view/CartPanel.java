@@ -75,7 +75,7 @@ public class CartPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,12 +104,12 @@ public class CartPanel extends javax.swing.JPanel {
         toggleFavouriteCart.setForeground(resourceMap.getColor("toggleFavouriteCart.foreground")); // NOI18N
         toggleFavouriteCart.setIcon(resourceMap.getIcon("toggleFavouriteCart.icon")); // NOI18N
         toggleFavouriteCart.setText(resourceMap.getString("toggleFavouriteCart.text")); // NOI18N
+        toggleFavouriteCart.setToolTipText(resourceMap.getString("toggleFavouriteCart.toolTipText")); // NOI18N
         toggleFavouriteCart.setBorderPainted(false);
         toggleFavouriteCart.setDisabledIcon(resourceMap.getIcon("toggleFavouriteCart.disabledIcon")); // NOI18N
         toggleFavouriteCart.setDisabledSelectedIcon(resourceMap.getIcon("toggleFavouriteCart.disabledSelectedIcon")); // NOI18N
         toggleFavouriteCart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         toggleFavouriteCart.setIconTextGap(0);
-        toggleFavouriteCart.setMargin(new java.awt.Insets(0, 0, 0, 0));
         toggleFavouriteCart.setMaximumSize(new java.awt.Dimension(290, 28));
         toggleFavouriteCart.setMinimumSize(new java.awt.Dimension(290, 28));
         toggleFavouriteCart.setName("toggleFavouriteCart"); // NOI18N
@@ -136,10 +136,10 @@ public class CartPanel extends javax.swing.JPanel {
         gotoCheckout.setForeground(resourceMap.getColor("gotoCheckout.foreground")); // NOI18N
         gotoCheckout.setIcon(resourceMap.getIcon("gotoCheckout.icon")); // NOI18N
         gotoCheckout.setText(resourceMap.getString("gotoCheckout.text")); // NOI18N
+        gotoCheckout.setToolTipText(resourceMap.getString("gotoCheckout.toolTipText")); // NOI18N
         gotoCheckout.setAlignmentY(0.0F);
         gotoCheckout.setBorderPainted(false);
-        gotoCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        gotoCheckout.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gotoCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         gotoCheckout.setMaximumSize(new java.awt.Dimension(290, 75));
         gotoCheckout.setMinimumSize(new java.awt.Dimension(290, 75));
         gotoCheckout.setName("gotoCheckout"); // NOI18N

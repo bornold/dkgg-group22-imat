@@ -31,6 +31,8 @@ public class SaveCartOverlay extends javax.swing.JPanel {
         this.controller = controller;
         this.contract();
         this.jPanel3.setVisible(false);
+        cancelButton.setToolTipText("Spara inte denna kundvagn");
+        jButton1.setText("Spara kundvagnen som \"" +jTextField1.getText()+"\"");
     }
 
     @Override

@@ -139,7 +139,7 @@ public class ProductPanel extends javax.swing.JPanel {
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         priceLabel.setText(resourceMap.getString("priceLabel.text")); // NOI18N
         priceLabel.setAlignmentY(0.0F);
-        priceLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        priceLabel.setFont(new java.awt.Font("Arial", 0, 18));
         priceLabel.setIconTextGap(12);
         priceLabel.setName("priceLabel"); // NOI18N
         priceLabel.setPreferredSize(new java.awt.Dimension(30, 30));
@@ -153,8 +153,9 @@ public class ProductPanel extends javax.swing.JPanel {
 
         addButton.setIcon(resourceMap.getIcon("addButton.icon")); // NOI18N
         addButton.setText(resourceMap.getString("addButton.text")); // NOI18N
+        addButton.setToolTipText(resourceMap.getString("addButton.toolTipText")); // NOI18N
         addButton.setBorderPainted(false);
-        addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addButton.setName("addButton"); // NOI18N
         addButton.setPressedIcon(resourceMap.getIcon("addButton.pressedIcon")); // NOI18N
         addButton.setRolloverIcon(resourceMap.getIcon("addButton.rolloverIcon")); // NOI18N
@@ -167,8 +168,9 @@ public class ProductPanel extends javax.swing.JPanel {
 
         favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setToolTipText(resourceMap.getString("favoriteToggleButton.toolTipText")); // NOI18N
         favoriteToggleButton.setBorderPainted(false);
-        favoriteToggleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        favoriteToggleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
         favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N

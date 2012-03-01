@@ -118,8 +118,9 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         deleteButton.setIcon(resourceMap.getIcon("deleteButton.icon")); // NOI18N
         deleteButton.setText(resourceMap.getString("deleteButton.text")); // NOI18N
+        deleteButton.setToolTipText(resourceMap.getString("deleteButton.toolTipText")); // NOI18N
         deleteButton.setBorderPainted(false);
-        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         deleteButton.setName("deleteButton"); // NOI18N
         deleteButton.setPreferredSize(new java.awt.Dimension(80, 24));
         deleteButton.setRolloverIcon(resourceMap.getIcon("deleteButton.rolloverIcon")); // NOI18N
@@ -132,8 +133,9 @@ public class CartProductPanel extends javax.swing.JPanel {
 
         favoriteToggleButton.setIcon(resourceMap.getIcon("favoriteToggleButton.icon")); // NOI18N
         favoriteToggleButton.setText(resourceMap.getString("favoriteToggleButton.text")); // NOI18N
+        favoriteToggleButton.setToolTipText(resourceMap.getString("favoriteToggleButton.toolTipText")); // NOI18N
         favoriteToggleButton.setBorderPainted(false);
-        favoriteToggleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        favoriteToggleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         favoriteToggleButton.setDisabledIcon(resourceMap.getIcon("favoriteToggleButton.disabledIcon")); // NOI18N
         favoriteToggleButton.setDisabledSelectedIcon(resourceMap.getIcon("favoriteToggleButton.disabledSelectedIcon")); // NOI18N
         favoriteToggleButton.setName("favoriteToggleButton"); // NOI18N
