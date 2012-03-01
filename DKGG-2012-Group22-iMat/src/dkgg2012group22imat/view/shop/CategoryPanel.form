@@ -37,9 +37,6 @@
         <Property name="disabledIcon" type="javax.swing.Icon" resourceKey="categoryButton.disabledIcon"/>
         <Property name="disabledSelectedIcon" type="javax.swing.Icon" resourceKey="categoryButton.disabledSelectedIcon"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
-        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-          <Insets value="[0, 0, 0, 0]"/>
-        </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[248, 28]"/>
         </Property>

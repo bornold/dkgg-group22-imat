@@ -100,6 +100,7 @@ public class CartPanel extends javax.swing.JPanel {
 
         showButton.setIcon(resourceMap.getIcon("showButton.icon")); // NOI18N
         showButton.setText(resourceMap.getString("showButton.text")); // NOI18N
+        showButton.setToolTipText(resourceMap.getString("showButton.toolTipText")); // NOI18N
         showButton.setBorderPainted(false);
         showButton.setName("showButton"); // NOI18N
         showButton.setPressedIcon(resourceMap.getIcon("showButton.pressedIcon")); // NOI18N
@@ -121,6 +122,7 @@ public class CartPanel extends javax.swing.JPanel {
 
         addAllButton.setIcon(resourceMap.getIcon("addAllButton.icon")); // NOI18N
         addAllButton.setText(resourceMap.getString("addAllButton.text")); // NOI18N
+        addAllButton.setToolTipText(resourceMap.getString("addAllButton.toolTipText")); // NOI18N
         addAllButton.setBorderPainted(false);
         addAllButton.setName("addAllButton"); // NOI18N
         addAllButton.setPressedIcon(resourceMap.getIcon("addAllButton.pressedIcon")); // NOI18N

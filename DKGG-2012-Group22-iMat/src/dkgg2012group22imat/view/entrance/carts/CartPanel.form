@@ -71,6 +71,7 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" resourceKey="showButton.icon"/>
         <Property name="text" type="java.lang.String" resourceKey="showButton.text"/>
+        <Property name="toolTipText" type="java.lang.String" resourceKey="showButton.toolTipText"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="name" type="java.lang.String" value="showButton" noResource="true"/>
         <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="showButton.pressedIcon"/>
@@ -91,6 +92,7 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" resourceKey="addAllButton.icon"/>
         <Property name="text" type="java.lang.String" resourceKey="addAllButton.text"/>
+        <Property name="toolTipText" type="java.lang.String" resourceKey="addAllButton.toolTipText"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="name" type="java.lang.String" value="addAllButton" noResource="true"/>
         <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="addAllButton.pressedIcon"/>

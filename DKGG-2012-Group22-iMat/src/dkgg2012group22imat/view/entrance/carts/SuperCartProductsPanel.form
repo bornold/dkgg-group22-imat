@@ -60,6 +60,7 @@
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" resourceKey="jButton3.icon"/>
                 <Property name="text" type="java.lang.String" resourceKey="jButton3.text"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton3.toolTipText"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jButton3" noResource="true"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jButton3.pressedIcon"/>
@@ -78,6 +79,7 @@
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" resourceKey="jButton1.icon"/>
                 <Property name="text" type="java.lang.String" resourceKey="jButton1.text"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton1.toolTipText"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jButton1.pressedIcon"/>
@@ -147,6 +149,7 @@
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" resourceKey="jButton2.icon"/>
                 <Property name="text" type="java.lang.String" resourceKey="jButton2.text"/>
+                <Property name="toolTipText" type="java.lang.String" resourceKey="jButton2.toolTipText"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jButton2" noResource="true"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jButton2.pressedIcon"/>

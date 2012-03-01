@@ -42,6 +42,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         this.category = category;
         this.controller = new CategoryPanelController(parent, this);
         this.hasSubs = category.getSubCategories().size() > 0;
+        this.categoryButton.setToolTipText("Visa kategorin " + category.getName());
         this.setLevel(level);
     }
 

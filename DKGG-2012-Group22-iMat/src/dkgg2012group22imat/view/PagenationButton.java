@@ -34,6 +34,7 @@ public class PagenationButton extends JButton implements ActionListener {
         this.setOpaque(false);
         this.setPreferredSize(new Dimension(60, 30));
         this.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        this.setToolTipText("Gå till sida " + (page+1));
         super.addActionListener(this);
     }
 

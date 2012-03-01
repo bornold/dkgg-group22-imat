@@ -43,7 +43,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -101,14 +101,12 @@
             <Property name="foreground" type="java.awt.Color" resourceKey="toggleFavouriteCart.foreground"/>
             <Property name="icon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.icon"/>
             <Property name="text" type="java.lang.String" resourceKey="toggleFavouriteCart.text"/>
+            <Property name="toolTipText" type="java.lang.String" resourceKey="toggleFavouriteCart.toolTipText"/>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="disabledIcon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.disabledIcon"/>
             <Property name="disabledSelectedIcon" type="javax.swing.Icon" resourceKey="toggleFavouriteCart.disabledSelectedIcon"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
-            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-              <Insets value="[0, 0, 0, 0]"/>
-            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[290, 28]"/>
             </Property>
@@ -138,13 +136,11 @@
             <Property name="foreground" type="java.awt.Color" resourceKey="gotoCheckout.foreground"/>
             <Property name="icon" type="javax.swing.Icon" resourceKey="gotoCheckout.icon"/>
             <Property name="text" type="java.lang.String" resourceKey="gotoCheckout.text"/>
+            <Property name="toolTipText" type="java.lang.String" resourceKey="gotoCheckout.toolTipText"/>
             <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Handmark&#xf6;r"/>
-            </Property>
-            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-              <Insets value="[0, 0, 0, 0]"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[290, 75]"/>

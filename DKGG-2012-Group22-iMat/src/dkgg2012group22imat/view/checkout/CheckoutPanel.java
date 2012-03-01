@@ -54,6 +54,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
         getLayoutCard();
         card = "firstView";
 
+        
+        bakKnapp.setToolTipText("Tillbaka till dina uppgifter");
+        confirmButton.setToolTipText("Gå vidare för att bekräfta ditt köp");
+        confirmKnapp.setToolTipText("Slutför ditt köp");
     }
 
     public void setFirstName(String name) {

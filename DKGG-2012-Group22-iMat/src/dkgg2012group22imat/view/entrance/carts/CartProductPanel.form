@@ -70,6 +70,7 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" resourceKey="addButton.icon"/>
         <Property name="text" type="java.lang.String" resourceKey="addButton.text"/>
+        <Property name="toolTipText" type="java.lang.String" resourceKey="addButton.toolTipText"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="name" type="java.lang.String" value="addButton" noResource="true"/>
         <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="addButton.pressedIcon"/>
