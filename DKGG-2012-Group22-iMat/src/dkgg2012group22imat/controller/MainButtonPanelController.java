@@ -25,7 +25,8 @@ public class MainButtonPanelController implements ChangeListener {
 
     public MainButtonPanelController(MainButtonPanel view) {
         this.view = view;
-        this.currentView = IMatUtilities.getIMatViewController().getCurrentView();
+        view.init();
+        //this.currentView = IMatUtilities.getIMatViewController().getCurrentView();
         IMatUtilities.getIMatViewController().addChangeListener(this);
     }
 

@@ -140,6 +140,7 @@ public class CartPanel extends javax.swing.JPanel {
         gotoCheckout.setAlignmentY(0.0F);
         gotoCheckout.setBorderPainted(false);
         gotoCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        gotoCheckout.setDisabledIcon(resourceMap.getIcon("gotoCheckout.disabledIcon")); // NOI18N
         gotoCheckout.setMaximumSize(new java.awt.Dimension(290, 75));
         gotoCheckout.setMinimumSize(new java.awt.Dimension(290, 75));
         gotoCheckout.setName("gotoCheckout"); // NOI18N
@@ -182,7 +183,7 @@ jLabel1.setForeground(new Color(102,102,102));
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private dkgg2012group22imat.view.CartWithProductsPanel cartWithProductsPanel;
-    private javax.swing.JButton gotoCheckout;
+    public javax.swing.JButton gotoCheckout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

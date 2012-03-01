@@ -29,7 +29,14 @@ public class MainButtonPanel extends javax.swing.JPanel {
     /** Creates new form MainButtonPanel */
     public MainButtonPanel() {
         initComponents();
-        //this.setUI(null);
+       
+        
+        this.controller = new MainButtonPanelController(this);
+
+    }
+    
+    public void init() {
+         //this.setUI(null);
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/dkgg2012group22imat/resources/maintabs_bg.png"));
         } catch (Exception e) {
@@ -40,7 +47,6 @@ public class MainButtonPanel extends javax.swing.JPanel {
 
         //JPanel jPanel4 = jPanel2.clone();
 
-        this.controller = new MainButtonPanelController(this);
 
         //System.out.println(this.getSize());
 
@@ -53,7 +59,6 @@ public class MainButtonPanel extends javax.swing.JPanel {
         mainTabCheckoutButton.setToolTipText("Gå direkt till kassan");
         mainTabShopButton.setToolTipText("Gå direkt till Butiken");
         mainTabEntranceButton.setToolTipText("Gå direkt till Entrén");
-
     }
 
     public void fillSize() {
