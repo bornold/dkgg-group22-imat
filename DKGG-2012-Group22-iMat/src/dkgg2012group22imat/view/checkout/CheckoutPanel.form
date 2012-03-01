@@ -52,7 +52,7 @@
                           <Component id="confirmButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,23 +106,23 @@
                               <Component id="postCodeErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="phoneNumbTextfield" min="-2" pref="114" max="-2" attributes="1"/>
+                              <Component id="phoneNumbTextfield" min="-2" pref="142" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="phoneNumbErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="emailTextfield" min="-2" pref="114" max="-2" attributes="1"/>
+                              <Component id="emailTextfield" min="-2" pref="192" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="emailErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="lastNameTextfield" pref="155" max="32767" attributes="1"/>
+                              <Component id="lastNameTextfield" pref="184" max="32767" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lastNameErrLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="addressTextfield" pref="163" max="32767" attributes="1"/>
+                              <Component id="addressTextfield" pref="192" max="32767" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="addressErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -793,7 +793,7 @@
                       </Group>
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="168" max="32767" attributes="0"/>
+                  <EmptySpace pref="198" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -804,7 +804,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="455" max="32767" attributes="0"/>
+                          <EmptySpace pref="466" max="32767" attributes="0"/>
                           <Component id="bakKnapp" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">

@@ -57,11 +57,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setFirstName(String name) {
-        lastNameTextfield.setText(name);
+        firstNameTextfield.setText(name);
     }
 
     public void setLastName(String lastName) {
-        firstNameTextfield.setText(lastName);
+        lastNameTextfield.setText(lastName);
     }
 
     public void setAddress(String address) {
@@ -69,11 +69,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setPostAddress(String pAddress) {
-        postCodeTextfield.setText(pAddress);
+        postAddressTextfield.setText(pAddress);
     }
 
     public void setPostcode(String postNumb) {
-        postAddressTextfield.setText(postNumb);
+        postCodeTextfield.setText(postNumb);
     }
 
     public void setPhoneNumb(String pNumb) {
@@ -472,20 +472,20 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(postCodeErrLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(phoneNumbErrLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(emailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(emailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(emailErrLabel))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lastNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                        .addComponent(lastNameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lastNameErrLabel)
                         .addGap(8, 8, 8))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(addressTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                        .addComponent(addressTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addressErrLabel)))
                 .addGap(57, 57, 57))
@@ -864,7 +864,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(confirmButton)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         firstViewLayout.setVerticalGroup(
             firstViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1025,7 +1025,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                             .addComponent(amountErr)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         secondViewLayout.setVerticalGroup(
             secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1034,7 +1034,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addGroup(secondViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
                         .addComponent(bakKnapp))
                     .addGroup(secondViewLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
