@@ -41,10 +41,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     /** Creates new form CheckoutPanel */
     public CheckoutPanel() {
-        initComponents();
-        controller = new CheckoutPanelController(this);
         jField = new ArrayList();
         jLabels = new ArrayList();
+        initComponents();
+        controller = new CheckoutPanelController(this);
         visaRButton.setSelected(true);
         cl = (CardLayout) this.getLayout();
         endText.setText("<html>Tack för att du handlade hos oss! <br><br>"
@@ -147,7 +147,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     public String getPostAddress() {
         if (postCodeTextfield.getText().equals("")) {
             jField.add(postCodeTextfield);
-            jLabels.add(postAddressErrLabel);
+            jLabels.add(postCodeErrLabel);
         }
         return postCodeTextfield.getText();
     }
@@ -155,7 +155,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
     public String getPostcode() {
         if (postAddressTextfield.getText().equals("")) {
             jField.add(postAddressTextfield);
-            jLabels.add(postCodeErrLabel);
+            jLabels.add(postAddressErrLabel);
         }
         return postAddressTextfield.getText();
     }
@@ -222,9 +222,17 @@ public class CheckoutPanel extends javax.swing.JPanel {
         try {
             Integer.parseInt(cvcTextfield.getText());
         } catch (NumberFormatException e) {
+            if(!cvcTextfield.getText().equals(""))
+            this.CVCErrLabel.setText("* var god använd siffror");
+            
             jField.add(cvcTextfield);
             jLabels.add(CVCErrLabel);
             return 0;
+        }
+        if(!cvcTextfield.getText().substring(3).equals("")){
+            jLabels.add(CVCErrLabel);
+            jField.add(cvcTextfield);
+            CVCErrLabel.setText("* endast 3 siffror");
         }
         return Integer.parseInt(cvcTextfield.getText());
     }
@@ -244,11 +252,32 @@ public class CheckoutPanel extends javax.swing.JPanel {
     }
 
     public void setErrorMessages(boolean error) {
+        postAddressErrLabel.setText("* var god fyll i");
+        phoneNumbErrLabel.setText("* var god fyll i");
+        cardNumberErrLabel.setText("* var god fyll i");
+    /*    try{
+            Integer.parseInt(this.getPostcode());
+        }
+        catch(NumberFormatException e){
+            postAddressErrLabel.setText("* var god andvänd siffror");
+            jLabels.add(postAddressErrLabel);
+            jField.add(postCodeTextfield);
+            
+        }
+        try{
+            Integer.parseInt(this.getPhoneNumb());
+        }
+        catch(NumberFormatException e){
+            phoneNumbErrLabel.setText("* var god andvänd siffror");
+            jLabels.add(phoneNumbErrLabel);
+            jField.add(phoneNumbTextfield);
+        }*/
+    //    finally{
         firstNameErrLabel.setVisible(error);
         lastNameErrLabel.setVisible(error);
         addressErrLabel.setVisible(error);
-        postAddressErrLabel.setVisible(error);
         postCodeErrLabel.setVisible(error);
+        postAddressErrLabel.setVisible(error);
         phoneNumbErrLabel.setVisible(error);
         emailErrLabel.setVisible(error);
         cardTypeErrLabel.setVisible(error);
@@ -256,6 +285,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
         cardDatesErrLabel.setVisible(error);
         cardNumberErrLabel.setVisible(error);
         CVCErrLabel.setVisible(error);
+ //       }
     }
 
     public void setTextFieldBackgrounds() {
@@ -318,8 +348,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
         firstNameErrLabel = new javax.swing.JLabel();
         lastNameErrLabel = new javax.swing.JLabel();
         addressErrLabel = new javax.swing.JLabel();
-        postAddressErrLabel = new javax.swing.JLabel();
         postCodeErrLabel = new javax.swing.JLabel();
+        postAddressErrLabel = new javax.swing.JLabel();
         phoneNumbErrLabel = new javax.swing.JLabel();
         emailErrLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -446,13 +476,13 @@ public class CheckoutPanel extends javax.swing.JPanel {
         addressErrLabel.setText(resourceMap.getString("addressErrLabel.text")); // NOI18N
         addressErrLabel.setName("addressErrLabel"); // NOI18N
 
-        postAddressErrLabel.setForeground(resourceMap.getColor("cardDatesErrLabel.foreground")); // NOI18N
-        postAddressErrLabel.setText(resourceMap.getString("postAddressErrLabel.text")); // NOI18N
-        postAddressErrLabel.setName("postAddressErrLabel"); // NOI18N
-
         postCodeErrLabel.setForeground(resourceMap.getColor("cardDatesErrLabel.foreground")); // NOI18N
         postCodeErrLabel.setText(resourceMap.getString("postCodeErrLabel.text")); // NOI18N
         postCodeErrLabel.setName("postCodeErrLabel"); // NOI18N
+
+        postAddressErrLabel.setForeground(resourceMap.getColor("cardDatesErrLabel.foreground")); // NOI18N
+        postAddressErrLabel.setText(resourceMap.getString("postAddressErrLabel.text")); // NOI18N
+        postAddressErrLabel.setName("postAddressErrLabel"); // NOI18N
 
         phoneNumbErrLabel.setForeground(resourceMap.getColor("cardDatesErrLabel.foreground")); // NOI18N
         phoneNumbErrLabel.setText(resourceMap.getString("phoneNumbErrLabel.text")); // NOI18N
@@ -475,11 +505,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(postAddressErrLabel))
+                        .addComponent(postCodeErrLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(postCodeErrLabel))
+                        .addComponent(postAddressErrLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -516,11 +546,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postCodeTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postAddressErrLabel))
+                    .addComponent(postCodeErrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postAddressTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postCodeErrLabel))
+                    .addComponent(postAddressErrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phoneNumbTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -614,6 +644,11 @@ public class CheckoutPanel extends javax.swing.JPanel {
         });
 
         cCardNumbfield4.setName("cCardNumbfield4"); // NOI18N
+        cCardNumbfield4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cCardNumbfield4KeyPressed(evt);
+            }
+        });
 
         cCardNumbfield2.setName("cCardNumbfield2"); // NOI18N
         cCardNumbfield2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1146,7 +1181,7 @@ private void cCardNumbfield3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     focusCardNumbfield3 = true;
 
     if (credCardKeyTyped == 4 && focusCardNumbfield3) {
-        cCardNumbfield4.requestFocus();
+        cvcTextfield.requestFocus();
         credCardKeyTyped = 0;
         focusCardNumbfield3 = false;
     }
@@ -1204,6 +1239,11 @@ private void bakKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     cl.show(this, "firstView");
     card = "firstView";
 }//GEN-LAST:event_bakKnappActionPerformed
+
+private void cCardNumbfield4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cCardNumbfield4KeyPressed
+// TODO add your handling code here:
+}//GEN-LAST:event_cCardNumbfield4KeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Betalningsinformation;
     private javax.swing.JLabel CVCErrLabel;

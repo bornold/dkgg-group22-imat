@@ -185,6 +185,7 @@ public class ProductPanel extends javax.swing.JPanel {
         add(favoriteToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 80, 30));
 
         quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        quantitySpinner.setToolTipText(resourceMap.getString("quantitySpinner.toolTipText")); // NOI18N
         quantitySpinner.setMinimumSize(new java.awt.Dimension(37, 26));
         quantitySpinner.setName("quantitySpinner"); // NOI18N
         quantitySpinner.setPreferredSize(new java.awt.Dimension(55, 27));
