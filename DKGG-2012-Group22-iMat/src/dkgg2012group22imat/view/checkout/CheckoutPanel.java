@@ -133,7 +133,7 @@ public class CheckoutPanel extends javax.swing.JPanel {
             jField.add(lastNameTextfield);
             jLabels.add(lastNameErrLabel);
         }
-        return firstNameTextfield.getText();
+        return lastNameTextfield.getText();
     }
 
     public String getAddress() {
