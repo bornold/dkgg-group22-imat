@@ -98,12 +98,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="postCodeTextfield" min="-2" pref="68" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="postAddressErrLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="postCodeErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="postAddressTextfield" min="-2" pref="114" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="postCodeErrLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="postAddressErrLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="phoneNumbTextfield" min="-2" pref="142" max="-2" attributes="1"/>
@@ -151,12 +151,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="postCodeTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="postAddressErrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="postCodeErrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="postAddressTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="postCodeErrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="postAddressErrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -251,18 +251,18 @@
                 <Property name="name" type="java.lang.String" value="addressErrLabel" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="postAddressErrLabel">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" resourceKey="cardDatesErrLabel.foreground"/>
-                <Property name="text" type="java.lang.String" resourceKey="postAddressErrLabel.text"/>
-                <Property name="name" type="java.lang.String" value="postAddressErrLabel" noResource="true"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="postCodeErrLabel">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" resourceKey="cardDatesErrLabel.foreground"/>
                 <Property name="text" type="java.lang.String" resourceKey="postCodeErrLabel.text"/>
                 <Property name="name" type="java.lang.String" value="postCodeErrLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="postAddressErrLabel">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" resourceKey="cardDatesErrLabel.foreground"/>
+                <Property name="text" type="java.lang.String" resourceKey="postAddressErrLabel.text"/>
+                <Property name="name" type="java.lang.String" value="postAddressErrLabel" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="phoneNumbErrLabel">
@@ -545,6 +545,9 @@
                       <Properties>
                         <Property name="name" type="java.lang.String" value="cCardNumbfield4" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cCardNumbfield4KeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="cCardNumbfield2">
                       <Properties>
