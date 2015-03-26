@@ -1,0 +1,1 @@
+Building an interface for stand-alone food store
